@@ -254,7 +254,7 @@ nav[hidden]{display:none}
 .splash i{position:absolute;left:-22px;top:-22px;width:44px;height:44px;border-radius:50%;border:3px solid #18A9EE;animation:ripple .7s ease-out both}
 @keyframes fly{0%{transform:translate(0,0) scale(.3)}45%{transform:translate(calc(var(--dx)*.75),var(--dy)) scale(var(--s))}100%{transform:translate(var(--dx),calc(var(--dy) + 60px)) scale(.2);opacity:0}}
 @keyframes ripple{from{transform:scale(.4);opacity:.9}to{transform:scale(2.4);opacity:0}}
-/* consent, grouped rows, announcement, admin */
+/* consent, grouped rows, news card, owner badge */
 .tick{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;font-size:15px;font-weight:600;line-height:1.45;cursor:pointer}
 .tick input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--acc)}
 .rows{padding:0;overflow:hidden}.rows>*{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:54px;padding:0 18px;font-weight:800;color:inherit;text-decoration:none;text-align:start}
@@ -265,7 +265,7 @@ nav[hidden]{display:none}
 .pcat{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--acc-bg);color:var(--acc);font-size:12px;font-weight:800}
 .pbody{white-space:pre-wrap;line-height:1.55;margin:10px 0 0}.tkm{padding:12px 14px;border-radius:18px;background:var(--chip);white-space:pre-wrap;max-width:88%}.tkm.us{background:var(--acc-bg);margin-left:auto}.tkm small{display:block;color:var(--ink2);font-size:12px;margin-top:4px}
 .utag{display:inline-block;margin:6px 6px 0 0;padding:2px 9px;border-radius:99px;background:var(--chip);font-size:13px;font-weight:800}
-.uact{display:flex;gap:8px;margin-top:10px}.uact .chip{min-height:44px;font-size:14px;padding:0 16px}
+
 /* for everyone: text size and increased contrast */
 :root[data-size=l] body{zoom:1.12}:root[data-size=xl] body{zoom:1.25}
 @media(prefers-contrast:more){:root{--ink2:light-dark(#343849,#D6D9E4);--edge:light-dark(rgb(14 16 32/.28),rgb(255 255 255/.32));--glass:light-dark(rgb(255 255 255/.92),rgb(20 21 28/.94))}}
@@ -311,7 +311,7 @@ nav[hidden]{display:none}
 <ul>
 <li><b>Photo recognition:</b> an AI model (CLIP, made by OpenAI) runs on your own device and suggests what food is in your photo. The photo isn't sent to us or anyone else to be analysed.</li>
 <li><b>Typed meals and the coach:</b> Calora's built-in AI matches what you type against its food list, and the built-in coach answers from your goals and logs. Both run on your device.</li>
-<li><b>Support replies:</b> we sometimes use Anthropic's Claude AI to help draft a reply to your support message, so your conversation with us is processed by Anthropic for that. A person from the Calora team always reads, edits and sends the reply.</li>
+<li><b>Support replies:</b> we sometimes use an AI service to help draft a reply to your support message: Groq (running an open AI model), or Anthropic's Claude. Your conversation with us is processed by that service only to write the draft, and isn't used to train AI models. A person from the Calora team always reads, edits and sends the reply.</li>
 <li><b>Inside the Claude app:</b> if you open Calora inside Anthropic's Claude app, the photos, meal descriptions and coach messages you send are processed by Anthropic's Claude AI to answer you, under Anthropic's privacy policy.</li>
 </ul>
 <p>AI results are estimates and can be wrong. Always check them.</p>
@@ -328,7 +328,7 @@ nav[hidden]{display:none}
 <li><b>Google LLC</b>: only if you choose "Continue with Google".</li>
 <li><b>GitHub Inc.</b>: hosts this website (GitHub Pages).</li>
 <li><b>jsDelivr</b> and <b>Hugging Face</b>: deliver the app's code libraries and, when you download it, the built-in AI model.</li>
-<li><b>Anthropic PBC</b>: only when we use AI to help draft a reply to a support message.</li>
+<li><b>Groq, Inc.</b> or <b>Anthropic PBC</b>: only when we use AI to help draft a reply to a support message.</li>
 </ul>
 <p>Like any website, these services can see your IP address and basic browser details when your browser connects to them. Some are US companies. Where data leaves the EU, it's protected by the safeguards the GDPR requires, such as the EU's Standard Contractual Clauses.</p>
 <p>The Calora team can see a list of accounts (name, email address, sign-in method, sign-up date and last sign-in), simple activity counts (how many days you've logged food and when you last used the app, never what you ate), and the support messages you send us. We use this to run, improve and protect the service. We don't look at your food logs, weight or other health information.</p>
@@ -887,7 +887,7 @@ consent(){return`<div class="top" style="justify-content:flex-end"><button class
 
 today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,mon=add(T,-((D(T).getDay()+6)%7)),st=streak();
  const mac=(k,lab,c)=>{const l=g[k]-s[k],pc=s[k]/g[k];return`<button class="flip ${flipped.has(k)?'on':''}" data-flip="${k}" aria-label="${lab}: ${fmt(Math.abs(l))} grams ${l<0?'over':'left'}. Tap for details."><span class="fi"><span class="face card"><strong>${fmt(Math.abs(l))}g</strong><span class="sub">${lab} ${l<0?'over':'left'}</span>${ring('m'+k,pc,c,74,10,r(pc*100)+'%')}</span><span class="face back card"><span class="sub">Eaten</span><strong>${fmt(s[k])}g</strong><span class="sub">of ${fmt(g[k])}g</span>${bar(pc,c)}</span></span></button>`};
- return top()+annHTML()+newsCard()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1><span class="pill glass">${I('flame')}${st} day streak</span></div>
+ return top()+newsCard()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1><span class="pill glass">${I('flame')}${st} day streak</span></div>
  <div class="week">${[...Array(7)].map((_,i)=>{const k=add(mon,i);return`<button class="bub ${k===sel?'on':''} ${k===T?'t':''}" data-day="${k}" ${k>T?'disabled':''} aria-label="${longDate(k)}">${'MTWTFSS'[i]}<b>${D(k).getDate()}</b></button>`}).join('')}</div>
  <div class="heroc"><div class="card hero tilt"><div class="z1"><div class="big">${fmt(Math.abs(left))}</div><div class="lbl">Calories ${left<0?'over':'left'}</div><div class="sub" style="margin-top:12px;white-space:nowrap">${fmt(s.kcal)} eaten · ${fmt(g.kcal)} goal</div></div><div class="z2">${ring('kcal',s.kcal/g.kcal,left<0?'bad':'acc',124,14,`<svg class="flame" viewBox="0 0 24 24" fill="url(#g-pro)" aria-hidden="true">${P.flame}</svg>`)}</div></div></div>
  <div class="grid3">${mac('p','Protein','pro')}${mac('c','Carbs','carb')}${mac('f','Fat','fat')}</div>
@@ -937,7 +937,7 @@ profile(){const p=S.profile,g=S.goals,ch=(f,v,l)=>`<button class="chip bub" data
  <h2>Built-in AI</h2><div class="card stack"><p class="sub" style="margin:0">${AI?"Inside Claude, Calora uses Claude for photos and the coach. The built-in AI takes over whenever Claude isn't available.":'Recognises food in your photos right on this device, without Claude. It downloads once (about 150 MB), then works offline.'}</p><button class="btn sec bub" data-act="dl" id="dl" ${S.devReady?'disabled':''}>${S.devReady?'Built-in AI is ready ✓':'Download built-in AI now'}</button></div>
  ${helpRows()}${legalRows()}${acctRows()}`},
 
-admin(){return USER?.admin?adminHTML():V.profile()}};
+};
 
 const algChips=()=>`<div class="chips">${Object.entries(ALG).map(([k,[l]])=>`<button class="chip al bub" data-alg="${k}" aria-pressed="${S.allergies.includes(k)}">${l}</button>`).join('')}</div>`;
 // ---------- accounts: Supabase Auth + per-user cloud sync ----------
@@ -970,7 +970,7 @@ async function initAuth(){if(!SB_ON){authReady=true;render();return maybeOnboard
   if(th&&ty){const r=await sb.auth.verifyOtp({token_hash:th,type:ty});if(r.error)A.err=authMsg(r.error);else if(ty==='recovery')A.view='reset';else A.info='Your email is confirmed. Welcome to Calora!'}
   if([...q.keys()].length)history.replaceState(null,'',location.pathname+location.hash);
   sb.auth.onAuthStateChange((ev,session)=>setTimeout(()=>onAuth(ev,session),0)); // fires INITIAL_SESSION right away
-  loadAnn().catch(()=>{});loadNews().catch(()=>{});
+  loadNews().catch(()=>{});
  }catch(e){ // library couldn't load (offline): keep the last account usable on this device; it syncs next time
   let last=null;try{last=JSON.parse(localStorage.getItem('calora:last'))}catch(_){}
   if(last){USER=last;S=loadState('calora:u:'+last.id);sync='offline'}else A.err="Can't connect to Calora's servers. Check your internet connection, or continue without an account.";
@@ -1093,7 +1093,7 @@ async function changePassword(){const f=A.f,pw=f.pw||'';A.err='';
  if(A.err)return renderSheet();A.busy='chpw';renderSheet();const {error}=await sb.auth.updateUser({password:pw});A.busy='';
  if(error){A.err=authMsg(error);return renderSheet()}A.f={};closeSheet();toast('Password changed.')}
 
-const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span>${isOwner()?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">Owner · everything is free for you</span>':''}</div></div>${isOwner()?'<div class="card rows" style="margin-top:var(--gap)"><button class="bub" data-tab="admin">Admin dashboard<span class="chev" aria-hidden="true">›</span></button></div>':''}`
+const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span>${isOwner()?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">Owner · everything is free for you</span>':''}</div></div>${isOwner()?'<div class="card rows" style="margin-top:var(--gap)"><a class="bub" href="/admin" target="_blank" rel="noopener">Admin panel<span class="chev" aria-hidden="true">↗</span></a></div>':''}`
  :`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${I('user')}</span><div><b style="display:block">Not signed in</b><span class="sub">Your data is saved only on this device.</span></div>${SB_ON?'<button class="btn pri bub" data-auth="login" style="width:auto;min-height:44px;padding:0 18px;font-size:15px">Sign in</button>':''}</div>`;
 const helpRows=()=>`<h2>Updates & help</h2><div class="card rows">${APPCFG.news_enabled!==false?`<button data-act="newslist">News & updates${NEWS.length?`<span class="sub">${NEWS.length}</span>`:'<span class="chev" aria-hidden="true">›</span>'}</button>`:''}<button data-act="support">Help & support${(TIX||[]).some(newReply)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':'<span class="chev" aria-hidden="true">›</span>'}</button></div>`;
 const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service<span class="chev" aria-hidden="true">›</span></a><a href="?privacy">Privacy Policy<span class="chev" aria-hidden="true">›</span></a><a href="mailto:calora.scan@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
@@ -1101,38 +1101,10 @@ const acctRows=()=>{const er=`<button class="bad" data-act="erase">${erase?'Tap 
  return USER?`<h2>Account</h2><div class="card rows">${USER.provider==='email'&&!USER.offline?'<button data-auth="chpw">Change password<span class="chev" aria-hidden="true">›</span></button>':''}<button data-auth="signout">${A.outForce?'Tap again to sign out anyway':'Sign out'}</button>${er}${USER.offline?'':'<button class="bad" data-auth="delete">Delete account</button>'}</div>`
  :`<h2>Your data</h2><div class="card rows">${er}<button class="bad" data-act="wipe">${wipe?'Tap again to delete everything':'Delete all data on this device'}</button></div>`};
 
-// ---------- admin: only accounts listed in Supabase's admin_emails table (the server checks every request) ----------
-const ADM={busy:false,err:'',st:null,users:[],q:'',del:null};let ANN=null;
+// ---------- owners: accounts in Supabase's admin_emails table (they manage Calora at /admin) ----------
 const isOwner=()=>!!USER?.admin; // owners (admin_emails) never pay: any future paywall must check this first, and the server must check is_admin()
 const lsGet=k=>{try{return localStorage.getItem(k)}catch(_){return null}};
-const ago=d=>{if(!d)return'never';const n=Math.floor((Date.now()-new Date(d))/864e5);return n<1?'today':n<2?'yesterday':n<30?n+' days ago':new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})};
-const annHTML=()=>ANN&&lsGet('calora:ann')!==String(ANN.id)?`<div class="ann card" role="status">${I('chat')}<p style="margin:0;font-weight:700">${esc(ANN.body)}</p><button class="x bub" data-act="annx" aria-label="Dismiss announcement">${I('x',2.4)}</button></div>`:'';
-async function loadAnn(){if(!sb)return;const{data}=await sb.from('announcements').select('id,body').eq('active',true).order('id',{ascending:false}).limit(1).maybeSingle();ANN=data||null;if(tab==='today'||tab==='admin')render()}
-async function checkAdmin(){if(!sb||!USER)return;const{data}=await sb.rpc('is_admin');if(USER&&data===true&&!USER.admin){USER.admin=true;if(tab==='profile'||tab==='admin')render()}}
-async function admCall(body){const{data,error}=await sb.functions.invoke('admin',{body});if(error||!data||data.error)throw error||new Error(data?.error||'failed');return data}
-async function loadAdmin(){if(!USER?.admin||ADM.busy)return;ADM.busy=true;ADM.err='';render();
- try{const d=await admCall({action:'overview'});ADM.st=d.stats;ADM.users=d.users;await loadAnn()}catch(e){ADM.err="Couldn't load the admin data. Check your connection and tap Refresh."}
- ADM.busy=false;if(tab==='admin')render()}
-const userRows=()=>{const q=ADM.q.trim().toLowerCase(),L=ADM.users.filter(u=>!q||(u.email+' '+(u.name||'')).toLowerCase().includes(q));
- return L.length?L.map(u=>`<div class="item" style="grid-template-columns:48px minmax(0,1fr)"><div class="av" aria-hidden="true">${esc((u.name||u.email||'?')[0].toUpperCase())}</div><div><b>${esc(u.email||'(no email)')}</b><span class="sub" style="display:block">${esc(u.name||'No name')} · ${u.provider==='google'?'Google':u.provider==='apple'?'Apple':'Email'}</span><span class="sub" style="display:block;font-size:13px">Joined ${ago(u.created)} · Last sign-in ${ago(u.last)}</span>${u.admin?'<span class="utag">Admin</span>':''}${u.banned?'<span class="tag">Blocked</span>':''}${u.admin?'':`<div class="uact"><button class="chip bub" data-ban="${u.id}">${u.banned?'Unblock':'Block'}</button><button class="chip bub" data-udel="${u.id}" style="color:var(--bad)">Delete</button></div>`}</div></div>`).join('')
- :`<div class="empty">${ADM.busy?'Loading…':q?'No users match.':'No users yet.'}</div>`};
-function adminHTML(){const st=ADM.st,tile=(l,v)=>`<div class="card"><span class="sub">${l}</span><b>${v??'–'}</b></div>`;
- return top()+`<button class="link" data-tab="profile" style="min-height:44px;margin-top:6px">‹ Profile</button><div class="head"><h1>Admin</h1><button class="btn sec bub" data-adm="reload" style="width:auto;min-height:44px;font-size:15px" ${ADM.busy?'disabled':''}>${ADM.busy?'<span class="spin" aria-hidden="true"></span>Loading':'Refresh'}</button></div>
- ${ADM.err?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(ADM.err)}</div></div>`:''}
- <div class="tiles" style="margin-top:18px">${tile('Users',st?.users)}${tile('New this week',st?.new7)}${tile('Active this week',st?.active7)}${tile('New this month',st?.new30)}${tile('Google · email',st?st.google+' · '+st.email:null)}${tile('Blocked',st?.banned)}</div>
- <h2>Announcement</h2><div class="card stack">${ANN?`<div><span class="sub">Showing to everyone now</span><p style="margin:6px 0 0">${esc(ANN.body)}</p></div><button class="btn sec bub" data-adm="unpost">Remove announcement</button>`:'<p class="sub" style="margin:0">No announcement is showing.</p>'}<label class="f">New announcement (max 280 characters)<textarea id="ann" maxlength="280" style="min-height:84px"></textarea></label><button class="btn pri bub" data-adm="post">Post to everyone</button></div>
- <h2>Users</h2><input type="search" id="usearch" value="${esc(ADM.q)}" placeholder="Search email or name" aria-label="Search users" autocomplete="off"><div class="card list" id="ulist" style="margin-top:var(--gap)">${userRows()}</div>
- <p class="note">Blocking stops someone signing in. Deleting removes their account and all their data for good. Food logs and health data aren't shown here.</p>`}
-async function admAction(k,b){
- if(k==='reload')return loadAdmin();
- if(k==='post'){const body=$('#ann').value.trim();if(!body)return $('#ann').focus();b.disabled=true;const{data:nw,error}=await sb.from('announcements').insert({body}).select('id').single();
-  if(error){b.disabled=false;return toast("Couldn't post it. Try again.")}await sb.from('announcements').update({active:false}).eq('active',true).neq('id',nw.id);await loadAnn();render();return toast('Posted. Everyone sees it on their Today screen.')}
- if(k==='unpost'){const{error}=await sb.from('announcements').update({active:false}).eq('id',ANN.id);if(error)return toast("Couldn't remove it. Try again.");ANN=null;render();return toast('Announcement removed')}
- if(k==='delconfirm'){if(SHD.busy)return;SHD.busy=true;SHD.err='';renderSheet();const id=ADM.del;
-  try{await admCall({action:'delete',id});ADM.users=ADM.users.filter(u=>u.id!==id);if(ADM.st)ADM.st.users--;SHD.busy=false;closeSheet();render();toast('User deleted')}catch(e){SHD.busy=false;SHD.err="Couldn't delete this user. Nothing was deleted. Try again.";renderSheet()}}}
-async function banUser(id,b){const u=ADM.users.find(x=>x.id===id);if(!u)return;b.disabled=true;
- const on=!u.banned;try{await admCall({action:'ban',id,on});if(u.banned!==on&&ADM.st)ADM.st.banned+=on?1:-1;u.banned=on;toast(on?`Blocked ${u.email}. They can't sign in.`:`Unblocked ${u.email}`)}catch(e){toast("Couldn't change that. Try again.")}render()}
-const admDelHTML=()=>{const u=ADM.users.find(x=>x.id===ADM.del)||{};return shh('Delete user')+`<div class="card stack"><p style="margin:0">Permanently delete <b>${esc(u.email)}</b> and all of their data?</p><p class="sub" style="margin:0">This can't be undone.</p></div>${SHD.err?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(SHD.err)}</div></div>`:''}<button class="btn warn bub" data-adm="delconfirm" style="margin-top:14px" ${SHD.busy?'disabled':''}>${SHD.busy?'<span class="spin" aria-hidden="true"></span>Deleting…':'Delete user'}</button><button class="btn sec bub" data-close style="margin-top:10px" ${SHD.busy?'disabled':''}>Cancel</button>`};
+async function checkAdmin(){if(!sb||!USER)return;const{data}=await sb.rpc('is_admin');if(USER&&data===true&&!USER.admin){USER.admin=true;if(tab==='profile')render()}}
 
 // ---------- news, coming soon and support (managed in the admin panel at /admin) ----------
 let APPCFG={news_enabled:true,support_enabled:true,support_email:'calora.scan@gmail.com'},NEWS=[],SOON=[],TIX=null,TKM=[],POSTSEL='',TKSEL='',supErr='';
@@ -1185,8 +1157,8 @@ function render(){applyTheme();const gate=!authReady||A.view==='reset'||(!USER&&
  $$('.tilt').forEach(el=>{el.onpointermove=e=>{if(RM)return;const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;el.style.setProperty('--rx',(-y*14).toFixed(2)+'deg');el.style.setProperty('--ry',(x*16).toFixed(2)+'deg');el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%');el.style.setProperty('--sx',(-x*26).toFixed(1)+'px');el.style.setProperty('--sy',(-y*16).toFixed(1)+'px')};el.onpointerleave=()=>{for(const p of['--rx','--ry'])el.style.setProperty(p,'0deg');for(const p of['--sx','--sy'])el.style.setProperty(p,'0px')}});
  if(!gate&&!ask){if(tab==='coach')scrollTo(0,document.body.scrollHeight);syncNav()}}
 $('#nav').innerHTML='<span class="blob" aria-hidden="true"></span>'+TABS.map(([t,l,ic])=>`<button data-tab="${t}">${I(ic)}<span>${l}</span></button>`).join('');
-function syncNav(anim){const cur=tab==='admin'?'profile':tab;$$('#nav [data-tab]').forEach(b=>b.dataset.tab===cur?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));const b=$(`#nav [data-tab="${cur}"]`),bl=$('.blob');bl.style.left=b.offsetLeft+'px';bl.style.width=b.offsetWidth+'px';if(anim&&!RM)bl.animate([{scale:'1'},{scale:'1.18 .86'},{scale:'1'}],{duration:520,easing:'ease-out'})}
-function go(t){if(t===tab){scrollTo({top:0,behavior:'smooth'});return}tab=t;erase=wipe=0;flipped.clear();history.replaceState(null,'','#'+t);render();syncNav(true);if(t!=='coach')scrollTo(0,0);if(t==='admin')loadAdmin()}
+function syncNav(anim){const cur=tab;$$('#nav [data-tab]').forEach(b=>b.dataset.tab===cur?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));const b=$(`#nav [data-tab="${cur}"]`),bl=$('.blob');bl.style.left=b.offsetLeft+'px';bl.style.width=b.offsetWidth+'px';if(anim&&!RM)bl.animate([{scale:'1'},{scale:'1.18 .86'},{scale:'1'}],{duration:520,easing:'ease-out'})}
+function go(t){if(t===tab){scrollTo({top:0,behavior:'smooth'});return}tab=t;erase=wipe=0;flipped.clear();history.replaceState(null,'','#'+t);render();syncNav(true);if(t!=='coach')scrollTo(0,0);}
 function toast(msg,undo){clearTimeout(undoT);$('#toast').innerHTML=`<div class="toast glass" role="status" ${tab==='coach'?'style="bottom:calc(160px + env(safe-area-inset-bottom))"':''}>${esc(msg)}${undo?'<button id="undo">Undo</button>':''}</div>`;if(undo)$('#undo').onclick=()=>{undo();$('#toast').innerHTML=''};undoT=setTimeout(()=>$('#toast').innerHTML='',4500)}
 
 const WAVE='<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0 6Q12.5 0 25 6T50 6T75 6T100 6T125 6T150 6T175 6T200 6V12H0z" fill="currentColor"/></svg>';
@@ -1197,7 +1169,7 @@ function splash(x,y){const el=document.createElement('div');el.className='splash
 // ---------- sheets ----------
 function openSheet(kind){sheetKind=kind;renderSheet();const d=$('#sheet');if(!d.open)d.showModal()}
 const closeSheet=()=>{$('#sheet').close()};
-function renderSheet(){$('#sh').innerHTML='<div class="grab"></div>'+({log:logHTML,welcome:welcomeHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,admdel:admDelHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
+function renderSheet(){$('#sh').innerHTML='<div class="grab"></div>'+({log:logHTML,welcome:welcomeHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
 const shh=t=>`<div class="shh"><span></span><b>${t}</b><button class="tbtn bub" data-close aria-label="Close">${I('x',2.4)}</button></div>`;
 function logHTML(){const m=SH.mode;
  const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m}">${I(ic)}${l}</button>`).join('')}</div>`;
@@ -1314,9 +1286,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  if(d.q){const it=SH.items[+d.n];setQ(it,it.q+ +d.q*(it.st||.5));$('#res').innerHTML=resHTML();return}
  if(d.alt){SH.items[0]=mk(FOODS[+d.alt]);$('#res').innerHTML=resHTML();return}
  if(d.auth)return authAction(d.auth);
- if(d.adm)return admAction(d.adm,b);
- if(d.ban)return banUser(d.ban,b);
- if(d.udel){ADM.del=d.udel;SHD.busy=false;SHD.err='';return openSheet('admdel')}
  if(d.size){S.size=d.size;save();return render()}
  if(d.rm){SH.items.splice(+d.rm,1);$('#res').innerHTML=resHTML();return}
  if(d.del){const L=day(sel).items,i=L.findIndex(x=>x.id===d.del),[it]=L.splice(i,1);save();render();return toast(`Deleted ${it.name}`,()=>{L.splice(i,0,it);save();render()})}
@@ -1348,10 +1317,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  case'calc':S.goals=calcGoals(S.profile);save();render();toast(S.profile.goal==='lose'&&noCut(S.profile)?`Set to keep your weight steady (${fmt(S.goals.kcal)} kcal). Talk to a doctor before losing weight.`:`Goals set: ${fmt(S.goals.kcal)} kcal a day`);break;
  case'savegoals':{const g={};for(const k of['kcal','p','c','f','fib','water']){const v=+$('#g-'+k).value;g[k]=v>0?v:S.goals[k]}const low=g.kcal<1200;if(low)g.kcal=1200;S.goals=g;save();render();toast(low?'Saved. For safety, the lowest daily goal is 1,200 kcal. Talk to a doctor about anything lower.':'Goals saved');break}
  case'wipe':if(!wipe){wipe=1;render();break}try{for(const k of['calora','morsel-v2','calora:ann'])localStorage.removeItem(k)}catch(_){}S=loadState('calora');wipe=0;tab='today';history.replaceState(null,'','#today');render();syncNav();toast('All data on this device was deleted.');break;
- case'annx':try{localStorage.setItem('calora:ann',String(ANN.id))}catch(_){}render();break;
  case'pick':$('#file').click();break;
  case'erase':if(!erase){erase=1;render();break}S.days={};S.weights={};S.chat=[];erase=0;if(USER)S._wipe=true;save();render();toast('All logged food erased');break}});
-document.addEventListener('input',e=>{const t=e.target;if(t.id==='usearch'){ADM.q=t.value;$('#ulist').innerHTML=userRows();return}if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
+document.addEventListener('input',e=>{const t=e.target;if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
  if(t.dataset.pn){const v=+t.value;if(v>0){S.profile[t.dataset.pn]=v;save()}}
  if(t.id==='other'){S.other=t.value;save();const w=$('[data-act=welcomed]');if(w)w.textContent=S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}
  if(t.id&&t.id.startsWith('m-')){const it={name:$('#m-name').value,ingredients:$('#m-ing').value.split(',')};$('#malert').innerHTML=alertHTML(flags(it))}});
