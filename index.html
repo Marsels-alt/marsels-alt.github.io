@@ -285,7 +285,7 @@ nav[hidden]{display:none}
 <p class="sub">Last updated 23 November 2026</p>
 <div class="card">
 <h2>Who we are</h2>
-<p>Calora is a calorie and macro tracker run by the Calora team in Latvia (European Union). We are responsible for your data (the "controller" under the GDPR). Questions? Email <a href="mailto:blatemarsels355@gmail.com">blatemarsels355@gmail.com</a>.</p>
+<p>Calora is a calorie and macro tracker run by the Calora team in Latvia (European Union). We are responsible for your data (the "controller" under the GDPR). Questions? Email <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>.</p>
 
 <h2>What we collect</h2>
 <ul>
@@ -357,7 +357,7 @@ nav[hidden]{display:none}
 <p class="sub">Last updated 23 November 2026</p>
 <div class="card">
 <h2>About these terms</h2>
-<p>These terms are an agreement between you and the Calora team, Latvia (European Union), contact <a href="mailto:blatemarsels355@gmail.com">blatemarsels355@gmail.com</a>. By using Calora you agree to them and to our <a href="?privacy">Privacy Policy</a>.</p>
+<p>These terms are an agreement between you and the Calora team, Latvia (European Union), contact <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>. By using Calora you agree to them and to our <a href="?privacy">Privacy Policy</a>.</p>
 
 <h2>Who can use Calora</h2>
 <p>You must be 13 or older. If you're under 18, use Calora together with a parent or guardian, and talk to a doctor before trying to lose weight. For under-18s and anyone underweight, Calora sets goals to keep your weight steady instead of losing weight.</p>
@@ -1088,7 +1088,7 @@ async function changePassword(){const f=A.f,pw=f.pw||'';A.err='';
 
 const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span></div></div>${USER.admin?'<div class="card rows" style="margin-top:var(--gap)"><button class="bub" data-tab="admin">Admin dashboard<span class="chev" aria-hidden="true">›</span></button></div>':''}`
  :`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${I('user')}</span><div><b style="display:block">Not signed in</b><span class="sub">Your data is saved only on this device.</span></div>${SB_ON?'<button class="btn pri bub" data-auth="login" style="width:auto;min-height:44px;padding:0 18px;font-size:15px">Sign in</button>':''}</div>`;
-const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service<span class="chev" aria-hidden="true">›</span></a><a href="?privacy">Privacy Policy<span class="chev" aria-hidden="true">›</span></a><a href="mailto:blatemarsels355@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
+const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service<span class="chev" aria-hidden="true">›</span></a><a href="?privacy">Privacy Policy<span class="chev" aria-hidden="true">›</span></a><a href="mailto:calora.scan@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
 const acctRows=()=>{const er=`<button class="bad" data-act="erase">${erase?'Tap again to erase all logged food':'Erase all logged food'}</button>`;
  return USER?`<h2>Account</h2><div class="card rows">${USER.provider==='email'&&!USER.offline?'<button data-auth="chpw">Change password<span class="chev" aria-hidden="true">›</span></button>':''}<button data-auth="signout">${A.outForce?'Tap again to sign out anyway':'Sign out'}</button>${er}${USER.offline?'':'<button class="bad" data-auth="delete">Delete account</button>'}</div>`
  :`<h2>Your data</h2><div class="card rows">${er}<button class="bad" data-act="wipe">${wipe?'Tap again to delete everything':'Delete all data on this device'}</button></div>`};
