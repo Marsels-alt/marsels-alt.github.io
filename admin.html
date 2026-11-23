@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0A0D14">
+<title>Calora Admin</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<style>
+/* Calora Admin. Shopify-style structure, Calora's dark palette: near-black, navy, slate, deep crimson.
+   Crimson is only used for fills and indicators (white text on top), never as thin text on dark. */
+:root{--bg:#0A0D14;--side:#0D1320;--card:#111B2B;--card2:#16223A;--line:#242D3B;--input:#0C1424;--slate:#242D3B;
+  --text:#F2F4F8;--muted:#A3ABBA;--acc:#681B25;--acc2:#7D2330;--acc-soft:rgba(104,27,37,.32);--focus:#C8CEDA;
+  --ok:#5CC48F;--warn:#E3B04B;--bad:#F08C96;--info:#8FB3FF;--s1:#7F95BF;--s2:#B5475A;
+  --r:10px;--shadow:0 1px 0 rgba(255,255,255,.03) inset,0 8px 24px rgba(0,0,0,.28);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:dark}
+[data-theme=light]{--bg:#F5F6F8;--side:#EBEDF1;--card:#FFFFFF;--card2:#F3F4F7;--line:#E2E5EA;--input:#FFFFFF;--slate:#E6E9EE;
+  --text:#10141C;--muted:#5A6272;--acc-soft:rgba(104,27,37,.10);--focus:#3A4250;--ok:#1E7A4F;--warn:#8A5A00;--bad:#A3202F;--info:#2A5BC4;
+  --s1:#4A63A0;--s2:#8E2A3A;--shadow:0 1px 2px rgba(16,20,28,.06),0 4px 14px rgba(16,20,28,.05);color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0;padding:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:6px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+svg.i{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.boot{min-height:100vh;display:grid;place-items:center}
+.spin{width:18px;height:18px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;display:inline-block;animation:sp .7s linear infinite;vertical-align:-3px}
+@keyframes sp{to{transform:rotate(1turn)}}
+
+/* ---------- shell ---------- */
+.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh;transition:grid-template-columns .22s ease}
+.shell.col{grid-template-columns:72px minmax(0,1fr)}
+.side{position:sticky;top:0;height:100vh;background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden auto;z-index:30}
+.brand{display:flex;align-items:center;gap:10px;padding:16px 18px 14px;font-weight:700;font-size:15px;white-space:nowrap}
+.brand small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+.nav{padding:4px 10px 12px;display:grid;gap:2px}
+.nav h3{margin:14px 10px 6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;white-space:nowrap}
+.nav a{position:relative;display:flex;align-items:center;gap:12px;min-height:38px;padding:0 10px;border-radius:8px;text-decoration:none;color:var(--muted);font-weight:550;white-space:nowrap;transition:background .15s,color .15s}
+.nav a:hover{background:var(--card2);color:var(--text)}
+.nav a[aria-current]{background:var(--slate);color:var(--text)}
+.nav a[aria-current]::before{content:"";position:absolute;left:-10px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--acc)}
+.nav .dot{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--acc);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center}
+.shell.col .nav h3,.shell.col .lbl,.shell.col .brand span,.shell.col .nav .dot{display:none}
+.shell.col .nav a{justify-content:center}
+.side-foot{margin-top:auto;padding:10px;border-top:1px solid var(--line)}
+.side-foot button{width:100%;display:flex;align-items:center;gap:12px;min-height:38px;padding:0 10px;border-radius:8px;color:var(--muted)}
+.side-foot button:hover{background:var(--card2);color:var(--text)}
+.shell.col .side-foot button{justify-content:center}
+.main{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;padding:10px 24px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .menu{display:none}
+.search{position:relative;flex:1;max-width:560px}
+.search svg.i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.search input[type=search]{width:100%;height:38px;min-height:38px;padding:0 12px 0 36px;border-radius:8px;border:1px solid var(--line);background:var(--input)}
+.search kbd{position:absolute;right:10px;top:50%;transform:translateY(-50%);font:11px var(--font);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+.results{position:absolute;top:44px;left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);max-height:70vh;overflow:auto;padding:6px;z-index:40}
+.results h4{margin:8px 10px 4px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.results a{display:flex;justify-content:space-between;gap:12px;padding:8px 10px;border-radius:6px;text-decoration:none}
+.results a:hover,.results a:focus{background:var(--card2)}
+.tb{width:38px;height:38px;border-radius:8px;display:grid;place-items:center;color:var(--muted);position:relative}
+.tb:hover{background:var(--card2);color:var(--text)}
+.tb .badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--acc);color:#fff;font-size:10px;font-weight:700;display:grid;place-items:center}
+.avatar{width:32px;height:32px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.pop{position:absolute;right:0;top:46px;width:min(380px,92vw);background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);z-index:40;overflow:hidden}
+.pop header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line);font-weight:650}
+.pop .list{max-height:60vh;overflow:auto}
+.pop .n{display:flex;gap:10px;padding:10px 14px;text-decoration:none;border-bottom:1px solid var(--line)}
+.pop .n:hover{background:var(--card2)}
+.pop .n.unread b::after{content:"";display:inline-block;width:7px;height:7px;margin-left:6px;border-radius:50%;background:var(--s2);vertical-align:2px}
+.page{padding:24px;max-width:1240px;width:100%;margin:0 auto}
+.page:focus{outline:none}
+.ph{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.ph h1{margin:0;font-size:22px;line-height:1.3;font-weight:700}
+.ph p{margin:4px 0 0;color:var(--muted)}
+.ph .acts{display:flex;gap:8px;flex-wrap:wrap}
+.back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);text-decoration:none;margin-bottom:8px;min-height:32px}
+.back:hover{color:var(--text)}
+
+/* ---------- building blocks ---------- */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.card>header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.card>header h2{margin:0;font-size:15px;font-weight:650}
+.card>header a{color:var(--muted);text-decoration:none;font-size:13px}
+.card>header a:hover{color:var(--text);text-decoration:underline}
+.pad{padding:16px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g-side{grid-template-columns:minmax(0,1fr) 340px}.g-side.g-ed{grid-template-columns:minmax(0,1fr) 360px}
+.stack{display:grid;gap:16px}
+.kpi{padding:14px 16px;min-height:104px;display:flex;flex-direction:column;gap:4px}
+.kpi span{color:var(--muted);font-size:13px;font-weight:550}
+.kpi b{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.kpi small{color:var(--muted);font-size:12px}
+.kpi.na b{color:var(--muted);font-size:20px}
+.delta{font-size:12px;font-weight:650}
+.delta.up{color:var(--ok)}.delta.down{color:var(--bad)}.delta.flat{color:var(--muted)}
+.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:36px;padding:0 14px;border-radius:8px;font-weight:600;border:1px solid var(--line);background:var(--card2);white-space:nowrap;transition:background .15s,border-color .15s,transform .1s}
+.btn:hover{border-color:var(--muted)}
+.btn:active{transform:translateY(1px)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn.pri:hover{background:var(--acc2);border-color:var(--acc2)}
+.btn.ghost{background:none;border-color:transparent;color:var(--muted)}
+.btn.ghost:hover{color:var(--text);background:var(--card2)}
+.btn.danger{color:var(--bad)}
+.btn.sm{min-height:30px;padding:0 10px;font-size:13px}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn svg.i{width:16px;height:16px}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:12px;font-size:12px;font-weight:650;background:var(--slate);color:var(--text);white-space:nowrap}
+.chip.ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.chip.warn{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}
+.chip.bad{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}
+.chip.info{background:color-mix(in srgb,var(--info) 16%,transparent);color:var(--info)}
+.chip.acc{background:var(--acc);color:#fff}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:16px;overflow-x:auto}
+.tabs a,.tabs button{padding:10px 12px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tabs a:hover,.tabs button:hover{color:var(--text)}
+.tabs [aria-current],.tabs [aria-selected=true]{color:var(--text);border-bottom-color:var(--acc)}
+.seg{display:inline-flex;background:var(--input);border:1px solid var(--line);border-radius:8px;padding:2px}
+.seg button{min-height:30px;padding:0 10px;border-radius:6px;color:var(--muted);font-weight:600;font-size:13px}
+.seg button[aria-pressed=true]{background:var(--slate);color:var(--text)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.bar .grow{flex:1;min-width:180px}
+
+/* forms */
+label.f{display:grid;gap:6px;font-weight:600;font-size:13px}
+label.f small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=email],input[type=password],input[type=number],input[type=url],input[type=search],input[type=datetime-local],input[type=date],select,textarea{
+  width:100%;min-height:38px;padding:8px 11px;border-radius:8px;border:1px solid var(--line);background:var(--input);font-weight:450}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+input:focus,select:focus,textarea:focus{border-color:var(--focus);outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--focus) 22%,transparent)}
+input[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--bad)}
+.err{color:var(--bad);font-size:12px;font-weight:500}
+.row{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:550;cursor:pointer}
+.check input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--acc)}
+.switch{position:relative;display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:600}
+.switch input{appearance:none;width:38px;height:22px;border-radius:11px;background:var(--slate);border:1px solid var(--line);position:relative;margin:0;transition:background .2s}
+.switch input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}
+.switch input:checked{background:var(--acc);border-color:var(--acc)}
+.switch input:checked::after{transform:translateX(16px)}
+.help{color:var(--muted);font-size:13px;margin:0}
+.note{display:flex;gap:10px;padding:12px 14px;border-radius:8px;background:var(--card2);border:1px solid var(--line);color:var(--muted);font-size:13px}
+.note svg.i{color:var(--info);margin-top:1px}
+.note b{color:var(--text)}
+.note.acc{border-color:color-mix(in srgb,var(--acc) 60%,var(--line));background:var(--acc-soft)}
+
+/* tables */
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:12px;color:var(--muted);font-weight:600;white-space:nowrap;background:var(--card)}
+th button{color:inherit;font-weight:inherit;display:inline-flex;gap:4px;align-items:center}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.link{cursor:pointer}
+tbody tr.link:hover{background:var(--card2)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+td .sub{display:block;color:var(--muted);font-size:12px}
+.pager{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.empty{padding:36px 20px;text-align:center;color:var(--muted)}
+.empty svg.i{width:28px;height:28px;color:var(--muted);margin-bottom:8px}
+.empty b{display:block;color:var(--text);font-size:15px;margin-bottom:4px}
+.empty .btn{margin-top:12px}
+.list-row{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid var(--line);text-decoration:none}
+.list-row:last-child{border-bottom:0}
+a.list-row:hover{background:var(--card2)}
+.list-row .grow{flex:1;min-width:0}
+.list-row .grow b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.list-row .grow span{color:var(--muted);font-size:12px}
+.skel{background:linear-gradient(90deg,var(--card2),var(--slate),var(--card2));background-size:200% 100%;animation:sk 1.2s infinite;border-radius:6px;height:14px}
+@keyframes sk{to{background-position:-200% 0}}
+
+/* charts */
+.chart{width:100%;height:auto;display:block}
+.chart .grid line{stroke:var(--line)}
+.chart text{fill:var(--muted);font-size:11px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.donut-wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+
+/* thread, previews */
+.thread{display:grid;gap:12px;padding:16px}
+.msg{max-width:78%;padding:10px 14px;border-radius:12px;background:var(--card2);border:1px solid var(--line);white-space:pre-wrap;word-wrap:break-word}
+.msg.me{margin-left:auto;background:var(--acc-soft);border-color:color-mix(in srgb,var(--acc) 50%,var(--line))}
+.msg.note-msg{margin:0 auto;max-width:90%;background:color-mix(in srgb,var(--warn) 10%,transparent);border-style:dashed;border-color:color-mix(in srgb,var(--warn) 40%,var(--line))}
+.msg small{display:block;color:var(--muted);font-size:11px;margin-top:4px}
+.phone{width:320px;max-width:100%;margin:0 auto;border-radius:36px;padding:12px;background:#000;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.phone .scr{border-radius:26px;overflow:hidden;background:#F3F4FA;color:#0E1020;min-height:520px;font-family:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,sans-serif}
+.pv-cover{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#E3E6F0}
+.pv-body{padding:18px}
+.pv-cat{display:inline-block;padding:3px 10px;border-radius:99px;background:#E6EBFF;color:#2B50F0;font-size:12px;font-weight:800}
+.pv-body h3{font-size:22px;line-height:1.2;margin:10px 0 6px;font-weight:800}
+.pv-body p{margin:0 0 10px;line-height:1.5;color:#3B4054;white-space:pre-wrap}
+.pv-cta{display:block;text-align:center;margin-top:14px;padding:13px;border-radius:16px;background:linear-gradient(160deg,#4A68F5,#2B50F0);color:#fff;font-weight:800;text-decoration:none}
+.thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:var(--slate);flex:none}
+.ai{border:1px solid color-mix(in srgb,var(--info) 30%,var(--line))}
+.ai h4{margin:14px 0 6px;font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.ai ul{margin:0;padding-left:18px}
+.ai .verdict{font-size:18px;font-weight:700}
+.persona{border-top:1px solid var(--line);padding:14px 16px}
+.persona q{display:block;margin-top:8px;padding:10px 12px;border-left:3px solid var(--acc);background:var(--card2);border-radius:0 8px 8px 0;font-style:italic}
+.vote{display:inline-flex;gap:6px}
+.vote button[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+
+/* modal + toast + login */
+dialog#modal{width:min(560px,94vw);max-height:90vh;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+dialog#modal::backdrop{background:rgba(5,7,12,.66)}
+dialog#modal header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
+dialog#modal header h2{margin:0;font-size:16px}
+dialog#modal .mb{padding:18px;display:grid;gap:14px;overflow:auto;max-height:calc(90vh - 130px)}
+dialog#modal footer{display:flex;justify-content:flex-end;gap:8px;padding:14px 18px;border-top:1px solid var(--line)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);opacity:0;pointer-events:none;background:var(--text);color:var(--bg);padding:11px 16px;border-radius:8px;font-weight:600;transition:.2s;z-index:100;max-width:92vw}
+#toast.on{opacity:1;transform:translateX(-50%)}
+#toast.bad{background:var(--bad);color:#111}
+.login{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(900px 500px at 20% -10%,var(--acc-soft),transparent),var(--bg)}
+.login .card{width:min(400px,100%);padding:28px;display:grid;gap:16px}
+.login h1{margin:0;font-size:20px}
+.or{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.qr{background:#fff;padding:10px;border-radius:8px;width:180px;height:180px;margin:0 auto}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:var(--card2);border:1px solid var(--line);padding:1px 6px;border-radius:5px}
+
+/* responsive */
+@media (max-width:1100px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g-side,.g-side.g-ed{grid-template-columns:1fr}}
+@media (min-width:1101px){.hide-d{display:none!important}}
+@media (max-width:860px){
+  .shell,.shell.col{grid-template-columns:1fr}
+  .side{position:fixed;left:0;top:0;bottom:0;width:272px;transform:translateX(-105%);transition:transform .22s ease;box-shadow:var(--shadow)}
+  .shell.open .side{transform:none}
+  .shell.col .nav h3,.shell.col .lbl,.shell.col .brand span,.shell.col .nav .dot{display:revert}
+  .shell.col .nav a{justify-content:flex-start}
+  .scrim{position:fixed;inset:0;background:rgba(5,7,12,.6);z-index:25}
+  .top{padding:10px 14px}.top .menu{display:grid}.collapse{display:none!important}
+  .page{padding:16px}.g2,.g3{grid-template-columns:1fr}
+  .search kbd{display:none}
+  th,td{padding:10px 12px}
+  .hide-m{display:none}
+}
+@media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.kpi b{font-size:22px}.ph h1{font-size:20px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (prefers-contrast:more){:root{--muted:#C9CED8;--line:#3A4558}[data-theme=light]{--muted:#3A4250;--line:#B9BFCA}}
+
+</style>
+</head>
+<body>
+<div id="root" aria-live="polite"><div class="boot"><span class="spin"></span></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="modal" aria-labelledby="modal-title"></dialog>
+<script>
+// ================= Calora Admin: core =================
+// Every number comes from the database; anything we can't measure yet shows "Not available", never a made-up value.
+// Access is enforced by the database (public.admin_ok()); the checks here only decide what to show.
+const CFG={url:'https://crsvvpklbpfdxndksogi.supabase.co',key:'sb_publishable_nRz5LF9brdDEAa-TgdPV0Q_nfmd9NJn',lib:'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3/+esm'};
+let sb=null;
+const S={user:null,factor:null,notifs:[],prefs:{},settings:{},plans:[],aiReady:null,collapsed:lsGet('adm:col')==='1'};
+function lsGet(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(_){}}
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const safeUrl=u=>/^https:\/\//i.test(u||'')?u:'';
+const num=n=>n==null?'—':Number(n).toLocaleString('en-GB');
+const money=(c,cur='EUR')=>new Intl.NumberFormat('en-IE',{style:'currency',currency:cur||'EUR'}).format((c||0)/100);
+const fdate=d=>d?new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'—';
+const fdt=d=>d?new Date(d).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
+const ago=d=>{if(!d)return'never';const s=(Date.now()-new Date(d))/1e3;return s<60?'just now':s<3600?Math.floor(s/60)+' min ago':s<86400?Math.floor(s/3600)+' h ago':s<2592e3?Math.floor(s/86400)+' d ago':fdate(d)};
+const pct=(a,b)=>b?Math.round(a/b*1000)/10+'%':'—';
+const toLocalInput=d=>{if(!d)return'';const x=new Date(d);x.setMinutes(x.getMinutes()-x.getTimezoneOffset());return x.toISOString().slice(0,16)};
+const fromLocalInput=v=>v?new Date(v).toISOString():null;
+const initials=s=>(s||'?').split(/[\s@._-]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+const ADMIN_NAMES={'calora.scan@gmail.com':'Calora (you)','tw.trades1@gmail.com':'Partner'};
+
+// ---------- icons (hand-drawn strokes) ----------
+const P={home:'M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',chart:'M3 3v18h18M7 15l4-4 3 3 5-6',users:'M16 19v-1a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v1M9 10a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M22 19v-1a4 4 0 0 0-3-3.9M16 3.1a3.5 3.5 0 0 1 0 6.8',
+card:'M2 6h20v12H2zM2 10h20M6 15h4',news:'M3 11v2a1 1 0 0 0 1 1h2l5 4V6l-5 4H4a1 1 0 0 0-1 1zM16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14',cal:'M3 5h18v16H3zM3 9h18M8 3v4M16 3v4',
+tag:'M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8zM7.5 7.5h.01',bulb:'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z',
+inbox:'M3 13h5l1.5 3h5l1.5-3h5M5.5 5h13L21 13v6H3v-6z',list:'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',gear:'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6',
+search:'M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM21 21l-4.3-4.3',bell:'M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10.3 21a1.9 1.9 0 0 0 3.4 0',out:'M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9',
+menu:'M3 6h18M3 12h18M3 18h18',left:'M15 18l-6-6 6-6',right:'M9 18l6-6-6-6',plus:'M12 5v14M5 12h14',x:'M18 6 6 18M6 6l12 12',copy:'M9 9h11v11H9zM5 15H4V4h11v1',
+trash:'M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6',edit:'M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z',eye:'M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z',
+check:'M20 6 9 17l-5-5',spark:'M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z',upload:'M12 16V4M7 9l5-5 5 5M4 20h16',
+mail:'M3 5h18v14H3zM3 6l9 7 9-7',shield:'M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z',sun:'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zM12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4',
+moon:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z',ext:'M14 3h7v7M10 14 21 3M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5',info:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01',
+down:'M12 4v12M7 11l5 5 5-5M4 20h16',clip:'M21 11.5 12.5 20a5 5 0 0 1-7-7L14 4.5a3.5 3.5 0 0 1 5 5l-8.5 8.5a2 2 0 0 1-3-3L15 7.5',side:'M3 3h18v18H3zM9 3v18',lock:'M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4',
+up1:'M18 15l-6-6-6 6',dn1:'M6 9l6 6 6-6',refresh:'M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5'};
+const I=(n,label)=>`<svg class="i" viewBox="0 0 24 24" ${label?`role="img" aria-label="${esc(label)}"`:'aria-hidden="true"'}><path d="${P[n]}"/></svg>`;
+const LOGO=s=>`<svg width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>`;
+
+// ---------- talking to the server ----------
+const nice=m=>({forbidden:'Admins only.',not_signed_in:'Please sign in again.',ai_not_configured:"AI isn't set up yet. Settings → AI explains how to add your Anthropic API key.",
+  ai_bad_answer:'The AI gave an answer we couldn\'t read. Please try again.',cannot_change_admin:"Admins can't be blocked or deleted here.",not_found:'Not found. It may have been deleted.'})[m]
+  ||(/ai_429/.test(m)?'The AI is busy (rate limit). Try again in a minute.':/ai_40[13]/.test(m)?'The Anthropic API key was rejected. Check it in Supabase secrets.':/ai_5\d\d/.test(m)?'The AI service had a problem. Try again.':m);
+const fail=e=>new Error(nice(e?.message||String(e||'Something went wrong')));
+async function rpc(fn,args){const{data,error}=await sb.rpc(fn,args);if(error)throw fail(error);return data}
+async function run(query){const{data,error,count}=await query;if(error)throw fail(error);return count!=null?{rows:data,count}:data}
+async function callFn(name,body){const{data,error}=await sb.functions.invoke(name,{body});
+  if(error){let m=error.message;try{m=(await error.context.json()).error||m}catch(_){}throw fail({message:m})}return data}
+async function setting(key){if(!(key in S.settings)){const r=await run(sb.from('admin_settings').select('value').eq('key',key).maybeSingle());S.settings[key]=r?.value||{}}return S.settings[key]}
+async function saveSetting(key,value){await run(sb.from('admin_settings').upsert({key,value}));S.settings[key]=value}
+async function loadPlans(){S.plans=await run(sb.from('plans').select('*').order('sort').order('price_cents'));return S.plans}
+async function upload(bucket,file,prefix){if(file.size>(bucket==='media'?5:10)*1048576)throw new Error(`That file is too big (max ${bucket==='media'?5:10} MB).`);
+  const ext=(file.name.split('.').pop()||'bin').toLowerCase().replace(/[^a-z0-9]/g,'').slice(0,5),path=`${prefix}/${crypto.randomUUID()}.${ext}`;
+  const{error}=await sb.storage.from(bucket).upload(path,file,{contentType:file.type||undefined,upsert:false});if(error)throw fail(error);return path}
+const publicUrl=path=>sb.storage.from('media').getPublicUrl(path).data.publicUrl;
+
+// ---------- small UI helpers ----------
+let toastT;
+function toast(msg,bad){const t=$('#toast');t.textContent=msg;t.className='on'+(bad?' bad':'');clearTimeout(toastT);toastT=setTimeout(()=>t.className='',bad?5200:3000)}
+async function busy(btn,fn){if(btn?.disabled)return;const old=btn?.innerHTML;if(btn){btn.disabled=true;btn.innerHTML=`<span class="spin" aria-hidden="true"></span>${btn.dataset.busy||'Working…'}`}
+  try{return await fn()}catch(e){toast(e.message||'Something went wrong',1);console.error(e)}finally{if(btn&&btn.isConnected){btn.disabled=false;btn.innerHTML=old}}}
+function modal({title,body,actions='',wide}){const d=$('#modal');d.style.width=wide?'min(820px,96vw)':'';
+  d.innerHTML=`<header><h2 id="modal-title">${esc(title)}</h2><button class="tb" data-act="modal-close" aria-label="Close">${I('x')}</button></header><div class="mb">${body}</div>${actions?`<footer>${actions}</footer>`:''}`;
+  if(!d.open)d.showModal();setTimeout(()=>$('#modal [autofocus]')?.focus(),30);return d}
+const closeModal=()=>{const d=$('#modal');if(d.open)d.close()};
+function confirmBox(title,text,{ok='Confirm',danger,typed}={}){return new Promise(res=>{
+  modal({title,body:`<p class="help" style="color:var(--text)">${text}</p>${typed?`<label class="f">Type <code>${esc(typed)}</code> to confirm<input type="text" id="cb-typed" autocomplete="off" autofocus></label>`:''}`,
+    actions:`<button class="btn" data-cb="no">Cancel</button><button class="btn ${danger?'pri':'pri'}" data-cb="yes" ${typed?'disabled':''} ${typed?'':'autofocus'}>${esc(ok)}</button>`});
+  const d=$('#modal'),done=v=>{d.removeEventListener('click',on);d.removeEventListener('close',cl);if(d.open)d.close();res(v)};
+  const on=e=>{const b=e.target.closest('[data-cb]');if(b)done(b.dataset.cb==='yes')},cl=()=>done(false);
+  d.addEventListener('click',on);d.addEventListener('close',cl);
+  if(typed)$('#cb-typed').addEventListener('input',e=>$('[data-cb=yes]').disabled=e.target.value.trim()!==typed)})}
+const chip=(t,k='')=>`<span class="chip ${k}">${esc(t)}</span>`;
+const empty=(icon,title,text,action='')=>`<div class="empty">${I(icon)}<b>${esc(title)}</b>${text?`<div>${text}</div>`:''}${action}</div>`;
+const kpi=(label,value,small='',delta='')=>`<div class="card kpi${value==null?' na':''}"><span>${esc(label)}</span><b>${value==null?'Not available':value}</b>${delta}${small?`<small>${small}</small>`:''}</div>`;
+function delta(now,prev,inverse){if(prev==null||now==null)return'';if(!prev&&!now)return'<span class="delta flat">No change</span>';
+  if(!prev)return`<span class="delta ${inverse?'down':'up'}">New vs. 0 before</span>`;const d=Math.round((now-prev)/prev*1000)/10,up=d>0;
+  return`<span class="delta ${d===0?'flat':(up!==!!inverse)?'up':'down'}">${d>0?'+':''}${d}% vs previous period</span>`}
+const skel=(n=4)=>`<div class="card pad stack">${Array.from({length:n},(_,i)=>`<div class="skel" style="width:${90-i*12}%"></div>`).join('')}</div>`;
+const card=(title,body,link='')=>`<section class="card"><header><h2>${esc(title)}</h2>${link}</header>${body}</section>`;
+const NA_PAY='Payments aren\'t connected yet';
+
+// ---------- charts (SVG, no libraries) ----------
+function niceMax(v){if(v<=4)return 4;const p=10**Math.floor(Math.log10(v)),n=v/p;return(n<=1?1:n<=2?2:n<=5?5:10)*p}
+function lineChart(pts,series,{h=220,label='Chart',fmtX=d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}={}){
+  if(!pts.length)return empty('chart','No data yet','');
+  const W=640,L=36,R=12,T=12,B=26,max=niceMax(Math.max(1,...pts.flatMap(p=>series.map(s=>+p[s.key]||0)))),x=i=>L+(pts.length<2?(W-L-R)/2:i*(W-L-R)/(pts.length-1)),y=v=>T+(h-T-B)*(1-v/max);
+  const grid=[0,.25,.5,.75,1].map(f=>`<line x1="${L}" x2="${W-R}" y1="${y(max*f)}" y2="${y(max*f)}"/><text x="${L-6}" y="${y(max*f)+4}" text-anchor="end">${num(Math.round(max*f))}</text>`).join('');
+  const lines=series.map((s,si)=>{const d=pts.map((p,i)=>`${i?'L':'M'}${x(i).toFixed(1)},${y(+p[s.key]||0).toFixed(1)}`).join('');
+    return(si===0?`<path d="${d}L${x(pts.length-1)},${y(0)}L${x(0)},${y(0)}Z" fill="${s.color}" opacity=".12"/>`:'')+`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="2.2" stroke-linejoin="round"/>`+
+      pts.map((p,i)=>`<circle cx="${x(i)}" cy="${y(+p[s.key]||0)}" r="${pts.length>40?0:3}" fill="${s.color}"><title>${esc(fmtX(p.t))}: ${num(p[s.key])} ${esc(s.label)}</title></circle>`).join('')}).join('');
+  const ticks=[0,Math.floor((pts.length-1)/2),pts.length-1].filter((v,i,a)=>a.indexOf(v)===i).map(i=>`<text x="${x(i)}" y="${h-6}" text-anchor="${i===0?'start':i===pts.length-1?'end':'middle'}">${esc(fmtX(pts[i].t))}</text>`).join('');
+  const sum=series.map(s=>`${s.label}: ${num(pts.reduce((a,p)=>a+(+p[s.key]||0),0))} total`).join('; ');
+  return`<svg class="chart" viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(label)}. ${esc(sum)}"><g class="grid">${grid}</g>${lines}${ticks}</svg>
+    <div class="legend">${series.map(s=>`<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join('')}</div>`}
+function barChart(pts,key,color,{h=200,label='Chart',fmtX}={}){
+  if(!pts.length)return empty('chart','No data yet','');fmtX=fmtX||(d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'}));
+  const W=640,L=36,R=8,T=12,B=26,max=niceMax(Math.max(1,...pts.map(p=>+p[key]||0))),bw=(W-L-R)/pts.length,y=v=>T+(h-T-B)*(1-v/max);
+  const grid=[0,.5,1].map(f=>`<line x1="${L}" x2="${W-R}" y1="${y(max*f)}" y2="${y(max*f)}"/><text x="${L-6}" y="${y(max*f)+4}" text-anchor="end">${num(Math.round(max*f))}</text>`).join('');
+  const bars=pts.map((p,i)=>{const v=+p[key]||0;return`<rect x="${(L+i*bw+bw*.15).toFixed(1)}" y="${y(v).toFixed(1)}" width="${(bw*.7).toFixed(1)}" height="${(y(0)-y(v)).toFixed(1)}" rx="3" fill="${color}"><title>${esc(fmtX(p.t))}: ${num(v)}</title></rect>`}).join('');
+  const ticks=[0,pts.length-1].filter((v,i,a)=>a.indexOf(v)===i).map(i=>`<text x="${L+i*bw+bw/2}" y="${h-6}" text-anchor="${i?'end':'start'}">${esc(fmtX(pts[i].t))}</text>`).join('');
+  return`<svg class="chart" viewBox="0 0 ${W} ${h}" role="img" aria-label="${esc(label)}: ${num(pts.reduce((a,p)=>a+(+p[key]||0),0))} total"><g class="grid">${grid}</g>${bars}${ticks}</svg>`}
+function donut(parts,{label='Chart',center=''}={}){const tot=parts.reduce((a,p)=>a+p.value,0);if(!tot)return empty('chart','No data yet','');
+  let a=0;const R=54,C=2*Math.PI*R,segs=parts.filter(p=>p.value).map(p=>{const len=p.value/tot*C,s=`<circle r="${R}" cx="70" cy="70" fill="none" stroke="${p.color}" stroke-width="18" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-a}" transform="rotate(-90 70 70)"><title>${esc(p.label)}: ${num(p.value)}</title></circle>`;a+=len;return s}).join('');
+  return`<div class="donut-wrap"><svg width="140" height="140" viewBox="0 0 140 140" role="img" aria-label="${esc(label)}: ${esc(parts.map(p=>p.label+' '+num(p.value)).join(', '))}"><circle r="${R}" cx="70" cy="70" fill="none" stroke="var(--line)" stroke-width="18"/>${segs}<text x="70" y="75" text-anchor="middle" style="fill:var(--text);font-size:16px;font-weight:700">${esc(center)}</text></svg>
+   <div class="legend" style="display:grid;gap:6px">${parts.map(p=>`<span><i style="background:${p.color}"></i>${esc(p.label)}: <b style="color:var(--text)">${num(p.value)}</b> (${pct(p.value,tot)})</span>`).join('')}</div></div>`}
+
+// ---------- layout ----------
+const NAV=[['Main',[['overview','Overview','home'],['analytics','Analytics & Growth','chart'],['customers','Customers','users'],['revenue','Revenue & Plans','card']]],
+  ['Store & Marketing',[['news','News & Updates','news'],['upcoming','Coming Soon / Deals','cal'],['promos','Promo Codes','tag']]],
+  ['Workspace',[['ideas','Idea Lab & AI','bulb'],['support','Support Inbox','inbox'],['activity','Activity Log','list'],['settings','Settings','gear']]]];
+let counts={support:0};
+function shell(){const t=lsGet('adm:theme')||'dark';document.documentElement.dataset.theme=t;
+  $('#root').innerHTML=`<div class="shell${S.collapsed?' col':''}" id="shell">
+  <aside class="side" id="side" aria-label="Admin navigation"><div class="brand">${LOGO(30)}<span>Calora<small>Admin</small></span></div>
+   <nav class="nav">${NAV.map(([g,items])=>`<h3>${g}</h3>`+items.map(([k,l,i])=>`<a href="#/${k}" data-nav="${k}" title="${esc(l)}">${I(i)}<span class="lbl">${esc(l)}</span>${k==='support'?'<span class="dot" id="nav-support" hidden></span>':''}</a>`).join('')).join('')}</nav>
+   <div class="side-foot"><button class="collapse" data-act="collapse" aria-label="Collapse sidebar" title="Collapse sidebar">${I('side')}<span class="lbl">Collapse</span></button>
+    <button data-act="signout" title="Sign out">${I('out')}<span class="lbl">Sign out</span></button></div></aside>
+  <div class="main"><header class="top"><button class="tb menu" data-act="menu" aria-label="Open navigation">${I('menu')}</button>
+    <div class="search" role="search"><label class="vh" for="gsearch">Search everything</label>${I('search')}<input id="gsearch" type="search" placeholder="Search customers, news, ideas, tickets, codes…" autocomplete="off"><kbd>/</kbd><div class="results" id="gresults" hidden></div></div>
+    <div style="flex:0 0 auto;margin-left:auto;display:flex;gap:4px;align-items:center;position:relative">
+     <button class="tb" data-act="theme" aria-label="Switch to ${t==='dark'?'light':'dark'} mode">${I(t==='dark'?'sun':'moon')}</button>
+     <button class="tb" data-act="bell" aria-label="Notifications" aria-haspopup="true" id="bell">${I('bell')}<span class="badge" id="bell-n" hidden></span></button>
+     <button class="tb" data-act="me" aria-label="Account menu" title="${esc(S.user.email)}"><span class="avatar">${esc(initials(S.user.email))}</span></button>
+     <div class="pop" id="pop" hidden></div></div></header>
+   <main class="page" id="page" tabindex="-1"></main></div></div>`;
+  wireSearch();refreshNotifs();refreshCounts()}
+function setCurrent(k){$$('[data-nav]').forEach(a=>a.dataset.nav===k?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'))}
+async function refreshCounts(){try{const r=await run(sb.from('support_tickets').select('id',{count:'exact',head:true}).eq('status','open'));counts.support=r.count||0;
+  const d=$('#nav-support');if(d){d.hidden=!counts.support;d.textContent=counts.support}}catch(_){}}
+
+// ---------- notifications ----------
+async function refreshNotifs(){try{S.notifs=await run(sb.from('admin_notifications').select('*').order('created_at',{ascending:false}).limit(40));
+  S.prefs=(await setting('notify:'+S.user.id)).kinds||{};const n=unread().length,b=$('#bell-n');if(b){b.hidden=!n;b.textContent=n>99?'99+':n;$('#bell').setAttribute('aria-label',`Notifications${n?`, ${n} unread`:''}`)}}catch(_){}}
+const unread=()=>S.notifs.filter(n=>!n.read_by.includes(S.user.id)&&S.prefs[n.kind]!==false);
+const NK={customer:['users','New customer'],ticket:['inbox','Support'],reply:['inbox','Support'],redemption:['tag','Promo'],subscription:['card','Subscription'],payment:['card','Payment'],milestone:['spark','Milestone']};
+function bellHTML(){const list=S.notifs.filter(n=>S.prefs[n.kind]!==false);
+  return`<header>Notifications<button class="btn sm ghost" data-act="read-all">Mark all as read</button></header><div class="list">${list.length?list.map(n=>`<a class="n${n.read_by.includes(S.user.id)?'':' unread'}" href="${esc(n.link||'#/overview')}" data-notif="${n.id}">${I(NK[n.kind]?.[0]||'bell')}<span><b>${esc(n.title)}</b><br><small style="color:var(--muted)">${esc(NK[n.kind]?.[1]||'')} · ${ago(n.created_at)}</small></span></a>`).join(''):empty('bell','All caught up','New customers, support tickets and promo redemptions show up here.')}</div>`}
+
+// ---------- global search ----------
+function wireSearch(){const inp=$('#gsearch'),box=$('#gresults');let t,seq=0;
+  inp.addEventListener('input',()=>{clearTimeout(t);const q=inp.value.trim();if(q.length<2){box.hidden=true;return}t=setTimeout(async()=>{const my=++seq;
+    const like=`%${q.replace(/[%_,()"'\\]/g,' ')}%`;const[c,p,i,s,k]=await Promise.allSettled([rpc('admin_customers',{p_q:q,p_limit:5}),run(sb.from('posts').select('id,title').ilike('title',like).limit(5)),
+      run(sb.from('ideas').select('id,title').ilike('title',like).limit(5)),run(sb.from('support_tickets').select('id,subject,email').or(`subject.ilike.${like},email.ilike.${like}`).limit(5)),run(sb.from('promo_codes').select('id,code').ilike('code',like).limit(5))]);
+    if(my!==seq)return;const v=r=>r.status==='fulfilled'?r.value:null,grp=(t,items)=>items?.length?`<h4>${t}</h4>`+items.join(''):'';
+    const html=grp('Customers',v(c)?.rows?.map(r=>`<a href="#/customers/${r.id}">${esc(r.name||r.email)}<span class="sub" style="color:var(--muted)">${esc(r.email)}</span></a>`))+
+      grp('News',v(p)?.map(r=>`<a href="#/news/${r.id}">${esc(r.title)}</a>`))+grp('Ideas',v(i)?.map(r=>`<a href="#/ideas/${r.id}">${esc(r.title)}</a>`))+
+      grp('Support',v(s)?.map(r=>`<a href="#/support/${r.id}">${esc(r.subject)}<span style="color:var(--muted)">${esc(r.email||'')}</span></a>`))+grp('Promo codes',v(k)?.map(r=>`<a href="#/promos">${esc(r.code)}</a>`));
+    box.innerHTML=html||`<div class="empty" style="padding:16px">No results for “${esc(q)}”.</div>`;box.hidden=false},250)});
+  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){const a=$('#gresults a');if(a){location.hash=a.getAttribute('href');box.hidden=true;inp.blur()}}if(e.key==='Escape'){box.hidden=true;inp.blur()}});
+  box.addEventListener('click',e=>{if(e.target.closest('a')){box.hidden=true;inp.value=''}})}
+
+// ================= pages: overview, analytics, customers, revenue =================
+const PAGES={},MOUNT={},ACT={},FORM={},INPUT={};
+const startDay=d=>{const x=new Date(d);x.setHours(0,0,0,0);return x};
+const daysAgo=n=>startDay(Date.now()-n*864e5);
+const C1='var(--s1)',C2='var(--s2)';
+
+// ---------- activity sentences (shared with Activity Log) ----------
+const TYPE={posts:['news','news'],upcoming:['coming soon item','upcoming'],promo_codes:['promo code','promos'],ideas:['idea','ideas'],idea_comments:['idea','ideas'],idea_votes:['idea','ideas'],
+  support_tickets:['ticket','support'],support_messages:['ticket','support'],plans:['plan','revenue'],admin_settings:['settings','settings'],customer:['customer','customers'],session:['session','']};
+function actText(a){const t=TYPE[a.item_type]?.[0]||a.item_type||'',l=a.item_label?` “${esc(a.item_label)}”`:'',d=a.details||{};
+  const m={signed_in:'Signed in',signed_out:'Signed out',exported:`Exported ${esc(a.item_label||'data')}`,published:`Published ${t}${l}`,unpublished:`Unpublished ${t}${l}`,
+    insert:a.item_type==='posts'?`Created news draft${l}`:`Created ${t}${l}`,update:`Edited ${t}${l}`,delete:`Deleted ${t}${l}`,activated:`Activated ${t}${l}`,deactivated:`Deactivated ${t}${l}`,
+    shown_in_app:`Showed ${t}${l} in the app`,hidden_from_app:`Hid ${t}${l} from the app`,status_changed:`Moved ${t}${l} from ${esc(String(d.from||'').replace('_',' '))} to ${esc(String(d.to||'').replace('_',' '))}`,
+    replied:'Replied to a support ticket',note_added:'Added an internal note to a ticket',commented:'Commented on an idea',voted:'Voted on an idea',vote_removed:'Removed a vote on an idea',
+    blocked_customer:`Blocked customer${l}`,unblocked_customer:`Unblocked customer${l}`,deleted_customer:`Deleted customer${l}`};
+  return m[a.action]||`${esc(a.action)} ${t}${l}`}
+function actLink(a){const p=TYPE[a.item_type]?.[1];if(!p)return'';const id=['posts','upcoming','ideas','idea_comments','idea_votes','support_tickets','support_messages','customer'].includes(a.item_type)&&a.item_id&&a.action!=='delete'&&a.action!=='deleted_customer'?'/'+a.item_id:'';return`#/${p}${id}`}
+const actRow=a=>`<${actLink(a)?`a href="${esc(actLink(a))}"`:'div'} class="list-row"><span class="avatar" style="width:28px;height:28px;font-size:11px">${esc(initials(a.admin_email))}</span><span class="grow"><b style="white-space:normal">${actText(a)}</b><span>${esc(a.admin_email||'')} · ${ago(a.created_at)}</span></span></${actLink(a)?'a':'div'}>`;
+
+// ---------- series helpers ----------
+function periodRange(k){const now=new Date();
+  if(k==='weekly')return{from:daysAgo(83),to:now,bucket:'week'};if(k==='monthly'){const f=new Date(now.getFullYear(),now.getMonth()-11,1);return{from:f,to:now,bucket:'month'}}
+  if(k==='yearly')return{from:new Date(now.getFullYear()-2,0,1),to:now,bucket:'month',year:1};return{from:daysAgo(29),to:now,bucket:'day'}}
+async function series({from,to,bucket,year}){const r=await rpc('admin_series',{p_from:from.toISOString(),p_to:to.toISOString(),p_bucket:bucket});
+  if(year){const m={};for(const b of r.buckets){const y=new Date(b.t).getFullYear();m[y]=m[y]||{t:new Date(y,0,1).toISOString(),signups:0,active:0,tickets:0,redemptions:0};for(const k of['signups','tickets','redemptions'])m[y][k]+=b[k];m[y].active=Math.max(m[y].active,b.active)}r.buckets=Object.values(m)}
+  return r}
+const fmtFor=b=>b==='month'?d=>new Date(d).toLocaleDateString('en-GB',{month:'short',year:'2-digit'}):b==='year'?d=>String(new Date(d).getFullYear()):d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+
+// ================= Overview =================
+let ovp='daily';
+PAGES.overview=async()=>{const[o,sr,act,tix,red]=await Promise.all([rpc('admin_overview',{p_today:startDay(Date.now()).toISOString()}),series(periodRange(ovp)),
+  run(sb.from('admin_activity').select('*').order('created_at',{ascending:false}).limit(6)),run(sb.from('support_tickets').select('id,subject,name,email,status,priority,last_message_at').order('last_message_at',{ascending:false}).limit(5)),
+  run(sb.from('promo_redemptions').select('created_at,discount_cents,final_cents,promo_codes(code)').order('created_at',{ascending:false}).limit(5)),loadPlans()]);
+  const fx=fmtFor(ovp==='yearly'?'year':periodRange(ovp).bucket),seg=['daily','weekly','monthly','yearly'].map(k=>`<button data-act="ov-period" data-k="${k}" aria-pressed="${ovp===k}">${k[0].toUpperCase()+k.slice(1)}</button>`).join('');
+  const paid=S.plans.filter(p=>p.price_cents>0);
+  return`<div class="ph"><div><h1>Overview</h1><p>How Calora is doing right now. Everything here is live data.</p></div>
+   <div class="acts"><a class="btn pri" href="#/news/new">${I('news')}Publish news</a><a class="btn" href="#/upcoming/new">${I('cal')}Create deal</a><a class="btn" href="#/promos/new">${I('tag')}Generate promo code</a><button class="btn" data-act="new-idea">${I('bulb')}Add idea</button><a class="btn" href="#/customers">${I('users')}View customers</a></div></div>
+  <div class="grid g3">${kpi('Total registered users',num(o.users),`${num(o.google)} with Google · ${num(o.email)} with email`)}${kpi('Active users',num(o.active_7d),'Used the app in the last 7 days')}${kpi('New users today',num(o.new_today))}
+   ${kpi('New users this week',num(o.new_7d),'Last 7 days')}${kpi('Paying subscribers',null,NA_PAY)}${kpi('Monthly recurring revenue (MRR)',null,NA_PAY)}
+   ${kpi('Total revenue',null,NA_PAY)}${kpi('Conversion rate',null,'Needs paid plans and payments')}${kpi('Churn rate',null,'Needs subscriptions')}</div>
+  <div class="grid g2" style="margin-top:16px">
+   ${card('User growth',`<div class="pad">${lineChart(sr.buckets,[{key:'signups',label:'New users',color:C1},{key:'active',label:'Active users',color:C2}],{label:'New and active users',fmtX:fx})}</div>`,`<div class="seg" role="group" aria-label="Chart period">${seg}</div>`)}
+   ${card('Revenue over time',empty('card','No revenue yet',`${NA_PAY}. Revenue charts start working as soon as checkout is added.`))}</div>
+  <div class="grid g3" style="margin-top:16px">
+   ${card('Subscription growth',empty('card','No subscriptions yet',NA_PAY+'.'))}
+   ${card('Free vs paid users',`<div class="pad">${donut([{label:'Free',value:o.users,color:C1},{label:'Paid',value:0,color:C2}],{label:'Free vs paid users',center:pct(o.users,o.users)})}<p class="help" style="margin-top:10px">Everyone is on Free until paid plans launch.</p></div>`)}
+   ${card('Plan distribution',`<div class="pad">${donut([{label:'Free',value:o.users,color:C1},...paid.map((p,i)=>({label:p.name,value:0,color:i?'var(--warn)':C2}))],{label:'Plan distribution',center:num(o.users)})}</div>`,'<a href="#/revenue">Plans</a>')}</div>
+  <div class="grid g2" style="margin-top:16px">
+   ${card('Recent activity',act.length?act.map(actRow).join(''):empty('list','No admin activity yet','Publishing, edits and sign-ins appear here.'),'<a href="#/activity">View all</a>')}
+   ${card('Latest support tickets',tix.length?tix.map(t=>`<a class="list-row" href="#/support/${t.id}"><span class="grow"><b>${esc(t.subject)}</b><span>${esc(t.name||t.email||'')} · ${ago(t.last_message_at)}</span></span>${statusChip(t.status)}</a>`).join(''):empty('inbox','No support tickets','Messages customers send from the app land here.'),'<a href="#/support">Inbox</a>')}</div>
+  <div class="grid g3" style="margin-top:16px">
+   ${card('Latest subscriptions',empty('card','None yet',NA_PAY+'.'))}${card('Recent cancellations',empty('card','None yet',NA_PAY+'.'))}
+   ${card('Latest promo redemptions',red.length?red.map(r=>`<div class="list-row"><span class="grow"><b>${esc(r.promo_codes?.code||'—')}</b><span>${ago(r.created_at)}</span></span><span>−${money(r.discount_cents)}</span></div>`).join(''):empty('tag','No redemptions yet','Codes are redeemed at checkout, once payments exist.'),'<a href="#/promos">Codes</a>')}</div>`};
+ACT['ov-period']=b=>{ovp=b.dataset.k;route()};
+
+// ================= Analytics & Growth =================
+const AN={range:'30d',from:'',to:''};
+function anRange(){const now=new Date();const m={today:[startDay(now),'day'],'7d':[daysAgo(6),'day'],'30d':[daysAgo(29),'day'],'90d':[daysAgo(89),'day'],'12m':[new Date(now.getFullYear(),now.getMonth()-11,1),'month']};
+  if(AN.range==='custom'&&AN.from&&AN.to){const f=new Date(AN.from+'T00:00'),t=new Date(AN.to+'T23:59:59'),d=(t-f)/864e5;return{from:f,to:t>now?now:t,bucket:d<=92?'day':d<=400?'week':'month'}}
+  const[f,b]=m[AN.range]||m['30d'];return{from:f,to:now,bucket:b}}
+let anData=null;
+PAGES.analytics=async()=>{const r=anRange();if(r.to<=r.from)throw new Error('The end date must be after the start date.');
+  const[s,codes,stats]=await Promise.all([series(r),run(sb.from('promo_codes').select('id,code,percent,max_uses,active').order('created_at',{ascending:false})),rpc('admin_promo_stats')]);anData={s,r};
+  const n=s.now,p=s.prev,ret=(k,c,x)=>x[c]?Math.round(x[k]/x[c]*1000)/10:null,fx=fmtFor(r.bucket);
+  const R=['today','7d','30d','90d','12m','custom'].map(k=>`<button data-act="an-range" data-k="${k}" aria-pressed="${AN.range===k}">${({today:'Today','7d':'7 days','30d':'30 days','90d':'90 days','12m':'12 months',custom:'Custom'})[k]}</button>`).join('');
+  return`<div class="ph"><div><h1>Analytics & Growth</h1><p>${fdate(r.from)} – ${fdate(r.to)}, compared with the period before.</p></div><div class="acts"><button class="btn" data-act="an-export">${I('down')}Export CSV</button></div></div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin-bottom:16px"><div class="seg" role="group" aria-label="Date range">${R}</div>
+   ${AN.range==='custom'?`<form data-form="an-custom" style="display:flex;gap:8px;align-items:end;flex-wrap:wrap"><label class="f">From<input type="date" name="from" value="${esc(AN.from)}" required></label><label class="f">To<input type="date" name="to" value="${esc(AN.to)}" required></label><button class="btn">Apply</button></form>`:''}</div>
+  <div class="grid g4">${kpi('Registrations',num(n.signups),'',delta(n.signups,p.signups))}${kpi('Active users',num(n.active),'Logged food in this period',delta(n.active,p.active))}
+   ${kpi('7-day retention',ret('d7_kept','d7_cohort',n)==null?null:ret('d7_kept','d7_cohort',n)+'%',n.d7_cohort?`${num(n.d7_kept)} of ${num(n.d7_cohort)} new users came back after a week`:'Not enough users who joined 7+ days ago',delta(ret('d7_kept','d7_cohort',n),ret('d7_kept','d7_cohort',p)))}
+   ${kpi('30-day retention',ret('d30_kept','d30_cohort',n)==null?null:ret('d30_kept','d30_cohort',n)+'%',n.d30_cohort?`${num(n.d30_kept)} of ${num(n.d30_cohort)} came back after a month`:'Not enough users who joined 30+ days ago')}
+   ${kpi('Support tickets',num(n.tickets),'',delta(n.tickets,p.tickets,true))}${kpi('Tickets resolved',num(n.resolved),'',delta(n.resolved,p.resolved))}
+   ${kpi('Promo redemptions',num(n.redemptions),'',delta(n.redemptions,p.redemptions))}${kpi('Discount given',money(n.discount_cents),'Through promo codes')}</div>
+  <div class="grid g2" style="margin-top:16px">${card('Registrations',`<div class="pad">${barChart(s.buckets,'signups',C1,{label:'Registrations',fmtX:fx})}</div>`)}${card('Active users',`<div class="pad">${lineChart(s.buckets,[{key:'active',label:'Active users',color:C2}],{label:'Active users',fmtX:fx})}</div>`)}</div>
+  <div class="grid g2" style="margin-top:16px">
+   ${card('Subscriptions & revenue',`<div class="pad stack"><div class="note">${I('info')}<span><b>${NA_PAY}.</b> These start measuring automatically once checkout exists: subscriber growth, revenue growth, plan conversion, free-to-paid conversion, churn, cancellation trends and average revenue per paying user.</span></div>
+     <div class="tw"><table><tbody>${['Subscriber growth','Revenue growth','Plan conversion','Free-to-paid conversion','Churn','Cancellation trends','Average revenue per paying user'].map(x=>`<tr><td>${x}</td><td class="num" style="color:var(--muted)">Not available</td></tr>`).join('')}</tbody></table></div></div>`)}
+   ${card('Promo code performance',codes.length?`<div class="tw"><table><thead><tr><th>Code</th><th class="num">Uses</th><th class="num">Discount given</th><th class="num">Revenue</th></tr></thead><tbody>${codes.map(c=>{const x=stats[c.id]||{};return`<tr><td><b>${esc(c.code)}</b> <span class="sub">${c.percent}% off${c.active?'':' · inactive'}</span></td><td class="num">${num(x.uses||0)}${c.max_uses?` / ${num(c.max_uses)}`:''}</td><td class="num">${money(x.discount_cents)}</td><td class="num">${money(x.revenue_cents)}</td></tr>`}).join('')}</tbody></table></div>`:empty('tag','No promo codes yet','','<a class="btn" href="#/promos/new">Create one</a>'),'<a href="#/promos">Manage</a>')}</div>`};
+ACT['an-range']=b=>{AN.range=b.dataset.k;if(AN.range==='custom'&&!AN.from){AN.to=new Date().toISOString().slice(0,10);AN.from=daysAgo(29).toISOString().slice(0,10)}route()};
+FORM['an-custom']=f=>{AN.from=f.from.value;AN.to=f.to.value;route()};
+function download(name,rows){const csv=rows.map(r=>r.map(v=>{let s=String(v??'');if(/^[=+\-@\t\r]/.test(s))s="'"+s; // stop spreadsheet formulas in names
+  return/[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s}).join(',')).join('\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}
+ACT['an-export']=async b=>busy(b,async()=>{if(!anData)return;download(`calora-analytics-${new Date().toISOString().slice(0,10)}.csv`,[['period_start','registrations','active_users','support_tickets','promo_redemptions'],...anData.s.buckets.map(x=>[x.t,x.signups,x.active,x.tickets,x.redemptions])]);
+  await rpc('log_admin',{p_action:'exported',p_label:'analytics CSV'});toast('Downloaded')});
+
+// ================= Customers =================
+const CU={q:'',filter:'all',sort:'newest',page:0,size:25};
+const statusChip=s=>chip(({open:'Open',pending:'Pending',resolved:'Resolved'})[s]||s,s==='open'?'warn':s==='resolved'?'ok':'info');
+const custRow=c=>`<tr class="link" data-href="#/customers/${c.id}"><td><a href="#/customers/${c.id}" style="text-decoration:none"><b>${esc(c.name||'No name')}</b></a><span class="sub">${esc(c.email)}</span></td><td class="hide-m">${fdate(c.created_at)}</td>
+  <td>Free</td><td>${c.banned?chip('Blocked','bad'):c.admin?chip('Admin','acc'):c.last_active&&Date.now()-new Date(c.last_active)<30*864e5?chip('Active','ok'):chip('Inactive')}</td><td class="hide-m" style="color:var(--muted)">—</td>
+  <td class="hide-m">${c.promo?esc(c.promo):'<span style="color:var(--muted)">—</span>'}</td><td class="num hide-m">${num(c.days_logged)}</td><td class="hide-m">${ago(c.last_active)}</td></tr>`;
+async function custList(){const r=await rpc('admin_customers',{p_q:CU.q,p_filter:CU.filter,p_sort:CU.sort,p_limit:CU.size,p_offset:CU.page*CU.size});
+  const pages=Math.max(1,Math.ceil(r.total/CU.size));
+  return r.rows.length?`<div class="tw"><table><thead><tr><th>Customer</th><th class="hide-m">Registered</th><th>Plan</th><th>Status</th><th class="hide-m">Payment</th><th class="hide-m">Promo used</th><th class="num hide-m">Days logged</th><th class="hide-m">Last active</th></tr></thead><tbody>${r.rows.map(custRow).join('')}</tbody></table></div>
+   <div class="pager"><span>${num(CU.page*CU.size+1)}–${num(CU.page*CU.size+r.rows.length)} of ${num(r.total)}</span><span style="display:flex;gap:6px"><button class="btn sm" data-act="cu-page" data-d="-1" ${CU.page?'':'disabled'}>${I('left')}Previous</button><button class="btn sm" data-act="cu-page" data-d="1" ${CU.page+1<pages?'':'disabled'}>Next${I('right')}</button></span></div>`
+   :empty('users',CU.q||CU.filter!=='all'?'No customers match':'No customers yet',CU.q||CU.filter!=='all'?'Try a different search or filter.':'')}
+PAGES.customers=async id=>{if(id)return customerPage(id);const list=await custList();
+  const opt=(arr,v)=>arr.map(([k,l])=>`<option value="${k}" ${v===k?'selected':''}>${l}</option>`).join('');
+  return`<div class="ph"><div><h1>Customers</h1><p>Account details and activity counts. Food logs and health data are never shown here.</p></div><div class="acts"><button class="btn" data-act="cu-export">${I('down')}Export CSV</button></div></div>
+  <section class="card"><div class="bar"><div class="grow search" style="max-width:none">${I('search')}<input type="search" id="cu-q" value="${esc(CU.q)}" placeholder="Search name or email" aria-label="Search customers"></div>
+   <label class="vh" for="cu-f">Filter</label><select id="cu-f" data-input="cu-f" style="width:auto">${opt([['all','All customers'],['active','Active (30 days)'],['inactive','Inactive'],['blocked','Blocked'],['google','Google sign-in'],['email','Email sign-in'],['admins','Admins']],CU.filter)}</select>
+   <label class="vh" for="cu-s">Sort</label><select id="cu-s" data-input="cu-s" style="width:auto">${opt([['newest','Newest first'],['oldest','Oldest first'],['active','Recently active'],['name','Name A–Z'],['email','Email A–Z']],CU.sort)}</select></div>
+   <div id="cu-list">${list}</div></section>`};
+async function reloadCust(){const box=$('#cu-list');if(!box)return;box.style.opacity=.6;try{box.innerHTML=await custList()}catch(e){toast(e.message,1)}box.style.opacity=1}
+let cuT;INPUT['cu-q']=e=>{clearTimeout(cuT);cuT=setTimeout(()=>{CU.q=e.target.value.trim();CU.page=0;reloadCust()},300)};
+MOUNT.customers=id=>{if(!id)$('#cu-q').addEventListener('input',INPUT['cu-q'])};
+INPUT['cu-f']=e=>{CU.filter=e.target.value;CU.page=0;reloadCust()};INPUT['cu-s']=e=>{CU.sort=e.target.value;CU.page=0;reloadCust()};
+ACT['cu-page']=b=>{CU.page=Math.max(0,CU.page+ +b.dataset.d);reloadCust()};
+ACT['cu-export']=b=>busy(b,async()=>{const rows=[];for(let o=0;o<5000;o+=100){const r=await rpc('admin_customers',{p_q:CU.q,p_filter:CU.filter,p_sort:CU.sort,p_limit:100,p_offset:o});rows.push(...r.rows);if(r.rows.length<100)break}
+  download(`calora-customers-${new Date().toISOString().slice(0,10)}.csv`,[['name','email','registered','sign_in_method','status','days_logged','last_active','promo_used'],...rows.map(c=>[c.name,c.email,c.created_at,c.provider,c.banned?'blocked':'ok',c.days_logged,c.last_active,c.promo])]);
+  await rpc('log_admin',{p_action:'exported',p_label:`customer list (${rows.length})`});toast(`Downloaded ${rows.length} customers`)});
+async function customerPage(id){const d=await rpc('admin_customer',{p_id:id}),u=d.user;if(!u)return`<a class="back" href="#/customers">${I('left')}Customers</a>`+empty('users','Customer not found','They may have deleted their account.');
+  const months=(d.months||[]).map(m=>({t:m.m+'-01',days:m.days}));
+  return`<a class="back" href="#/customers">${I('left')}Customers</a><div class="ph"><div><h1>${esc(u.name||u.email)}</h1><p>${esc(u.email)} ${u.admin?chip('Admin','acc'):''} ${u.banned?chip('Blocked','bad'):''} ${chip(u.provider==='google'?'Google':'Email')}</p></div>
+   <div class="acts"><a class="btn" href="mailto:${esc(u.email)}">${I('mail')}Email</a>${u.admin?'':`<button class="btn" data-act="cu-ban" data-id="${u.id}" data-on="${u.banned?0:1}" data-email="${esc(u.email)}">${I('lock')}${u.banned?'Unblock':'Block'}</button><button class="btn danger" data-act="cu-del" data-id="${u.id}" data-email="${esc(u.email)}">${I('trash')}Delete</button>`}</div></div>
+  <div class="grid g-side"><div class="stack">
+   ${card('Account activity',`<div class="pad"><div class="grid g3">${kpi('Days logged',num(u.days_logged))}${kpi('First log',d.first_log?fdate(d.first_log):'—')}${kpi('Last active',u.last_active?ago(u.last_active):'—')}</div>
+     <div style="margin-top:14px">${months.length?barChart(months,'days',C1,{label:'Days logged per month',fmtX:fmtFor('month'),h:170}):'<p class="help">No food logged yet.</p>'}</div><p class="help">Counts only. What they ate is private.</p></div>`)}
+   ${card('Subscription history',empty('card','Free plan',NA_PAY+'. Subscriptions, renewals and refunds will be listed here.'))}
+   ${card('Support tickets',d.tickets.length?d.tickets.map(t=>`<a class="list-row" href="#/support/${t.id}"><span class="grow"><b>${esc(t.subject)}</b><span>${fdate(t.created_at)}</span></span>${statusChip(t.status)}</a>`).join(''):empty('inbox','No tickets',''))}</div>
+   <div class="stack">${card('Profile',`<div class="tw"><table><tbody>
+     <tr><td style="color:var(--muted)">Registered</td><td>${fdate(u.created_at)}</td></tr><tr><td style="color:var(--muted)">Last sign-in</td><td>${fdt(u.last_sign_in_at)}</td></tr>
+     <tr><td style="color:var(--muted)">Sign-in method</td><td>${u.provider==='google'?'Google':'Email & password'}</td></tr><tr><td style="color:var(--muted)">Email confirmed</td><td>${u.confirmed?'Yes':'No'}</td></tr>
+     <tr><td style="color:var(--muted)">Plan</td><td>Free</td></tr><tr><td style="color:var(--muted)">Payment status</td><td style="color:var(--muted)">Not available</td></tr></tbody></table></div>`)}
+    ${card('Promo codes used',d.redemptions.length?d.redemptions.map(r=>`<div class="list-row"><span class="grow"><b>${esc(r.code)}</b><span>${fdate(r.at)} · ${esc(r.plan||'')}</span></span>−${money(r.discount_cents)}</div>`).join(''):empty('tag','None',''))}</div></div>`}
+ACT['cu-ban']=async b=>{const on=b.dataset.on==='1';if(on&&!await confirmBox('Block this customer?',`<b>${esc(b.dataset.email)}</b> won't be able to sign in until you unblock them. Their data is kept.`,{ok:'Block'}))return;
+  busy(b,async()=>{await callFn('admin',{action:'ban',id:b.dataset.id,on});toast(on?'Customer blocked':'Customer unblocked');route()})};
+ACT['cu-del']=async b=>{if(!await confirmBox('Delete this customer?',`This permanently deletes <b>${esc(b.dataset.email)}</b>'s account, food logs, settings and support tickets. It can't be undone.`,{ok:'Delete permanently',danger:1,typed:b.dataset.email}))return;
+  busy(b,async()=>{await callFn('admin',{action:'delete',id:b.dataset.id});toast('Customer deleted');location.hash='#/customers'})};
+
+// ================= Revenue & Plans =================
+PAGES.revenue=async plan=>{const[plans,o,s]=await Promise.all([loadPlans(),rpc('admin_overview',{p_today:startDay(Date.now()).toISOString()}),series(periodRange('daily'))]);
+  if(plan)return planPage(plans.find(p=>p.id===plan),o,s);
+  const growth=delta(s.now.signups,s.prev.signups);
+  return`<div class="ph"><div><h1>Revenue & Plans</h1><p>Plans, prices and (once checkout exists) revenue.</p></div><div class="acts"><button class="btn pri" data-act="plan-edit">${I('plus')}Add plan</button></div></div>
+  <div class="note acc" style="margin-bottom:16px">${I('info')}<span><b>${NA_PAY}.</b> Nobody can be charged yet, so revenue, MRR, renewals and refunds show as not available instead of €0. Prices you set here are used for promo code previews and are ready for checkout later. Owners never pay.</span></div>
+  <div class="grid g4">${kpi('Total revenue',null,NA_PAY)}${kpi('Monthly recurring revenue',null,NA_PAY)}${kpi('Paying subscribers',null,NA_PAY)}${kpi('Refunds',null,NA_PAY)}</div>
+  <section class="card" style="margin-top:16px"><header><h2>Plan breakdown</h2><span class="help">Click a plan for details</span></header><div class="tw"><table><thead><tr><th>Plan</th><th class="num">Subscribers</th><th class="num">Price</th><th class="num">Revenue</th><th>Growth (30 days)</th><th></th></tr></thead><tbody>
+   ${plans.map(p=>{const free=p.price_cents===0;return`<tr class="link" data-href="#/revenue/${esc(p.id)}"><td><b>${esc(p.name)}</b> <span class="sub">${free?'Everyone starts here':p.on_sale?'Marked on sale · no checkout yet':'Not on sale'}</span></td>
+     <td class="num">${free?num(o.users):'<span style="color:var(--muted)">—</span>'}</td><td class="num">${free?money(0,p.currency):money(p.price_cents,p.currency)+(p.interval?` / ${p.interval}`:'')}</td>
+     <td class="num">${free?money(0,p.currency):'<span style="color:var(--muted)">—</span>'}</td><td>${free?growth||'—':'<span style="color:var(--muted)">Not available</span>'}</td>
+     <td class="num"><button class="btn sm ghost" data-act="plan-edit" data-id="${esc(p.id)}" aria-label="Edit ${esc(p.name)}">${I('edit')}</button></td></tr>`}).join('')}</tbody></table></div>
+   ${plans.some(p=>p.price_cents>0)?'':`<div class="pad"><p class="help">No paid plans yet. Add your Monthly and Yearly plans with their real prices when you've decided them.</p></div>`}</section>
+  <div class="grid g2" style="margin-top:16px">${card('Free vs paid',`<div class="pad">${donut([{label:'Free',value:o.users,color:C1},{label:'Paid',value:0,color:C2}],{label:'Free vs paid',center:num(o.users)})}</div>`)}
+   ${card('Monthly vs yearly subscriptions',empty('card','No subscriptions yet',NA_PAY+'.'))}</div>`};
+function planPage(p,o,s){if(!p)return`<a class="back" href="#/revenue">${I('left')}Revenue & Plans</a>`+empty('card','Plan not found','');const free=p.price_cents===0,n=s.now;
+  return`<a class="back" href="#/revenue">${I('left')}Revenue & Plans</a><div class="ph"><div><h1>${esc(p.name)}</h1><p>${free?'Free plan':`${money(p.price_cents,p.currency)} / ${p.interval||'one-time'}`} · ${p.on_sale?'Marked on sale':'Not on sale'}</p></div><div class="acts"><button class="btn" data-act="plan-edit" data-id="${esc(p.id)}">${I('edit')}Edit plan</button></div></div>
+  <div class="grid g4">${kpi('Subscribers',free?num(o.users):null,free?'All registered users':NA_PAY)}${kpi('Revenue',free?money(0):null,free?'':NA_PAY)}
+   ${kpi('Conversion',null,free?'Needs paid plans':NA_PAY)}${kpi('7-day retention',free&&n.d7_cohort?pct(n.d7_kept,n.d7_cohort):null,free?'New users in the last 30 days who came back after a week':NA_PAY)}</div>
+  <div style="margin-top:16px">${card('Churn',empty('card',free?'Not applicable':'Not available',free?'Free users don\'t churn from a subscription.':NA_PAY+'.'))}</div>`}
+ACT['plan-edit']=async b=>{const p=S.plans.find(x=>x.id===b.dataset.id)||{currency:'EUR',interval:'month',on_sale:false,price_cents:0,sort:S.plans.length};const isNew=!b.dataset.id;
+  modal({title:isNew?'Add plan':'Edit plan',body:`<form id="plan-form" data-form="plan" class="stack" novalidate>
+   <label class="f">Plan name<input type="text" name="name" value="${esc(p.name||'')}" maxlength="60" required autofocus placeholder="e.g. Monthly"></label>
+   <div class="row"><label class="f">Price<input type="number" name="price" min="0" step="0.01" value="${(p.price_cents/100).toFixed(2)}" required ${p.id==='free'?'disabled':''}></label>
+    <label class="f">Currency<input type="text" name="currency" value="${esc(p.currency)}" maxlength="3" pattern="[A-Za-z]{3}" required></label>
+    <label class="f">Billing<select name="interval" ${p.id==='free'?'disabled':''}><option value="month" ${p.interval==='month'?'selected':''}>Monthly</option><option value="year" ${p.interval==='year'?'selected':''}>Yearly</option></select></label></div>
+   <label class="switch"><input type="checkbox" name="on_sale" ${p.on_sale?'checked':''} ${p.id==='free'?'disabled':''}>Mark as on sale</label>
+   <p class="help">Marking a plan on sale doesn't charge anyone. Checkout and payments still need to be built.</p><p class="err" id="plan-err" role="alert"></p></form>`,
+   actions:`${!isNew&&p.id!=='free'?`<button class="btn danger" data-act="plan-del" data-id="${esc(p.id)}" style="margin-right:auto">${I('trash')}Delete</button>`:''}<button class="btn" data-act="modal-close">Cancel</button><button class="btn pri" form="plan-form">Save plan</button>`});
+  $('#plan-form').dataset.id=p.id||''};
+FORM.plan=f=>{const name=f.name.value.trim(),price=Math.round(parseFloat(f.price.value||'0')*100),cur=f.currency.value.trim().toUpperCase(),id=f.dataset.id;
+  if(!name||isNaN(price)||price<0||!/^[A-Z]{3}$/.test(cur))return $('#plan-err').textContent='Check the name, price and 3-letter currency (e.g. EUR).';
+  const row={name,currency:cur};if(id!=='free')Object.assign(row,{price_cents:price,interval:f.interval.value,on_sale:f.on_sale.checked});
+  const btn=$('#modal footer .pri');busy(btn,async()=>{if(id)await run(sb.from('plans').update(row).eq('id',id));
+    else{const slug=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)||'plan';await run(sb.from('plans').insert({...row,id:slug.length<2?slug+'-1':slug,sort:S.plans.length}))}
+    closeModal();toast('Plan saved');route()})};
+ACT['plan-del']=async b=>{closeModal();if(!await confirmBox('Delete this plan?','Promo codes limited to this plan are deleted too. This can\'t be undone.',{ok:'Delete plan',danger:1}))return;
+  busy(b,async()=>{await run(sb.from('plans').delete().eq('id',b.dataset.id));toast('Plan deleted');location.hash='#/revenue';route()})};
+
+// ================= pages: news, coming soon, promo codes =================
+const CATS={news:'News',feature:'Feature Updates',announcement:'Announcements',promotion:'Promotions',nutrition:'Nutrition',notice:'Important Notices'};
+const postState=p=>p.status!=='live'?'draft':new Date(p.publish_at)>new Date()?'scheduled':p.expires_at&&new Date(p.expires_at)<=new Date()?'expired':'published';
+const STATE_CHIP={draft:['Draft',''],scheduled:['Scheduled','info'],published:['Published','ok'],expired:['Expired','warn']};
+const stateChip=s=>chip(...STATE_CHIP[s]);
+const field=(f,k)=>f.elements[k]?.value?.trim()||'';
+function fieldErr(f,name,msg){const el=f.elements[name];if(el){el.setAttribute('aria-invalid','true');el.focus()}const e=$('#form-err');if(e)e.textContent=msg;return false}
+const clearErr=f=>{$$('[aria-invalid]',f).forEach(e=>e.removeAttribute('aria-invalid'));const e=$('#form-err');if(e)e.textContent=''};
+
+// what customers see (same layout as the app's news sheet)
+function previewPost(p){const img=safeUrl(p.cover_url),cta=safeUrl(p.cta_url);
+  return`<div class="phone" aria-label="Preview of how this looks in the Calora app"><div class="scr">${img?`<img class="pv-cover" src="${esc(img)}" alt="">`:''}<div class="pv-body"><span class="pv-cat">${esc(CATS[p.category]||'News')}</span>
+   <h3>${esc(p.title||'Your title')}</h3>${p.subtitle?`<p style="font-weight:700;color:#0E1020">${esc(p.subtitle)}</p>`:''}<p>${esc(p.body||'Your message to Calora users appears here.')}</p>
+   ${p.cta_text&&cta?`<a class="pv-cta" href="${esc(cta)}" target="_blank" rel="noopener noreferrer">${esc(p.cta_text)}</a>`:''}<p style="font-size:12px;color:#5B6073;margin-top:14px">${fdate(p.publish_at||new Date())}</p></div></div></div>`}
+
+// ================= News & Updates =================
+const NW={tab:'all',q:''};let NEWS=[];
+PAGES.news=async id=>{if(id)return newsEditor(id);NEWS=await run(sb.from('posts').select('*').order('updated_at',{ascending:false}).limit(300));
+  const n=k=>NEWS.filter(p=>k==='all'||postState(p)===k).length;
+  return`<div class="ph"><div><h1>News & Updates</h1><p>Posts appear in the Calora app only after you publish them.</p></div><div class="acts"><a class="btn pri" href="#/news/new">${I('plus')}New post</a></div></div>
+  <section class="card"><div class="tabs" role="tablist" style="padding:0 12px;margin:0">${['all','draft','scheduled','published','expired'].map(k=>`<button role="tab" data-act="nw-tab" data-k="${k}" aria-selected="${NW.tab===k}">${k==='all'?'All':STATE_CHIP[k][0]} (${n(k)})</button>`).join('')}</div>
+   <div class="bar"><div class="grow search" style="max-width:none">${I('search')}<input type="search" id="nw-q" value="${esc(NW.q)}" placeholder="Search posts" aria-label="Search posts"></div></div><div id="nw-list">${newsRows()}</div></section>`};
+function newsRows(){const q=NW.q.toLowerCase(),L=NEWS.filter(p=>(NW.tab==='all'||postState(p)===NW.tab)&&(!q||(p.title+' '+(p.subtitle||'')).toLowerCase().includes(q)));
+  return L.length?`<div class="tw"><table><thead><tr><th>Post</th><th class="hide-m">Category</th><th>Status</th><th class="hide-m">Publish date</th><th class="hide-m">Expires</th></tr></thead><tbody>${L.map(p=>`<tr class="link" data-href="#/news/${p.id}">
+   <td style="display:flex;gap:12px;align-items:center">${safeUrl(p.cover_url)?`<img class="thumb" src="${esc(p.cover_url)}" alt="">`:`<span class="thumb" style="display:grid;place-items:center">${I('news')}</span>`}<span><a href="#/news/${p.id}" style="text-decoration:none"><b>${esc(p.title)}</b></a><span class="sub">${esc(p.subtitle||'')}</span></span></td>
+   <td class="hide-m">${esc(CATS[p.category])}</td><td>${stateChip(postState(p))}</td><td class="hide-m">${fdt(p.publish_at)}</td><td class="hide-m">${p.expires_at?fdt(p.expires_at):'—'}</td></tr>`).join('')}</tbody></table></div>`
+   :empty('news',NEWS.length?'No posts here':'No posts yet',NEWS.length?'':'Share news, feature updates and promotions with everyone using Calora.',NEWS.length?'':'<a class="btn pri" href="#/news/new">Write your first post</a>')}
+ACT['nw-tab']=b=>{NW.tab=b.dataset.k;$$('[data-act=nw-tab]').forEach(x=>x.setAttribute('aria-selected',x===b));$('#nw-list').innerHTML=newsRows()};
+MOUNT.news=id=>{if(!id){$('#nw-q').addEventListener('input',e=>{NW.q=e.target.value;$('#nw-list').innerHTML=newsRows()});return}
+  const f=$('#news-form');f.addEventListener('input',()=>{$('#pv').innerHTML=previewPost(newsFromForm(f));$('#pub-btn').textContent=futureDate(f)?'Schedule':'Publish'})};
+const futureDate=f=>f.publish_at.value&&new Date(f.publish_at.value)>new Date(Date.now()+60e3);
+let EDIT=null;
+async function newsEditor(id){const pub=await setting('publishing');EDIT=id==='new'?{status:'draft',category:pub.category||'news',expires_at:pub.expiry_days?new Date(Date.now()+pub.expiry_days*864e5).toISOString():null}:await run(sb.from('posts').select('*').eq('id',id).maybeSingle());
+  if(!EDIT)return`<a class="back" href="#/news">${I('left')}News & Updates</a>`+empty('news','Post not found','It may have been deleted.');const p=EDIT,st=id==='new'?'new':postState(p);
+  return`<a class="back" href="#/news">${I('left')}News & Updates</a><div class="ph"><div><h1>${id==='new'?'New post':'Edit post'}</h1><p>${st==='new'?'Saved as a draft until you publish.':stateChip(st)+(st==='scheduled'?` Goes live ${fdt(p.publish_at)}`:'')}</p></div></div>
+  <div class="grid g-side g-ed"><form class="card pad stack" id="news-form" data-form="news" novalidate>
+   <label class="f">Title<input type="text" name="title" value="${esc(p.title||'')}" maxlength="120" required autofocus></label>
+   <label class="f">Subtitle <small>Optional</small><input type="text" name="subtitle" value="${esc(p.subtitle||'')}" maxlength="200"></label>
+   <label class="f">Body<textarea name="body" maxlength="8000" rows="8">${esc(p.body||'')}</textarea></label>
+   <div class="stack" style="gap:8px"><span style="font-weight:600;font-size:13px">Cover image <small style="color:var(--muted);font-weight:400">Optional · PNG, JPG, WebP or GIF up to 5 MB</small></span>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><label class="btn" style="cursor:pointer">${I('upload')}Upload image<input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-input="news-cover" class="vh"></label>${p.cover_url?'<button type="button" class="btn ghost" data-act="news-nocover">Remove image</button>':''}</div>
+    <input type="url" name="cover_url" value="${esc(p.cover_url||'')}" placeholder="…or paste an https:// image link" aria-label="Cover image link"></div>
+   <div class="row"><label class="f">Category<select name="category">${Object.entries(CATS).map(([k,v])=>`<option value="${k}" ${p.category===k?'selected':''}>${v}</option>`).join('')}</select></label></div>
+   <div class="row"><label class="f">Button text <small>Optional</small><input type="text" name="cta_text" value="${esc(p.cta_text||'')}" maxlength="40" placeholder="e.g. Try it now"></label>
+    <label class="f">Button link<input type="url" name="cta_url" value="${esc(p.cta_url||'')}" placeholder="https://"></label></div>
+   <div class="row"><label class="f">Publish date <small>Empty = when you click Publish</small><input type="datetime-local" name="publish_at" value="${id==='new'?'':toLocalInput(p.publish_at)}"></label>
+    <label class="f">Expires <small>Optional</small><input type="datetime-local" name="expires_at" value="${toLocalInput(p.expires_at)}"></label></div>
+   <p class="err" id="form-err" role="alert"></p>
+   <div style="display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px">
+    ${p.status==='live'?`<button class="btn pri" data-mode="live" data-busy="Saving…">Save changes</button><button type="button" class="btn" data-act="news-unpub">Unpublish</button>`
+     :`<button class="btn pri" id="pub-btn" data-mode="publish" data-busy="Publishing…">${p.publish_at&&new Date(p.publish_at)>new Date()?'Schedule':'Publish'}</button><button class="btn" data-mode="draft" data-busy="Saving…">Save draft</button>`}
+    <button type="button" class="btn ghost hide-d" data-act="news-preview">${I('eye')}Preview</button>${id!=='new'?`<button type="button" class="btn danger" data-act="news-del" style="margin-left:auto">${I('trash')}Delete</button>`:''}</div></form>
+   <aside><div style="position:sticky;top:80px"><p class="help" style="margin:0 0 10px;text-align:center">Live preview: exactly what users see</p><div id="pv">${previewPost(p)}</div></div></aside></div>`}
+function newsFromForm(f){return{title:field(f,'title'),subtitle:field(f,'subtitle')||null,body:f.body.value.trim(),cover_url:field(f,'cover_url')||null,category:f.category.value,
+  cta_text:field(f,'cta_text')||null,cta_url:field(f,'cta_url')||null,publish_at:fromLocalInput(f.publish_at.value),expires_at:fromLocalInput(f.expires_at.value)}}
+FORM.news=async(f,e)=>{clearErr(f);const mode=e.submitter?.dataset.mode||'draft',p=newsFromForm(f);
+  if(!p.title)return fieldErr(f,'title','Add a title.');if(p.cover_url&&!safeUrl(p.cover_url))return fieldErr(f,'cover_url','Image links must start with https://');
+  if(p.cta_url&&!safeUrl(p.cta_url))return fieldErr(f,'cta_url','Button links must start with https://');if(p.cta_text&&!p.cta_url)return fieldErr(f,'cta_url','Add a link for the button, or remove the button text.');
+  if(mode==='publish'&&!p.publish_at)p.publish_at=new Date().toISOString();if(!p.publish_at)p.publish_at=EDIT.publish_at||new Date().toISOString();
+  if(p.expires_at&&new Date(p.expires_at)<=new Date(p.publish_at))return fieldErr(f,'expires_at','The expiry must be after the publish date.');
+  if(mode==='publish'){const later=new Date(p.publish_at)>new Date(Date.now()+60e3);
+    if(!await confirmBox(later?'Schedule this post?':'Publish to everyone?',later?`It appears in the Calora app for all users on <b>${fdt(p.publish_at)}</b>.`:'It appears in the Calora app for all users right away.',{ok:later?'Schedule':'Publish now'}))return;p.status='live'}
+  else if(mode==='draft')p.status='draft';
+  return busy(e.submitter,async()=>{if(EDIT.id){await run(sb.from('posts').update(p).eq('id',EDIT.id));toast(mode==='publish'?'Published':'Saved');route()}
+    else{const r=await run(sb.from('posts').insert(p).select('id').single());toast(mode==='publish'?'Published':'Draft saved');location.replace('#/news/'+r.id)}})};
+INPUT['news-cover']=e=>{const file=e.target.files[0];if(!file)return;const f=$('#news-form');busy(e.target.closest('label'),async()=>{const path=await upload('media',file,'covers');f.cover_url.value=publicUrl(path);f.dispatchEvent(new Event('input'));toast('Image uploaded')})};
+ACT['news-nocover']=()=>{const f=$('#news-form');f.cover_url.value='';f.dispatchEvent(new Event('input'))};
+ACT['news-preview']=()=>modal({title:'Preview',body:previewPost(newsFromForm($('#news-form')))});
+ACT['news-unpub']=async b=>{if(!await confirmBox('Unpublish this post?','It disappears from the Calora app straight away and goes back to drafts.',{ok:'Unpublish'}))return;
+  busy(b,async()=>{await run(sb.from('posts').update({status:'draft'}).eq('id',EDIT.id));toast('Unpublished');route()})};
+ACT['news-del']=async b=>{if(!await confirmBox('Delete this post?','It\'s removed from the app and can\'t be recovered.',{ok:'Delete',danger:1}))return;
+  busy(b,async()=>{await run(sb.from('posts').delete().eq('id',EDIT.id));toast('Post deleted');location.hash='#/news'})};
+
+// ================= Coming Soon / Upcoming Deals =================
+const UCATS={feature:'New feature',deal:'Deal',promotion:'Promotion',event:'Event',update:'Update'};
+const USTAT={planning:['Planning',''],draft:['Draft',''],scheduled:['Scheduled','info'],live:['Live','ok'],completed:['Completed','warn']};
+const inApp=u=>u.visible&&['scheduled','live'].includes(u.status);
+function countdown(d){if(!d)return'';const s=(new Date(d)-Date.now())/1e3;if(s<=0)return'Out now';const dd=Math.floor(s/86400),hh=Math.floor(s%86400/3600),mm=Math.floor(s%3600/60);return dd?`${dd} d ${hh} h`:hh?`${hh} h ${mm} min`:`${mm} min`}
+function previewUpcoming(u){const img=safeUrl(u.image_url),cta=safeUrl(u.cta_url);
+  return`<div class="phone"><div class="scr">${img?`<img class="pv-cover" src="${esc(img)}" alt="">`:''}<div class="pv-body"><span class="pv-cat">Coming soon · ${esc(UCATS[u.category]||'')}</span><h3>${esc(u.name||'Name')}</h3>
+   ${u.release_at?`<p style="font-weight:800;color:#2B50F0">${u.show_countdown?'⏳ '+countdown(u.release_at):fdate(u.release_at)}</p>`:''}<p>${esc(u.description||'Describe what\'s coming.')}</p>
+   ${u.cta_text&&cta?`<a class="pv-cta" href="${esc(cta)}" target="_blank" rel="noopener noreferrer">${esc(u.cta_text)}</a>`:''}</div></div></div>`}
+PAGES.upcoming=async id=>{if(id)return upcomingEditor(id);const L=await run(sb.from('upcoming').select('*').order('release_at',{ascending:true,nullsFirst:false}).limit(200));
+  return`<div class="ph"><div><h1>Coming Soon / Upcoming Deals</h1><p>Plan releases and deals. Items show in the app only when “Show in app” is on and the status is Scheduled or Live.</p></div><div class="acts"><a class="btn pri" href="#/upcoming/new">${I('plus')}New item</a></div></div>
+  ${L.length?`<div class="grid g3">${L.map(u=>`<a class="card" href="#/upcoming/${u.id}" style="text-decoration:none;overflow:hidden">${safeUrl(u.image_url)?`<img src="${esc(u.image_url)}" alt="" style="width:100%;aspect-ratio:16/8;object-fit:cover;display:block">`:''}
+    <div class="pad stack" style="gap:8px"><div style="display:flex;gap:6px;flex-wrap:wrap">${chip(...USTAT[u.status])}${inApp(u)?chip('In the app','acc'):chip('Hidden')}</div><b style="font-size:15px">${esc(u.name)}</b>
+    <span class="help">${esc(UCATS[u.category])}${u.release_at?` · ${fdate(u.release_at)}${u.show_countdown?` · ${countdown(u.release_at)}`:''}`:''}</span></div></a>`).join('')}</div>`
+   :`<section class="card">${empty('cal','Nothing planned yet','Build anticipation for new features, deals and promotions.','<a class="btn pri" href="#/upcoming/new">Plan something</a>')}</section>`}`};
+let UEDIT=null;
+async function upcomingEditor(id){UEDIT=id==='new'?{status:'planning',category:'feature',visible:false}:await run(sb.from('upcoming').select('*').eq('id',id).maybeSingle());
+  if(!UEDIT)return`<a class="back" href="#/upcoming">${I('left')}Coming soon</a>`+empty('cal','Not found','');const u=UEDIT;
+  return`<a class="back" href="#/upcoming">${I('left')}Coming Soon / Deals</a><div class="ph"><div><h1>${id==='new'?'New item':esc(u.name)}</h1><p>${inApp(u)?chip('Showing in the app','acc'):'Not visible in the app'}</p></div></div>
+  <div class="grid g-side g-ed"><form class="card pad stack" id="up-form" data-form="upcoming" novalidate>
+   <label class="f">Name<input type="text" name="name" value="${esc(u.name||'')}" maxlength="120" required autofocus></label>
+   <label class="f">Description<textarea name="description" maxlength="4000" rows="5">${esc(u.description||'')}</textarea></label>
+   <div class="stack" style="gap:8px"><span style="font-weight:600;font-size:13px">Banner image <small style="color:var(--muted);font-weight:400">Optional</small></span>
+    <label class="btn" style="cursor:pointer;justify-self:start">${I('upload')}Upload image<input type="file" accept="image/png,image/jpeg,image/webp,image/gif" data-input="up-img" class="vh"></label>
+    <input type="url" name="image_url" value="${esc(u.image_url||'')}" placeholder="…or paste an https:// image link" aria-label="Banner image link"></div>
+   <div class="row"><label class="f">Release date<input type="datetime-local" name="release_at" value="${toLocalInput(u.release_at)}"></label>
+    <label class="f">Category<select name="category">${Object.entries(UCATS).map(([k,v])=>`<option value="${k}" ${u.category===k?'selected':''}>${v}</option>`).join('')}</select></label>
+    <label class="f">Status<select name="status">${Object.entries(USTAT).map(([k,[v]])=>`<option value="${k}" ${u.status===k?'selected':''}>${v}</option>`).join('')}</select></label></div>
+   <label class="switch"><input type="checkbox" name="show_countdown" ${u.show_countdown?'checked':''}>Show a countdown</label>
+   <label class="switch"><input type="checkbox" name="visible" ${u.visible?'checked':''}>Show in app <small style="font-weight:400;color:var(--muted)">(when Scheduled or Live)</small></label>
+   <div class="row"><label class="f">Button text <small>Optional</small><input type="text" name="cta_text" value="${esc(u.cta_text||'')}" maxlength="40"></label><label class="f">Button link<input type="url" name="cta_url" value="${esc(u.cta_url||'')}" placeholder="https://"></label></div>
+   <p class="err" id="form-err" role="alert"></p>
+   <div style="display:flex;gap:8px;border-top:1px solid var(--line);padding-top:14px"><button class="btn pri" data-busy="Saving…">Save</button>${id!=='new'?`<button type="button" class="btn danger" data-act="up-del" style="margin-left:auto">${I('trash')}Delete</button>`:''}</div></form>
+   <aside><div style="position:sticky;top:80px"><p class="help" style="margin:0 0 10px;text-align:center">Preview in the app</p><div id="pv">${previewUpcoming(u)}</div></div></aside></div>`}
+const upFromForm=f=>({name:field(f,'name'),description:f.description.value.trim(),image_url:field(f,'image_url')||null,release_at:fromLocalInput(f.release_at.value),category:f.category.value,status:f.status.value,
+  show_countdown:f.show_countdown.checked,visible:f.visible.checked,cta_text:field(f,'cta_text')||null,cta_url:field(f,'cta_url')||null});
+MOUNT.upcoming=id=>{if(id){const f=$('#up-form');f.addEventListener('input',()=>$('#pv').innerHTML=previewUpcoming(upFromForm(f)))}};
+FORM.upcoming=async(f,e)=>{clearErr(f);const u=upFromForm(f);if(!u.name)return fieldErr(f,'name','Add a name.');
+  for(const k of['image_url','cta_url'])if(u[k]&&!safeUrl(u[k]))return fieldErr(f,k,'Links must start with https://');if(u.show_countdown&&!u.release_at)return fieldErr(f,'release_at','A countdown needs a release date.');
+  const goingLive=inApp(u)&&!inApp(UEDIT);if(goingLive&&!await confirmBox('Show this in the app?','Everyone using Calora will see it in “Coming soon”.',{ok:'Show in app'}))return;
+  return busy(e.submitter,async()=>{if(UEDIT.id){await run(sb.from('upcoming').update(u).eq('id',UEDIT.id));toast('Saved');route()}else{const r=await run(sb.from('upcoming').insert(u).select('id').single());toast('Saved');location.replace('#/upcoming/'+r.id)}})};
+INPUT['up-img']=e=>{const file=e.target.files[0];if(!file)return;const f=$('#up-form');busy(e.target.closest('label'),async()=>{f.image_url.value=publicUrl(await upload('media',file,'upcoming'));f.dispatchEvent(new Event('input'));toast('Image uploaded')})};
+ACT['up-del']=async b=>{if(!await confirmBox('Delete this item?','It\'s removed from the app and can\'t be recovered.',{ok:'Delete',danger:1}))return;busy(b,async()=>{await run(sb.from('upcoming').delete().eq('id',UEDIT.id));toast('Deleted');location.hash='#/upcoming'})};
+
+// ================= Promo codes =================
+let CODES=[],CSTATS={};
+const codeState=c=>!c.active?['Inactive','']:c.expires_at&&new Date(c.expires_at)<=new Date()?['Expired','warn']:c.max_uses&&(CSTATS[c.id]?.uses||0)>=c.max_uses?['Used up','warn']:['Active','ok'];
+PAGES.promos=async sub=>{await loadPlans();if(sub==='new')return promoNew();[CODES,CSTATS]=await Promise.all([run(sb.from('promo_codes').select('*').order('created_at',{ascending:false})),rpc('admin_promo_stats')]);
+  const pn=id=>id?S.plans.find(p=>p.id===id)?.name||id:'All paid plans';
+  return`<div class="ph"><div><h1>Promo Codes</h1><p>Codes are checked by the server at checkout, so nobody can change a discount in the app.</p></div><div class="acts"><a class="btn pri" href="#/promos/new">${I('plus')}Generate promo code</a></div></div>
+  ${S.plans.some(p=>p.price_cents>0)?'':`<div class="note" style="margin-bottom:16px">${I('info')}<span>No paid plans with prices yet, so codes can't be used by customers. <a href="#/revenue">Add your plans</a> to see real price previews.</span></div>`}
+  <section class="card">${CODES.length?`<div class="tw"><table><thead><tr><th>Code</th><th>Discount</th><th class="hide-m">Plan</th><th class="num">Uses</th><th class="hide-m">Expires</th><th>Status</th><th class="num">Actions</th></tr></thead><tbody>${CODES.map(c=>{const st=CSTATS[c.id]||{};return`<tr>
+   <td><b style="font-family:ui-monospace,Menlo,monospace">${esc(c.code)}</b>${c.email?`<span class="sub">Only for ${esc(c.email)}</span>`:''}</td><td>${c.percent}% off</td><td class="hide-m">${esc(pn(c.plan_id))}</td>
+   <td class="num">${num(st.uses||0)}${c.max_uses?` / ${num(c.max_uses)}`:''}</td><td class="hide-m">${c.expires_at?fdate(c.expires_at):'Never'}</td><td>${chip(...codeState(c))}</td>
+   <td class="num" style="white-space:nowrap"><button class="btn sm ghost" data-act="code-copy" data-code="${esc(c.code)}" aria-label="Copy ${esc(c.code)}">${I('copy')}</button><button class="btn sm ghost" data-act="code-stats" data-id="${c.id}" aria-label="Stats for ${esc(c.code)}">${I('chart')}</button>
+    <button class="btn sm" data-act="code-toggle" data-id="${c.id}" data-on="${c.active?0:1}">${c.active?'Deactivate':'Activate'}</button><button class="btn sm ghost danger" data-act="code-del" data-id="${c.id}" data-code="${esc(c.code)}" aria-label="Delete ${esc(c.code)}">${I('trash')}</button></td></tr>`}).join('')}</tbody></table></div>`
+   :empty('tag','No promo codes yet','Create a discount code for launches, partners or loyal users.','<a class="btn pri" href="#/promos/new">Generate a code</a>')}</section>`};
+const randomCode=()=>{const a='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',b=crypto.getRandomValues(new Uint8Array(8));return[...b].map(x=>a[x%a.length]).join('')};
+const discount=(cents,pct)=>{const d=Math.round(cents*pct/100);return{d,final:cents-d}};
+function pricePreview(planId,pctVal){const paid=S.plans.filter(p=>p.price_cents>0&&(!planId||p.id===planId)),pc=Math.min(100,Math.max(0,parseInt(pctVal)||0));
+  if(!paid.length)return`<div class="note">${I('info')}<span>No paid plan has a price yet. <a href="#/revenue">Add one</a> to preview the discounted price.</span></div>`;
+  return`<div class="tw"><table><thead><tr><th>Plan</th><th class="num">Original</th><th class="num">Discount</th><th class="num">Final price</th></tr></thead><tbody>${paid.map(p=>{const x=discount(p.price_cents,pc);
+    return`<tr><td>${esc(p.name)}${p.on_sale?'':' <span class="sub">not on sale yet</span>'}</td><td class="num">${money(p.price_cents,p.currency)}</td><td class="num">${pc}% · −${money(x.d,p.currency)}</td><td class="num"><b>${money(x.final,p.currency)}</b></td></tr>`}).join('')}</tbody></table></div>`}
+function promoNew(){const paid=S.plans.filter(p=>p.price_cents>0);
+  return`<a class="back" href="#/promos">${I('left')}Promo Codes</a><div class="ph"><div><h1>Generate promo code</h1><p>Set the discount first; the price preview updates as you type.</p></div></div>
+  <div class="grid g2"><form class="card pad stack" id="promo-form" data-form="promo" novalidate>
+   <label class="f">1. Plan<select name="plan_id"><option value="">All eligible (paid) plans</option>${paid.map(p=>`<option value="${esc(p.id)}">${esc(p.name)} (${money(p.price_cents,p.currency)})</option>`).join('')}</select></label>
+   <label class="f">2. Discount (%)<input type="number" name="percent" min="1" max="100" step="1" value="20" required autofocus></label>
+   <div class="f" style="display:grid;gap:6px"><label for="pc-code" style="font-weight:600;font-size:13px">3. Code</label><div style="display:flex;gap:8px"><input type="text" id="pc-code" name="code" maxlength="32" value="${randomCode()}" style="text-transform:uppercase;font-family:ui-monospace,Menlo,monospace" required><button type="button" class="btn" data-act="code-random">${I('refresh')}Random</button></div><small style="color:var(--muted)">Letters, numbers, - and _ (3–32)</small></div>
+   <div class="row"><label class="f">4. Expires <small>Optional</small><input type="datetime-local" name="expires_at"></label><label class="f">5. Max uses <small>Empty = unlimited</small><input type="number" name="max_uses" min="1" step="1"></label></div>
+   <label class="check"><input type="checkbox" name="one_per_customer" checked>6. One redemption per customer</label>
+   <label class="f">7. Only for this email <small>Optional</small><input type="email" name="email" autocomplete="off"></label>
+   <label class="switch"><input type="checkbox" name="active" checked>8. Active right away</label>
+   <p class="err" id="form-err" role="alert"></p><div style="display:flex;gap:8px"><button class="btn pri" data-busy="Creating…">${I('check')}Create code</button><a class="btn" href="#/promos">Cancel</a></div></form>
+   <section class="card"><header><h2>Price preview</h2></header><div class="pad stack"><div id="pc-preview">${pricePreview('',20)}</div><p class="help">Rounded to the nearest cent. The server calculates the same price at checkout.</p></div></section></div>`}
+MOUNT.promos=sub=>{if(sub==='new'){const f=$('#promo-form');f.addEventListener('input',()=>$('#pc-preview').innerHTML=pricePreview(f.plan_id.value,f.percent.value))}};
+ACT['code-random']=()=>{$('#pc-code').value=randomCode()};
+FORM.promo=(f,e)=>{clearErr(f);const code=field(f,'code').toUpperCase(),pc=Number(f.percent.value),max=f.max_uses.value?Number(f.max_uses.value):null,email=field(f,'email').toLowerCase()||null,exp=fromLocalInput(f.expires_at.value);
+  if(!/^[A-Z0-9_-]{3,32}$/.test(code))return fieldErr(f,'code','Codes use 3–32 letters, numbers, - or _.');if(!Number.isInteger(pc)||pc<1||pc>100)return fieldErr(f,'percent','Enter a whole number from 1 to 100.');
+  if(max!=null&&(!Number.isInteger(max)||max<1))return fieldErr(f,'max_uses','Max uses must be a whole number of 1 or more.');if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return fieldErr(f,'email','That email doesn\'t look right.');
+  if(exp&&new Date(exp)<=new Date())return fieldErr(f,'expires_at','The expiry must be in the future.');
+  return busy(e.submitter,async()=>{try{await run(sb.from('promo_codes').insert({code,percent:pc,plan_id:f.plan_id.value||null,expires_at:exp,max_uses:max,one_per_customer:f.one_per_customer.checked,email,active:f.active.checked}))}
+    catch(x){if(/duplicate|unique/i.test(x.message))return fieldErr(f,'code','That code already exists. Try another.');throw x}
+    try{await navigator.clipboard.writeText(code)}catch(_){}toast(`Code ${code} created and copied`);location.hash='#/promos'})};
+ACT['code-copy']=async b=>{try{await navigator.clipboard.writeText(b.dataset.code);toast('Copied '+b.dataset.code)}catch(_){toast('Copy failed. Select the code and copy it manually.',1)}};
+ACT['code-toggle']=b=>busy(b,async()=>{await run(sb.from('promo_codes').update({active:b.dataset.on==='1'}).eq('id',b.dataset.id));toast(b.dataset.on==='1'?'Code activated':'Code deactivated');route()});
+ACT['code-del']=async b=>{if(!await confirmBox(`Delete ${b.dataset.code}?`,'The code stops working and its redemption history is deleted. Deactivating keeps the history.',{ok:'Delete',danger:1}))return;
+  busy(b,async()=>{await run(sb.from('promo_codes').delete().eq('id',b.dataset.id));toast('Code deleted');route()})};
+ACT['code-stats']=b=>{const c=CODES.find(x=>x.id===b.dataset.id),s=CSTATS[c.id]||{uses:0,discount_cents:0,revenue_cents:0,customers:[]};
+  modal({title:`${c.code}: redemptions`,body:`<div class="grid g2">${kpi('Redemptions',num(s.uses))}${kpi('Remaining uses',c.max_uses?num(Math.max(0,c.max_uses-s.uses)):'Unlimited')}${kpi('Revenue generated',money(s.revenue_cents))}${kpi('Discount given',money(s.discount_cents))}</div>
+   <div><b>Customers who used it</b>${s.customers.length?`<ul>${s.customers.map(e=>`<li>${esc(e)}</li>`).join('')}</ul>`:'<p class="help">Nobody yet. Redemptions are recorded at checkout once payments exist.</p>'}</div>`})};
+
+// ================= pages: idea lab, support, activity, settings =================
+const ISTAT={idea:['Idea',''],under_review:['Under review','info'],testing:['Testing','warn'],approved:['Approved','ok'],rejected:['Rejected','bad'],archived:['Archived','']};
+const ICAT={feature:'Feature',growth:'Growth',marketing:'Marketing',design:'Design',nutrition:'Nutrition',business:'Business',other:'Other'};
+const PRI={low:['Low',''],medium:['Medium','info'],high:['High','warn']};
+const opts=(o,v)=>Object.entries(o).map(([k,x])=>`<option value="${k}" ${v===k?'selected':''}>${esc(Array.isArray(x)?x[0]:x)}</option>`).join('');
+const score=i=>(i.idea_votes||[]).reduce((a,v)=>a+v.value,0);
+const aiErr=e=>e.message;
+
+// ================= Idea Lab =================
+const ID={q:'',status:'active',cat:'',pri:'',sort:'newest'};let IDEAS=[];
+PAGES.ideas=async id=>{if(id)return ideaPage(id);IDEAS=await run(sb.from('ideas').select('id,title,description,category,priority,status,author_email,created_at,ai_eval,idea_votes(admin_id,value),idea_comments(count)').order('created_at',{ascending:false}).limit(500));
+  return`<div class="ph"><div><h1>Idea Lab</h1><p>Private to the two of you. Nothing here is ever published.</p></div><div class="acts"><button class="btn pri" data-act="new-idea">${I('plus')}Add idea</button></div></div>
+  <section class="card"><div class="bar"><div class="grow search" style="max-width:none">${I('search')}<input type="search" id="id-q" value="${esc(ID.q)}" placeholder="Search ideas" aria-label="Search ideas"></div>
+   <select data-input="id-f" data-k="status" aria-label="Status" style="width:auto"><option value="active">All except archived</option><option value="all" ${ID.status==='all'?'selected':''}>Everything</option>${opts(ISTAT,ID.status)}</select>
+   <select data-input="id-f" data-k="cat" aria-label="Category" style="width:auto"><option value="">All categories</option>${opts(ICAT,ID.cat)}</select>
+   <select data-input="id-f" data-k="pri" aria-label="Priority" style="width:auto"><option value="">Any priority</option>${opts(PRI,ID.pri)}</select>
+   <select data-input="id-f" data-k="sort" aria-label="Sort" style="width:auto">${opts({newest:'Newest',votes:'Most votes',priority:'Priority'},ID.sort)}</select></div><div id="id-list">${ideaRows()}</div></section>`};
+function ideaRows(){const q=ID.q.toLowerCase(),pr={high:0,medium:1,low:2};let L=IDEAS.filter(i=>(ID.status==='all'||(ID.status==='active'?i.status!=='archived':i.status===ID.status))&&(!ID.cat||i.category===ID.cat)&&(!ID.pri||i.priority===ID.pri)&&(!q||(i.title+' '+i.description).toLowerCase().includes(q)));
+  if(ID.sort==='votes')L=L.sort((a,b)=>score(b)-score(a));if(ID.sort==='priority')L=L.sort((a,b)=>pr[a.priority]-pr[b.priority]);
+  return L.length?L.map(i=>`<a class="list-row" href="#/ideas/${i.id}"><span class="grow"><b>${esc(i.title)}</b><span>${esc(ICAT[i.category])} · ${esc(ADMIN_NAMES[i.author_email]||i.author_email||'')} · ${fdate(i.created_at)} · ${i.idea_comments?.[0]?.count||0} comments${i.ai_eval?' · AI reviewed':''}</span></span>
+   <span class="hide-m">${chip(...PRI[i.priority])}</span>${chip(...ISTAT[i.status])}<span class="chip" title="Vote score">${score(i)>0?'+':''}${score(i)}</span></a>`).join('')
+   :empty('bulb',IDEAS.length?'No ideas match':'No ideas yet',IDEAS.length?'':'Capture feature ideas, growth experiments and anything worth discussing.',IDEAS.length?'':'<button class="btn pri" data-act="new-idea">Add the first idea</button>')}
+MOUNT.ideas=id=>{if(!id)$('#id-q').addEventListener('input',e=>{ID.q=e.target.value;$('#id-list').innerHTML=ideaRows()})};
+INPUT['id-f']=e=>{ID[e.target.dataset.k]=e.target.value;$('#id-list').innerHTML=ideaRows()};
+ACT['new-idea']=()=>modal({title:'Add idea',body:`<form id="idea-form" data-form="idea-new" class="stack" novalidate><label class="f">Title<input type="text" name="title" maxlength="150" required autofocus></label>
+  <label class="f">Description<textarea name="description" maxlength="10000" rows="6" placeholder="What is it, who is it for, why now?"></textarea></label>
+  <div class="row"><label class="f">Category<select name="category">${opts(ICAT,'feature')}</select></label><label class="f">Priority<select name="priority">${opts(PRI,'medium')}</select></label></div><p class="err" id="form-err" role="alert"></p></form>`,
+  actions:`<button class="btn" data-act="modal-close">Cancel</button><button class="btn pri" form="idea-form" data-busy="Saving…">Add idea</button>`});
+FORM['idea-new']=(f,e)=>{clearErr(f);const title=field(f,'title');if(!title)return fieldErr(f,'title','Add a title.');
+  return busy(e.submitter||$('#modal .pri'),async()=>{const r=await run(sb.from('ideas').insert({title,description:f.description.value.trim(),category:f.category.value,priority:f.priority.value}).select('id').single());closeModal();toast('Idea added');location.hash='#/ideas/'+r.id})};
+let IDEA=null;
+async function ideaPage(id){const[i,c]=await Promise.all([run(sb.from('ideas').select('*,idea_votes(admin_id,value)').eq('id',id).maybeSingle()),run(sb.from('idea_comments').select('*').eq('idea_id',id).order('created_at'))]);
+  if(!i)return`<a class="back" href="#/ideas">${I('left')}Idea Lab</a>`+empty('bulb','Idea not found','');IDEA=i;const mine=(i.idea_votes||[]).find(v=>v.admin_id===S.user.id)?.value||0;
+  return`<a class="back" href="#/ideas">${I('left')}Idea Lab</a><div class="ph"><div><h1>${esc(i.title)}</h1><p>${esc(ADMIN_NAMES[i.author_email]||i.author_email||'')} · ${fdate(i.created_at)} · ${chip(...ISTAT[i.status])}</p></div>
+   <div class="acts"><span class="vote" role="group" aria-label="Your vote"><button class="btn sm" data-act="vote" data-v="1" aria-pressed="${mine===1}" aria-label="Vote up">${I('up1')}</button><span class="chip" title="Total score">${score(i)>0?'+':''}${score(i)}</span><button class="btn sm" data-act="vote" data-v="-1" aria-pressed="${mine===-1}" aria-label="Vote down">${I('dn1')}</button></span>
+    ${i.status!=='archived'?`<button class="btn" data-act="idea-archive">Archive</button>`:''}<button class="btn danger" data-act="idea-del">${I('trash')}Delete</button></div></div>
+  <div class="grid g-side"><div class="stack"><form class="card pad stack" id="idea-edit" data-form="idea-edit" novalidate>
+    <label class="f">Title<input type="text" name="title" value="${esc(i.title)}" maxlength="150" required></label><label class="f">Description<textarea name="description" maxlength="10000" rows="7">${esc(i.description)}</textarea></label>
+    <div class="row"><label class="f">Status<select name="status">${opts(ISTAT,i.status)}</select></label><label class="f">Category<select name="category">${opts(ICAT,i.category)}</select></label><label class="f">Priority<select name="priority">${opts(PRI,i.priority)}</select></label></div>
+    <p class="err" id="form-err" role="alert"></p><div><button class="btn pri" data-busy="Saving…">Save changes</button></div></form>
+   ${card('Attachments',`<div class="pad stack">${(i.attachments||[]).length?(i.attachments).map((a,n)=>`<div class="list-row" style="padding:6px 0">${I('clip')}<span class="grow"><b>${esc(a.name)}</b><span>${Math.max(1,Math.round(a.size/1024))} KB · ${esc(ADMIN_NAMES[a.by]||a.by||'')}</span></span><button class="btn sm" data-act="att-open" data-n="${n}">${I('down')}Open</button><button class="btn sm ghost danger" data-act="att-del" data-n="${n}" aria-label="Remove ${esc(a.name)}">${I('trash')}</button></div>`).join(''):'<p class="help">No files yet.</p>'}
+     <label class="btn" style="cursor:pointer;justify-self:start">${I('upload')}Add file<input type="file" class="vh" data-input="att-add"></label><p class="help">Up to 10 MB. Only the two admins can open these.</p></div>`)}
+   ${card(`Comments (${c.length})`,`<div class="thread">${c.length?c.map(m=>`<div class="msg${m.author_id===S.user.id?' me':''}">${esc(m.body)}<small>${esc(ADMIN_NAMES[m.author_email]||m.author_email)} · ${ago(m.created_at)}</small></div>`).join(''):'<p class="help">No comments yet.</p>'}</div>
+     <form class="pad" data-form="comment" style="border-top:1px solid var(--line);display:flex;gap:8px"><label class="vh" for="cm">Comment</label><input type="text" id="cm" name="body" maxlength="4000" placeholder="Write a comment…" required><button class="btn pri" data-busy="…">Post</button></form>`)}</div>
+  <div class="stack">${aiCard(i)}</div></div>`}
+function aiCard(i){const e=i.ai_eval,p=i.ai_personas;
+  return`<section class="card ai"><header><h2>${I('spark')} AI advisor</h2></header><div class="pad stack">
+   <p class="help">AI gives an opinion to help you think. It never approves, publishes or changes anything.</p>
+   <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-act="ai-eval" data-busy="Evaluating…">${I('spark')}Evaluate with AI</button><button class="btn" data-act="ai-personas" data-busy="Asking 5 customers…">${I('users')}Test with 5 AI Customers</button></div>
+   <div id="ai-eval">${e?evalHTML(e,i.ai_eval_at):''}</div><div id="ai-personas">${p?personasHTML(p,i.ai_personas_at,true):''}</div></div></section>`}
+const li=a=>Array.isArray(a)&&a.length?`<ul>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:'<p class="help">—</p>';
+function evalHTML(e,at){const r=String(e.recommendation||''),k=/pursue/i.test(r)?'ok':/testing/i.test(r)?'info':/improvement|later/i.test(r)?'warn':'bad';
+  return`<div class="card pad" style="background:var(--card2)"><div class="help">AI assessment${at?` · saved ${ago(at)}`:''}</div><div class="verdict" style="margin:6px 0">${chip(r||'No verdict',k)}</div><p>${esc(e.summary)}</p>
+   <h4>Problem it solves</h4><p>${esc(e.problem)}</p><h4>Customer value</h4><p>${esc(e.customer_value)}</p><h4>Business value</h4><p>${esc(e.business_value)}</p>
+   <h4>Revenue impact (estimate, not fact)</h4><p>${esc(e.revenue_impact)}</p><h4>Development complexity</h4><p><b>${esc(e.complexity)}</b> · ${esc(e.complexity_reason)}</p>
+   <h4>Advantages</h4>${li(e.advantages)}<h4>Disadvantages</h4>${li(e.disadvantages)}<h4>Risks</h4>${li(e.risks)}<h4>How to improve it</h4>${li(e.improvements)}
+   <h4>Fit with Calora</h4><p>${esc(e.fit)}</p><h4>Why</h4><p>${esc(e.reasoning)}</p></div>`}
+function personasHTML(p,at,saved){const s=p.summary||{};
+  return`<div class="card" style="background:var(--card2)"><div class="pad"><div class="note">${I('info')}<span><b>AI simulation, not real customer research.</b> Use it to spot questions worth asking real users.</span></div>
+   <p class="help" style="margin-top:10px">${saved?`Saved ${ago(at)}`:'Not saved yet'}</p>${saved?'':'<button class="btn pri sm" data-act="ai-save-personas">Save to idea</button>'}</div>
+   ${(p.personas||[]).map(x=>`<div class="persona"><b>${esc(x.name)}</b> · <span class="help" style="display:inline">${esc(x.type)}</span><p class="help">${esc(x.description)}</p>
+    <p><b>First impression:</b> ${esc(x.first_impression)}</p><div class="grid g2" style="gap:8px"><div><b>Likes</b>${li(x.likes)}</div><div><b>Dislikes</b>${li(x.dislikes)}</div></div>
+    <p><b>Would use it:</b> ${esc(x.would_use)}<br><b>Would pay:</b> ${esc(x.would_pay)}<br><b>More interested if:</b> ${esc(x.more_interested_if)}</p><q>${esc(x.quote)}</q></div>`).join('')}
+   <div class="persona"><b>Overall</b><p><b>Sentiment:</b> ${esc(s.sentiment)}</p><p><b>Most popular:</b> ${esc(s.most_popular)}</p><b>Biggest concerns</b>${li(s.concerns)}<b>Common themes</b>${li(s.themes)}<b>Suggested improvements</b>${li(s.improvements)}<p><b>Simulated recommendation:</b> ${esc(s.recommendation)}</p></div></div>`}
+let PERSONAS=null;
+ACT['ai-eval']=b=>busy(b,async()=>{const r=await callFn('admin-ai',{action:'evaluate',id:IDEA.id});await run(sb.from('ideas').update({ai_eval:r.result,ai_eval_at:new Date().toISOString()}).eq('id',IDEA.id));
+  IDEA.ai_eval=r.result;$('#ai-eval').innerHTML=evalHTML(r.result,new Date());toast('AI assessment saved to the idea')});
+ACT['ai-personas']=b=>busy(b,async()=>{const r=await callFn('admin-ai',{action:'personas',id:IDEA.id});PERSONAS=r.result;$('#ai-personas').innerHTML=personasHTML(r.result,null,false)});
+ACT['ai-save-personas']=b=>busy(b,async()=>{await run(sb.from('ideas').update({ai_personas:PERSONAS,ai_personas_at:new Date().toISOString()}).eq('id',IDEA.id));$('#ai-personas').innerHTML=personasHTML(PERSONAS,new Date(),true);toast('Saved to the idea')});
+FORM['idea-edit']=(f,e)=>{clearErr(f);const row={title:field(f,'title'),description:f.description.value.trim(),status:f.status.value,category:f.category.value,priority:f.priority.value};if(!row.title)return fieldErr(f,'title','Add a title.');
+  return busy(e.submitter,async()=>{await run(sb.from('ideas').update(row).eq('id',IDEA.id));toast('Saved');route()})};
+FORM.comment=(f,e)=>{const body=field(f,'body');if(!body)return;return busy(e.submitter,async()=>{await run(sb.from('idea_comments').insert({idea_id:IDEA.id,body}));route()})};
+ACT.vote=b=>busy(b,async()=>{const v=+b.dataset.v,mine=(IDEA.idea_votes||[]).find(x=>x.admin_id===S.user.id)?.value;
+  if(mine===v)await run(sb.from('idea_votes').delete().eq('idea_id',IDEA.id).eq('admin_id',S.user.id));else await run(sb.from('idea_votes').upsert({idea_id:IDEA.id,admin_id:S.user.id,value:v}));route()});
+ACT['idea-archive']=b=>busy(b,async()=>{await run(sb.from('ideas').update({status:'archived'}).eq('id',IDEA.id));toast('Archived');route()});
+ACT['idea-del']=async b=>{if(!await confirmBox('Delete this idea?','Its comments, votes, attachments and AI notes are deleted too. Archive it instead if you might want it later.',{ok:'Delete',danger:1}))return;
+  busy(b,async()=>{const paths=(IDEA.attachments||[]).map(a=>a.path);if(paths.length)await sb.storage.from('idea-files').remove(paths);await run(sb.from('ideas').delete().eq('id',IDEA.id));toast('Idea deleted');location.hash='#/ideas'})};
+INPUT['att-add']=e=>{const file=e.target.files[0];if(!file)return;busy(e.target.closest('label'),async()=>{const path=await upload('idea-files',file,'ideas/'+IDEA.id);
+  const list=[...(IDEA.attachments||[]),{name:file.name.slice(0,120),path,size:file.size,type:file.type,by:S.user.email,at:new Date().toISOString()}];await run(sb.from('ideas').update({attachments:list}).eq('id',IDEA.id));toast('File added');route()})};
+ACT['att-open']=b=>busy(b,async()=>{const a=IDEA.attachments[+b.dataset.n],{data,error}=await sb.storage.from('idea-files').createSignedUrl(a.path,120,{download:a.name});if(error)throw fail(error);location.href=data.signedUrl});
+ACT['att-del']=async b=>{const a=IDEA.attachments[+b.dataset.n];if(!await confirmBox('Remove this file?',`<b>${esc(a.name)}</b> is deleted for both of you.`,{ok:'Remove',danger:1}))return;
+  busy(b,async()=>{await sb.storage.from('idea-files').remove([a.path]);await run(sb.from('ideas').update({attachments:IDEA.attachments.filter((_,n)=>n!==+b.dataset.n)}).eq('id',IDEA.id));toast('File removed');route()})};
+
+// ================= Customer Support Inbox =================
+const SU={tab:'open',q:'',pri:'',who:''};let TICKETS=[];
+const PRIO={low:['Low',''],normal:['Normal',''],high:['High','warn'],urgent:['Urgent','bad']};
+PAGES.support=async id=>{if(id)return ticketPage(id);TICKETS=await run(sb.from('support_tickets').select('*').order('last_message_at',{ascending:false}).limit(500));refreshCounts();
+  const n=k=>TICKETS.filter(t=>k==='all'||t.status===k).length;
+  return`<div class="ph"><div><h1>Customer Support Inbox</h1><p>Messages customers send from the Calora app. Your replies appear in their app.</p></div></div>
+  <section class="card"><div class="tabs" role="tablist" style="padding:0 12px;margin:0">${['open','pending','resolved','all'].map(k=>`<button role="tab" data-act="su-tab" data-k="${k}" aria-selected="${SU.tab===k}">${k[0].toUpperCase()+k.slice(1)} (${n(k)})</button>`).join('')}</div>
+   <div class="bar"><div class="grow search" style="max-width:none">${I('search')}<input type="search" id="su-q" value="${esc(SU.q)}" placeholder="Search subject, name or email" aria-label="Search tickets"></div>
+    <select data-input="su-f" data-k="pri" aria-label="Priority" style="width:auto"><option value="">Any priority</option>${opts(PRIO,SU.pri)}</select>
+    <select data-input="su-f" data-k="who" aria-label="Assigned" style="width:auto"><option value="">Anyone</option><option value="me" ${SU.who==='me'?'selected':''}>Assigned to me</option><option value="none" ${SU.who==='none'?'selected':''}>Unassigned</option></select></div><div id="su-list">${ticketRows()}</div></section>`};
+function ticketRows(){const q=SU.q.toLowerCase(),L=TICKETS.filter(t=>(SU.tab==='all'||t.status===SU.tab)&&(!SU.pri||t.priority===SU.pri)&&(!SU.who||(SU.who==='me'?t.assigned_to===S.user.email:!t.assigned_to))&&(!q||(t.subject+' '+(t.name||'')+' '+(t.email||'')).toLowerCase().includes(q)));
+  return L.length?L.map(t=>`<a class="list-row" href="#/support/${t.id}"><span class="avatar" style="width:32px;height:32px;background:var(--slate);color:var(--text)">${esc(initials(t.name||t.email))}</span><span class="grow"><b>${esc(t.subject)}</b><span>${esc(t.name||'')} ${esc(t.email||'')} · ${ago(t.last_message_at)}${t.last_from_admin?' · you replied':' · waiting for you'}${t.assigned_to?` · ${esc(ADMIN_NAMES[t.assigned_to]||t.assigned_to)}`:''}</span></span>${t.priority!=='normal'?chip(...PRIO[t.priority]):''}${statusChip(t.status)}</a>`).join('')
+   :empty('inbox',TICKETS.length?'No tickets here':'No support tickets yet',TICKETS.length?'':'When customers use Help & support in the app, their messages land here.')}
+ACT['su-tab']=b=>{SU.tab=b.dataset.k;$$('[data-act=su-tab]').forEach(x=>x.setAttribute('aria-selected',x===b));$('#su-list').innerHTML=ticketRows()};
+INPUT['su-f']=e=>{SU[e.target.dataset.k]=e.target.value;$('#su-list').innerHTML=ticketRows()};
+MOUNT.support=id=>{if(!id)$('#su-q').addEventListener('input',e=>{SU.q=e.target.value;$('#su-list').innerHTML=ticketRows()})};
+let TK=null;
+async function ticketPage(id){const[t,msgs,sup,admins]=await Promise.all([run(sb.from('support_tickets').select('*').eq('id',id).maybeSingle()),run(sb.from('support_messages').select('*').eq('ticket_id',id).order('created_at')),setting('support'),rpc('admin_list')]);
+  if(!t)return`<a class="back" href="#/support">${I('left')}Support Inbox</a>`+empty('inbox','Ticket not found','');TK=t;const cust=await rpc('admin_customer',{p_id:t.user_id}).catch(()=>null),u=cust?.user;
+  const tpl=(sup.templates||[]),ai=(await aiReady());
+  return`<a class="back" href="#/support">${I('left')}Support Inbox</a><div class="ph"><div><h1>${esc(t.subject)}</h1><p>${esc(t.name||'')} ${esc(t.email||'')} · opened ${fdt(t.created_at)}</p></div>
+   <div class="acts">${t.status==='resolved'?`<button class="btn" data-act="tk-status" data-s="open">Reopen</button>`:`<button class="btn pri" data-act="tk-status" data-s="resolved">${I('check')}Resolve</button>`}</div></div>
+  <div class="grid g-side"><div class="stack"><section class="card"><header><h2>Conversation</h2>${ai?`<button class="btn sm" data-act="tk-sum" data-busy="Summarizing…">${I('spark')}Summarize</button>`:''}</header><div id="tk-sum"></div>
+    <div class="thread">${msgs.map(m=>`<div class="msg${m.internal?' note-msg':m.from_admin?' me':''}">${m.internal?'<b>Internal note</b> (the customer can\'t see this)\n':''}${esc(m.body)}<small>${m.internal||m.from_admin?'Calora team':esc(t.name||'Customer')} · ${fdt(m.created_at)}</small></div>`).join('')}</div></section>
+   <section class="card"><header><h2>Reply</h2><select data-input="tk-tpl" aria-label="Insert a reply template" style="width:auto"><option value="">Insert template…</option>${tpl.map((x,n)=>`<option value="${n}">${esc(x.name)}</option>`).join('')}</select></header>
+    <div class="pad stack"><label class="vh" for="tk-text">Reply</label><textarea id="tk-text" rows="7" maxlength="5000" placeholder="Write your reply… The customer sees it in the Calora app."></textarea>
+     ${ai?`<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><select id="tk-tone" aria-label="Tone" style="width:auto">${opts({friendly:'Friendly',professional:'Professional',empathetic:'Empathetic',short:'Short',formal:'Formal'},(await setting('ai')).tone||'friendly')}</select>
+      <input type="text" id="tk-note" placeholder="Optional instruction for the AI, e.g. offer to look into it" style="flex:1;min-width:180px"><button class="btn" data-act="tk-draft" data-busy="Drafting…">${I('spark')}Draft with AI</button><button class="btn" data-act="tk-tone" data-busy="Rewriting…">Adjust tone</button></div>
+      <p class="help">AI only fills in the box. Nothing is sent until you click Send.</p>`:`<p class="help">AI drafting turns on after you add an Anthropic API key (Settings → AI).</p>`}
+     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn pri" data-act="tk-send" data-busy="Sending…">${I('check')}Send reply</button><button class="btn" data-act="tk-note-add" data-busy="Saving…">Add internal note</button><button class="btn ghost" data-act="tk-email">${I('mail')}Also email</button></div>
+     <p class="help">“Also email” opens your mail app with this text, addressed to ${esc(t.email||'the customer')}.</p></div></section></div>
+   <div class="stack"><section class="card"><header><h2>Ticket</h2></header><div class="pad stack">
+    <label class="f">Status<select data-input="tk-set" data-k="status">${opts({open:'Open',pending:'Pending',resolved:'Resolved'},t.status)}</select></label>
+    <label class="f">Priority<select data-input="tk-set" data-k="priority">${opts(PRIO,t.priority)}</select></label>
+    <label class="f">Assigned to<select data-input="tk-set" data-k="assigned_to"><option value="">Nobody</option>${admins.map(a=>`<option value="${esc(a.email)}" ${t.assigned_to===a.email?'selected':''}>${esc(ADMIN_NAMES[a.email]||a.email)}</option>`).join('')}</select></label></div></section>
+   ${card('Customer',u?`<div class="pad stack" style="gap:6px"><b>${esc(u.name||'No name')}</b><span class="help">${esc(u.email)}</span><span class="help">Joined ${fdate(u.created_at)} · ${num(u.days_logged)} days logged · last active ${ago(u.last_active)}</span>
+     <a class="btn sm" href="#/customers/${u.id}" style="justify-self:start">View profile</a></div>${cust.tickets.length>1?`<div style="border-top:1px solid var(--line)">${cust.tickets.filter(x=>x.id!==t.id).map(x=>`<a class="list-row" href="#/support/${x.id}"><span class="grow"><b>${esc(x.subject)}</b><span>${fdate(x.created_at)}</span></span>${statusChip(x.status)}</a>`).join('')}</div>`:''}`:empty('users','Customer not found',''))}</div></div>`}
+async function aiReady(){if(S.aiReady==null){try{S.aiReady=(await callFn('admin-ai',{action:'status'})).configured}catch(_){S.aiReady=false}}return S.aiReady}
+INPUT['tk-tpl']=e=>{const t=(S.settings.support?.templates||[])[e.target.value];if(t){const ta=$('#tk-text'),sig=S.settings.support?.signature;ta.value=(ta.value?ta.value+'\n\n':'')+t.body+(sig&&!ta.value.includes(sig)?`\n\n${sig}`:'');ta.focus()}e.target.value=''};
+INPUT['tk-set']=e=>{const k=e.target.dataset.k,v=e.target.value||null;busy(null,async()=>{await run(sb.from('support_tickets').update({[k]:v}).eq('id',TK.id));TK[k]=v;toast('Ticket updated');refreshCounts()})};
+ACT['tk-status']=b=>busy(b,async()=>{await run(sb.from('support_tickets').update({status:b.dataset.s}).eq('id',TK.id));toast(b.dataset.s==='resolved'?'Resolved':'Reopened');refreshCounts();route()});
+async function addMsg(b,internal){const body=$('#tk-text').value.trim();if(!body){$('#tk-text').focus();return toast('Write something first',1)}
+  if(!internal&&!await confirmBox('Send this reply?',`${esc(TK.name||'The customer')} will see it in the Calora app.`,{ok:'Send reply'}))return;
+  return busy(b,async()=>{await run(sb.from('support_messages').insert({ticket_id:TK.id,body,internal}));toast(internal?'Note added':'Reply sent');route()})}
+ACT['tk-send']=b=>addMsg(b,false);ACT['tk-note-add']=b=>addMsg(b,true);
+ACT['tk-email']=()=>{const body=$('#tk-text').value.trim();location.href=`mailto:${encodeURIComponent(TK.email||'')}?subject=${encodeURIComponent('Re: '+TK.subject)}&body=${encodeURIComponent(body)}`};
+ACT['tk-draft']=b=>busy(b,async()=>{const ta=$('#tk-text');if(ta.value.trim()&&!await confirmBox('Replace your text?','The AI draft replaces what\'s in the reply box.',{ok:'Replace'}))return;
+  const r=await callFn('admin-ai',{action:'draft',id:TK.id,tone:$('#tk-tone').value,note:$('#tk-note').value.trim()});ta.value=r.text;ta.focus();toast('Draft ready. Review it before sending.')});
+ACT['tk-tone']=b=>busy(b,async()=>{const ta=$('#tk-text');if(!ta.value.trim())return toast('Write or draft a reply first',1);const r=await callFn('admin-ai',{action:'tone',text:ta.value,tone:$('#tk-tone').value});ta.value=r.text;toast('Tone adjusted')});
+ACT['tk-sum']=b=>busy(b,async()=>{const r=await callFn('admin-ai',{action:'summarize',id:TK.id});$('#tk-sum').innerHTML=`<div class="pad" style="border-bottom:1px solid var(--line);white-space:pre-wrap"><b>AI summary</b>\n${esc(r.text)}</div>`});
+
+// ================= Activity Log =================
+const AL={page:0,admin:'',type:'',q:''};
+PAGES.activity=async()=>{let qy=sb.from('admin_activity').select('*',{count:'exact'}).order('created_at',{ascending:false}).range(AL.page*50,AL.page*50+49);
+  if(AL.admin)qy=qy.eq('admin_email',AL.admin);if(AL.type)qy=qy.eq('item_type',AL.type);if(AL.q)qy=qy.ilike('item_label',`%${AL.q.replace(/[%_]/g,'')}%`);
+  const[{rows,count},admins]=await Promise.all([run(qy),rpc('admin_list')]);const pages=Math.max(1,Math.ceil(count/50));
+  return`<div class="ph"><div><h1>Activity Log</h1><p>Every important admin action, recorded by the database. Entries can't be edited or deleted.</p></div></div>
+  <section class="card"><form class="bar" data-form="al"><div class="grow search" style="max-width:none">${I('search')}<input type="search" name="q" value="${esc(AL.q)}" placeholder="Search item names" aria-label="Search activity"></div>
+   <select name="admin" aria-label="Admin" style="width:auto"><option value="">Both admins</option>${admins.map(a=>`<option value="${esc(a.email)}" ${AL.admin===a.email?'selected':''}>${esc(a.email)}</option>`).join('')}</select>
+   <select name="type" aria-label="Type" style="width:auto"><option value="">Everything</option>${opts({session:'Sign-ins',posts:'News',upcoming:'Coming soon',promo_codes:'Promo codes',plans:'Plans',ideas:'Ideas',support_tickets:'Tickets',support_messages:'Replies',customer:'Customers',admin_settings:'Settings'},AL.type)}</select><button class="btn">Filter</button></form>
+   ${rows.length?`<div class="tw"><table><thead><tr><th>When</th><th>Admin</th><th>What happened</th><th class="hide-m">Item</th></tr></thead><tbody>${rows.map(a=>`<tr><td style="white-space:nowrap">${fdt(a.created_at)}</td><td>${esc(a.admin_email||'—')}</td><td>${actText(a)}</td><td class="hide-m">${actLink(a)?`<a href="${esc(actLink(a))}">Open</a>`:'—'}</td></tr>`).join('')}</tbody></table></div>
+    <div class="pager"><span>${num(count)} entries</span><span style="display:flex;gap:6px"><button class="btn sm" data-act="al-page" data-d="-1" ${AL.page?'':'disabled'}>${I('left')}Newer</button><button class="btn sm" data-act="al-page" data-d="1" ${AL.page+1<pages?'':'disabled'}>Older${I('right')}</button></span></div>`
+    :empty('list','No activity matches','')}</section>`};
+FORM.al=f=>{AL.q=field(f,'q');AL.admin=f.admin.value;AL.type=f.type.value;AL.page=0;route()};
+ACT['al-page']=b=>{AL.page=Math.max(0,AL.page+ +b.dataset.d);route()};
+
+// ================= Settings =================
+const STABS={access:'Admin access',app:'App configuration',notifications:'Notifications',branding:'Branding',ai:'AI',support:'Support',publishing:'Content publishing',security:'Security'};
+PAGES.settings=async tab=>{tab=STABS[tab]?tab:'access';const body=await({access:setAccess,app:setApp,notifications:setNotif,branding:setBrand,ai:setAI,support:setSupport,publishing:setPublishing,security:setSecurity})[tab]();
+  return`<div class="ph"><div><h1>Settings</h1></div></div><nav class="tabs" aria-label="Settings sections">${Object.entries(STABS).map(([k,v])=>`<a href="#/settings/${k}" ${k===tab?'aria-current="page"':''}>${v}</a>`).join('')}</nav>${body}`};
+async function setAccess(){const a=await rpc('admin_list');
+  return`<div class="stack">${card('Admin accounts',`<div class="tw"><table><thead><tr><th>Email</th><th>Role</th><th>Account</th><th>Two-factor</th></tr></thead><tbody>${a.map(x=>`<tr><td><b>${esc(x.email)}</b></td><td>${chip('Owner','acc')}</td><td>${x.signed_up?chip('Active','ok'):chip('Not signed up yet','warn')}</td><td>${x.two_factor?chip('On','ok'):chip('Off')}</td></tr>`).join('')}</tbody></table></div>`)}
+   <div class="note">${I('shield')}<span><b>Only these two accounts can open the admin panel.</b> The database checks this on every request, so changing the website can't get around it. Customers can never become admins.
+    The list can't be edited from here on purpose: to change it, an owner runs a short command in Supabase → SQL Editor (it's in <code>supabase/admin_panel.sql</code>, section 1). Both accounts are Owners with the same full access; every action is recorded in the Activity Log.</span></div></div>`}
+async function setApp(){const v=await setting('app');
+  return`<form class="card pad stack" data-form="set-app" style="max-width:640px"><p class="help">These change what customers see in the Calora app.</p>
+   <label class="switch"><input type="checkbox" name="news_enabled" ${v.news_enabled!==false?'checked':''}>Show “News & updates” in the app</label>
+   <label class="switch"><input type="checkbox" name="support_enabled" ${v.support_enabled!==false?'checked':''}>Let signed-in customers message support from the app</label>
+   <label class="f">Support email shown in the app<input type="email" name="support_email" value="${esc(v.support_email||'')}" required></label><p class="err" id="form-err" role="alert"></p><div><button class="btn pri" data-busy="Saving…">Save</button></div></form>`}
+FORM['set-app']=(f,e)=>{clearErr(f);const email=field(f,'support_email');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return fieldErr(f,'support_email','Enter a valid email.');
+  return busy(e.submitter,async()=>{await saveSetting('app',{news_enabled:f.news_enabled.checked,support_enabled:f.support_enabled.checked,support_email:email});toast('Saved. Customers see this the next time they open the app.')})};
+async function setNotif(){const k=(await setting('notify:'+S.user.id)).kinds||{};
+  return`<form class="card pad stack" data-form="set-notif" style="max-width:640px"><p class="help">Choose what shows in your notification bell. This only affects you.</p>
+   ${[['customer','New customers'],['ticket','New support tickets'],['reply','Customer replies to tickets'],['redemption','Promo code redemptions'],['milestone','Growth milestones'],['subscription','Subscription events (once payments exist)'],['payment','Payment events (once payments exist)']].map(([x,l])=>`<label class="switch"><input type="checkbox" name="${x}" ${k[x]!==false?'checked':''}>${l}</label>`).join('')}
+   <div><button class="btn pri" data-busy="Saving…">Save</button></div></form>`}
+FORM['set-notif']=(f,e)=>busy(e.submitter,async()=>{const kinds={};for(const x of['customer','ticket','reply','redemption','milestone','subscription','payment'])kinds[x]=f[x].checked;await saveSetting('notify:'+S.user.id,{kinds});await refreshNotifs();toast('Saved')});
+async function setBrand(){const sw=(c,l)=>`<div style="display:flex;gap:10px;align-items:center"><span style="width:28px;height:28px;border-radius:6px;background:${c};border:1px solid var(--line)"></span><span><b>${l}</b><br><code>${c}</code></span></div>`;
+  return`<div class="grid g2">${card('Calora brand',`<div class="pad stack"><div style="display:flex;gap:14px;align-items:center">${LOGO(56)}<div><b style="font-size:18px">Calora</b><p class="help">Snap. Track. Thrive.</p></div></div>
+   <div class="grid g2">${sw('#F4F0E9','Logo tile')}${sw('#141414','Logo bars')}${sw('#2B50F0','App blue')}${sw('#4A68F5','App blue (light)')}</div></div>`)}
+   ${card('Admin panel palette',`<div class="pad grid g2">${sw('#0A0D14','Near-black')}${sw('#111B2B','Deep navy')}${sw('#242D3B','Slate blue')}${sw('#681B25','Dark crimson')}</div>`)}</div>
+   <div class="note" style="margin-top:16px">${I('info')}<span>This is a reference. Changing the app's look is a design change in the code, so it isn't a switch here.</span></div>`}
+async function setAI(){const[v,ok]=await Promise.all([setting('ai'),aiReady()]);
+  return`<div class="stack" style="max-width:720px"><div class="note ${ok?'':'acc'}">${I(ok?'check':'info')}<span>${ok?'<b>AI is connected.</b> Idea evaluations, AI customers and reply drafts are ready.':`<b>AI isn't connected yet.</b> To turn it on:<ol style="margin:6px 0 0;padding-left:18px"><li>Create an API key at <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> (it's pay-as-you-go).</li><li>In Supabase, open Edge Functions → Secrets and add <code>ANTHROPIC_API_KEY</code> with that key.</li><li>Come back and refresh this page.</li></ol>The key stays on the server and never appears in the app.`}</span></div>
+   <form class="card pad stack" data-form="set-ai"><label class="f">Model<select name="model">${opts({'claude-sonnet-5-5':'Claude Sonnet 5.5 (balanced, recommended)','claude-haiku-5-5':'Claude Haiku 5.5 (fastest, cheapest)','claude-opus-5-5':'Claude Opus 5.5 (most thorough)'},v.model||'claude-sonnet-5-5')}</select></label>
+    <label class="f">Default reply tone<select name="tone">${opts({friendly:'Friendly',professional:'Professional',empathetic:'Empathetic',short:'Short',formal:'Formal'},v.tone||'friendly')}</select></label>
+    <p class="help">AI never publishes, sends or approves anything. You always review its text first.</p><div><button class="btn pri" data-busy="Saving…">Save</button></div></form></div>`}
+FORM['set-ai']=(f,e)=>busy(e.submitter,async()=>{await saveSetting('ai',{model:f.model.value,tone:f.tone.value});toast('Saved')});
+async function setSupport(){const v=await setting('support'),t=v.templates||[];
+  return`<form class="card pad stack" data-form="set-support" style="max-width:760px"><label class="f">Signature<input type="text" name="signature" value="${esc(v.signature||'')}" maxlength="120"></label>
+   <div><b>Reply templates</b><div id="tpls" class="stack" style="margin-top:8px">${t.map(tplRow).join('')}</div><button type="button" class="btn sm" data-act="tpl-add" style="margin-top:8px">${I('plus')}Add template</button></div>
+   <div class="note">${I('mail')}<span><b>How replies reach customers:</b> replies show up inside the customer's Calora app (Profile → Help & support). “Also email” opens your own mail app.
+    Sending emails automatically from the panel needs an email provider (for example Resend) and a domain you own. Tell Claude when you have one and it can be connected.</span></div><div><button class="btn pri" data-busy="Saving…">Save</button></div></form>`}
+const tplRow=(x={})=>`<div class="card pad stack tpl" style="background:var(--card2);gap:8px"><input type="text" name="tname" value="${esc(x.name||'')}" placeholder="Template name" maxlength="60" aria-label="Template name"><textarea name="tbody" rows="3" maxlength="2000" placeholder="Template text" aria-label="Template text">${esc(x.body||'')}</textarea><button type="button" class="btn sm ghost danger" data-act="tpl-del" style="justify-self:start">${I('trash')}Remove</button></div>`;
+ACT['tpl-add']=()=>$('#tpls').insertAdjacentHTML('beforeend',tplRow());ACT['tpl-del']=b=>b.closest('.tpl').remove();
+FORM['set-support']=(f,e)=>busy(e.submitter,async()=>{const templates=$$('.tpl',f).map(r=>({name:r.querySelector('[name=tname]').value.trim(),body:r.querySelector('[name=tbody]').value.trim()})).filter(x=>x.name&&x.body);
+  await saveSetting('support',{signature:field(f,'signature'),templates});toast('Saved')});
+async function setPublishing(){const v=await setting('publishing');
+  return`<form class="card pad stack" data-form="set-pub" style="max-width:640px"><p class="help">Defaults for new news posts. You can change them on each post.</p>
+   <label class="f">Default category<select name="category">${opts(CATS,v.category||'news')}</select></label><label class="f">Expire posts after (days) <small>Empty = never</small><input type="number" name="expiry_days" min="1" max="365" value="${v.expiry_days||''}"></label>
+   <div class="note">${I('shield')}<span>Nothing is ever published automatically. Every post needs you to click Publish and confirm.</span></div><div><button class="btn pri" data-busy="Saving…">Save</button></div></form>`}
+FORM['set-pub']=(f,e)=>busy(e.submitter,async()=>{const d=f.expiry_days.value?Math.min(365,Math.max(1,parseInt(f.expiry_days.value))):null;await saveSetting('publishing',{category:f.category.value,expiry_days:d});toast('Saved')});
+async function setSecurity(){const{data}=await sb.auth.mfa.listFactors(),f=data?.totp?.find(x=>x.status==='verified');S.factor=f||null;
+  return`<div class="stack" style="max-width:720px">${card('Two-factor authentication',`<div class="pad stack">${f?`<p>${chip('On','ok')} You enter a code from your authenticator app when you sign in to the admin panel.</p><div><button class="btn danger" data-act="mfa-off">Turn off two-factor</button></div>`
+     :`<p class="help">Adds a 6-digit code from an authenticator app (Google Authenticator, 1Password, Authy…) every time you sign in. Strongly recommended for admin accounts.</p><div><button class="btn pri" data-act="mfa-on">${I('shield')}Turn on two-factor</button></div>`}</div>`)}
+   ${card('Session',`<div class="pad stack"><p>Signed in as <b>${esc(S.user.email)}</b> with ${S.user.app_metadata?.provider==='google'?'Google':'email & password'} · last sign-in ${fdt(S.user.last_sign_in_at)}</p>
+     <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" data-act="signout">${I('out')}Sign out</button><button class="btn danger" data-act="signout-all">Sign out on all devices</button></div>
+     <p class="help">Signing out here also signs you out of the Calora app in this browser.</p></div>`)}</div>`}
+ACT['mfa-on']=b=>busy(b,async()=>{const{data,error}=await sb.auth.mfa.enroll({factorType:'totp',friendlyName:'Calora admin '+new Date().toISOString().slice(0,10)});if(error)throw fail(error);
+  modal({title:'Turn on two-factor',body:`<ol style="margin:0;padding-left:18px;display:grid;gap:8px"><li>Open your authenticator app and scan this code.</li><li>Enter the 6-digit code it shows.</li></ol>
+   <img class="qr" src="${esc(data.totp.qr_code)}" alt="QR code for your authenticator app"><p class="help" style="text-align:center">Can't scan? Enter this key: <code>${esc(data.totp.secret)}</code></p>
+   <form id="mfa-form" data-form="mfa-verify" data-factor="${esc(data.id)}"><label class="f">6-digit code<input type="text" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required autofocus></label><p class="err" id="form-err" role="alert"></p></form>`,
+   actions:`<button class="btn" data-act="mfa-cancel" data-factor="${esc(data.id)}">Cancel</button><button class="btn pri" form="mfa-form" data-busy="Checking…">Turn on</button>`})});
+FORM['mfa-verify']=(f,e)=>{const code=field(f,'code');if(!/^\d{6}$/.test(code))return fieldErr(f,'code','Enter the 6 digits from your app.');
+  return busy(e.submitter||$('#modal .pri'),async()=>{const{error}=await sb.auth.mfa.challengeAndVerify({factorId:f.dataset.factor,code});if(error)return fieldErr(f,'code','That code didn\'t work. Check the time on your phone and try the newest code.');
+    closeModal();toast('Two-factor is on');route()})};
+ACT['mfa-cancel']=async b=>{await sb.auth.mfa.unenroll({factorId:b.dataset.factor}).catch(()=>{});closeModal()};
+ACT['mfa-off']=async b=>{if(!await confirmBox('Turn off two-factor?','Your admin account will be protected by your password or Google sign-in only.',{ok:'Turn off',danger:1}))return;
+  busy(b,async()=>{const{error}=await sb.auth.mfa.unenroll({factorId:S.factor.id});if(error)throw fail(error);await sb.auth.refreshSession();toast('Two-factor is off');route()})};
+
+// ================= sign-in, routing, events =================
+const TITLES={overview:'Overview',analytics:'Analytics & Growth',customers:'Customers',revenue:'Revenue & Plans',news:'News & Updates',upcoming:'Coming Soon / Deals',promos:'Promo Codes',ideas:'Idea Lab',support:'Support Inbox',activity:'Activity Log',settings:'Settings'};
+let routeSeq=0,poll=null;
+async function route(){if(!S.entered)return;const[name='overview',a,b]=location.hash.replace(/^#\/?/,'').split('/').map(decodeURIComponent);
+  if(!PAGES[name]){location.replace('#/overview');return}setCurrent(name);closeMenu();closePop();
+  const page=$('#page'),my=++routeSeq;page.innerHTML=skel(5);document.title=`${TITLES[name]} — Calora Admin`;
+  try{const html=await PAGES[name](a,b);if(my!==routeSeq)return;page.innerHTML=html;MOUNT[name]?.(a,b)}
+  catch(e){if(my!==routeSeq)return;console.error(e);page.innerHTML=`<section class="card">${empty('info','Couldn\'t load this page',esc(e.message||'Something went wrong.'),'<button class="btn" data-act="retry">Try again</button>')}</section>`}
+  page.focus({preventScroll:true});scrollTo(0,0)}
+ACT.retry=()=>route();
+
+// ---------- screens before the panel ----------
+function loginView(msg=''){S.entered=false;clearInterval(poll);document.documentElement.dataset.theme=lsGet('adm:theme')||'dark';document.title='Sign in — Calora Admin';
+  $('#root').innerHTML=`<main class="login"><div class="card"><div style="display:flex;gap:12px;align-items:center">${LOGO(42)}<div><h1>Calora Admin</h1><p class="help">Private. Authorized accounts only.</p></div></div>
+   ${msg?`<div class="note acc" role="alert">${I('info')}<span>${msg}</span></div>`:''}
+   <button class="btn" data-act="google" style="min-height:44px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.9-5.5 3.9-3.3 0-6-2.7-6-6.1s2.7-6.1 6-6.1c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.7 3.3 14.6 2.4 12 2.4 6.7 2.4 2.4 6.7 2.4 12s4.3 9.6 9.6 9.6c5.5 0 9.2-3.9 9.2-9.4 0-.6-.1-1.1-.2-1.6H12z"/></svg>Continue with Google</button>
+   <div class="or">or</div><form data-form="login" class="stack" novalidate><label class="f">Email<input type="email" name="email" autocomplete="username" required></label>
+    <label class="f">Password<input type="password" name="password" autocomplete="current-password" required></label><p class="err" id="form-err" role="alert"></p><button class="btn pri" data-busy="Signing in…">Sign in</button></form>
+   <div style="display:flex;justify-content:space-between;gap:8px"><button class="btn ghost sm" data-act="forgot">Forgot password?</button><a class="btn ghost sm" href="./">← Back to Calora</a></div></div></main>`}
+function deniedView(email,needs2fa){S.entered=false;$('#root').innerHTML=`<main class="login"><div class="card"><div style="display:flex;gap:12px;align-items:center">${LOGO(42)}<h1>No admin access</h1></div>
+  <p><b>${esc(email)}</b> ${needs2fa?'needs to finish two-factor sign-in.':'isn\'t an admin account. Only the two Calora owners can open this page.'}</p>
+  <button class="btn pri" data-act="signout">Use a different account</button><a class="btn ghost" href="./">← Back to Calora</a><p class="help">“Use a different account” also signs you out of the Calora app in this browser.</p></div></main>`}
+async function mfaView(){S.entered=false;const{data}=await sb.auth.mfa.listFactors(),f=data?.totp?.find(x=>x.status==='verified');if(!f)return deniedView(S.user.email,true);
+  $('#root').innerHTML=`<main class="login"><form class="card" data-form="mfa-login" data-factor="${esc(f.id)}"><div style="display:flex;gap:12px;align-items:center">${LOGO(42)}<div><h1>Two-factor code</h1><p class="help">${esc(S.user.email)}</p></div></div>
+   <label class="f">6-digit code from your authenticator app<input type="text" name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required autofocus></label>
+   <p class="err" id="form-err" role="alert"></p><button class="btn pri" data-busy="Checking…">Continue</button><button type="button" class="btn ghost" data-act="signout">Cancel and sign out</button></form></main>`;$('#root input').focus()}
+FORM['mfa-login']=(f,e)=>{const code=field(f,'code');if(!/^\d{6}$/.test(code))return fieldErr(f,'code','Enter the 6 digits from your app.');
+  return busy(e.submitter,async()=>{const{data,error}=await sb.auth.mfa.challengeAndVerify({factorId:f.dataset.factor,code});if(error)return fieldErr(f,'code','That code didn\'t work. Try the newest one.');enter(data?.session||(await sb.auth.getSession()).data.session,true)})};
+FORM.login=(f,e)=>{clearErr(f);const email=field(f,'email'),password=f.password.value;if(!email)return fieldErr(f,'email','Enter your email.');if(!password)return fieldErr(f,'password','Enter your password.');
+  return busy(e.submitter,async()=>{const{error}=await sb.auth.signInWithPassword({email,password});
+    if(error)return fieldErr(f,'password',/confirm/i.test(error.message)?'Confirm your email address first (check your inbox).':/invalid/i.test(error.message)?'Wrong email or password.':error.message)})};
+ACT.google=b=>busy(b,async()=>{const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname}});if(error)throw fail(error)});
+ACT.forgot=()=>{modal({title:'Reset password',body:`<form id="fp" data-form="forgot" class="stack"><label class="f">Email<input type="email" name="email" required autofocus></label><p class="help">We'll email a link to set a new password in the Calora app.</p></form>`,
+  actions:`<button class="btn" data-act="modal-close">Cancel</button><button class="btn pri" form="fp" data-busy="Sending…">Send link</button>`})};
+FORM.forgot=(f,e)=>busy(e.submitter||$('#modal .pri'),async()=>{await sb.auth.resetPasswordForEmail(field(f,'email'),{redirectTo:location.origin+'/?flow=recovery'});closeModal();toast('If that email has an account, a reset link is on its way.')});
+
+// ---------- entering the panel ----------
+async function enter(session,afterMfa){if(!session)return loginView();S.user=session.user;
+  const{data:aal}=await sb.auth.mfa.getAuthenticatorAssuranceLevel();
+  if(!afterMfa&&aal?.nextLevel==='aal2'&&aal.currentLevel!=='aal2'){const{data:adm}=await sb.rpc('is_admin');return adm===true?mfaView():deniedView(S.user.email)}
+  const{data:ok,error}=await sb.rpc('admin_ok');if(error)return loginView('Couldn\'t check your access. Check your connection and refresh.');
+  if(ok!==true)return deniedView(S.user.email);
+  S.entered=true;const k='adm:logged:'+S.user.id;try{if(!sessionStorage.getItem(k)){await rpc('log_admin',{p_action:'signed_in',p_label:S.user.app_metadata?.provider||'email'});sessionStorage.setItem(k,'1')}}catch(_){}
+  shell();route();clearInterval(poll);poll=setInterval(()=>{if(!document.hidden){refreshNotifs();refreshCounts()}},60000)}
+async function onAuth(ev,session){if(ev==='TOKEN_REFRESHED'||ev==='USER_UPDATED'){if(session)S.user=session.user;return}
+  if(!session){const was=S.entered;S.user=null;return loginView(ev==='SIGNED_OUT'&&was?'You\'re signed out.':'')}
+  if(S.entered&&S.user?.id===session.user.id)return;enter(session)}
+ACT.signout=async b=>{try{if(S.entered)await rpc('log_admin',{p_action:'signed_out'})}catch(_){}try{sessionStorage.removeItem('adm:logged:'+S.user?.id)}catch(_){}closeModal();await sb.auth.signOut();S.entered=false;loginView('You\'re signed out.')};
+ACT['signout-all']=async b=>{if(!await confirmBox('Sign out everywhere?','You\'ll be signed out of the admin panel and the Calora app on every device.',{ok:'Sign out everywhere'}))return;
+  try{await rpc('log_admin',{p_action:'signed_out',p_label:'all devices'})}catch(_){}await sb.auth.signOut({scope:'global'});S.entered=false;loginView('You\'re signed out on all devices.')};
+
+// ---------- chrome actions ----------
+ACT.collapse=()=>{S.collapsed=!S.collapsed;lsSet('adm:col',S.collapsed?'1':'0');$('#shell').classList.toggle('col',S.collapsed)};
+ACT.menu=()=>{$('#shell').classList.add('open');if(!$('.scrim')){const s=document.createElement('div');s.className='scrim';s.onclick=closeMenu;$('#shell').append(s)}$('#side a')?.focus()};
+function closeMenu(){$('#shell')?.classList.remove('open');$('.scrim')?.remove()}
+ACT.theme=b=>{const t=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=t;lsSet('adm:theme',t);b.innerHTML=I(t==='dark'?'sun':'moon');b.setAttribute('aria-label',`Switch to ${t==='dark'?'light':'dark'} mode`)};
+function closePop(){const p=$('#pop');if(p&&!p.hidden){p.hidden=true;p.dataset.k=''}}
+function openPop(k,html){const p=$('#pop');if(!p.hidden&&p.dataset.k===k)return closePop();p.innerHTML=html;p.dataset.k=k;p.hidden=false}
+ACT.bell=async()=>{openPop('bell',bellHTML());refreshNotifs().then(()=>{if($('#pop').dataset.k==='bell')$('#pop').innerHTML=bellHTML()})};
+ACT.me=()=>openPop('me',`<header>${esc(S.user.email)}</header><div class="list"><a class="n" href="#/settings/security">${I('shield')}Security & two-factor</a><a class="n" href="#/settings">${I('gear')}Settings</a><a class="n" href="./">${I('ext')}Open the Calora app</a><button class="n" data-act="signout" style="width:100%;text-align:left">${I('out')}Sign out</button></div>`);
+ACT['read-all']=b=>busy(b,async()=>{await rpc('notif_read',{p_ids:null});await refreshNotifs();$('#pop').innerHTML=bellHTML()});
+ACT['modal-close']=()=>closeModal();
+
+document.addEventListener('click',e=>{const a=e.target.closest('[data-act]');
+  if(!e.target.closest('#pop,[data-act=bell],[data-act=me]'))closePop();if(!e.target.closest('.search')&&$('#gresults'))$('#gresults').hidden=true;
+  if(a){if(a.tagName==='A')e.preventDefault();ACT[a.dataset.act]?.(a,e);return}
+  const n=e.target.closest('[data-notif]');if(n){rpc('notif_read',{p_ids:[+n.dataset.notif]}).then(refreshNotifs).catch(()=>{});closePop();return}
+  const tr=e.target.closest('tr[data-href]');if(tr&&!e.target.closest('a,button,input,select,label'))location.hash=tr.dataset.href});
+document.addEventListener('submit',e=>{const f=e.target.closest('form[data-form]');if(!f)return;e.preventDefault();FORM[f.dataset.form]?.(f,e)});
+document.addEventListener('change',e=>{const t=e.target.closest('[data-input]');if(t)INPUT[t.dataset.input]?.(e)});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&S.entered&&!/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)&&!$('#modal').open){e.preventDefault();$('#gsearch')?.focus()}
+  if(e.key==='Escape'){closePop();closeMenu()}});
+addEventListener('hashchange',route);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&S.entered){refreshNotifs();refreshCounts()}});
+
+// ---------- start ----------
+(async()=>{let lib;try{lib=await import(CFG.lib)}catch(_){$('#root').innerHTML=`<main class="login"><div class="card">${empty('info','Couldn\'t load the admin panel','Check your internet connection.','<button class="btn" onclick="location.reload()">Try again</button>')}</div></main>`;return}
+  sb=lib.createClient(CFG.url,CFG.key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,flowType:'pkce',storageKey:'calora-auth'}});
+  sb.auth.onAuthStateChange((ev,session)=>setTimeout(()=>{if(/[?&]code=/.test(location.search))history.replaceState(null,'',location.pathname+location.hash);onAuth(ev,session)},0))})();
+
+</script>
+</body>
+</html>

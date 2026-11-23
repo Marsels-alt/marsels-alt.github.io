@@ -260,6 +260,10 @@ nav[hidden]{display:none}
 .rows{padding:0;overflow:hidden}.rows>*{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:54px;padding:0 18px;font-weight:800;color:inherit;text-decoration:none;text-align:start}
 .rows>*+*{border-top:1px solid var(--sep)}.rows .bad{color:var(--bad)}.rows .chev{color:var(--ink2);font-size:22px;font-weight:700}
 .ann{display:grid;grid-template-columns:auto 1fr 44px;gap:12px;align-items:center;margin-top:16px;padding:12px 6px 12px 16px;border-radius:22px}.ann svg{color:var(--acc)}
+.annb{text-align:start;min-height:44px}.annb small{display:block;color:var(--ink2);font-weight:700;font-size:13px}
+.post{overflow:hidden;padding:0}.post img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--chip)}.post .pb{padding:16px 18px}.post h3{margin:8px 0 4px;font-size:20px;line-height:1.25}
+.pcat{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--acc-bg);color:var(--acc);font-size:12px;font-weight:800}
+.pbody{white-space:pre-wrap;line-height:1.55;margin:10px 0 0}.tkm{padding:12px 14px;border-radius:18px;background:var(--chip);white-space:pre-wrap;max-width:88%}.tkm.us{background:var(--acc-bg);margin-left:auto}.tkm small{display:block;color:var(--ink2);font-size:12px;margin-top:4px}
 .utag{display:inline-block;margin:6px 6px 0 0;padding:2px 9px;border-radius:99px;background:var(--chip);font-size:13px;font-weight:800}
 .uact{display:flex;gap:8px;margin-top:10px}.uact .chip{min-height:44px;font-size:14px;padding:0 16px}
 /* for everyone: text size and increased contrast */
@@ -291,6 +295,7 @@ nav[hidden]{display:none}
 <ul>
 <li><b>Your account:</b> your name and email address. If you choose "Continue with Google", Google shares your name and email address with us.</li>
 <li><b>Health information you enter:</b> the food you log, small photos of meals you choose to save, water and weight entries, your goals and body details (sex, age, height and weight), your allergies, and your messages to the coach.</li>
+<li><b>Support messages:</b> what you write to us through Help & support, and our replies.</li>
 <li><b>Your choices:</b> appearance and text size settings, and when you agreed to this policy.</li>
 </ul>
 <p>We don't use advertising, tracking analytics or marketing emails, and we never sell your data.</p>
@@ -306,12 +311,13 @@ nav[hidden]{display:none}
 <ul>
 <li><b>Photo recognition:</b> an AI model (CLIP, made by OpenAI) runs on your own device and suggests what food is in your photo. The photo isn't sent to us or anyone else to be analysed.</li>
 <li><b>Typed meals and the coach:</b> Calora's built-in AI matches what you type against its food list, and the built-in coach answers from your goals and logs. Both run on your device.</li>
+<li><b>Support replies:</b> we sometimes use Anthropic's Claude AI to help draft a reply to your support message, so your conversation with us is processed by Anthropic for that. A person from the Calora team always reads, edits and sends the reply.</li>
 <li><b>Inside the Claude app:</b> if you open Calora inside Anthropic's Claude app, the photos, meal descriptions and coach messages you send are processed by Anthropic's Claude AI to answer you, under Anthropic's privacy policy.</li>
 </ul>
 <p>AI results are estimates and can be wrong. Always check them.</p>
 
 <h2>Photos</h2>
-<p>When you log a scanned meal, a small thumbnail is saved with that day's log: on your device and, if you have an account, in your private account. We don't use public file storage. Deleting the food, erasing your data or deleting your account removes the thumbnail.</p>
+<p>When you log a scanned meal, a small thumbnail is saved with that day's log: on your device and, if you have an account, in your private account. Your photos are never put in public storage. (Images in our own news posts are public, because everyone can see them anyway.) Deleting the food, erasing your data or deleting your account removes the thumbnail.</p>
 
 <h2>Where your data is stored</h2>
 <p>With an account, your data is stored by Supabase in a data centre in the European Union. Row-level security means only you can read or change your data. Without an account, your data stays only in your browser on that device.</p>
@@ -322,15 +328,16 @@ nav[hidden]{display:none}
 <li><b>Google LLC</b>: only if you choose "Continue with Google".</li>
 <li><b>GitHub Inc.</b>: hosts this website (GitHub Pages).</li>
 <li><b>jsDelivr</b> and <b>Hugging Face</b>: deliver the app's code libraries and, when you download it, the built-in AI model.</li>
+<li><b>Anthropic PBC</b>: only when we use AI to help draft a reply to a support message.</li>
 </ul>
 <p>Like any website, these services can see your IP address and basic browser details when your browser connects to them. Some are US companies. Where data leaves the EU, it's protected by the safeguards the GDPR requires, such as the EU's Standard Contractual Clauses.</p>
-<p>The Calora team can see a list of accounts (name, email address, sign-in method, sign-up date and last sign-in) to run and protect the service. We don't look at your food logs, weight or other health information.</p>
+<p>The Calora team can see a list of accounts (name, email address, sign-in method, sign-up date and last sign-in), simple activity counts (how many days you've logged food and when you last used the app, never what you ate), and the support messages you send us. We use this to run, improve and protect the service. We don't look at your food logs, weight or other health information.</p>
 
 <h2>Cookies and storage on your device</h2>
 <p>Calora doesn't use cookies. It uses your browser's local storage to keep you signed in, save your data on the device, let you keep using your account offline, and keep the built-in AI model after you download it. These are all strictly necessary for features you ask for, so no cookie banner is needed. There's no advertising or analytics storage.</p>
 
 <h2>How long we keep it</h2>
-<p>Until you delete it. Deleting food, erasing your data or deleting your account removes it from our database straight away. Supabase may keep copies in its backups for a short time before they're overwritten.</p>
+<p>Until you delete it. Deleting food, erasing your data or deleting your account removes it from our database straight away; deleting your account also deletes your support messages. Supabase may keep copies in its backups for a short time before they're overwritten.</p>
 
 <h2>Your rights</h2>
 <ul>
@@ -880,7 +887,7 @@ consent(){return`<div class="top" style="justify-content:flex-end"><button class
 
 today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,mon=add(T,-((D(T).getDay()+6)%7)),st=streak();
  const mac=(k,lab,c)=>{const l=g[k]-s[k],pc=s[k]/g[k];return`<button class="flip ${flipped.has(k)?'on':''}" data-flip="${k}" aria-label="${lab}: ${fmt(Math.abs(l))} grams ${l<0?'over':'left'}. Tap for details."><span class="fi"><span class="face card"><strong>${fmt(Math.abs(l))}g</strong><span class="sub">${lab} ${l<0?'over':'left'}</span>${ring('m'+k,pc,c,74,10,r(pc*100)+'%')}</span><span class="face back card"><span class="sub">Eaten</span><strong>${fmt(s[k])}g</strong><span class="sub">of ${fmt(g[k])}g</span>${bar(pc,c)}</span></span></button>`};
- return top()+annHTML()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1><span class="pill glass">${I('flame')}${st} day streak</span></div>
+ return top()+annHTML()+newsCard()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1><span class="pill glass">${I('flame')}${st} day streak</span></div>
  <div class="week">${[...Array(7)].map((_,i)=>{const k=add(mon,i);return`<button class="bub ${k===sel?'on':''} ${k===T?'t':''}" data-day="${k}" ${k>T?'disabled':''} aria-label="${longDate(k)}">${'MTWTFSS'[i]}<b>${D(k).getDate()}</b></button>`}).join('')}</div>
  <div class="heroc"><div class="card hero tilt"><div class="z1"><div class="big">${fmt(Math.abs(left))}</div><div class="lbl">Calories ${left<0?'over':'left'}</div><div class="sub" style="margin-top:12px;white-space:nowrap">${fmt(s.kcal)} eaten · ${fmt(g.kcal)} goal</div></div><div class="z2">${ring('kcal',s.kcal/g.kcal,left<0?'bad':'acc',124,14,`<svg class="flame" viewBox="0 0 24 24" fill="url(#g-pro)" aria-hidden="true">${P.flame}</svg>`)}</div></div></div>
  <div class="grid3">${mac('p','Protein','pro')}${mac('c','Carbs','carb')}${mac('f','Fat','fat')}</div>
@@ -928,7 +935,7 @@ profile(){const p=S.profile,g=S.goals,ch=(f,v,l)=>`<button class="chip bub" data
  <p class="sub" style="margin:18px 4px 8px">Text size</p><div class="seg" role="group" aria-label="Text size" style="margin:0">${[['m','Standard'],['l','Large'],['xl','Larger']].map(([v,l])=>`<button class="bub" data-size="${v}" aria-pressed="${(S.size||'m')===v}">${l}</button>`).join('')}</div>
  <h2>Home Screen</h2><div class="card stack"><p class="sub" style="margin:0">Open Calora full-screen like an app, straight from your Home Screen.</p><button class="btn sec bub" data-act="home">${I('home2')}Add to Home Screen</button></div>
  <h2>Built-in AI</h2><div class="card stack"><p class="sub" style="margin:0">${AI?"Inside Claude, Calora uses Claude for photos and the coach. The built-in AI takes over whenever Claude isn't available.":'Recognises food in your photos right on this device, without Claude. It downloads once (about 150 MB), then works offline.'}</p><button class="btn sec bub" data-act="dl" id="dl" ${S.devReady?'disabled':''}>${S.devReady?'Built-in AI is ready ✓':'Download built-in AI now'}</button></div>
- ${legalRows()}${acctRows()}`},
+ ${helpRows()}${legalRows()}${acctRows()}`},
 
 admin(){return USER?.admin?adminHTML():V.profile()}};
 
@@ -963,7 +970,7 @@ async function initAuth(){if(!SB_ON){authReady=true;render();return maybeOnboard
   if(th&&ty){const r=await sb.auth.verifyOtp({token_hash:th,type:ty});if(r.error)A.err=authMsg(r.error);else if(ty==='recovery')A.view='reset';else A.info='Your email is confirmed. Welcome to Calora!'}
   if([...q.keys()].length)history.replaceState(null,'',location.pathname+location.hash);
   sb.auth.onAuthStateChange((ev,session)=>setTimeout(()=>onAuth(ev,session),0)); // fires INITIAL_SESSION right away
-  loadAnn().catch(()=>{});
+  loadAnn().catch(()=>{});loadNews().catch(()=>{});
  }catch(e){ // library couldn't load (offline): keep the last account usable on this device; it syncs next time
   let last=null;try{last=JSON.parse(localStorage.getItem('calora:last'))}catch(_){}
   if(last){USER=last;S=loadState('calora:u:'+last.id);sync='offline'}else A.err="Can't connect to Calora's servers. Check your internet connection, or continue without an account.";
@@ -973,7 +980,7 @@ async function onAuth(ev,session){const u=session?.user||null;
  if(ev==='PASSWORD_RECOVERY')A.view='reset';
  if(u&&(!USER||USER.id!==u.id)){USER={id:u.id,email:u.email||'',name:(u.user_metadata?.full_name||u.user_metadata?.name||'').slice(0,80),provider:u.app_metadata?.provider||'email'};
   try{localStorage.setItem('calora:last',JSON.stringify(USER))}catch(_){}
-  S=loadState('calora:u:'+u.id);A.f={};A.err=A.view==='reset'?A.err:'';authReady=true;render();syncNav();await pull(true);maybeOnboard();checkAdmin().catch(()=>{});return}
+  S=loadState('calora:u:'+u.id);A.f={};A.err=A.view==='reset'?A.err:'';authReady=true;render();syncNav();await pull(true);maybeOnboard();checkAdmin().catch(()=>{});loadTickets().catch(()=>{});return}
  if(u&&ev==='USER_UPDATED'){USER.email=u.email||USER.email}
  if(!u&&USER&&ev==='SIGNED_OUT'){USER=null;S=loadState('calora');S.skipped=false;tab='today';history.replaceState(null,'','#today');A.view='welcome';A.outForce=false;sync='idle'}
  if(ev==='TOKEN_REFRESHED'&&authReady)return;
@@ -1088,6 +1095,7 @@ async function changePassword(){const f=A.f,pw=f.pw||'';A.err='';
 
 const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span>${isOwner()?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">Owner · everything is free for you</span>':''}</div></div>${isOwner()?'<div class="card rows" style="margin-top:var(--gap)"><button class="bub" data-tab="admin">Admin dashboard<span class="chev" aria-hidden="true">›</span></button></div>':''}`
  :`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${I('user')}</span><div><b style="display:block">Not signed in</b><span class="sub">Your data is saved only on this device.</span></div>${SB_ON?'<button class="btn pri bub" data-auth="login" style="width:auto;min-height:44px;padding:0 18px;font-size:15px">Sign in</button>':''}</div>`;
+const helpRows=()=>`<h2>Updates & help</h2><div class="card rows">${APPCFG.news_enabled!==false?`<button data-act="newslist">News & updates${NEWS.length?`<span class="sub">${NEWS.length}</span>`:'<span class="chev" aria-hidden="true">›</span>'}</button>`:''}<button data-act="support">Help & support${(TIX||[]).some(newReply)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':'<span class="chev" aria-hidden="true">›</span>'}</button></div>`;
 const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service<span class="chev" aria-hidden="true">›</span></a><a href="?privacy">Privacy Policy<span class="chev" aria-hidden="true">›</span></a><a href="mailto:calora.scan@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
 const acctRows=()=>{const er=`<button class="bad" data-act="erase">${erase?'Tap again to erase all logged food':'Erase all logged food'}</button>`;
  return USER?`<h2>Account</h2><div class="card rows">${USER.provider==='email'&&!USER.offline?'<button data-auth="chpw">Change password<span class="chev" aria-hidden="true">›</span></button>':''}<button data-auth="signout">${A.outForce?'Tap again to sign out anyway':'Sign out'}</button>${er}${USER.offline?'':'<button class="bad" data-auth="delete">Delete account</button>'}</div>`
@@ -1126,6 +1134,46 @@ async function banUser(id,b){const u=ADM.users.find(x=>x.id===id);if(!u)return;b
  const on=!u.banned;try{await admCall({action:'ban',id,on});if(u.banned!==on&&ADM.st)ADM.st.banned+=on?1:-1;u.banned=on;toast(on?`Blocked ${u.email}. They can't sign in.`:`Unblocked ${u.email}`)}catch(e){toast("Couldn't change that. Try again.")}render()}
 const admDelHTML=()=>{const u=ADM.users.find(x=>x.id===ADM.del)||{};return shh('Delete user')+`<div class="card stack"><p style="margin:0">Permanently delete <b>${esc(u.email)}</b> and all of their data?</p><p class="sub" style="margin:0">This can't be undone.</p></div>${SHD.err?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(SHD.err)}</div></div>`:''}<button class="btn warn bub" data-adm="delconfirm" style="margin-top:14px" ${SHD.busy?'disabled':''}>${SHD.busy?'<span class="spin" aria-hidden="true"></span>Deleting…':'Delete user'}</button><button class="btn sec bub" data-close style="margin-top:10px" ${SHD.busy?'disabled':''}>Cancel</button>`};
 
+// ---------- news, coming soon and support (managed in the admin panel at /admin) ----------
+let APPCFG={news_enabled:true,support_enabled:true,support_email:'calora.scan@gmail.com'},NEWS=[],SOON=[],TIX=null,TKM=[],POSTSEL='',TKSEL='',supErr='';
+const POSTCAT={news:'News',feature:'Feature update',announcement:'Announcement',promotion:'Promotion',nutrition:'Nutrition',notice:'Important notice'};
+const httpsUrl=u=>/^https:\/\//i.test(u||'')?u:'';
+const ctaHTML=(t,u)=>t&&httpsUrl(u)?`<a class="btn pri bub" href="${esc(httpsUrl(u))}" target="_blank" rel="noopener noreferrer" style="margin-top:14px;text-decoration:none">${esc(t)}</a>`:'';
+async function loadNews(){if(!sb)return;const[c,p,u]=await Promise.all([sb.from('admin_settings').select('value').eq('key','app').maybeSingle(),
+  sb.from('posts').select('id,title,subtitle,body,cover_url,category,cta_text,cta_url,publish_at').order('publish_at',{ascending:false}).limit(20),
+  sb.from('upcoming').select('id,name,description,image_url,release_at,show_countdown,category,cta_text,cta_url').order('release_at',{ascending:true,nullsFirst:false}).limit(20)]);
+ if(c.data?.value)APPCFG={...APPCFG,...c.data.value};NEWS=p.data||[];SOON=u.data||[];if(tab==='today'||tab==='profile')render()}
+const seenTk=t=>lsGet('calora:tk:'+t.id)>=t.last_message_at;
+const newReply=t=>t.last_from_admin&&!seenTk(t);
+async function loadTickets(){if(!sb||!USER)return;const{data}=await sb.from('support_tickets').select('id,subject,status,last_message_at,last_from_admin').order('last_message_at',{ascending:false});TIX=data||[];
+ if(tab==='profile')render();if($('#sheet').open&&sheetKind==='support')renderSheet()}
+const newsCard=()=>{const p=APPCFG.news_enabled!==false&&NEWS[0];return!p||lsGet('calora:news')===p.id?'':`<div class="ann card">${I('chat')}<button class="annb bub" data-act="post" data-id="${p.id}"><b>${esc(p.title)}</b><small>${esc(POSTCAT[p.category]||'News')} · Tap to read</small></button><button class="x bub" data-act="newsx" aria-label="Dismiss">${I('x',2.4)}</button></div>`};
+const countdown=d=>{const s=(new Date(d)-Date.now())/1e3;if(s<=0)return'Out now';const dd=Math.floor(s/86400),hh=Math.floor(s%86400/3600);return dd?`In ${dd} day${dd>1?'s':''}${hh?`, ${hh} h`:''}`:`In ${hh||'<1'} h`};
+const newsHTML=()=>shh('News & updates')+(NEWS.length?NEWS.map(p=>`<button class="card post bub" data-act="post" data-id="${p.id}" style="width:100%;text-align:start;margin-bottom:var(--gap)">${httpsUrl(p.cover_url)?`<img src="${esc(p.cover_url)}" alt="">`:''}<div class="pb"><span class="pcat">${esc(POSTCAT[p.category]||'News')}</span><h3>${esc(p.title)}</h3>${p.subtitle?`<span class="sub">${esc(p.subtitle)}</span>`:''}<span class="sub" style="display:block;font-size:13px;margin-top:6px">${fmtDay(p.publish_at)}</span></div></button>`).join(''):'<div class="card"><p class="sub" style="margin:0">No news yet. Check back soon!</p></div>')
+ +(SOON.length?`<h2>Coming soon</h2>`+SOON.map(u=>`<div class="card post" style="margin-bottom:var(--gap)">${httpsUrl(u.image_url)?`<img src="${esc(u.image_url)}" alt="">`:''}<div class="pb"><span class="pcat">Coming soon</span><h3>${esc(u.name)}</h3>${u.release_at?`<b style="color:var(--acc)">${u.show_countdown?'⏳ '+countdown(u.release_at):fmtDay(u.release_at)}</b>`:''}<p class="pbody">${esc(u.description)}</p>${ctaHTML(u.cta_text,u.cta_url)}</div></div>`).join(''):'');
+const fmtDay=d=>new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+const postHTML=()=>{const p=NEWS.find(x=>x.id===POSTSEL);if(!p)return shh('News')+'<p class="sub">This post is no longer available.</p>';
+ return shh(esc(POSTCAT[p.category]||'News'))+`<article class="card post">${httpsUrl(p.cover_url)?`<img src="${esc(p.cover_url)}" alt="">`:''}<div class="pb"><h3 style="font-size:24px">${esc(p.title)}</h3>${p.subtitle?`<p style="margin:0;font-weight:700">${esc(p.subtitle)}</p>`:''}<p class="pbody">${esc(p.body)}</p>${ctaHTML(p.cta_text,p.cta_url)}<p class="sub" style="font-size:13px;margin:14px 0 0">${fmtDay(p.publish_at)}</p></div></article>
+  ${NEWS.length>1?'<button class="btn sec bub" data-act="newslist" style="margin-top:14px">All news</button>':''}`};
+const TKST={open:'Waiting for us',pending:'We replied',resolved:'Resolved'};
+const supportHTML=()=>{const mail=`<a href="mailto:${esc(APPCFG.support_email)}" class="link">${esc(APPCFG.support_email)}</a>`;
+ if(!USER||APPCFG.support_enabled===false)return shh('Help & support')+`<div class="card stack"><p style="margin:0">Questions, ideas or something not working? Email us at ${mail}.</p>${!USER&&SB_ON&&APPCFG.support_enabled!==false?'<p class="sub" style="margin:0">Signed-in users can also message us right here in the app.</p><button class="btn pri bub" data-auth="login">Sign in</button>':''}</div>`;
+ return shh('Help & support')+`<form class="card stack" data-supform="new" novalidate><b>Send us a message</b>${supErr?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(supErr)}</div></div>`:''}
+  <label class="f">Subject<input type="text" name="subject" maxlength="150" required placeholder="e.g. The scanner doesn't see my food"></label><label class="f">Message<textarea name="body" maxlength="5000" required placeholder="Tell us what happened"></textarea></label>
+  <button class="btn pri bub">Send</button><p class="note" style="margin:0">We usually reply within a day or two. Replies show up here. You can also email ${mail}.</p></form>
+  <h2>Your messages</h2>${TIX==null?'<div class="card"><p class="sub" style="margin:0">Loading…</p></div>':TIX.length?`<div class="card rows">${TIX.map(t=>`<button data-act="ticket" data-id="${t.id}"><span style="min-width:0"><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(t.subject)}</span><span class="sub" style="font-weight:700;font-size:13px">${TKST[t.status]} · ${fmtDay(t.last_message_at)}</span></span>${newReply(t)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':'<span class="chev" aria-hidden="true">›</span>'}</button>`).join('')}</div>`:'<div class="card"><p class="sub" style="margin:0">No messages yet.</p></div>'}`};
+const ticketHTML=()=>{const t=(TIX||[]).find(x=>x.id===TKSEL);if(!t)return shh('Message')+'<p class="sub">Not found.</p>';
+ return shh(esc(t.subject))+`<div class="stack" style="gap:10px">${TKM.map(m=>`<div class="tkm${m.from_admin?'':' us'}">${esc(m.body)}<small>${m.from_admin?'Calora team':'You'} · ${new Date(m.created_at).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</small></div>`).join('')}</div>
+  <form class="card stack" data-supform="reply" style="margin-top:14px" novalidate>${supErr?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(supErr)}</div></div>`:''}<label class="f">Reply<textarea name="body" maxlength="5000" required></textarea></label><button class="btn pri bub">Send reply</button></form>
+  <button class="btn sec bub" data-act="support" style="margin-top:10px">All messages</button>`};
+async function openTicket(id){TKSEL=id;supErr='';const{data}=await sb.from('support_messages').select('from_admin,body,created_at').eq('ticket_id',id).order('created_at');TKM=data||[];
+ const t=TIX.find(x=>x.id===id);if(t)try{localStorage.setItem('calora:tk:'+id,t.last_message_at)}catch(_){}openSheet('ticket');if(tab==='profile')render()}
+async function supSubmit(f){const kind=f.dataset.supform,body=f.body.value.trim(),subject=kind==='new'?f.subject.value.trim():'',btn=f.querySelector('button.pri');
+ if(kind==='new'&&!subject){supErr='Add a subject.';return renderSheet()}if(!body){supErr='Write a message.';return renderSheet()}
+ btn.disabled=true;btn.innerHTML='<span class="spin" aria-hidden="true"></span>Sending…';const{data,error}=kind==='new'?await sb.rpc('create_ticket',{p_subject:subject,p_body:body}):await sb.rpc('reply_ticket',{p_ticket:TKSEL,p_body:body});
+ if(error){supErr=/Too many/.test(error.message)?'You\'ve sent a lot of messages. Please try again in an hour.':'Couldn\'t send. Check your connection and try again.';return renderSheet()}
+ supErr='';await loadTickets();toast(kind==='new'?'Sent! We\'ll reply here soon.':'Reply sent');kind==='new'?openTicket(data):openTicket(TKSEL)}
+
 function dayStatus(k){if(k>T)return'future';const s=sum(k),g=S.goals;if(!s.kcal)return k<T&&k>=S.start?'miss':'none';return s.kcal>=g.kcal*.9&&s.kcal<=g.kcal*1.1&&s.p>=g.p*.9?'hit':'part'}
 function lineChart(ws){const W=320,H=130,v=ws.map(w=>w[1]),lo=Math.min(...v)-1,hi=Math.max(...v)+1,x=i=>12+i*(W-24)/(ws.length-1),y=w=>10+(hi-w)/(hi-lo)*(H-34);
  const pts=ws.map((w,i)=>`${x(i).toFixed(1)},${y(w[1]).toFixed(1)}`).join(' ');
@@ -1149,7 +1197,7 @@ function splash(x,y){const el=document.createElement('div');el.className='splash
 // ---------- sheets ----------
 function openSheet(kind){sheetKind=kind;renderSheet();const d=$('#sheet');if(!d.open)d.showModal()}
 const closeSheet=()=>{$('#sheet').close()};
-function renderSheet(){$('#sh').innerHTML='<div class="grab"></div>'+({log:logHTML,welcome:welcomeHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,admdel:admDelHTML})[sheetKind]();const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
+function renderSheet(){$('#sh').innerHTML='<div class="grab"></div>'+({log:logHTML,welcome:welcomeHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,admdel:admDelHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
 const shh=t=>`<div class="shh"><span></span><b>${t}</b><button class="tbtn bub" data-close aria-label="Close">${I('x',2.4)}</button></div>`;
 function logHTML(){const m=SH.mode;
  const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m}">${I(ic)}${l}</button>`).join('')}</div>`;
@@ -1281,6 +1329,11 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  if(d.themeset){S.theme=d.themeset;save();return render()}
  if('close' in d)return closeSheet();
  switch(d.act){
+ case'post':POSTSEL=d.id;try{localStorage.setItem('calora:news',NEWS[0]?.id||'')}catch(_){}openSheet('post');if(tab==='today')render();break;
+ case'newsx':try{localStorage.setItem('calora:news',NEWS[0]?.id||'')}catch(_){}render();break;
+ case'newslist':openSheet('news');break;
+ case'support':supErr='';openSheet('support');loadTickets();break;
+ case'ticket':openTicket(d.id);break;
  case'theme':S.theme=isDark()?'light':'dark';save();render();break;
  case'estimate':estimate();break;
  case'addres':addItems((SH.items||[]).filter(i=>!i.miss).map((i,n)=>{const o={...i,name:i.q&&i.q!==1?`${i.q} × ${i.name}`:i.name};delete o.b;delete o.st;if(!n&&SH.mode==='scan'&&SH.photo)o.img=SH.photo;return o}));break;
@@ -1302,7 +1355,8 @@ document.addEventListener('input',e=>{const t=e.target;if(t.id==='usearch'){ADM.
  if(t.dataset.pn){const v=+t.value;if(v>0){S.profile[t.dataset.pn]=v;save()}}
  if(t.id==='other'){S.other=t.value;save();const w=$('[data-act=welcomed]');if(w)w.textContent=S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}
  if(t.id&&t.id.startsWith('m-')){const it={name:$('#m-name').value,ingredients:$('#m-ing').value.split(',')};$('#malert').innerHTML=alertHTML(flags(it))}});
-document.addEventListener('submit',e=>{if('consent' in e.target.dataset){e.preventDefault();const t=$('#c-terms').checked,h=$('#c-health').checked;
+document.addEventListener('submit',e=>{if(e.target.dataset.supform){e.preventDefault();return supSubmit(e.target)}
+ if('consent' in e.target.dataset){e.preventDefault();const t=$('#c-terms').checked,h=$('#c-health').checked;
   if(t&&h){S.consent={v:1,at:new Date().toISOString()};cErr='';save();render();syncNav();return maybeOnboard()}
   cErr=t?"Calora needs your OK to store your health information. Without it, the app can't work.":'Calora is for people aged 13 and older who agree to the Terms of Service and Privacy Policy.';render();$('#c-terms').checked=t;$('#c-health').checked=h;return}
  const af=e.target.dataset.authform;if(af){e.preventDefault();af==='chpw'?changePassword():authSubmit(af);return}if(e.target.id==='composer'){e.preventDefault();const i=$('#msg');sendMsg(i.value);i.value=''}});
