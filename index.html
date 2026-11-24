@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Oajy+DgpAndnVMkR6lm/QYV2WokbM3dowF4Pc7iMi74=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Today — Calora</title>
 <meta name="description" content="Snap a photo or describe your meal and Calora estimates its calories, protein, carbs and fat.">
@@ -322,7 +323,7 @@ main{container-type:inline-size}
 <template id="privacy-page"><main class="pp">
 <a class="brand" href="./" style="text-decoration:none;color:inherit"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>Calora</a>
 <h1>Privacy Policy</h1>
-<p class="sub">Last updated 23 November 2026</p>
+<p class="sub">Last updated 24 November 2026</p>
 <div class="card">
 <h2>Who we are</h2>
 <p>Calora is a calorie and macro tracker run by the Calora team in Latvia (European Union). We are responsible for your data (the "controller" under the GDPR). Questions? Email <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>.</p>
@@ -346,7 +347,7 @@ main{container-type:inline-size}
 <h2>How Calora uses AI</h2>
 <ul>
 <li><b>Photo recognition:</b> an AI model (CLIP, made by OpenAI) runs on your own device and suggests what food is in your photo. The photo isn't sent to us or anyone else to be analysed.</li>
-<li><b>Typed meals and the coach:</b> Calora's built-in AI matches what you type against its food list, and the built-in coach answers from your goals and logs. Both run on your device.</li>
+<li><b>Typed meals and the coach:</b> these don't use AI. Calora matches what you type against its food list, and the built-in coach answers with fixed rules based on your goals and logs. Both run on your device.</li>
 <li><b>Support replies:</b> we sometimes use an AI service to help draft a reply to your support message: Groq (running an open AI model), or Anthropic's Claude. Your conversation with us is processed by that service only to write the draft, and isn't used to train AI models. A person from the Calora team always reads, edits and sends the reply.</li>
 <li><b>Inside the Claude app:</b> if you open Calora inside Anthropic's Claude app, the photos, meal descriptions and coach messages you send are processed by Anthropic's Claude AI to answer you, under Anthropic's privacy policy.</li>
 </ul>
@@ -397,7 +398,7 @@ main{container-type:inline-size}
 <template id="terms-page"><main class="pp">
 <a class="brand" href="./" style="text-decoration:none;color:inherit"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>Calora</a>
 <h1>Terms of Service</h1>
-<p class="sub">Last updated 23 November 2026</p>
+<p class="sub">Last updated 24 November 2026</p>
 <div class="card">
 <h2>About these terms</h2>
 <p>These terms are an agreement between you and the Calora team, Latvia (European Union), contact <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>. By using Calora you agree to them and to our <a href="?privacy">Privacy Policy</a>.</p>
@@ -412,8 +413,8 @@ main{container-type:inline-size}
 <li><b>Allergies:</b> allergy warnings are estimates based on typical recipes and can miss ingredients. Never rely on Calora alone: always check the label or ask the staff. If you have a severe allergic reaction, call 112.</li>
 </ul>
 
-<h2>Calora uses AI</h2>
-<p>Food recognition, meal estimates and the coach use AI and a built-in food list. Their results can be wrong. Check them and adjust portions before relying on them.</p>
+<h2>AI and estimates</h2>
+<p>Photo recognition uses an AI model on your device. Typed meal estimates and the built-in coach use Calora's food list and fixed rules, not AI. All of these results can be wrong. Check them and adjust portions before relying on them.</p>
 
 <h2>Your account</h2>
 <ul>
@@ -858,7 +859,7 @@ const VOCAB=TXT.filter(f=>!f.skip).flatMap(f=>[...new Set([...(f.al||'').split('
 function findFoods(s,exact){const hits=[];for(const f of TXT)for(const m of s.matchAll(f.rg))if(m[0])hits.push({f,i:m.index,j:m.index+m[0].length});
  hits.sort((a,b)=>(b.j-b.i)-(a.j-a.i)||a.f.o-b.f.o);const keep=[];for(const h of hits)if(!keep.some(k=>h.i<k.j&&k.i<h.j))keep.push(h);
  let fs=keep.filter(h=>!h.f.skip).sort((a,b)=>a.i-b.i).map(h=>h.f);const dish=fs.filter(f=>f.dish)[0];if(dish)fs=[dish];
- if(!exact&&!fs.length&&!keep.length)for(const w of s.match(/[a-zäöüéèêñ]{5,}/g)||[]){const v=VOCAB.find(([x])=>Math.abs(x.length-w.length)<3&&lev(w,x)<=(w.length>6?2:1));if(v){fs=[v[1]];break}}
+ if(!exact&&!fs.length&&!keep.length)for(const w of s.match(/[a-zäöüéèêñ]{5,}/g)||[]){const v=VOCAB.find(([x])=>x[0]===w[0]&&Math.abs(x.length-w.length)<3&&lev(w,x)<=(w.length>6?2:1));if(v){fs=[v[1]];break}}
  return{fs,skip:!fs.length&&keep.length>0}}
 const NUMW={'a few':3,'a couple':2,'a dozen':12,a:1,an:1,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,half:.5,couple:2,few:3,several:3,dozen:12};
 const UNITG=u=>/^k/.test(u)?1000:/^(g|ml)/.test(u)?1:/^lb/.test(u)?453.6:/^l/.test(u)?1000:u==='dl'?100:u==='cl'?10:u==='oz'?28.35:/^t(bsp|ablesp)/.test(u)?15:5;
@@ -940,7 +941,7 @@ today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,over=left<0,mo
 coach(){const sug=["I'm 180cm, 85kg, 28 y/o male and want to lose 8kg",'I want to build muscle — what should I eat?','What should I eat for the rest of today?'];
  return top()+`<h1>Coach</h1><p class="lead">Tell me about you and your goal — I'll build your plan.</p><div class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation with your coach">${S.chat.length?S.chat.map((m,i)=>`<div class="msg ${m.role==='user'?'u':'a'}" ${i===S.chat.length-1&&m.role!=='user'?'id="live"':''}>${m.content?(m.role==='user'?esc(m.content):md(m.content)):'<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="vh">Coach is typing</span>'}</div>`).join(''):
  `<div class="card welcome"><span class="logo3d">${LOGO(64)}</span><p>Hi! I'm your Calora coach. Share your height, weight, age and goal.</p>${sug.map(s=>`<button class="say bub" data-say="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}
- ${S.chat.length?`<p class="note" style="text-align:center"><button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button></p>`:''}<p class="note" style="text-align:center">${AI?'Coach powered by Claude.':'Built-in coach that runs on your device.'} General tips, not medical advice.</p></div>
+ ${S.chat.length?`<p class="note" style="text-align:center"><button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button></p>`:''}<p class="note" style="text-align:center">${AI?'Coach powered by Claude.':'Built-in coach with fixed answers, on your device.'} General tips, not medical advice.</p></div>
  <form class="composer glass" id="composer"><input id="msg" placeholder="Message your coach…" autocomplete="off" aria-label="Message your coach"><button class="send bub" aria-label="Send" ${coachBusy?'disabled':''}>${I('send',2.6)}</button></form>`},
 
 calendar(){const f=D(calM+'-01'),n=new Date(f.getFullYear(),f.getMonth()+1,0).getDate(),off=(f.getDay()+6)%7,cnt={hit:0,part:0,miss:0};const SL={hit:'On goal',part:'Logged',miss:'Not logged',none:'No logs',now:'In progress',future:''};
@@ -1238,7 +1239,7 @@ function logHTML(){const m=SH.mode;
  let body='';
  if(m==='scan')body=`${!S.devReady&&!AIimg&&!SH.photo?`<p class="note" style="margin:0 4px 12px">The first scan downloads Calora's food-recognition model (about 150 MB, one time only). Use Wi-Fi if you can.</p>`:''}<button type="button" class="drop ${SH.photo?'has':''}" data-act="pick" style="${SH.photo?`background-image:url(${SH.photo})`:''}">${SH.busy?'<span class="scanline"></span>':''}${SH.photo?`<span>${SH.busy?'Looking at your plate…':'Change photo'}</span>`:`${I('cam',1.8)}Take or choose a photo`}</button>
  ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">${SH.err?'Try again':'Recognise food'}</button>`:''}`;
- if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora's built-in AI estimates from its list of about ${r(TXT.length/10)*10} foods. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
+ if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora looks up what you type in its list of about ${r(TXT.length/10)*10} foods. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
  if(m==='manual')body=`<div class="fields"><label class="f w">Food name<input type="text" id="m-name" placeholder="e.g. Chicken burrito" value="${esc(SH.pre||'')}"></label>${[['kcal','Calories','e.g. 450'],['p','Protein (g)','e.g. 20'],['c','Carbs (g)','e.g. 50'],['f','Fat (g)','e.g. 15'],['fib','Fiber (g)','e.g. 5']].map(([k,l,ph])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="m-${k}" placeholder="${ph}"></label>`).join('')}<label class="f w">Ingredients, for the allergy check (optional)<input type="text" id="m-ing" placeholder="tortilla, cheese, beans, salsa"></label></div><div id="malert"></div><button class="btn pri bub" data-act="addmanual" style="margin-top:14px">Add to log</button>`;
  return shh('Log food')+seg+body+(m==='manual'?'':`<div id="res">${resHTML()}</div>`)}
 function alertHTML(names){return names.length?`<div class="alert" role="alert">${I('warn',2.2)}<div><b>Don't eat this</b>It may contain <strong>${esc(names.join(', '))}</strong>, which you told Calora you're allergic to.</div></div><p class="note">Calora's allergy check estimates from typical recipes and can miss things. Always check the label or ask the staff.</p>`:''}
