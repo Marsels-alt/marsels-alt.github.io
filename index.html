@@ -17,26 +17,36 @@
 <style>
 /* VOICE: friendly and bubbly, native iOS with Liquid Glass. Glanceable, one-handed.
    IDEA: an iPhone app: content cards underneath, glass controls floating above them.
-   PICTURE: the 3D tilting calorie card leads; macro cards flip over in 3D.
+   PICTURE: the calorie card leads; macro cards flip to show eaten / goal. Calm: red only for allergy danger, neutral shadows, no loops.
    COLOUR and TYPE: porcelain ground, cream Calora tile, cobalt accent, rose/amber/violet macros. SF Pro Rounded, system font fallback (no font downloads).
    LAYOUT: one 560px column; the glass tab bar floats at the bottom on phones and moves to the top on wide screens. */
-:root{color-scheme:light dark;
+:root{color-scheme:light dark;accent-color:var(--acc);
+--bg:#F3F4FA;--card:#fff;--chip:#EEF0F7;--trk:#E8EAF2;--ink:#0E1020;--ink2:#5B6073;--sep:#ECEEF4;
+--acc:#2B50F0;--acc2:#6A86FF;--acc-bg:#E6EBFF;--bad:#C40F2D;--bad-bg:#FFEDF0;
+--sh:rgb(0 0 0/.13);--hi:rgb(255 255 255/.95);--edge:rgb(14 16 32/.06);--glass:rgb(255 255 255/.76);
+--a1:#DDE4FF;--a2:#FCE8EF;--a3:#E3F5EC;--g1:#3A58EE;--g2:#2B50F0;
+--pro:#E0479E;--carb:#FFAE1A;--fat:#9B5CFF;--fib:#1FB070;--wat:#18A9EE;--flame:#FF8A00;
+--out:cubic-bezier(.16,1,.3,1);--r:28px;--gap:14px;
+--font:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
+@supports (color:light-dark(#000,#fff)){:root{
 --bg:light-dark(#F3F4FA,#06070B);--card:light-dark(#fff,#14151C);--chip:light-dark(#EEF0F7,#21232D);--trk:light-dark(#E8EAF2,#272934);
 --ink:light-dark(#0E1020,#F4F5FA);--ink2:light-dark(#5B6073,#A3A7B9);--sep:light-dark(#ECEEF4,#23252F);
 --acc:light-dark(#2B50F0,#6F8CFF);--acc2:light-dark(#6A86FF,#9AAEFF);--acc-bg:light-dark(#E6EBFF,#1B2350);
 --bad:light-dark(#C40F2D,#FF7088);--bad-bg:light-dark(#FFEDF0,#3A0F19);
---pro:#FF3B6B;--carb:#FFAE1A;--fat:#9B5CFF;--fib:#1FB070;--wat:#18A9EE;
---sh:light-dark(rgb(30 40 110/.17),rgb(0 0 0/.65));--hi:light-dark(rgb(255 255 255/.95),rgb(255 255 255/.07));--edge:light-dark(rgb(14 16 32/.06),rgb(255 255 255/.07));
---glass:light-dark(rgb(255 255 255/.58),rgb(30 32 42/.55));
---a1:light-dark(#D9E1FF,#101B48);--a2:light-dark(#FFE2EA,#2C0E27);--a3:light-dark(#DFF5EC,#08241E);
---g1:light-dark(#4A68F5,#4A66F0);--g2:light-dark(#2B50F0,#2B49D8);--spring:cubic-bezier(.34,1.56,.64,1);--r:28px;--gap:14px;
---font:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,"Segoe UI",Roboto,sans-serif}
-@supports (transition-timing-function:linear(0,1)){:root{--spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1)}}
+--sh:light-dark(rgb(0 0 0/.13),rgb(0 0 0/.65));--hi:light-dark(rgb(255 255 255/.95),rgb(255 255 255/.07));--edge:light-dark(rgb(14 16 32/.06),rgb(255 255 255/.07));
+--glass:light-dark(rgb(255 255 255/.76),rgb(28 30 40/.74));
+--a1:light-dark(#DDE4FF,transparent);--a2:light-dark(#FCE8EF,transparent);--a3:light-dark(#E3F5EC,transparent);
+--g1:light-dark(#3A58EE,#4A66F0);--g2:light-dark(#2B50F0,#2B49D8)}}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 :root[data-mode=light]{color-scheme:light}:root[data-mode=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
 html{background:var(--bg);touch-action:manipulation}
-body{margin:0;color:var(--ink);font:600 17px/1.4 var(--font);overflow-x:clip;-webkit-font-smoothing:antialiased}
+html{scroll-padding:12px 0 calc(150px + env(safe-area-inset-bottom))}
+body{margin:0;color:var(--ink);font:500 17px/1.4 var(--font);overflow-x:clip;-webkit-font-smoothing:antialiased;caret-color:var(--acc)}
+::selection{background:color-mix(in srgb,var(--acc) 26%,transparent)}
+html{scrollbar-color:color-mix(in srgb,var(--ink2) 45%,transparent) transparent}
+p,.lead,.note,.sub,.msg,li{text-wrap:pretty}h1,h2,h3{text-wrap:balance}
+.vh{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;background:radial-gradient(38% 28% at 12% 4%,var(--a1),transparent 70%),radial-gradient(34% 30% at 96% 34%,var(--a2),transparent 70%),radial-gradient(42% 30% at 24% 96%,var(--a3),transparent 70%),var(--bg)}
 button,input,textarea{font:inherit;color:inherit}
 button{cursor:pointer;border:0;background:none;padding:0}
@@ -44,67 +54,68 @@ button{cursor:pointer;border:0;background:none;padding:0}
 svg.i{width:24px;height:24px;flex:none}
 main{max-width:560px;margin:auto;padding:max(14px,env(safe-area-inset-top)) 18px calc(130px + env(safe-area-inset-bottom))}
 .top{display:flex;align-items:center;justify-content:space-between;min-height:52px}
-.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:900;letter-spacing:-.02em}
+.brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:-.02em}
 .date{color:var(--ink2);font-size:16px;margin:14px 2px 0}
-.head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:2px}
-h1{font-size:40px;line-height:1.05;margin:6px 0 0;font-weight:900;letter-spacing:-.03em}
-h2{font-size:22px;margin:32px 4px 14px;font-weight:900;letter-spacing:-.02em}
+.head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-top:2px}
+h1{font-size:40px;line-height:1.05;margin:6px 0 0;font-weight:800;letter-spacing:-.03em}
+h2{font-size:22px;margin:32px 4px 14px;font-weight:800;letter-spacing:-.02em}
+h2.ct{font-size:19px;margin:0 0 4px;letter-spacing:0}
 h3{font-size:19px;margin:0 0 4px;font-weight:800}
 .lead{color:var(--ink2);margin:6px 2px 16px;font-size:16px}
-.sub{color:var(--ink2);font-size:15px;font-weight:600}
-.note{font-size:13px;color:var(--ink2);margin:10px 4px;font-weight:600}
+.sub{color:var(--ink2);font-size:15px;font-weight:500}
+.note{font-size:13px;color:var(--ink2);margin:10px 4px;font-weight:500}
 .card{background:var(--card);border-radius:var(--r);padding:20px;box-shadow:inset 0 1px 0 var(--hi),0 0 0 1px var(--edge),0 18px 38px -22px var(--sh)}
 .glass{background:var(--glass);backdrop-filter:blur(22px) saturate(190%);-webkit-backdrop-filter:blur(22px) saturate(190%);box-shadow:inset 0 1px 0 var(--hi),inset 0 0 0 1px var(--edge),0 16px 40px -16px var(--sh)}
-.bub{transition:transform .55s var(--spring)}
+.bub{transition:transform .35s var(--out)}
 .bub:active{transform:scale(.92);transition-duration:.12s}
 .tbtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center}
 .pill{display:inline-flex;align-items:center;gap:6px;border-radius:99px;padding:9px 16px;font-size:16px;font-weight:800;white-space:nowrap}
-.pill svg{width:20px;height:20px;color:var(--pro)}
+.pill svg{width:20px;height:20px;color:var(--flame)}
 /* week */
 .week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin:20px 0 22px}
 .week button{display:grid;justify-items:center;align-content:center;gap:0;padding:6px 0;border-radius:18px;min-height:54px;font-size:12px;color:var(--ink2);background:var(--card);box-shadow:inset 0 1px 0 var(--hi),0 0 0 1px var(--edge)}
 .week b{font-size:16px;color:var(--ink);font-weight:800}
 .week .t{box-shadow:inset 0 0 0 2px var(--acc)}
-.week .on{background:linear-gradient(160deg,var(--g1),var(--g2));color:#fff;box-shadow:inset 0 1px 0 rgb(255 255 255/.45),0 10px 20px -8px var(--acc)}.week .on b{color:#fff}
+.week .on{background:linear-gradient(160deg,var(--g1),var(--g2));color:#fff;box-shadow:inset 0 1px 0 rgb(255 255 255/.35),0 8px 16px -10px var(--sh)}.week .on b{color:#fff}
 .week button:disabled{opacity:.4;cursor:default}
 /* 3D hero */
-.tilt{--rx:0deg;--ry:0deg;--gx:30%;--gy:0%;transform:perspective(900px) rotateX(var(--rx)) rotateY(var(--ry));transform-style:preserve-3d;transition:transform .7s var(--spring);position:relative}
-.tilt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(60% 70% at var(--gx) var(--gy),rgb(255 255 255/.5),transparent 60%);mix-blend-mode:soft-light}
-.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:26px 22px;background:radial-gradient(120% 120% at 100% 0%,var(--acc-bg),var(--card) 62%);box-shadow:inset 0 1px 0 var(--hi),0 0 0 1px var(--edge),var(--sx,0px) calc(24px + var(--sy,0px)) 46px -20px var(--sh)}
-.hero .z1{transform:translateZ(30px)}.hero .z2{transform:translateZ(55px)}
-.big{font-size:clamp(54px,16vw,72px);font-weight:900;line-height:.95;letter-spacing:-.045em;font-variant-numeric:tabular-nums}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:26px 22px;background:radial-gradient(120% 120% at 100% 0%,var(--acc-bg),var(--card) 62%);box-shadow:inset 0 1px 0 var(--hi),0 0 0 1px var(--edge),0 24px 46px -24px var(--sh)}
+.big{font-size:clamp(54px,16vw,72px);font-weight:800;line-height:.95;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.hero .kind{margin-top:10px;font-size:15px;color:var(--ink2);max-width:22ch}
+.ex{display:inline-flex;align-items:center;gap:4px;margin-top:10px;min-height:32px;padding:0 12px;border-radius:99px;background:var(--acc-bg);color:var(--acc);font-size:14px;font-weight:800}
 .hero .lbl{font-size:20px;font-weight:800;color:var(--ink2);margin-top:6px}
 .rw{position:relative;display:grid;place-items:center}
 .rw>svg{position:absolute;inset:0;transform:rotate(-90deg);overflow:visible}
 .rw circle{fill:none;stroke-linecap:round}.trk{stroke:var(--trk)}
-.arc{transition:stroke-dasharray 1.1s var(--spring);filter:drop-shadow(0 3px 6px color-mix(in srgb,var(--c) 45%,transparent))}
+.arc{transition:stroke-dasharray .8s var(--out),opacity .25s .55s}
 .rw .in{position:relative;font-weight:800;font-size:15px;display:grid;place-items:center}
-.flame{width:44px;height:44px;color:var(--pro);filter:drop-shadow(0 6px 10px rgb(255 59 107/.35))}
+.flame{width:44px;height:44px}
 /* macros flip */
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:var(--gap)}
 .flip{perspective:800px;text-align:start;display:block}
-.flip .fi{display:grid;transform-style:preserve-3d;transition:transform .8s var(--spring)}
+.flip .fi{display:grid;transform-style:preserve-3d;transition:transform .55s var(--out)}
+.flip .fl{position:absolute;top:12px;right:12px;width:16px;height:16px;color:var(--ink2);opacity:.75}.face{position:relative}
 .flip.on .fi{transform:rotateY(180deg)}
 .face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;gap:2px;align-content:start;padding:16px 14px 14px}
-.face strong{font-size:26px;font-weight:900;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.face strong{font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
 .face .rw{margin-top:12px;justify-self:center}
 .back{transform:rotateY(180deg);align-content:center;text-align:center;justify-items:center}
 .back strong{font-size:22px}.back .bar{width:100%}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap);margin-top:var(--gap)}
 .grid2 .card{padding:16px 18px}
-.val{font-size:22px;font-weight:900;letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.val{font-size:22px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
 .val svg{width:20px;height:20px;color:var(--wat)}
-.bar{height:10px;background:var(--trk);border-radius:9px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c));transition:width .9s var(--spring)}
+.bar{height:10px;background:var(--trk);border-radius:9px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,color-mix(in srgb,var(--c) 70%,#fff),var(--c));clip-path:inset(0 calc(100% - var(--p)) 0 0 round 9px);transition:clip-path .6s var(--out)}
 .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .steps{display:flex;gap:6px;margin:-6px -8px 0 0}
 .step{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--chip)}
-.step.plus{background:linear-gradient(160deg,#1E98DE,#0B7FC4);color:#fff;box-shadow:inset 0 1px 0 rgb(255 255 255/.5),0 8px 16px -8px var(--wat)}
+.step.plus{background:linear-gradient(160deg,#1E98DE,#0B7FC4);color:#fff;box-shadow:inset 0 1px 0 rgb(255 255 255/.4),0 6px 12px -8px var(--sh)}
 .step svg{width:20px;height:20px}
 /* actions */
 .acts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);margin-top:var(--gap)}
 .act{border-radius:var(--r);min-height:112px;display:grid;justify-items:center;align-content:center;gap:8px;font-weight:800;font-size:17px;background:var(--card);box-shadow:inset 0 1px 0 var(--hi),0 0 0 1px var(--edge),0 18px 38px -22px var(--sh);line-height:1.15;text-align:center;padding:10px 6px}
 .act svg{width:28px;height:28px}
-.act.gel{color:#fff;background:radial-gradient(120% 90% at 30% 0%,rgb(255 255 255/.38),transparent 55%),linear-gradient(160deg,var(--g1),var(--g2) 55%,#1730B0);box-shadow:inset 0 1px 0 rgb(255 255 255/.5),inset 0 -6px 14px rgb(0 0 40/.25),0 18px 30px -14px var(--acc)}
+.act.gel{color:#fff;background:linear-gradient(160deg,var(--g1),var(--g2) 55%,#1E3BC4);box-shadow:inset 0 1px 0 rgb(255 255 255/.35),0 18px 30px -18px var(--sh)}
 /* list */
 .list{padding:6px 0;overflow:hidden}
 .item{display:grid;grid-template-columns:48px minmax(0,1fr) 44px;gap:12px;align-items:center;padding:12px 6px 12px 16px}.item .row{align-items:flex-start}
@@ -120,27 +131,32 @@ h3{font-size:19px;margin:0 0 4px;font-weight:800}
 nav{position:fixed;left:50%;translate:-50% 0;bottom:calc(14px + env(safe-area-inset-bottom));z-index:20;display:flex;padding:6px;border-radius:99px;width:min(calc(100% - 24px),440px)}
 nav button{position:relative;z-index:1;flex:1;display:grid;justify-items:center;gap:1px;min-height:54px;padding:7px 2px 5px;border-radius:99px;font-size:12px;font-weight:800;color:var(--ink2);transition:color .3s}
 nav [aria-current]{color:#fff}
-.blob{position:absolute;top:6px;bottom:6px;left:6px;border-radius:99px;background:radial-gradient(110% 80% at 30% 0%,rgb(255 255 255/.4),transparent 60%),linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.5),0 8px 18px -6px var(--acc);transition:left .6s var(--spring),width .6s var(--spring)}
-@media(min-width:900px){nav{top:16px;bottom:auto;width:auto}nav button{grid-auto-flow:column;gap:7px;font-size:15px;padding:8px 18px;min-height:46px}main{padding-top:92px}}
+.blob{position:absolute;top:6px;bottom:6px;left:0;border-radius:99px;background:linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.35),0 6px 14px -8px var(--sh);transition:translate .28s var(--out),width .28s var(--out)}
+@media(min-width:900px){nav{top:16px;bottom:auto;width:auto}nav button{grid-auto-flow:column;gap:7px;font-size:15px;padding:8px 18px;min-height:46px}main{padding-top:92px}html{scroll-padding:96px 0 40px}}
 /* sheet */
-dialog{border:0;padding:0;margin:auto auto 0;width:min(560px,100%);max-width:100%;max-height:92dvh;border-radius:34px 34px 0 0;background:var(--bg);color:var(--ink);box-shadow:0 -20px 60px -20px var(--sh)}
-dialog::backdrop{background:rgb(6 8 20/.38);backdrop-filter:blur(3px)}
-dialog[open]{animation:up .6s var(--spring)}@keyframes up{from{transform:translateY(100%)}}
-.sh:focus{outline:none}.sh{padding:10px 18px calc(26px + env(safe-area-inset-bottom))}
-.grab{width:40px;height:5px;border-radius:3px;background:var(--trk);margin:0 auto 4px}
-.shh{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;min-height:52px;text-align:center}
-.shh b{font-size:20px;font-weight:900}
+dialog{border:0;padding:0;margin:auto auto 0;width:min(560px,100%);max-width:100%;max-height:92dvh;overflow:auto;overscroll-behavior:contain;border-radius:34px 34px 0 0;background:var(--bg);color:var(--ink);box-shadow:0 -20px 60px -20px var(--sh);
+ transition:translate .22s cubic-bezier(.4,0,1,1),display .22s allow-discrete,overlay .22s allow-discrete}
+dialog:not([open]){translate:0 100%}
+dialog::backdrop{background:rgb(6 8 20/.4);transition:opacity .22s,display .22s allow-discrete,overlay .22s allow-discrete}
+dialog:not([open])::backdrop{opacity:0}
+dialog[open]{animation:up .42s var(--out)}dialog[open]::backdrop{animation:fade .3s var(--out)}@keyframes up{from{transform:translateY(100%)}}
+dialog.drag{transition:none}
+.sh:focus{outline:none}.sh{padding:0 18px calc(26px + env(safe-area-inset-bottom))}
+.grab{height:22px;display:grid;place-items:center;touch-action:none;cursor:grab}.grab::before{content:"";width:40px;height:5px;border-radius:3px;background:var(--trk)}
+.shh{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;min-height:52px;text-align:center;touch-action:pan-x}
+.shh h2{font-size:20px;font-weight:800;margin:0;letter-spacing:-.01em}
+.stick{position:sticky;bottom:calc(-26px - env(safe-area-inset-bottom));margin:0 -18px calc(-26px - env(safe-area-inset-bottom));padding:12px 18px calc(26px + env(safe-area-inset-bottom));background:linear-gradient(transparent,var(--bg) 22%);z-index:2}
 .seg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--chip);border-radius:99px;padding:4px;margin:8px 0 16px}
 .seg button{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;border-radius:99px;font-size:15px;font-weight:800;color:var(--ink2);transition:background .3s,color .3s}
 .seg svg{width:18px;height:18px}
 .seg [aria-pressed=true]{background:var(--card);color:var(--ink);box-shadow:0 2px 8px -2px var(--sh),inset 0 1px 0 var(--hi)}
 textarea,input[type=text],input[type=search],input[type=email],input[type=password],input[type=number]{width:100%;font-size:17px;font-weight:700;background:var(--card);border:0;border-radius:18px;padding:14px 16px;box-shadow:inset 0 0 0 1.5px var(--sep)}
 textarea{min-height:110px;resize:vertical;line-height:1.4}
-textarea::placeholder,input::placeholder{color:var(--ink2);opacity:.8}
+textarea::placeholder,input::placeholder{color:var(--ink2);opacity:1}
 label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 .fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fields .w{grid-column:1/-1}
 .btn{min-height:50px;padding:0 22px;border-radius:99px;font-weight:800;font-size:17px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
-.btn.pri{width:100%;color:#fff;background:radial-gradient(120% 100% at 30% 0%,rgb(255 255 255/.32),transparent 60%),linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.45),0 14px 26px -14px var(--acc)}
+.btn.pri{width:100%;color:#fff;background:linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.3),0 12px 22px -14px var(--sh)}
 .btn.sec{width:100%;background:var(--chip)}
 .btn.warn{width:100%;background:var(--bad-bg);color:var(--bad)}
 .btn:disabled{opacity:.45;cursor:default}
@@ -160,23 +176,25 @@ label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{min-height:44px;padding:0 18px;border-radius:99px;background:var(--chip);font-weight:800;font-size:16px;display:inline-flex;align-items:center;gap:6px}
 .chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
-.chip.al[aria-pressed=true]{background:var(--bad);color:light-dark(#fff,#2A0610)}
+.chip.al[aria-pressed=true]{background:var(--bad);color:#fff;color:light-dark(#fff,#2A0610)}
 .stack{display:grid;gap:16px}
-.toast{position:fixed;left:50%;translate:-50% 0;bottom:calc(100px + env(safe-area-inset-bottom));z-index:30;border-radius:99px;padding:6px 6px 6px 20px;display:flex;align-items:center;gap:12px;font-size:16px;font-weight:800;white-space:nowrap;animation:pop .5s var(--spring)}
-.toast button{color:var(--acc);font-weight:900;min-height:40px;padding:0 16px;background:var(--card);border-radius:99px}
-@keyframes pop{from{transform:translateY(20px) scale(.9);opacity:0}}
-@media(min-width:900px){.toast{bottom:28px}}
+.toast{position:fixed;left:50%;translate:-50% 0;bottom:calc(100px + env(safe-area-inset-bottom));z-index:30;width:max-content;max-width:min(calc(100vw - 24px),520px);border-radius:24px;padding:8px 8px 8px 20px;min-height:52px;display:flex;align-items:center;gap:12px;font-size:16px;font-weight:700;line-height:1.3;animation:pop .28s var(--out)}
+.toast:not(:has(button)){padding-right:20px}.toast.lift{bottom:calc(160px + env(safe-area-inset-bottom))}
+.toast button{flex:none;color:var(--acc);font-weight:800;min-height:44px;padding:0 18px;background:var(--card);border-radius:99px}
+@keyframes pop{from{transform:translateY(10px);opacity:0}}
+@media(min-width:900px){.toast,.toast.lift{bottom:28px}}
 /* coach */
 .chat{display:flex;flex-direction:column;gap:10px;padding-bottom:70px}
 .welcome{display:grid;justify-items:center;text-align:center;gap:14px;padding:28px 20px}
 .welcome p{margin:0;font-size:19px;font-weight:800}
 .say{width:100%;text-align:start;background:var(--chip);border-radius:22px;padding:14px 18px;font-weight:700;font-size:16px}
-.msg{max-width:86%;padding:12px 16px;border-radius:24px;font-size:16px;font-weight:600;line-height:1.45;animation:pop .45s var(--spring)}
+.msg{max-width:86%;padding:12px 16px;border-radius:24px;font-size:16px;font-weight:500;line-height:1.45;animation:pop .28s var(--out)}
 .msg.u{align-self:flex-end;color:#fff;background:linear-gradient(160deg,var(--g1),var(--g2));border-bottom-right-radius:8px}
 .msg.a{align-self:flex-start;background:var(--card);border-bottom-left-radius:8px;box-shadow:inset 0 0 0 1px var(--edge)}
 .msg p{margin:0 0 6px}.msg p:last-child{margin:0}.msg ul{margin:4px 0 6px;padding-left:20px}
 .composer{position:fixed;left:50%;translate:-50% 0;bottom:calc(92px + env(safe-area-inset-bottom));z-index:19;width:min(calc(100% - 24px),536px);display:flex;gap:8px;padding:6px 6px 6px 18px;border-radius:99px}
 .composer input{flex:1;background:none;border:0;box-shadow:none;padding:10px 0;font-size:17px;outline:none}
+.composer:focus-within{outline:3px solid var(--acc);outline-offset:2px}
 .send{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:#fff;background:linear-gradient(160deg,var(--g1),var(--g2))}
 .send:disabled{opacity:.4}
 @media(min-width:900px){.composer{bottom:24px}}
@@ -186,9 +204,10 @@ label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 .cal button{justify-self:center;width:min(44px,100%);aspect-ratio:1;border-radius:50%;font-weight:800;font-size:16px;box-shadow:inset 0 0 0 1.5px var(--sep);font-variant-numeric:tabular-nums}
 .cal .hit{background:color-mix(in srgb,var(--fib) 18%,transparent);box-shadow:inset 0 0 0 2px var(--fib)}
 .cal .part{background:color-mix(in srgb,var(--carb) 20%,transparent);box-shadow:inset 0 0 0 2px var(--carb)}
-.cal .miss{background:color-mix(in srgb,var(--pro) 14%,transparent);box-shadow:inset 0 0 0 2px var(--pro)}
+.cal .miss{background:color-mix(in srgb,var(--ink2) 9%,transparent);box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--ink2) 30%,transparent)}
+.cal .now{box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--acc) 55%,transparent)}
 .cal .t{outline:2.5px solid var(--ink);outline-offset:2px}
-.cal .s{background:linear-gradient(160deg,var(--g1),var(--g2));color:#fff;box-shadow:0 8px 16px -8px var(--acc)}
+.cal .s{background:linear-gradient(160deg,var(--g1),var(--g2));color:#fff;box-shadow:0 6px 12px -8px var(--sh)}
 .cal button:disabled{opacity:.35;cursor:default}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;margin-top:16px}.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 .badge{border-radius:99px;padding:5px 12px;font-size:14px;font-weight:800;background:var(--chip);white-space:nowrap}
@@ -199,8 +218,8 @@ label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 .inline{display:flex;gap:8px;margin-top:12px}.inline input{flex:1}.inline .btn{flex:none;width:auto}
 .bars{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px;align-items:end;height:200px;position:relative;margin-top:16px}
 .bars div{display:grid;align-content:end;justify-items:center;gap:8px;height:100%;font-size:13px;color:var(--ink2);font-weight:800}
-.bars i{width:100%;max-width:34px;border-radius:12px;background:radial-gradient(80% 60% at 30% 0%,rgb(255 255 255/.45),transparent 60%),linear-gradient(180deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.5),0 8px 14px -8px var(--acc);transition:height .9s var(--spring);min-height:6px}
-.bars i.over{background:radial-gradient(80% 60% at 30% 0%,rgb(255 255 255/.45),transparent 60%),linear-gradient(180deg,#FF7A9A,var(--pro));box-shadow:0 8px 14px -8px var(--pro)}
+.bars i{width:100%;max-width:34px;border-radius:12px;background:linear-gradient(180deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.3);min-height:6px}
+.bars i.over{background:color-mix(in srgb,var(--acc) 38%,var(--card));box-shadow:inset 0 0 0 2px color-mix(in srgb,var(--acc) 55%,transparent)}
 .bars i.zero{background:var(--trk);box-shadow:none}
 .goal{position:absolute;left:0;right:0;border-top:2px dashed color-mix(in srgb,var(--ink2) 60%,transparent)}
 .goal span{position:absolute;right:0;top:-22px;font-size:13px;color:var(--ink2);font-weight:800}
@@ -208,21 +227,22 @@ label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 /* profile */
 .link{color:var(--acc);font-weight:900}
 .steplist{margin:8px 0 0;padding-left:22px;display:grid;gap:8px}
-.logo3d{display:inline-block;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 18px 22px rgb(0 0 0/.18))}
-@keyframes float{50%{transform:translateY(-8px) rotate(-4deg)}}
+.logo3d{display:inline-block;animation:settle .7s var(--out) both;filter:drop-shadow(0 18px 22px rgb(0 0 0/.18))}
+@keyframes settle{from{transform:translateY(10px) rotate(-4deg);opacity:0}}.welcome .logo3d{animation:none}
 nav[hidden]{display:none}
 .spin{display:inline-block;width:18px;height:18px;border:2.5px solid currentColor;border-right-color:transparent;border-radius:50%;animation:rot .7s linear infinite;vertical-align:-3px;margin-right:2px}
 .spin.lg{width:30px;height:30px;color:var(--acc)}
 @keyframes rot{to{transform:rotate(360deg)}}
 .boot{min-height:80dvh;display:grid;place-items:center;align-content:center;gap:20px}
-.ok{background:color-mix(in srgb,var(--fib) 14%,var(--card));color:light-dark(#0A6638,#86E8B6);border-radius:18px;padding:14px 16px;font-weight:700;font-size:15px}
+.ok{background:color-mix(in srgb,var(--fib) 14%,var(--card));color:#0A6638;color:light-dark(#0A6638,#86E8B6);border-radius:18px;padding:14px 16px;font-weight:700;font-size:15px}
 .pwrap{position:relative;display:block}.pwrap input{padding-right:56px}
 .eye{position:absolute;right:4px;top:50%;translate:0 -50%;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--ink2)}
 .mailic{justify-self:center;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--acc-bg);color:var(--acc)}
 [aria-invalid=true]{box-shadow:inset 0 0 0 2px var(--bad)!important}
 .heroc{container-type:inline-size}
-@container (max-width:330px){.hero{grid-template-columns:1fr;gap:18px}.hero .z2{justify-self:center}.big{font-size:56px}}
-:root[data-size=xl] nav button{font-size:10.5px;padding-inline:0}
+@container (max-width:330px){.hero{grid-template-columns:1fr;gap:18px}.hero>:last-child{justify-self:center}.big{font-size:56px}}
+@container (max-width:250px){.hero{padding:22px 18px}.big{font-size:44px}.hero .lbl{font-size:18px}}
+:root[data-size=l] :is(nav,.fab){zoom:.893}:root[data-size=xl] :is(nav,.fab){zoom:.8}:root[data-size=xxl] :is(nav,.fab){zoom:.715}
 .brand svg{filter:drop-shadow(0 4px 8px rgb(0 0 0/.14))}
 /* sign in */
 .signin{display:grid;gap:26px;max-width:420px;margin:0 auto;padding:0 0 24px}
@@ -233,8 +253,8 @@ nav[hidden]{display:none}
 .perks b{display:block;font-weight:800}
 .perks .ic{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:var(--acc-bg);color:var(--acc)}
 .sso{width:100%}
-.apple{background:light-dark(#000,#fff);color:light-dark(#fff,#000)}
-.google{background:light-dark(#fff,#131314);color:light-dark(#1f1f1f,#e3e3e3);box-shadow:inset 0 0 0 1px light-dark(#747775,#8e918f)}
+.apple{background:#000;color:#fff;background:light-dark(#000,#fff);color:light-dark(#fff,#000)}
+.google{background:#fff;color:#1f1f1f;box-shadow:inset 0 0 0 1px #747775;background:light-dark(#fff,#131314);color:light-dark(#1f1f1f,#e3e3e3);box-shadow:inset 0 0 0 1px light-dark(#747775,#8e918f)}
 /* account */
 .acct{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:16px}
 .avatar{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:19px;background:radial-gradient(110% 80% at 30% 0%,rgb(255 255 255/.35),transparent 60%),linear-gradient(160deg,var(--g1),var(--g2))}
@@ -245,9 +265,9 @@ nav[hidden]{display:none}
 /* water */
 .water{position:relative;overflow:hidden}
 .water>:not(.wave){position:relative;z-index:1}
-.wave{position:absolute;left:0;right:0;bottom:0;height:0;background:color-mix(in srgb,var(--wat) 22%,transparent);color:color-mix(in srgb,var(--wat) 22%,transparent);transition:height 1.2s var(--spring)}
-.wave svg{position:absolute;left:0;bottom:calc(100% - 1px);width:200%;height:12px;animation:drift 3.4s linear infinite}
-.wave svg+svg{height:9px;opacity:.7;animation-duration:5.5s;animation-direction:reverse}
+.wave{position:absolute;inset:0;translate:0 100%;background:color-mix(in srgb,var(--wat) 22%,transparent);color:color-mix(in srgb,var(--wat) 22%,transparent);transition:translate .7s var(--out)}
+.wave svg{position:absolute;left:0;bottom:calc(100% - 1px);width:200%;height:12px}.wave.go svg{animation:drift .7s var(--out) 1}
+.wave svg+svg{height:9px;opacity:.7}.wave.go svg+svg{animation-direction:reverse}
 @keyframes drift{to{transform:translateX(-50%)}}
 .splash{position:fixed;z-index:50;pointer-events:none;width:0;height:0}
 .splash b{position:absolute;left:-5px;top:-7px;width:10px;height:14px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:linear-gradient(180deg,#9BE4FF,#18A9EE);box-shadow:inset 0 1px 1px rgb(255 255 255/.7);animation:fly .85s cubic-bezier(.2,.7,.4,1) var(--d) both}
@@ -258,7 +278,7 @@ nav[hidden]{display:none}
 .tick{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;font-size:15px;font-weight:600;line-height:1.45;cursor:pointer}
 .tick input{width:24px;height:24px;margin:1px 0 0;accent-color:var(--acc)}
 .rows{padding:0;overflow:hidden}.rows>*{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:54px;padding:0 18px;font-weight:800;color:inherit;text-decoration:none;text-align:start}
-.rows>*+*{border-top:1px solid var(--sep)}.rows .bad{color:var(--bad)}.rows .chev{color:var(--ink2);font-size:22px;font-weight:700}
+.rows>*+*{border-top:1px solid var(--sep)}.rows .chev{display:grid;place-items:center}.rows .chev svg{width:18px;height:18px}.ex svg{width:16px;height:16px;margin-right:-4px}.rows>:focus-visible{outline-offset:-3px;border-radius:var(--r)}.rows .bad{color:var(--bad)}.rows .chev{color:var(--ink2);font-size:22px;font-weight:700}
 .ann{display:grid;grid-template-columns:auto 1fr 44px;gap:12px;align-items:center;margin-top:16px;padding:12px 6px 12px 16px;border-radius:22px}.ann svg{color:var(--acc)}
 .annb{text-align:start;min-height:44px}.annb small{display:block;color:var(--ink2);font-weight:700;font-size:13px}
 .post{overflow:hidden;padding:0}.post img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--chip)}.post .pb{padding:16px 18px}.post h3{margin:8px 0 4px;font-size:20px;line-height:1.25}
@@ -267,20 +287,36 @@ nav[hidden]{display:none}
 .utag{display:inline-block;margin:6px 6px 0 0;padding:2px 9px;border-radius:99px;background:var(--chip);font-size:13px;font-weight:800}
 
 /* for everyone: text size and increased contrast */
-:root[data-size=l] body{zoom:1.12}:root[data-size=xl] body{zoom:1.25}
-@media(prefers-contrast:more){:root{--ink2:light-dark(#343849,#D6D9E4);--edge:light-dark(rgb(14 16 32/.28),rgb(255 255 255/.32));--glass:light-dark(rgb(255 255 255/.92),rgb(20 21 28/.94))}}
+:root[data-size=l] body{zoom:1.12}:root[data-size=xl] body{zoom:1.25}:root[data-size=xxl] body{zoom:1.4}
+main{container-type:inline-size}
+@container (max-width:300px){.week{gap:4px}.week button{border-radius:14px}.grid3{grid-template-columns:1fr}.flip .face{grid-template-columns:auto 1fr;align-items:center}.flip .face:not(.back){padding-right:40px}.acts{grid-template-columns:1fr}.act{min-height:64px;grid-auto-flow:column;justify-content:center}.act br{display:none}.grid2{grid-template-columns:1fr}.cal{gap:6px 2px}.tiles{grid-template-columns:1fr}}
+@media(prefers-contrast:more){:root{--ink2:#343849;--edge:rgb(14 16 32/.28);--glass:rgb(255 255 255/.92)}}
+@supports (color:light-dark(#000,#fff)){@media(prefers-contrast:more){:root{--ink2:light-dark(#343849,#D6D9E4);--edge:light-dark(rgb(14 16 32/.28),rgb(255 255 255/.32));--glass:light-dark(rgb(255 255 255/.92),rgb(20 21 28/.94))}}}
 .pp{max-width:680px;padding-bottom:60px;font-weight:500;line-height:1.6}.pp .card{padding:6px 22px 18px;margin-top:20px}.pp h2{margin:28px 0 6px;font-size:21px}.pp a{color:var(--acc);font-weight:700}.pp ul{padding-left:22px}
 @media(max-width:380px){.face strong{font-size:22px}.act{font-size:15px}h1{font-size:36px}}
-@media(prefers-reduced-motion:reduce){*,::before,::after{animation:none!important;transition:none!important}.tilt{transform:none!important}.splash{display:none}}
+.mi{font-size:15px;font-variant-numeric:tabular-nums}.mi small{font-size:11px;color:var(--ink2);font-weight:700}
+.opt{display:grid;gap:2px;width:100%;text-align:start;padding:16px 18px;border-radius:22px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--sep)}
+.opt b{font-weight:800}.opt[aria-pressed=true]{background:var(--acc-bg);box-shadow:inset 0 0 0 2.5px var(--acc)}
+.seg.s4{grid-template-columns:repeat(4,1fr)}
+/* floating Log button: always within thumb reach on Today */
+.fab{position:fixed;left:50%;translate:-50% 0;bottom:calc(92px + env(safe-area-inset-bottom));z-index:19;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px 0 18px;border-radius:99px;color:#fff;font-size:17px;font-weight:800;white-space:nowrap;background:linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.3),0 14px 28px -12px var(--sh);transition:opacity .22s var(--out),transform .28s var(--out),visibility 0s}
+.fab svg{width:22px;height:22px}
+.fab.away{opacity:0;transform:translateY(16px) scale(.96);visibility:hidden;transition:opacity .16s,transform .2s,visibility 0s .2s}
+@media(min-width:900px){.fab{bottom:28px}}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:.15s!important;transition-property:opacity,background-color,border-color,visibility!important;scroll-behavior:auto!important}
+ nav button,.seg button{transition-property:color,background-color!important}
+ dialog[open],dialog[open]::backdrop,.toast,.msg{animation:fade .18s ease-out!important}.logo3d,.wave svg,.dots i,.scanline{animation:none!important}.fab.away{transform:none}.splash{display:none}
+ dialog,dialog::backdrop{transition-property:opacity,display,overlay!important}dialog:not([open]){translate:none;opacity:0}}
+@keyframes fade{from{opacity:0}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="g-acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8FA5FF"/><stop offset="1" stop-color="#2B50F0"/></linearGradient>
-<linearGradient id="g-pro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8AA6"/><stop offset="1" stop-color="#FF2D5F"/></linearGradient>
+<linearGradient id="g-pro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59AD0"/><stop offset="1" stop-color="#D6338F"/></linearGradient>
+<linearGradient id="g-flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC24D"/><stop offset="1" stop-color="#FF7A00"/></linearGradient>
 <linearGradient id="g-carb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD36B"/><stop offset="1" stop-color="#FF9D00"/></linearGradient>
 <linearGradient id="g-fat" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9A2FF"/><stop offset="1" stop-color="#8340FF"/></linearGradient>
-<linearGradient id="g-bad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF8AA6"/><stop offset="1" stop-color="#E0103F"/></linearGradient>
 <linearGradient id="g-tile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset=".55" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#BFB39F" stop-opacity=".35"/></linearGradient>
 </defs></svg>
 <template id="privacy-page"><main class="pp">
@@ -356,7 +392,7 @@ nav[hidden]{display:none}
 <h2>Changes</h2>
 <p>If this policy changes, we'll update this page and the date at the top, and tell you in the app if the change is important.</p>
 </div>
-<p style="margin-top:24px"><a href="?terms">Terms of Service</a> · <a href="./">← Back to Calora</a></p>
+<p style="margin-top:24px"><a href="?terms">Terms of Service</a> · <a href="./">Back to Calora</a></p>
 </main></template>
 <template id="terms-page"><main class="pp">
 <a class="brand" href="./" style="text-decoration:none;color:inherit"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>Calora</a>
@@ -404,12 +440,13 @@ nav[hidden]{display:none}
 <h2>Changes</h2>
 <p>If we change these terms, we'll update this page and the date at the top, and tell you in the app if the change is important.</p>
 </div>
-<p style="margin-top:24px"><a href="?privacy">Privacy Policy</a> · <a href="./">← Back to Calora</a></p>
+<p style="margin-top:24px"><a href="?privacy">Privacy Policy</a> · <a href="./">Back to Calora</a></p>
 </main></template>
 <main id="app"></main>
+<button id="fab" class="fab bub away" hidden data-log="describe" data-fab><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Log food</button>
 <nav id="nav" class="glass" aria-label="Sections"></nav>
-<dialog id="sheet"><input type="file" id="file" accept="image/*" hidden><div class="sh" id="sh" tabindex="-1" autofocus></div></dialog>
-<div id="toast"></div>
+<dialog id="sheet" aria-labelledby="shtitle"><input type="file" id="file" accept="image/*" hidden><div class="sh" id="sh" tabindex="-1" autofocus></div></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
 <script>
 const LEGAL=location.search.match(/[?&](privacy|terms)\b/)?.[1];
 if(LEGAL){document.body.replaceChildren(document.getElementById(LEGAL+'-page').content.cloneNode(true));document.title=(LEGAL==='terms'?'Terms of Service':'Privacy Policy')+' — Calora'}else{
@@ -442,9 +479,10 @@ drop:'<path d="M12 3.5c3 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.5-6 5.5-10z"/>'
 sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
 moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
 plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',x:'<path d="M6 6l12 12M18 6 6 18"/>',
-send:'<path d="M12 19V5M6 11l6-6 6 6"/>',warn:'<path d="M12 3.8 21.6 20H2.4z"/><path d="M12 10v4.5M12 17.3h.01"/>',
-home2:'<path d="M12 3v12M7 8l5-5 5 5"/><rect x="4" y="11" width="16" height="10" rx="3"/>'};
+send:'<path d="M12 19V5M6 11l6-6 6 6"/>',news:'<path d="M4 10.2v3.6a1 1 0 0 0 1 1h2.2L13 19V5L7.2 9.2H5a1 1 0 0 0-1 1z"/><path d="M16.5 9.5a3.5 3.5 0 0 1 0 5M18.8 7a7 7 0 0 1 0 10"/>',turn:'<path d="M4.5 12a7.5 7.5 0 0 1 12.9-5.2L19.5 9M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.9 5.2L4.5 15M4.5 19.5V15H9"/>',warn:'<path d="M12 3.8 21.6 20H2.4z"/><path d="M12 10v4.5M12 17.3h.01"/>',
+home2:'<path d="M12 3v12M7 8l5-5 5 5"/><rect x="4" y="11" width="16" height="10" rx="3"/>',chev:'<path d="m9.5 6 6 6-6 6"/>',back:'<path d="m14.5 6-6 6 6 6"/>',check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',out:'<path d="M8 16 16.5 7.5M9.5 7.5h7v7"/>'};
 const I=(k,w=2)=>`<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k]}</svg>`;
+const CHEV=`<span class="chev" aria-hidden="true">${I('chev',2.4)}</span>`;
 const LOGO=s=>`<svg width="${s}" height="${s}" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><rect x="1" y="1" width="62" height="62" rx="16" fill="url(#g-tile)"/><rect x="1.5" y="1.5" width="61" height="61" rx="15.5" fill="none" stroke="#000" stroke-opacity=".07"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>`;
 
 // allergen families: label, detector for names and ingredients
@@ -834,9 +872,11 @@ function portion(f,s){const a=qty(s),sz=/\b(large|big|huge|double|extra)\b/.test
 const localParse=t=>t.toLowerCase().replace(/\b(fish|mac|salt|hot|sweet|shrimp) and\b/g,'$1 &').split(/,|;|\band\b|\bwith\b|\bplus\b|\bthen\b|\+|\n/).map(s=>s.trim()).filter(Boolean).flatMap(s=>{const{fs,skip}=findFoods(s);
  return fs.length?fs.map((f,i)=>i?mk(f,f.d,{ingredients:[s]}):portion(f,s)):skip?[]:[{miss:s}]});
 
-const DEF={goals:{kcal:2000,p:140,c:210,f:65,fib:28,water:2500},profile:{sex:'male',age:28,height:175,weight:75,target:75,goal:'maintain',activity:'light'},days:{},weights:{},chat:[],allergies:[],other:'',theme:'system',size:'m',onboarded:false,start:T,skipped:false,devReady:false};
+const DEF={goals:{kcal:2000,p:140,c:210,f:65,fib:28,water:2500},profile:{sex:'male',age:28,height:175,weight:75,target:75,goal:'maintain',activity:'light'},days:{},weights:{},chat:[],allergies:[],other:'',theme:'system',size:'m',onboarded:false,start:T,skipped:false,devReady:false,goalsSet:false,logMode:'describe'};
 const loadState=k=>{let v;try{v=JSON.parse(localStorage.getItem(k)||(k==='calora'?localStorage.getItem('morsel-v2'):null))}catch(e){}v=Object.assign(structuredClone(DEF),v||{});if(v.account){v.skipped=true;delete v.account}return v};
 let S=loadState('calora'),USER=null;
+// goals count as set once the person sets them, or if they differ from the starting example
+const goalsReal=()=>S.goalsSet||JSON.stringify(S.goals)!==JSON.stringify(DEF.goals)||JSON.stringify(S.profile)!==JSON.stringify(DEF.profile);
 const curKey=()=>USER?'calora:u:'+USER.id:'calora';
 const save=()=>{try{localStorage.setItem(curKey(),JSON.stringify(S))}catch(e){}if(USER)schedulePush()};
 const day=k=>S.days[k]||(S.days[k]={items:[],water:0});
@@ -865,13 +905,14 @@ function loadDevice(){if(!ODP)ODP=(async()=>{const files={},{pipeline}=await imp
  return pipeline('zero-shot-image-classification','Xenova/clip-vit-base-patch32',{progress_callback:e=>{if(e.status!=='progress'||!e.total)return;files[e.file]=[e.loaded,e.total];let l=0,t=0;for(const[a,b]of Object.values(files)){l+=a;t+=b}devProg&&devProg(l/t)}})})().catch(e=>{ODP=null;throw e});return ODP}
 async function deviceScan(blob,onProg){devProg=onProg;const clf=await loadDevice(),url=URL.createObjectURL(blob);
  try{const out=await clf(url,CLIP.map(clipName),{hypothesis_template:'a photo of {}, a type of food.'});return out.slice(0,5).map(o=>({f:CLIP.find(f=>clipName(f)===o.label),score:o.score}))}finally{URL.revokeObjectURL(url)}}
-const applyTheme=()=>{const h=document.documentElement;h.dataset.size=S.size||"m";S.theme==='system'?delete h.dataset.mode:h.dataset.mode=S.theme};
+const applyTheme=()=>{const h=document.documentElement;h.dataset.size=S.size||"m";S.theme==='system'?delete h.dataset.mode:h.dataset.mode=S.theme;
+ $$('meta[name=theme-color]').forEach(m=>{const dk=S.theme==='system'?/dark/.test(m.media):S.theme==='dark';m.content=dk?'#06070B':'#F3F4FA'})};
 const isDark=()=>S.theme!=='system'?S.theme==='dark':document.documentElement.dataset.theme?document.documentElement.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
 const lastD={};
 const ring=(key,pct,g,sz,w,inner='')=>{const R=(sz-w)/2,C=2*Math.PI*R,p=Math.min(Math.max(pct||0,0),1),d=`${(p*C).toFixed(1)} ${C.toFixed(1)}`;
- return`<div class="rw" style="width:${sz}px;height:${sz}px"><svg viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}"><circle class="trk" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke-width="${w}"/><circle class="arc" data-k="${key}" data-d="${d}" style="--c:var(--${g==='acc'?'acc':g});stroke-dasharray:${lastD[key]||'0 '+C}" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke="url(#g-${g})" stroke-width="${w}" ${p?'':'opacity="0"'}/></svg><div class="in">${inner}</div></div>`};
-const bar=(pct,c)=>`<div class="bar"><i style="width:${Math.min(Math.max(pct,0),1)*100}%;--c:var(--${c})"></i></div>`;
-let tab=location.hash.slice(1),sel=T,calSel=T,calM=T.slice(0,7),flipped=new Set(),erase=0,wipe=0,cErr='',undoT,sheetKind='',SH={},coachBusy=false,installEvt=null,lastH=0;
+ return`<div class="rw" style="width:${sz}px;height:${sz}px"><svg viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}"><circle class="trk" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke-width="${w}"/><circle class="arc" data-k="${key}" data-d="${d}" style="--c:var(--${g==='acc'?'acc':g});stroke-dasharray:${lastD[key]||'0 '+C}" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke="url(#g-${g})" stroke-width="${w}" ${p?'':lastD[key]&&!lastD[key].startsWith('0.0 ')?'data-zero="1"':'opacity="0"'}/></svg><div class="in">${inner}</div></div>`};
+const bar=(pct,c)=>`<div class="bar"><i style="--p:${(Math.min(Math.max(pct||0,0),1)*100).toFixed(1)}%;--c:var(--${c})"></i></div>`;
+let waveUntil=0,OB={},CONF={},tab=location.hash.slice(1),sel=T,calSel=T,calM=T.slice(0,7),flipped=new Set(),cErr='',undoT,sheetKind='',SH={},coachBusy=false,installEvt=null,lastH=0;
 const TABS=[['today','Today','home'],['coach','Coach','chat'],['calendar','Calendar','cal'],['progress','Progress','prog'],['profile','Profile','user']];
 if(!TABS.some(t=>t[0]===tab))tab='today';
 const top=()=>`<header class="top"><div class="brand">${LOGO(34)}Calora</div><button class="tbtn glass bub" data-act="theme" aria-label="Switch to ${isDark()?'light':'dark'} mode">${I(isDark()?'sun':'moon')}</button></header>`;
@@ -885,31 +926,31 @@ consent(){return`<div class="top" style="justify-content:flex-end"><button class
  <label class="tick"><input type="checkbox" id="c-health"><span>I agree that Calora stores my health information (body details, weight, allergies and the food I log) ${USER?'in my private account':'on this device'} so the app can work. I can withdraw this any time in Profile by deleting my ${USER?'account':'data'}.</span></label>
  <button class="btn pri bub">Agree and continue</button>${USER?'<button type="button" class="btn sec bub" data-auth="signout">Sign out</button>':'<button type="button" class="btn sec bub" data-auth="login">Back</button>'}</form></div>`},
 
-today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,mon=add(T,-((D(T).getDay()+6)%7)),st=streak();
- const mac=(k,lab,c)=>{const l=g[k]-s[k],pc=s[k]/g[k];return`<button class="flip ${flipped.has(k)?'on':''}" data-flip="${k}" aria-label="${lab}: ${fmt(Math.abs(l))} grams ${l<0?'over':'left'}. Tap for details."><span class="fi"><span class="face card"><strong>${fmt(Math.abs(l))}g</strong><span class="sub">${lab} ${l<0?'over':'left'}</span>${ring('m'+k,pc,c,74,10,r(pc*100)+'%')}</span><span class="face back card"><span class="sub">Eaten</span><strong>${fmt(s[k])}g</strong><span class="sub">of ${fmt(g[k])}g</span>${bar(pc,c)}</span></span></button>`};
- return top()+newsCard()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1><span class="pill glass">${I('flame')}${st} day streak</span></div>
- <div class="week">${[...Array(7)].map((_,i)=>{const k=add(mon,i);return`<button class="bub ${k===sel?'on':''} ${k===T?'t':''}" data-day="${k}" ${k>T?'disabled':''} aria-label="${longDate(k)}">${'MTWTFSS'[i]}<b>${D(k).getDate()}</b></button>`}).join('')}</div>
- <div class="heroc"><div class="card hero tilt"><div class="z1"><div class="big">${fmt(Math.abs(left))}</div><div class="lbl">Calories ${left<0?'over':'left'}</div><div class="sub" style="margin-top:12px;white-space:nowrap">${fmt(s.kcal)} eaten · ${fmt(g.kcal)} goal</div></div><div class="z2">${ring('kcal',s.kcal/g.kcal,left<0?'bad':'acc',124,14,`<svg class="flame" viewBox="0 0 24 24" fill="url(#g-pro)" aria-hidden="true">${P.flame}</svg>`)}</div></div></div>
+today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,over=left<0,mon=add(T,-((D(T).getDay()+6)%7)),st=streak(),real=goalsReal();
+ const mac=(k,lab,c)=>{const l=g[k]-s[k],pc=s[k]/g[k],ov=l<0,hit=k==='p'&&ov;return`<button class="flip ${flipped.has(k)?'on':''}" data-flip="${k}" aria-pressed="${flipped.has(k)}" aria-label="${lab}: ${fmt(s[k])} of ${fmt(g[k])} grams eaten, ${fmt(Math.abs(l))} grams ${ov?'over':'left'}"><span class="fi"><span class="face card">${I('turn').replace('class="i"','class="i fl"')}<strong>${fmt(hit?s[k]:Math.abs(l))}g</strong><span class="sub">${hit?lab+' goal hit':lab+' '+(ov?'over':'left')}</span>${ring('m'+k,pc,c,74,10,`<span class="mi">${fmt(s[k])}<small>/${fmt(g[k])}</small></span>`)}</span><span class="face back card"><span class="sub">Eaten</span><strong>${fmt(s[k])}g</strong><span class="sub">of ${fmt(g[k])}g goal</span>${bar(pc,c)}</span></span></button>`};
+ return top()+`<p class="date">${longDate(sel)}</p><div class="head"><h1>${sel===T?'Today':D(sel).toLocaleDateString('en-GB',{weekday:'long'})}</h1>${st?`<span class="pill glass">${I('flame')}${st} day streak</span>`:''}</div>
+ <div class="week">${[...Array(7)].map((_,i)=>{const k=add(mon,i);return`<button class="bub ${k===sel?'on':''} ${k===T?'t':''}" data-day="${k}" ${k>T?'disabled':''} aria-pressed="${k===sel}" ${k===T?'aria-current="date"':''} aria-label="${longDate(k)}">${'MTWTFSS'[i]}<b>${D(k).getDate()}</b></button>`}).join('')}</div>
+ <div class="heroc"><div class="card hero"><div><div class="big">${fmt(Math.abs(left))}</div><div class="lbl">${over?'Calories over your goal':'Calories left'}</div>${over&&sel===T?`<p class="kind">That's okay. One day won't undo your progress.</p>`:''}<div class="sub" style="margin-top:12px">${fmt(s.kcal)} eaten · ${fmt(g.kcal)} ${real?'goal':'example goal'}</div>${real?'':'<button class="ex bub" data-act="setgoal">Set your goal'+I('chev',2.6)+'</button>'}</div><div>${ring('kcal',s.kcal/g.kcal,'acc',124,14,`<svg class="flame" viewBox="0 0 24 24" fill="url(#g-flame)" aria-hidden="true">${P.flame}</svg>`)}</div></div></div>
  <div class="grid3">${mac('p','Protein','pro')}${mac('c','Carbs','carb')}${mac('f','Fat','fat')}</div>
  <div class="grid2"><div class="card"><div class="sub" style="min-height:38px;display:flex;align-items:center">Fiber</div><div class="val">${fmt(s.fib)} / ${g.fib}g</div>${bar(s.fib/g.fib,'fib')}</div>
- <div class="card water"><div class="wave" data-h="${(Math.min(d.water/g.water,1)*100).toFixed(1)}" style="height:${lastH}%" aria-hidden="true">${WAVE}${WAVE}</div><div class="row"><span class="sub">Water</span><span class="steps"><button class="step bub" data-w="-250" aria-label="Remove 250 millilitres">${I('minus',2.4)}</button><button class="step plus bub" data-w="250" aria-label="Add 250 millilitres">${I('plus',2.4)}</button></span></div><div class="val">${I('drop')}${+(d.water/1000).toFixed(2)} / ${+(g.water/1000).toFixed(2)}L</div><div class="sub" style="margin-top:8px">${r(Math.min(d.water/g.water,1)*100)}% of goal</div></div></div>
+ <div class="card water"><div class="wave ${Date.now()<waveUntil?'go':''}" data-h="${(Math.min(d.water/g.water,1)*100).toFixed(1)}" style="translate:0 ${100-lastH}%" aria-hidden="true">${WAVE}${WAVE}</div><div class="row"><span class="sub">Water</span><span class="steps"><button class="step bub" data-w="-250" aria-label="Remove 250 millilitres">${I('minus',2.4)}</button><button class="step plus bub" data-w="250" aria-label="Add 250 millilitres">${I('plus',2.4)}</button></span></div><div class="val">${I('drop')}${+(d.water/1000).toFixed(2)} / ${+(g.water/1000).toFixed(2)}L</div><div class="sub" style="margin-top:8px">${r(Math.min(d.water/g.water,1)*100)}% of goal</div></div></div>
  <div class="acts"><button class="act gel bub" data-log="scan">${I('cam')}Scan<br>food</button><button class="act bub" data-log="describe">${I('text')}Describe</button><button class="act bub" data-log="manual">${I('pen')}Manual</button></div>
- <h2>Logged food</h2><div class="card list">${d.items.length?d.items.map(i=>{const fl=flags(i);return`<div class="item"><div class="av" aria-hidden="true" style="${i.img?`background-image:url(${i.img})`:''}">${i.img?'':letterAv(i.name)}</div><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">P ${i.p}g · C ${i.c}g · F ${i.f}g</span>${fl.length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(fl.join(', '))}</span>`:''}</div><button class="x bub" data-del="${i.id}" aria-label="Delete ${esc(i.name)}">${I('x',2.4)}</button></div>`}).join(''):'<div class="empty">Nothing yet. Snap your first meal 📸</div>'}</div>`},
+ ${newsCard()}<h2>Logged food</h2><div class="card list">${d.items.length?d.items.map(i=>{const fl=flags(i);return`<div class="item"><div class="av" aria-hidden="true" style="${i.img?`background-image:url(${i.img})`:''}">${i.img?'':letterAv(i.name)}</div><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${fl.length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(fl.join(', '))}</span>`:''}</div><button class="x bub" data-del="${i.id}" aria-label="Delete ${esc(i.name)}">${I('x',2.4)}</button></div>`}).join(''):'<div class="empty">Nothing logged yet. Your meals will show up here.</div>'}</div>`},
 
 coach(){const sug=["I'm 180cm, 85kg, 28 y/o male and want to lose 8kg",'I want to build muscle — what should I eat?','What should I eat for the rest of today?'];
- return top()+`<h1>Coach</h1><p class="lead">Tell me about you and your goal — I'll build your plan.</p><div class="chat" id="chat">${S.chat.length?S.chat.map((m,i)=>`<div class="msg ${m.role==='user'?'u':'a'}" ${i===S.chat.length-1&&m.role!=='user'?'id="live"':''}>${m.content?(m.role==='user'?esc(m.content):md(m.content)):'<span class="dots" aria-label="Coach is typing"><i></i><i></i><i></i></span>'}</div>`).join(''):
+ return top()+`<h1>Coach</h1><p class="lead">Tell me about you and your goal — I'll build your plan.</p><div class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation with your coach">${S.chat.length?S.chat.map((m,i)=>`<div class="msg ${m.role==='user'?'u':'a'}" ${i===S.chat.length-1&&m.role!=='user'?'id="live"':''}>${m.content?(m.role==='user'?esc(m.content):md(m.content)):'<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="vh">Coach is typing</span>'}</div>`).join(''):
  `<div class="card welcome"><span class="logo3d">${LOGO(64)}</span><p>Hi! I'm your Calora coach. Share your height, weight, age and goal.</p>${sug.map(s=>`<button class="say bub" data-say="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}
- ${S.chat.length?`<p class="note" style="text-align:center"><button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button></p>`:''}<p class="note" style="text-align:center">${AI?'AI coach powered by Claude.':'Built-in AI coach. Works without Claude.'} General tips, not medical advice.</p></div>
+ ${S.chat.length?`<p class="note" style="text-align:center"><button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button></p>`:''}<p class="note" style="text-align:center">${AI?'Coach powered by Claude.':'Built-in coach that runs on your device.'} General tips, not medical advice.</p></div>
  <form class="composer glass" id="composer"><input id="msg" placeholder="Message your coach…" autocomplete="off" aria-label="Message your coach"><button class="send bub" aria-label="Send" ${coachBusy?'disabled':''}>${I('send',2.6)}</button></form>`},
 
-calendar(){const f=D(calM+'-01'),n=new Date(f.getFullYear(),f.getMonth()+1,0).getDate(),off=(f.getDay()+6)%7,cnt={hit:0,part:0,miss:0};
- const cells=[...Array(n)].map((_,i)=>{const k=`${calM}-${pad(i+1)}`,st=dayStatus(k);if(cnt[st]!=null)cnt[st]++;return`<button class="bub ${st} ${k===T?'t':''} ${k===calSel?'s':''}" data-cal="${k}" ${k>T?'disabled':''} aria-label="${longDate(k)}: ${({hit:'goal hit',part:'partly',miss:'missed',none:'no logs',future:''})[st]}">${i+1}</button>`});
+calendar(){const f=D(calM+'-01'),n=new Date(f.getFullYear(),f.getMonth()+1,0).getDate(),off=(f.getDay()+6)%7,cnt={hit:0,part:0,miss:0};const SL={hit:'On goal',part:'Logged',miss:'Not logged',none:'No logs',now:'In progress',future:''};
+ const cells=[...Array(n)].map((_,i)=>{const k=`${calM}-${pad(i+1)}`,st=dayStatus(k);if(cnt[st]!=null)cnt[st]++;return`<button class="bub ${st} ${k===T?'t':''} ${k===calSel?'s':''}" data-cal="${k}" ${k>T?'disabled':''} aria-pressed="${k===calSel}" ${k===T?'aria-current="date"':''} aria-label="${longDate(k)}${st==='future'?'':': '+SL[st].toLowerCase()}">${i+1}</button>`});
  const g=S.goals,s=sum(calSel),st=dayStatus(calSel),w=dayR(calSel).water;
  const need=[['Calories',s.kcal,g.kcal,'kcal','acc'],['Protein',s.p,g.p,'g','pro'],['Carbs',s.c,g.c,'g','carb'],['Fat',s.f,g.f,'g','fat'],['Fiber',s.fib,g.fib,'g','fib'],['Water',w,g.water,'ml','wat']];
- return top()+`<h1>Calendar</h1><div class="card" style="margin-top:18px"><div class="row" style="margin-bottom:14px"><button class="tbtn bub" data-m="-1" aria-label="Previous month" style="font-size:26px">‹</button><b style="font-size:20px;font-weight:900">${f.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</b><button class="tbtn bub" data-m="1" aria-label="Next month" style="font-size:26px" ${calM>=T.slice(0,7)?'disabled':''}>›</button></div>
+ return top()+`<h1>Calendar</h1><div class="card" style="margin-top:18px"><div class="row" style="margin-bottom:14px"><button class="tbtn bub" data-m="-1" aria-label="Previous month">${I('back',2.4)}</button><b style="font-size:20px;font-weight:900">${f.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</b><button class="tbtn bub" data-m="1" aria-label="Next month" ${calM>=T.slice(0,7)?'disabled':''}>${I('chev',2.4)}</button></div>
  <div class="cal">${'MTWTFSS'.split('').map(x=>`<span>${x}</span>`).join('')}${'<i></i>'.repeat(off)}${cells.join('')}</div>
- <div class="legend"><span><i style="background:var(--fib)"></i>Goal hit (${cnt.hit})</span><span><i style="background:var(--carb)"></i>Partly (${cnt.part})</span><span><i style="background:var(--pro)"></i>Missed (${cnt.miss})</span></div></div>
- <div class="card" style="margin-top:var(--gap)"><div class="row"><h3>${longDate(calSel)}</h3><span class="badge">${({hit:'Goal hit',part:'Partly',miss:'Missed',none:'No logs',future:'No logs'})[st]}</span></div><p class="sub" style="margin:6px 0 0">What you need to eat this day</p>
+ <div class="legend"><span><i style="background:var(--fib)"></i>On goal (${cnt.hit})</span><span><i style="background:var(--carb)"></i>Logged (${cnt.part})</span><span><i style="background:color-mix(in srgb,var(--ink2) 35%,transparent)"></i>Not logged (${cnt.miss})</span></div></div>
+ <div class="card" style="margin-top:var(--gap)"><div class="row"><h2 class="ct">${longDate(calSel)}</h2><span class="badge">${SL[st]||'No logs'}</span></div><p class="sub" style="margin:6px 0 0">${calSel===T?'Today so far, against your goals':'What you ate, against your goals'}</p>
  <div class="need">${need.map(([l,a,b,u,c])=>`<div><div class="row"><span>${l}</span><span><span class="sub">${fmt(a)} / </span><b>${fmt(b)}${u}</b></span></div>${bar(a/b,c)}</div>`).join('')}</div>
  <button class="btn sec bub" data-open="${calSel}" style="margin-top:16px">Open this day</button></div>`},
 
@@ -917,24 +958,24 @@ progress(){const p=S.profile,ws=Object.entries(S.weights).sort(),lw=ws.length?ws
  const g=S.goals,mon=add(T,-((D(T).getDay()+6)%7)),ks=[...Array(7)].map((_,i)=>add(mon,i)),ss=ks.map(sum),lg=ss.filter((s,i)=>s.kcal&&ks[i]<=T),avg=lg.length?lg.reduce((a,s)=>a+s.kcal,0)/lg.length:0,mx=Math.max(g.kcal*1.25,...ss.map(s=>s.kcal));
  const bmiL=b=>b<18.5?'Under':b<25?'Healthy':b<30?'Over':'High';
  return top()+`<h1>Progress</h1><div class="tiles" style="margin-top:18px"><div class="card"><span class="sub">Weight</span><b>${lw?lw+' kg':'– kg'}</b></div><div class="card"><span class="sub">Goal</span><b>${p.target?p.target+' kg':'– kg'}</b></div><div class="card"><span class="sub">BMI</span><b>${bmi?bmi.toFixed(1):'–'}</b>${bmi?`<span class="sub">${bmiL(bmi)}</span>`:''}</div></div>
- <div class="card" style="margin-top:var(--gap)"><h3>Weight trend</h3><div class="inline"><input type="number" id="wt" inputmode="decimal" step="0.1" min="20" max="400" placeholder="Today's weight (kg)" aria-label="Today's weight in kilograms"><button class="btn pri bub" data-act="logw">Log</button></div>
+ <div class="card" style="margin-top:var(--gap)"><h2 class="ct">Weight trend</h2><div class="inline"><input type="number" id="wt" inputmode="decimal" step="0.1" min="20" max="400" placeholder="Today's weight (kg)" aria-label="Today's weight in kilograms"><button class="btn pri bub" data-act="logw">Log</button></div>
  ${ws.length>=2?lineChart(ws.slice(-30)):`<p class="sub" style="margin:12px 0 0">Log your weight on a couple of days to see your trend.</p>`}</div>
- <div class="card" style="margin-top:var(--gap)"><div class="row"><h3>This week</h3><span class="sub">avg ${fmt(avg)} kcal</span></div>
+ <div class="card" style="margin-top:var(--gap)"><div class="row"><h2 class="ct">This week</h2><span class="sub">avg ${fmt(avg)} kcal</span></div>
  <div class="bars" role="img" aria-label="Calories this week: ${ks.map((k,i)=>D(k).toLocaleDateString('en-GB',{weekday:'short'})+' '+fmt(ss[i].kcal)).join(', ')}. Goal ${fmt(g.kcal)}."><span class="goal" style="bottom:${29+g.kcal/mx*171}px"><span>Goal ${fmt(g.kcal)}</span></span>${ks.map((k,i)=>`<div title="${fmt(ss[i].kcal)} kcal"><i class="${ss[i].kcal>g.kcal*1.1?'over':ss[i].kcal?'':'zero'}" style="height:${Math.max(6,ss[i].kcal/mx*171)}px"></i>${D(k).toLocaleDateString('en-GB',{weekday:'short'})}</div>`).join('')}</div>
- <p class="note" style="margin:12px 0 0">Rose bars are more than 10% over your goal.</p></div>`},
+ <p class="note" style="margin:12px 0 0">Lighter bars went more than 10% over your goal.</p></div>`},
 
 profile(){const p=S.profile,g=S.goals,ch=(f,v,l)=>`<button class="chip bub" data-pf="${f}" data-v="${v}" aria-pressed="${p[f]===v}">${l}</button>`;
- return top()+`<h1>Profile</h1>${acctCard()}<div class="card stack" style="margin-top:var(--gap)"><div class="chips">${ch('sex','male','Male')}${ch('sex','female','Female')}</div>
- <div class="fields">${[['age','Age'],['height','Height (cm)'],['weight','Weight (kg)'],['target','Target (kg)']].map(([k,l])=>`<label class="f">${l}<input type="number" inputmode="decimal" data-pn="${k}" value="${p[k]}"></label>`).join('')}</div>
+ return top()+`<h1>Profile</h1>${acctCard()}<h2>Body & goal</h2><div class="card stack"><div class="chips">${ch('sex','male','Male')}${ch('sex','female','Female')}</div>
+ <div class="fields">${[['age','Age'],['height','Height (cm)'],['weight','Weight (kg)'],['target','Target (kg)']].map(([k,l])=>`<label class="f">${l}<input type="number" inputmode="decimal" data-pn="${k}" value="${p[k]??''}"></label>`).join('')}</div>
  <div><div class="sub" style="margin-bottom:8px">Goal</div><div class="chips">${ch('goal','lose','Lose weight')}${ch('goal','maintain','Maintain')}${ch('goal','build','Build muscle')}</div></div>
  <div><div class="sub" style="margin-bottom:8px">Activity</div><div class="chips">${ch('activity','sedentary','Sedentary')}${ch('activity','light','Light')}${ch('activity','moderate','Moderate')}${ch('activity','very','Very active')}${ch('activity','athlete','Athlete')}</div></div>
- <button class="btn pri bub" data-act="calc">Calculate my goals</button><p class="sub" style="text-align:center;margin:0">Want a fully personalised plan? <button class="link" data-tab="coach">Ask the AI coach</button></p></div>
- <h2>Daily goals</h2><div class="card stack"><div class="fields">${[['kcal','Calories'],['p','Protein g'],['c','Carbs g'],['f','Fat g'],['fib','Fiber g'],['water','Water ml']].map(([k,l])=>`<label class="f">${l}<input type="number" inputmode="numeric" id="g-${k}" value="${g[k]}"></label>`).join('')}</div><button class="btn pri bub" data-act="savegoals">Save goals</button></div>
+ <button class="btn pri bub" data-act="calc">Calculate my goals</button><p class="sub" style="text-align:center;margin:0">Want a fully personalised plan? <button class="link" data-tab="coach">Ask the coach</button></p></div>
+ <h2>Daily goals</h2><div class="card stack"><div class="fields">${[['kcal','Calories'],['p','Protein g'],['c','Carbs g'],['f','Fat g'],['fib','Fiber g'],['water','Water ml']].map(([k,l])=>`<label class="f">${l}<input type="number" inputmode="numeric" id="g-${k}" data-goal="${k}" value="${g[k]}"></label>`).join('')}</div><p class="note" style="margin:0">Changes save automatically. For safety, the lowest calorie goal is 1,200 kcal.</p></div>
  <h2>Allergies</h2><div class="card stack"><p class="sub" style="margin:0">Calora warns you when a scanned or logged food may contain these.</p>${algChips()}<label class="f">Anything else? Separate with commas<input type="text" id="other" value="${esc(S.other)}" placeholder="e.g. kiwi, mustard, celery"></label></div>
  <h2>Appearance</h2><div class="seg" role="group" aria-label="Appearance" style="margin:0">${[['system','Automatic'],['light','Light'],['dark','Dark']].map(([v,l])=>`<button class="bub" data-themeset="${v}" aria-pressed="${S.theme===v}">${l}</button>`).join('')}</div>
- <p class="sub" style="margin:18px 4px 8px">Text size</p><div class="seg" role="group" aria-label="Text size" style="margin:0">${[['m','Standard'],['l','Large'],['xl','Larger']].map(([v,l])=>`<button class="bub" data-size="${v}" aria-pressed="${(S.size||'m')===v}">${l}</button>`).join('')}</div>
+ <p class="sub" style="margin:18px 4px 8px">Text size</p><div class="seg s4" role="group" aria-label="Text size" style="margin:0">${[['m','Standard'],['l','Large'],['xl','Larger'],['xxl','Largest']].map(([v,l])=>`<button class="bub" data-size="${v}" aria-pressed="${(S.size||'m')===v}">${l}</button>`).join('')}</div>
  <h2>Home Screen</h2><div class="card stack"><p class="sub" style="margin:0">Open Calora full-screen like an app, straight from your Home Screen.</p><button class="btn sec bub" data-act="home">${I('home2')}Add to Home Screen</button></div>
- <h2>Built-in AI</h2><div class="card stack"><p class="sub" style="margin:0">${AI?"Inside Claude, Calora uses Claude for photos and the coach. The built-in AI takes over whenever Claude isn't available.":'Recognises food in your photos right on this device, without Claude. It downloads once (about 150 MB), then works offline.'}</p><button class="btn sec bub" data-act="dl" id="dl" ${S.devReady?'disabled':''}>${S.devReady?'Built-in AI is ready ✓':'Download built-in AI now'}</button></div>
+ <h2>Built-in AI</h2><div class="card stack"><p class="sub" style="margin:0">${AI?"Inside Claude, Calora uses Claude for photos and the coach. The built-in AI takes over whenever Claude isn't available.":"Recognises food in your photos right on this device. It's a one-time download of about 150 MB (use Wi-Fi if you can), then it works offline."}</p><button class="btn sec bub" data-act="dl" id="dl" ${S.devReady?'disabled':''}>${S.devReady?I('check',2.4)+'Built-in AI is ready':'Download built-in AI now'}</button></div>
  ${helpRows()}${legalRows()}${acctRows()}`},
 
 };
@@ -989,7 +1030,7 @@ async function onAuth(ev,session){const u=session?.user||null;
 const maybeOnboard=()=>{if(authReady&&A.view!=='reset'&&(USER||S.skipped)&&S.consent?.v===1&&!S.onboarded&&!$('#sheet').open)setTimeout(()=>{if(!$('#sheet').open&&!S.onboarded)openSheet('welcome')},300)};
 const SYNC_TXT={synced:'Saved to your account',syncing:'Saving…',offline:"Offline. Changes will sync when you're back online.",idle:''};
 function setSync(st){sync=st;const el=$('#syncstate');if(el)el.textContent=SYNC_TXT[st]}
-const profPayload=()=>({display_name:USER?.name||null,settings:{goals:S.goals,profile:S.profile,allergies:S.allergies,other:S.other,theme:S.theme,size:S.size,onboarded:S.onboarded,start:S.start,consent:S.consent},weights:S.weights,chat:S.chat.slice(-40)});
+const profPayload=()=>({display_name:USER?.name||null,settings:{goals:S.goals,profile:S.profile,allergies:S.allergies,other:S.other,theme:S.theme,size:S.size,onboarded:S.onboarded,start:S.start,consent:S.consent,goalsSet:S.goalsSet},weights:S.weights,chat:S.chat.slice(-40)});
 function schedulePush(){clearTimeout(pushT);pushT=setTimeout(push,700)}
 
 // download this user's data; keep local edits that haven't uploaded yet
@@ -998,7 +1039,7 @@ async function pull(first){if(!sb||!USER||USER.offline)return;const uid=USER.id;
  if(!USER||USER.id!==uid)return;if(p.error||d.error){setSync('offline');return}
  const SY=S._sync||(S._sync={d:{},p:''});
  if(!p.data){ // brand-new account: bring this device's guest logs along, once
-  const g=loadState('calora');if(first&&!S._migrated&&Object.keys(g.days).length){for(const k of['days','weights','goals','profile','allergies','other','onboarded','start','consent'])S[k]=g[k];S._migrated=true;toast('Your logs on this device are now saved to your account.')}
+  const g=loadState('calora');if(first&&!S._migrated&&Object.keys(g.days).length){for(const k of['days','weights','goals','profile','allergies','other','onboarded','start','consent','goalsSet'])S[k]=g[k];S._migrated=true;toast('Your logs on this device are now saved to your account.')}
   save();await push();return}
  const localProfileChanged=SY.p&&SY.p!==JSON.stringify(profPayload());
  if(!localProfileChanged){Object.assign(S,p.data.settings||{});S.weights=p.data.weights||{};S.chat=p.data.chat||[]}
@@ -1093,13 +1134,13 @@ async function changePassword(){const f=A.f,pw=f.pw||'';A.err='';
  if(A.err)return renderSheet();A.busy='chpw';renderSheet();const {error}=await sb.auth.updateUser({password:pw});A.busy='';
  if(error){A.err=authMsg(error);return renderSheet()}A.f={};closeSheet();toast('Password changed.')}
 
-const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span>${isOwner()?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">Owner · everything is free for you</span>':''}</div></div>${isOwner()?'<div class="card rows" style="margin-top:var(--gap)"><a class="bub" href="/admin" target="_blank" rel="noopener">Admin panel<span class="chev" aria-hidden="true">↗</span></a></div>':''}`
+const acctCard=()=>USER?`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${esc((USER.name||USER.email).split(/[\s@.]+/).filter(Boolean).map(w=>w[0]).slice(0,2).join('').toUpperCase())}</span><div><b style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.name||'Your account')}</b><span class="sub" style="display:block;overflow:hidden;text-overflow:ellipsis">${esc(USER.email)}${USER.provider!=='email'?` · ${USER.provider==='apple'?'Apple':'Google'}`:''}</span><span class="sub" id="syncstate" role="status" style="display:block;font-size:13px">${SYNC_TXT[sync]}</span>${isOwner()?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">Owner · everything is free for you</span>':''}</div></div>${isOwner()?'<div class="card rows" style="margin-top:var(--gap)"><a class="bub" href="/admin" target="_blank" rel="noopener">Admin panel<span class="chev" aria-hidden="true">'+I('out',2.4)+'</span></a></div>':''}`
  :`<div class="card acct" style="margin-top:18px"><span class="avatar" aria-hidden="true">${I('user')}</span><div><b style="display:block">Not signed in</b><span class="sub">Your data is saved only on this device.</span></div>${SB_ON?'<button class="btn pri bub" data-auth="login" style="width:auto;min-height:44px;padding:0 18px;font-size:15px">Sign in</button>':''}</div>`;
-const helpRows=()=>`<h2>Updates & help</h2><div class="card rows">${APPCFG.news_enabled!==false?`<button data-act="newslist">News & updates${NEWS.length?`<span class="sub">${NEWS.length}</span>`:'<span class="chev" aria-hidden="true">›</span>'}</button>`:''}<button data-act="support">Help & support${(TIX||[]).some(newReply)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':'<span class="chev" aria-hidden="true">›</span>'}</button></div>`;
-const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service<span class="chev" aria-hidden="true">›</span></a><a href="?privacy">Privacy Policy<span class="chev" aria-hidden="true">›</span></a><a href="mailto:calora.scan@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
-const acctRows=()=>{const er=`<button class="bad" data-act="erase">${erase?'Tap again to erase all logged food':'Erase all logged food'}</button>`;
- return USER?`<h2>Account</h2><div class="card rows">${USER.provider==='email'&&!USER.offline?'<button data-auth="chpw">Change password<span class="chev" aria-hidden="true">›</span></button>':''}<button data-auth="signout">${A.outForce?'Tap again to sign out anyway':'Sign out'}</button>${er}${USER.offline?'':'<button class="bad" data-auth="delete">Delete account</button>'}</div>`
- :`<h2>Your data</h2><div class="card rows">${er}<button class="bad" data-act="wipe">${wipe?'Tap again to delete everything':'Delete all data on this device'}</button></div>`};
+const helpRows=()=>`<h2>Updates & help</h2><div class="card rows">${APPCFG.news_enabled!==false?`<button data-act="newslist">News & updates${NEWS.length?`<span class="sub">${NEWS.length}</span>`:CHEV}</button>`:''}<button data-act="support">Help & support${(TIX||[]).some(newReply)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':CHEV}</button></div>`;
+const legalRows=()=>`<h2>About</h2><div class="card rows"><a href="?terms">Terms of Service${CHEV}</a><a href="?privacy">Privacy Policy${CHEV}</a><a href="mailto:calora.scan@gmail.com">Contact us<span class="sub">Email</span></a></div><p class="note">Calora is run by the Calora team in Latvia. Its numbers are estimates, not medical advice.</p>`;
+const acctRows=()=>{const er=`<button class="bad" data-act="erase">Erase my logs and chats</button>`;
+ return USER?`<h2>Account</h2><div class="card rows">${USER.provider==='email'&&!USER.offline?'<button data-auth="chpw">Change password'+CHEV+'</button>':''}<button data-auth="signout">${A.outForce?'Tap again to sign out anyway':'Sign out'}</button>${er}${USER.offline?'':'<button class="bad" data-auth="delete">Delete account</button>'}</div>`
+ :`<h2>Your data</h2><div class="card rows">${er}<button class="bad" data-act="wipe">Delete all data on this device</button></div>`};
 
 // ---------- owners: accounts in Supabase's admin_emails table (they manage Calora at /admin) ----------
 const isOwner=()=>!!USER?.admin; // owners (admin_emails) never pay: any future paywall must check this first, and the server must check is_admin()
@@ -1119,7 +1160,7 @@ const seenTk=t=>lsGet('calora:tk:'+t.id)>=t.last_message_at;
 const newReply=t=>t.last_from_admin&&!seenTk(t);
 async function loadTickets(){if(!sb||!USER)return;const{data}=await sb.from('support_tickets').select('id,subject,status,last_message_at,last_from_admin').order('last_message_at',{ascending:false});TIX=data||[];
  if(tab==='profile')render();if($('#sheet').open&&sheetKind==='support')renderSheet()}
-const newsCard=()=>{const p=APPCFG.news_enabled!==false&&NEWS[0];return!p||lsGet('calora:news')===p.id?'':`<div class="ann card">${I('chat')}<button class="annb bub" data-act="post" data-id="${p.id}"><b>${esc(p.title)}</b><small>${esc(POSTCAT[p.category]||'News')} · Tap to read</small></button><button class="x bub" data-act="newsx" aria-label="Dismiss">${I('x',2.4)}</button></div>`};
+const newsCard=()=>{const p=APPCFG.news_enabled!==false&&NEWS[0];return!p||lsGet('calora:news')===p.id?'':`<div class="ann card">${I('news')}<button class="annb bub" data-act="post" data-id="${p.id}"><b>${esc(p.title)}</b><small>${esc(POSTCAT[p.category]||'News')} · Tap to read</small></button><button class="x bub" data-act="newsx" aria-label="Dismiss">${I('x',2.4)}</button></div>`};
 const countdown=d=>{const s=(new Date(d)-Date.now())/1e3;if(s<=0)return'Out now';const dd=Math.floor(s/86400),hh=Math.floor(s%86400/3600);return dd?`In ${dd} day${dd>1?'s':''}${hh?`, ${hh} h`:''}`:`In ${hh||'<1'} h`};
 const newsHTML=()=>shh('News & updates')+(NEWS.length?NEWS.map(p=>`<button class="card post bub" data-act="post" data-id="${p.id}" style="width:100%;text-align:start;margin-bottom:var(--gap)">${httpsUrl(p.cover_url)?`<img src="${esc(p.cover_url)}" alt="">`:''}<div class="pb"><span class="pcat">${esc(POSTCAT[p.category]||'News')}</span><h3>${esc(p.title)}</h3>${p.subtitle?`<span class="sub">${esc(p.subtitle)}</span>`:''}<span class="sub" style="display:block;font-size:13px;margin-top:6px">${fmtDay(p.publish_at)}</span></div></button>`).join(''):'<div class="card"><p class="sub" style="margin:0">No news yet. Check back soon!</p></div>')
  +(SOON.length?`<h2>Coming soon</h2>`+SOON.map(u=>`<div class="card post" style="margin-bottom:var(--gap)">${httpsUrl(u.image_url)?`<img src="${esc(u.image_url)}" alt="">`:''}<div class="pb"><span class="pcat">Coming soon</span><h3>${esc(u.name)}</h3>${u.release_at?`<b style="color:var(--acc)">${u.show_countdown?'⏳ '+countdown(u.release_at):fmtDay(u.release_at)}</b>`:''}<p class="pbody">${esc(u.description)}</p>${ctaHTML(u.cta_text,u.cta_url)}</div></div>`).join(''):'');
@@ -1133,7 +1174,7 @@ const supportHTML=()=>{const mail=`<a href="mailto:${esc(APPCFG.support_email)}"
  return shh('Help & support')+`<form class="card stack" data-supform="new" novalidate><b>Send us a message</b>${supErr?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(supErr)}</div></div>`:''}
   <label class="f">Subject<input type="text" name="subject" maxlength="150" required placeholder="e.g. The scanner doesn't see my food"></label><label class="f">Message<textarea name="body" maxlength="5000" required placeholder="Tell us what happened"></textarea></label>
   <button class="btn pri bub">Send</button><p class="note" style="margin:0">We usually reply within a day or two. Replies show up here. You can also email ${mail}.</p></form>
-  <h2>Your messages</h2>${TIX==null?'<div class="card"><p class="sub" style="margin:0">Loading…</p></div>':TIX.length?`<div class="card rows">${TIX.map(t=>`<button data-act="ticket" data-id="${t.id}"><span style="min-width:0"><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(t.subject)}</span><span class="sub" style="font-weight:700;font-size:13px">${TKST[t.status]} · ${fmtDay(t.last_message_at)}</span></span>${newReply(t)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':'<span class="chev" aria-hidden="true">›</span>'}</button>`).join('')}</div>`:'<div class="card"><p class="sub" style="margin:0">No messages yet.</p></div>'}`};
+  <h2>Your messages</h2>${TIX==null?'<div class="card"><p class="sub" style="margin:0">Loading…</p></div>':TIX.length?`<div class="card rows">${TIX.map(t=>`<button data-act="ticket" data-id="${t.id}"><span style="min-width:0"><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(t.subject)}</span><span class="sub" style="font-weight:700;font-size:13px">${TKST[t.status]} · ${fmtDay(t.last_message_at)}</span></span>${newReply(t)?'<span class="utag" style="background:var(--acc-bg);color:var(--acc)">New reply</span>':CHEV}</button>`).join('')}</div>`:'<div class="card"><p class="sub" style="margin:0">No messages yet.</p></div>'}`};
 const ticketHTML=()=>{const t=(TIX||[]).find(x=>x.id===TKSEL);if(!t)return shh('Message')+'<p class="sub">Not found.</p>';
  return shh(esc(t.subject))+`<div class="stack" style="gap:10px">${TKM.map(m=>`<div class="tkm${m.from_admin?'':' us'}">${esc(m.body)}<small>${m.from_admin?'Calora team':'You'} · ${new Date(m.created_at).toLocaleString('en-GB',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})}</small></div>`).join('')}</div>
   <form class="card stack" data-supform="reply" style="margin-top:14px" novalidate>${supErr?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(supErr)}</div></div>`:''}<label class="f">Reply<textarea name="body" maxlength="5000" required></textarea></label><button class="btn pri bub">Send reply</button></form>
@@ -1146,50 +1187,86 @@ async function supSubmit(f){const kind=f.dataset.supform,body=f.body.value.trim(
  if(error){supErr=/Too many/.test(error.message)?'You\'ve sent a lot of messages. Please try again in an hour.':'Couldn\'t send. Check your connection and try again.';return renderSheet()}
  supErr='';await loadTickets();toast(kind==='new'?'Sent! We\'ll reply here soon.':'Reply sent');kind==='new'?openTicket(data):openTicket(TKSEL)}
 
-function dayStatus(k){if(k>T)return'future';const s=sum(k),g=S.goals;if(!s.kcal)return k<T&&k>=S.start?'miss':'none';return s.kcal>=g.kcal*.9&&s.kcal<=g.kcal*1.1&&s.p>=g.p*.9?'hit':'part'}
+function dayStatus(k){if(k>T)return'future';const s=sum(k),g=S.goals;if(!s.kcal)return k<T&&k>=S.start?'miss':'none';return s.kcal>=g.kcal*.9&&s.kcal<=g.kcal*1.1&&s.p>=g.p*.9?'hit':k===T?'now':'part'}
 function lineChart(ws){const W=320,H=130,v=ws.map(w=>w[1]),lo=Math.min(...v)-1,hi=Math.max(...v)+1,x=i=>12+i*(W-24)/(ws.length-1),y=w=>10+(hi-w)/(hi-lo)*(H-34);
  const pts=ws.map((w,i)=>`${x(i).toFixed(1)},${y(w[1]).toFixed(1)}`).join(' ');
  return`<svg class="line" viewBox="0 0 ${W} ${H}" role="img" aria-label="Weight from ${v[0]} to ${v[v.length-1]} kg"><polyline points="${pts}" fill="none" stroke="url(#g-acc)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>${ws.map((w,i)=>`<circle cx="${x(i)}" cy="${y(w[1])}" r="5" fill="var(--card)" stroke="var(--acc)" stroke-width="3"/>`).join('')}<text x="12" y="${H-4}" font-size="12" fill="var(--ink2)" font-weight="800">${D(ws[0][0]).toLocaleDateString('en-GB',{day:'numeric',month:'short'})}</text><text x="${W-12}" y="${H-4}" font-size="12" fill="var(--ink2)" text-anchor="end" font-weight="800">${v[v.length-1]} kg</text></svg>`}
 const md=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split(/\n{2,}/).map(b=>{let o='',ul=0;for(let l of b.split('\n')){l=l.replace(/^#+\s*/,'');if(/^\s*[-•*] /.test(l)){if(!ul){o+='<ul>';ul=1}o+='<li>'+l.replace(/^\s*[-•*] /,'')+'</li>'}else if(l.trim()){if(ul){o+='</ul>';ul=0}o+='<p>'+l+'</p>'}}return o+(ul?'</ul>':'')}).join('');
 
-function render(){applyTheme();const gate=!authReady||A.view==='reset'||(!USER&&!S.skipped),ask=!gate&&S.consent?.v!==1;$('#nav').hidden=gate||ask;$('#app').innerHTML=gate?V.signin():ask?V.consent():V[tab]();document.title=gate||ask?'Calora':({today:'Today',coach:'AI Coach',calendar:'Calendar',progress:'Progress',profile:'Profile',admin:'Admin'})[tab]+' — Calora';
- requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('.arc[data-d]').forEach(a=>{a.style.strokeDasharray=a.dataset.d;lastD[a.dataset.k]=a.dataset.d});$$('.wave[data-h]').forEach(w=>{w.style.height=w.dataset.h+'%';lastH=w.dataset.h})}));
- $$('.tilt').forEach(el=>{el.onpointermove=e=>{if(RM)return;const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;el.style.setProperty('--rx',(-y*14).toFixed(2)+'deg');el.style.setProperty('--ry',(x*16).toFixed(2)+'deg');el.style.setProperty('--gx',(x+.5)*100+'%');el.style.setProperty('--gy',(y+.5)*100+'%');el.style.setProperty('--sx',(-x*26).toFixed(1)+'px');el.style.setProperty('--sy',(-y*16).toFixed(1)+'px')};el.onpointerleave=()=>{for(const p of['--rx','--ry'])el.style.setProperty(p,'0deg');for(const p of['--sx','--sy'])el.style.setProperty(p,'0px')}});
+// keep keyboard focus on the same control when a screen is redrawn
+function focusKey(el,root){const R=$(root);if(!el||el===document.body||!R||!R.contains(el))return null;
+ let sel=el.id?'#'+CSS.escape(el.id):el.tagName.toLowerCase()+Object.entries(el.dataset).map(([k,v])=>`[data-${k.replace(/[A-Z]/g,c=>'-'+c.toLowerCase())}="${CSS.escape(v)}"]`).join('');
+ if(sel===el.tagName.toLowerCase()&&el.getAttribute('aria-label'))sel+=`[aria-label="${CSS.escape(el.getAttribute('aria-label'))}"]`;
+ return{root,sel,i:[...R.querySelectorAll(sel)].indexOf(el)}}
+function restoreFocus(k){if(!k||(document.activeElement&&document.activeElement!==document.body))return;const R=$(k.root);if(!R)return;
+ const all=R.querySelectorAll(k.sel),el=all[k.i]||all[0];if(el){el.focus({preventScroll:true});return}
+ const h=R.querySelector('h1,h2');if(h){h.tabIndex=-1;h.focus({preventScroll:true})}}
+let fabIO=null;
+function updateFab(show){const f=$('#fab');f.hidden=!show;fabIO?.disconnect();if(!show)return;f.dataset.log=S.logMode||'describe';const a=$('.acts');
+ if(!a)return f.classList.remove('away');fabIO=new IntersectionObserver(([en])=>f.classList.toggle('away',en.isIntersecting),{rootMargin:'0px 0px -96px 0px'});fabIO.observe(a)}
+function render(){applyTheme();const gate=!authReady||A.view==='reset'||(!USER&&!S.skipped),ask=!gate&&S.consent?.v!==1,fk=focusKey(document.activeElement,'#app');$('#nav').hidden=gate||ask;$('#app').innerHTML=gate?V.signin():ask?V.consent():V[tab]();document.title=gate||ask?'Calora':({today:'Today',coach:'Coach',calendar:'Calendar',progress:'Progress',profile:'Profile'})[tab]+' — Calora';
+ restoreFocus(fk);updateFab(!gate&&!ask&&tab==='today');
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{$$('.arc[data-d]').forEach(a=>{a.style.strokeDasharray=a.dataset.d;if(a.dataset.zero)a.style.opacity=0;lastD[a.dataset.k]=a.dataset.d});$$('.wave[data-h]').forEach(w=>{w.style.translate='0 '+(100-w.dataset.h)+'%';lastH=w.dataset.h})}));
  if(!gate&&!ask){if(tab==='coach')scrollTo(0,document.body.scrollHeight);syncNav()}}
 $('#nav').innerHTML='<span class="blob" aria-hidden="true"></span>'+TABS.map(([t,l,ic])=>`<button data-tab="${t}">${I(ic)}<span>${l}</span></button>`).join('');
-function syncNav(anim){const cur=tab;$$('#nav [data-tab]').forEach(b=>b.dataset.tab===cur?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));const b=$(`#nav [data-tab="${cur}"]`),bl=$('.blob');bl.style.left=b.offsetLeft+'px';bl.style.width=b.offsetWidth+'px';if(anim&&!RM)bl.animate([{scale:'1'},{scale:'1.18 .86'},{scale:'1'}],{duration:520,easing:'ease-out'})}
-function go(t){if(t===tab){scrollTo({top:0,behavior:'smooth'});return}tab=t;erase=wipe=0;flipped.clear();history.replaceState(null,'','#'+t);render();syncNav(true);if(t!=='coach')scrollTo(0,0);}
-function toast(msg,undo){clearTimeout(undoT);$('#toast').innerHTML=`<div class="toast glass" role="status" ${tab==='coach'?'style="bottom:calc(160px + env(safe-area-inset-bottom))"':''}>${esc(msg)}${undo?'<button id="undo">Undo</button>':''}</div>`;if(undo)$('#undo').onclick=()=>{undo();$('#toast').innerHTML=''};undoT=setTimeout(()=>$('#toast').innerHTML='',4500)}
+function syncNav(anim){const cur=tab;$$('#nav [data-tab]').forEach(b=>b.dataset.tab===cur?b.setAttribute('aria-current','page'):b.removeAttribute('aria-current'));const b=$(`#nav [data-tab="${cur}"]`),bl=$('.blob');bl.style.translate=b.offsetLeft+'px 0';bl.style.width=b.offsetWidth+'px'}
+function go(t){if(t===tab){scrollTo({top:0,behavior:'smooth'});return}tab=t;flipped.clear();history.replaceState(null,'','#'+t);render();syncNav(true);if(t!=='coach')scrollTo(0,0);}
+let byKey=false;addEventListener('keydown',e=>{if(/^(Tab|Enter| |Escape)$/.test(e.key))byKey=true},true);addEventListener('pointerdown',()=>byKey=false,true);
+function toast(msg,undo){clearTimeout(undoT);const box=$('#toast'),dlg=$('#sheet');let back=focusKey(document.activeElement,'body');
+ box.innerHTML=`<div class="toast glass ${tab==='coach'||(tab==='today'&&!$('#fab').classList.contains('away'))?'lift':''}"><span>${esc(msg)}</span>${undo?'<button id="undo">Undo</button>':''}</div>`;
+ const t=box.firstChild;let left=undo?8000:Math.max(4500,msg.length*65),t0=0;
+ const done=()=>{clearTimeout(undoT);const had=t.contains(document.activeElement);if(box.firstChild===t)box.innerHTML='';if(had)restoreFocus(back)};
+ const arm=()=>{clearTimeout(undoT);t0=Date.now();undoT=setTimeout(done,left)},hold=()=>{clearTimeout(undoT);left=Math.max(1500,left-(Date.now()-t0))};
+ t.addEventListener('pointerenter',hold);t.addEventListener('pointerleave',arm);t.addEventListener('focusin',hold);t.addEventListener('focusout',e=>{if(!t.contains(e.relatedTarget))arm()});
+ const u=t.querySelector('button');if(u)u.onclick=()=>{undo();done()};
+ if(dlg.open)dlg.addEventListener('close',()=>{back=focusKey(document.activeElement,'body');if(u&&byKey&&u.isConnected)u.focus()},{once:true});else if(u&&byKey)u.focus();
+ arm()}
 
 const WAVE='<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0 6Q12.5 0 25 6T50 6T75 6T100 6T125 6T150 6T175 6T200 6V12H0z" fill="currentColor"/></svg>';
 function splash(x,y){const el=document.createElement('div');el.className='splash';el.style.left=x+'px';el.style.top=y+'px';
- el.innerHTML='<i></i><i style="animation-delay:.12s"></i>'+[...Array(12)].map((_,i)=>{const a=(-165+i*13+Math.random()*8)*Math.PI/180,d=34+Math.random()*30;return`<b style="--dx:${(Math.cos(a)*d).toFixed(1)}px;--dy:${(Math.sin(a)*d-10).toFixed(1)}px;--s:${(.7+Math.random()*.6).toFixed(2)};--d:${Math.random()*80|0}ms"></b>`}).join('');
- document.documentElement.appendChild(el);setTimeout(()=>el.remove(),1200)}
+ el.innerHTML='<i></i>'+[...Array(6)].map((_,i)=>{const a=(-160+i*28+Math.random()*10)*Math.PI/180,d=34+Math.random()*30;return`<b style="--dx:${(Math.cos(a)*d).toFixed(1)}px;--dy:${(Math.sin(a)*d-10).toFixed(1)}px;--s:${(.7+Math.random()*.6).toFixed(2)};--d:${Math.random()*80|0}ms"></b>`}).join('');
+ document.documentElement.appendChild(el);setTimeout(()=>el.remove(),1000)}
 
 // ---------- sheets ----------
-function openSheet(kind){sheetKind=kind;renderSheet();const d=$('#sheet');if(!d.open)d.showModal()}
-const closeSheet=()=>{$('#sheet').close()};
-function renderSheet(){$('#sh').innerHTML='<div class="grab"></div>'+({log:logHTML,welcome:welcomeHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
-const shh=t=>`<div class="shh"><span></span><b>${t}</b><button class="tbtn bub" data-close aria-label="Close">${I('x',2.4)}</button></div>`;
+let sheetOpener=null;
+function openSheet(kind){sheetKind=kind;renderSheet();const d=$('#sheet');d.style.translate='';if(!d.open){sheetOpener=focusKey(document.activeElement,'body');d.showModal()}}
+function closeSheet(){const d=$('#sheet');if(!d.open)return;d.classList.remove('drag');d.style.translate='';d.close()} // the exit slide is CSS (dialog:not([open]))
+function renderSheet(){const fk=focusKey(document.activeElement,'#sh');$('#sh').innerHTML='<div class="grab" aria-hidden="true"></div>'+({log:logHTML,welcome:welcomeHTML,goals:goalsHTML,confirm:confirmHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();restoreFocus(fk);const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
+const shh=t=>`<div class="shh"><span></span><h2 id="shtitle">${t}</h2><button class="tbtn bub" data-close aria-label="Close">${I('x',2.4)}</button></div>`;
 function logHTML(){const m=SH.mode;
  const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m}">${I(ic)}${l}</button>`).join('')}</div>`;
  let body='';
- if(m==='scan')body=`<button type="button" class="drop ${SH.photo?'has':''}" data-act="pick" style="${SH.photo?`background-image:url(${SH.photo})`:''}">${SH.busy?'<span class="scanline"></span>':''}${SH.photo?`<span>${SH.busy?'Looking at your plate…':'Change photo'}</span>`:`${I('cam',1.8)}Take or choose a photo`}</button>
- ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">Recognise food</button>`:''}`;
+ if(m==='scan')body=`${!S.devReady&&!AIimg&&!SH.photo?`<p class="note" style="margin:0 4px 12px">The first scan downloads Calora's food-recognition model (about 150 MB, one time only). Use Wi-Fi if you can.</p>`:''}<button type="button" class="drop ${SH.photo?'has':''}" data-act="pick" style="${SH.photo?`background-image:url(${SH.photo})`:''}">${SH.busy?'<span class="scanline"></span>':''}${SH.photo?`<span>${SH.busy?'Looking at your plate…':'Change photo'}</span>`:`${I('cam',1.8)}Take or choose a photo`}</button>
+ ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">${SH.err?'Try again':'Recognise food'}</button>`:''}`;
  if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora's built-in AI estimates from its list of about ${r(TXT.length/10)*10} foods. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
- if(m==='manual')body=`<div class="fields"><label class="f w">Food name<input type="text" id="m-name" placeholder="Chicken burrito"></label>${[['kcal','Calories'],['p','Protein (g)'],['c','Carbs (g)'],['f','Fat (g)'],['fib','Fiber (g)']].map(([k,l])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="m-${k}" placeholder="0"></label>`).join('')}<label class="f w">Ingredients, for the allergy check (optional)<input type="text" id="m-ing" placeholder="tortilla, cheese, beans, salsa"></label></div><div id="malert"></div><button class="btn pri bub" data-act="addmanual" style="margin-top:14px">Add to log</button>`;
+ if(m==='manual')body=`<div class="fields"><label class="f w">Food name<input type="text" id="m-name" placeholder="e.g. Chicken burrito" value="${esc(SH.pre||'')}"></label>${[['kcal','Calories','e.g. 450'],['p','Protein (g)','e.g. 20'],['c','Carbs (g)','e.g. 50'],['f','Fat (g)','e.g. 15'],['fib','Fiber (g)','e.g. 5']].map(([k,l,ph])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="m-${k}" placeholder="${ph}"></label>`).join('')}<label class="f w">Ingredients, for the allergy check (optional)<input type="text" id="m-ing" placeholder="tortilla, cheese, beans, salsa"></label></div><div id="malert"></div><button class="btn pri bub" data-act="addmanual" style="margin-top:14px">Add to log</button>`;
  return shh('Log food')+seg+body+(m==='manual'?'':`<div id="res">${resHTML()}</div>`)}
 function alertHTML(names){return names.length?`<div class="alert" role="alert">${I('warn',2.2)}<div><b>Don't eat this</b>It may contain <strong>${esc(names.join(', '))}</strong>, which you told Calora you're allergic to.</div></div><p class="note">Calora's allergy check estimates from typical recipes and can miss things. Always check the label or ask the staff.</p>`:''}
 function resHTML(){if(SH.busy)return`<div class="busy"><span class="dots"><i></i><i></i><i></i></span><span id="busytxt">${SH.prog!=null&&SH.prog<1?`Downloading built-in AI, one time only… ${r(SH.prog*100)}%`:SH.mode==='scan'?'Recognising your food…':'Estimating…'}</span></div>`;
- let h=SH.err?`<p class="err">${esc(SH.err)}</p>`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(!it.length)return h;
+ let h=SH.err?`<p class="err">${esc(SH.err)}</p>${SH.mode==='scan'?'<button class="btn sec bub" data-mode="describe">Describe it instead</button>':''}`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(!it.length)return h;
  const bad=[...new Set(it.flatMap(i=>flags(i.miss?{name:i.miss}:i)))];
- h+=alertHTML(bad)+(!bad.length&&ok.length&&allergyNames().length?`<p class="note">No allergens spotted, but Calora can miss ingredients. Check the label if you're not sure.</p>`:'')+`<div class="card list res">${it.map((i,n)=>i.miss?`<div class="item"><div><span class="err" style="margin:0">“${esc(i.miss)}” not recognised. Try Manual.</span>${flags({name:i.miss}).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags({name:i.miss}).join(', '))}</span>`:''}</div><span></span></div>`:`<div class="item"><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">P ${i.p}g · C ${i.c}g · F ${i.f}g</span>${flags(i).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags(i).join(', '))}</span>`:''}${i.b?`<br><span class="qty"><button class="bub" data-q="-1" data-n="${n}" aria-label="Less ${esc(i.name)}">${I('minus',2.4)}</button><span aria-live="polite">× ${i.q}</span><button class="bub" data-q="1" data-n="${n}" aria-label="More ${esc(i.name)}">${I('plus',2.4)}</button></span>`:''}</div><button class="x bub" data-rm="${n}" aria-label="Remove ${esc(i.name)}">${I('x',2.4)}</button></div>`).join('')}</div>`;
+ h+=alertHTML(bad)+(!bad.length&&ok.length&&allergyNames().length?`<p class="note">No allergens spotted, but Calora can miss ingredients. Check the label if you're not sure.</p>`:'')+`<div class="card list res">${it.map((i,n)=>i.miss?`<div class="item"><div><span class="sub">“${esc(i.miss)}” isn't in Calora's food list.</span> <button class="link" data-mode="manual" data-pre="${esc(i.miss)}" style="min-height:44px">Add it manually</button>${flags({name:i.miss}).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags({name:i.miss}).join(', '))}</span>`:''}</div><span></span></div>`:`<div class="item"><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${flags(i).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags(i).join(', '))}</span>`:''}${i.b?`<br><span class="qty"><button class="bub" data-q="-1" data-n="${n}" aria-label="Less ${esc(i.name)}">${I('minus',2.4)}</button><span aria-live="polite">× ${i.q}</span><button class="bub" data-q="1" data-n="${n}" aria-label="More ${esc(i.name)}">${I('plus',2.4)}</button></span>`:''}</div><button class="x bub" data-rm="${n}" aria-label="Remove ${esc(i.name)}">${I('x',2.4)}</button></div>`).join('')}</div>`;
  if(SH.alts)h+=`<p class="sub" style="margin:16px 4px 8px">Not quite? It might be:</p><div class="chips">${SH.alts.map(i=>`<button class="chip bub" data-alt="${i}">${esc(cap(clipName(FOODS[i])))}</button>`).join('')}<button class="chip bub" data-mode="describe">${I('text')}Describe it</button></div><p class="note">Recognised on your device by Calora's built-in AI. Portions are typical servings, so adjust them with − and +.</p>`;
- if(ok.length)h+=`<div class="total"><span>Total</span><span>${fmt(ok.reduce((a,i)=>a+i.kcal,0))} kcal</span></div><button class="btn ${bad.length?'warn':'pri'} bub" data-act="addres" style="margin-top:14px">${bad.length?'Log anyway':'Add to log'}</button>`;
+ if(ok.length)h+=`<div class="stick"><div class="total" style="padding-top:0"><span>Total</span><span>${fmt(ok.reduce((a,i)=>a+i.kcal,0))} kcal</span></div><button class="btn ${bad.length?'warn':'pri'} bub" data-act="addres" style="margin-top:10px">${bad.length?'Log anyway':'Add to log'}</button></div>`;
  return h}
-const welcomeHTML=()=>`<div style="display:grid;justify-items:center;text-align:center;gap:6px;padding:10px 4px 4px"><span class="logo3d">${LOGO(84)}</span><h1 style="font-size:32px">Welcome to Calora</h1><p class="sub" style="margin:0 0 10px;font-size:17px">Snap. Track. Thrive.</p></div>
+const welcomeHTML=()=>`<div style="display:grid;justify-items:center;text-align:center;gap:6px;padding:10px 4px 4px"><span class="logo3d">${LOGO(84)}</span><h1 id="shtitle" style="font-size:32px">Welcome to Calora</h1><p class="sub" style="margin:0 0 10px;font-size:17px">Snap. Track. Thrive.</p></div>
  <div class="card stack"><div><h3>Any food allergies?</h3><p class="sub" style="margin:0">Calora will warn you when a scanned or logged food may contain them. You can change this any time in Profile.</p></div>${algChips()}<label class="f">Anything else? Separate with commas<input type="text" id="other" value="${esc(S.other)}" placeholder="e.g. kiwi, mustard, celery"></label><p class="note" style="margin:0">Allergy warnings are estimates and can miss ingredients. Always check the label.</p></div>
- <button class="btn pri bub" data-act="welcomed" style="margin-top:16px">${S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}</button>`;
+ <div class="stick"><button class="btn pri bub" data-act="welcomed">${S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}</button></div>`;
+const goalsHTML=()=>{const o=OB,ch=(k,v,l)=>`<button type="button" class="chip bub" data-ob${k}="${v}" aria-pressed="${o[k==='s'?'sex':'act']===v}">${l}</button>`;
+ if(o.step==='goal')return shh('Your goal')+`<p class="sub" style="margin:0 4px 16px">Calora uses this to set your daily calories and protein. You can change it any time in Profile.</p>
+ <div class="stack" role="group" aria-label="Goal" style="gap:10px">${[['lose','Lose weight','A steady pace, about 0.5 kg a week'],['maintain','Stay where I am','Eat for your current weight'],['build','Build muscle','More protein and a small surplus']].map(([v,l,d])=>`<button class="opt bub" data-obg="${v}" aria-pressed="${o.goal===v}"><b>${l}</b><span class="sub">${d}</span></button>`).join('')}</div>
+ <div class="stick"><button class="btn pri bub" data-act="obnext" ${o.goal?'':'disabled'}>Continue</button><button class="btn sec bub" data-act="obskip" style="margin-top:10px">Skip for now</button></div>`;
+ const f=(id,l,min,max,st)=>`<label class="f">${l}<input type="number" inputmode="decimal" id="ob-${id}" min="${min}" max="${max}" step="${st}" value="${esc(o[id])}"></label>`;
+ return shh('About you')+`<p class="sub" style="margin:0 4px 16px">So Calora can estimate how much energy your body uses each day.</p>
+ <div class="card stack">${o.err?`<div class="alert" role="alert">${I('warn',2.2)}<div>${esc(o.err)}</div></div>`:''}
+ <div><div class="sub" style="margin-bottom:8px">Sex, for the energy estimate</div><div class="chips">${ch('s','male','Male')}${ch('s','female','Female')}</div></div>
+ <div class="fields">${f('age','Age',13,100,1)}${f('height','Height (cm)',100,230,1)}</div><div class="fields">${f('weight','Weight (kg)',30,300,.1)}</div>
+ <div><div class="sub" style="margin-bottom:8px">How active are you?</div><div class="chips">${ch('a','sedentary','Mostly sitting')}${ch('a','light','On my feet some days')}${ch('a','moderate','Active most days')}${ch('a','very','Train hard most days')}</div></div></div>
+ <div class="stick"><button class="btn pri bub" data-act="obsave">Set my goals</button><button class="btn sec bub" data-act="obback" style="margin-top:10px">Back</button></div>`};
+const confirmHTML=()=>shh(esc(CONF.title))+`<div class="card stack"><p style="margin:0">${esc(CONF.body)}</p><button class="btn ${CONF.warn?'warn':'pri'} bub" data-act="confok">${esc(CONF.ok)}</button><button class="btn sec bub" data-act="confno">Cancel</button></div>`;
+function confirmSheet(c){CONF=c;openSheet('confirm')}
+function setGoalsFromProfile(wasCut){const p=S.profile,steady=wasCut===true||(p.goal==='lose'&&noCut(p));S.goals=calcGoals(p);S.goalsSet=true;save();render();
+ toast(steady?(p.age<18?"Because you're under 18, your goals keep your weight steady. Talk to a doctor before trying to lose weight.":"Your goals keep your weight steady, because losing more wouldn't be healthy. Talk to a doctor first."):`Your daily goal: ${fmt(S.goals.kcal)} kcal and ${S.goals.p} g protein`)}
 const homeHTML=()=>{const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
  return shh('Add to Home Screen')+(standalone?'<p style="text-align:center">Calora is already running from your Home Screen.</p>':`${installEvt?`<button class="btn pri bub" data-act="install">Install Calora</button>`:''}
  <div class="card" style="margin-top:var(--gap)"><h3>iPhone and iPad</h3><ol class="steplist sub"><li>Open this page's link in Safari.</li><li>Tap the Share button.</li><li>Choose <b>Add to Home Screen</b>, then <b>Add</b>.</li></ol></div>
@@ -1207,10 +1284,10 @@ For "allergens", use these words where they apply: peanuts, tree nuts, dairy, eg
   try{const v=await askJSON(prompt,img&&AIimg?[SH.blob]:null);asked=true;SH.items=(v.items||[]).slice(0,12).map(fromAI);if(!SH.items.length){SH.items=null;SH.err=img?"Couldn't spot any food. Try another photo, or describe it.":"Couldn't work out any food from that. Try adding more detail."}}catch(e){}}
  if(!SH.items&&img&&!asked){try{const res=await deviceScan(SH.blob,p=>{SH.prog=p;const el=$('#busytxt');if(el)el.textContent=`Downloading built-in AI, one time only… ${r(p*100)}%`});
    if(!S.devReady){S.devReady=true;save()}SH.items=[mk(res[0].f)];SH.alts=res.slice(1).map(x=>FOODS.indexOf(x.f))}
-  catch(e){SH.err="The built-in AI couldn't load here. It needs internet the first time. Describe your meal instead."}}
+  catch(e){SH.err="The built-in AI couldn't load. It needs internet the first time."}}
  if(!SH.items&&SH.text.trim()){SH.items=localParse(SH.text);SH.err=''}
  SH.busy=false;renderSheet()}
-function addItems(items){if(!items.length)return;const L=day(sel).items;L.push(...items);save();closeSheet();render();toast(`Added ${items.length>1?items.length+' items':items[0].name}`,()=>{L.splice(L.length-items.length,items.length);save();render()})}
+function addItems(items){if(!items.length)return;const L=day(sel).items;L.push(...items);SH={};save();closeSheet();render();toast(`Added ${items.length>1?items.length+' items':items[0].name}`,()=>{L.splice(L.length-items.length,items.length);save();render()})}
 $('#file').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const im=new Image();im.onload=()=>{const cv=(z,sq)=>{const c=document.createElement('canvas'),s=Math.min(im.width,im.height),k=Math.min(1,z/Math.max(im.width,im.height));if(sq){c.width=c.height=z;c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,z,z)}else{c.width=r(im.width*k);c.height=r(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height)}return c};
  SH.photo=cv(320,1).toDataURL('image/jpeg',.82);cv(1024).toBlob(b=>{SH.blob=b;URL.revokeObjectURL(im.src);SH.items=null;SH.err='';if(!$('#sheet').open)openSheet('log');estimate()},'image/jpeg',.85)};im.src=URL.createObjectURL(f)};
 
@@ -1225,7 +1302,7 @@ function localCoach(t){const s=t.toLowerCase(),p=S.profile,g=S.goals,su=sum(T),k
  const num=re=>{const m=s.match(re);return m?parseFloat(m[1].replace(',','.')):null};
  const h=num(/(\d{3})\s*cm/),w=num(/(\d{2,3}(?:[.,]\d)?)\s*kg/),a=num(/(\d{2})\s*(?:y\/?o\b|years?|yrs?)/);
  const goal=/lose|cut\b|drop|slim|fat loss/.test(s)?'lose':/muscle|bulk|gain|bigger|stronger/.test(s)?'build':/maintain|keep my weight/.test(s)?'maintain':null;
- const ideas=(n,lim)=>FOODS.filter(f=>f.k*f.d>40&&f.k*f.d<=lim&&!flags(mk(f)).length).sort((x,y)=>y.p/y.k-x.p/x.k).slice(0,12).sort(()=>Math.random()-.5).slice(0,n).map(f=>`- ${qn(f)}: **${r(f.p*f.d)}g protein**, ${r(f.k*f.d)} kcal`).join('\n');
+ const ideas=(n,lim)=>FOODS.filter(f=>f.k*f.d>40&&f.k*f.d<=lim&&!flags(mk(f)).length&&!/filet mignon|foie|prime rib|scallop|lobster|escargot|carpaccio|tartare|peking|oyster|crab|bisque|baby back|caviar/.test(f.n)).sort((x,y)=>y.p/y.k-x.p/x.k).slice(0,12).sort(()=>Math.random()-.5).slice(0,n).map(f=>`- ${qn(f)}: **${r(f.p*f.d)}g protein**, ${r(f.k*f.d)} kcal`).join('\n');
  const hasAl=S.allergies.length||others().length;
  if(h&&w&&a){Object.assign(p,{height:h,weight:w,age:a});if(/female|woman|\bgirl|\bshe\b/.test(s))p.sex='female';else if(/\bmale\b|\bman\b|\bguy\b|\bhe\b/.test(s))p.sex='male';if(goal)p.goal=goal;
   const lose=num(/lose\s*(\d+(?:[.,]\d)?)\s*kg/),gain=num(/gain\s*(\d+(?:[.,]\d)?)\s*kg/),tooLow=lose&&(w-lose)/(h/100)**2<18.5;if(lose&&!tooLow)p.target=+(w-lose).toFixed(1);else if(gain)p.target=+(w+gain).toFixed(1);
@@ -1240,7 +1317,7 @@ function localCoach(t){const s=t.toLowerCase(),p=S.profile,g=S.goals,su=sum(T),k
   return`You have **${fmt(kl)} kcal** and **${fmt(Math.max(pl,0))}g protein** left today. Options that fit${hasAl?' and avoid your allergies':''}:\n\n${ideas(3,kl)}`}
  if(goal){p.goal=goal;S.goals=calcGoals(p);save();return`Done. Your goal is now **${({lose:'lose weight',build:'build muscle',maintain:'maintain'})[goal]}**, based on your Profile (${p.height} cm, ${p.weight} kg, ${p.age} years): ${goalLine(S.goals)}\n\nIf those numbers aren't right, tell me your height, weight and age.`}
  if(/protein/.test(s))return pl>0?`You need **${fmt(pl)}g more protein** today. Easy wins${hasAl?' that avoid your allergies':''}:\n\n${ideas(3,Math.max(kl,300))}`:`You've hit your protein goal today: **${fmt(su.p)}g** of ${g.p}g. Nice work.`;
- if(/water|drink|hydrat|thirst/.test(s)){const left=Math.max(0,g.water-dayR(T).water);return left?`You've had **${+(dayR(T).water/1000).toFixed(2)} L** of ${g.water/1000} L today. About **${Math.ceil(left/250)} more glasses** to go. Tap + on the Water card each time.`:`You've hit your water goal today. 💧`}
+ if(/water|drink|hydrat|thirst/.test(s)){const left=Math.max(0,g.water-dayR(T).water);return left?`You've had **${+(dayR(T).water/1000).toFixed(2)} L** of ${g.water/1000} L today. About **${Math.ceil(left/250)} more glasses** to go. Tap + on the Water card each time.`:`You've hit your water goal today. Nice work.`}
  if(/progress|week|how am i|doing|streak|on track/.test(s)){const ss=[...Array(7)].map((_,i)=>sum(add(T,i-6))).filter(x=>x.kcal),av=ss.length?ss.reduce((q,x)=>q+x.kcal,0)/ss.length:0;
   return ss.length?`In the last 7 days you logged **${ss.length} days**, averaging **${fmt(av)} kcal** against your ${fmt(g.kcal)} goal. ${Math.abs(av-g.kcal)<=g.kcal*.1?'Right on track.':av>g.kcal?'A little over on average: trim a snack or add a walk.':'Under on average: eat enough to keep your energy up.'} Current streak: **${streak()} days**.`:`Log a few meals and I'll tell you how your week is going.`}
  if(/allerg|intoleran/.test(s)){const al=allergyNames();return al.length?`I'm watching for **${al.join(', ')}**. If a scanned or logged food may contain them, you'll see a red "Don't eat this" warning. You can change them in Profile → Allergies.`:`You haven't added any allergies yet. Add them in Profile → Allergies and I'll warn you whenever a food may contain them.`}
@@ -1277,12 +1354,12 @@ When the user gives height, weight, age and goal, work out sensible daily target
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
  if(d.tab)return go(d.tab);
  if(d.day){sel=d.day;flipped.clear();return render()}
- if(d.flip){flipped.has(d.flip)?flipped.delete(d.flip):flipped.add(d.flip);b.classList.toggle('on');return}
- if(d.w){const x=day(sel),gw=S.goals.water,was=x.water;x.water=Math.max(0,x.water+ +d.w);save();render();
+ if(d.flip){flipped.has(d.flip)?flipped.delete(d.flip):flipped.add(d.flip);b.classList.toggle('on');b.setAttribute('aria-pressed',flipped.has(d.flip));return}
+ if(d.w){const x=day(sel),gw=S.goals.water,was=x.water;x.water=Math.max(0,x.water+ +d.w);waveUntil=Date.now()+60;save();render();
   if(+d.w>0&&!RM){const p=$('[data-w="250"]').getBoundingClientRect();splash(p.left+p.width/2,p.top+p.height/2)}
   if(was<gw&&x.water>=gw)toast('Water goal reached. Nice work!');return}
- if(d.log){SH={mode:d.log,photo:null,blob:null,text:'',items:null,busy:false,err:''};openSheet('log');if(d.log==='scan')$('#file').click();return}
- if(d.mode){if(SH.busy)return;SH.mode=d.mode;SH.items=SH.mode==='describe'&&!AI&&SH.text.trim()?localParse(SH.text):SH.mode==='scan'&&SH.photo?SH.items:null;SH.err='';return renderSheet()}
+ if(d.log){const keep=SH.mode&&(SH.text?.trim()||SH.items||SH.photo);if(keep)SH.mode=d.log;else SH={mode:d.log,photo:null,blob:null,text:'',items:null,busy:false,err:''};S.logMode=d.log;save();openSheet('log');if(d.log==='scan'&&!('fab' in d)&&!SH.photo)$('#file').click();return}
+ if(d.mode){if(SH.busy)return;if(d.pre!=null)SH.pre=d.pre;SH.mode=d.mode;SH.items=SH.mode==='describe'&&!AI&&SH.text.trim()?localParse(SH.text):SH.mode==='scan'&&SH.photo?SH.items:null;SH.err='';return renderSheet()}
  if(d.q){const it=SH.items[+d.n];setQ(it,it.q+ +d.q*(it.st||.5));$('#res').innerHTML=resHTML();return}
  if(d.alt){SH.items[0]=mk(FOODS[+d.alt]);$('#res').innerHTML=resHTML();return}
  if(d.auth)return authAction(d.auth);
@@ -1296,6 +1373,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  if(d.pf){S.profile[d.pf]=d.v;save();return render()}
  if(d.alg){const a=S.allergies,i=a.indexOf(d.alg);i<0?a.push(d.alg):a.splice(i,1);save();b.setAttribute('aria-pressed',i<0);if(sheetKind==='welcome'&&$('#sheet').open){const w=$('[data-act=welcomed]');if(w)w.textContent=S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}return}
  if(d.themeset){S.theme=d.themeset;save();return render()}
+ if(d.obg){OB.goal=d.obg;return renderSheet()}
+ if(d.obs){OB.sex=d.obs;return renderSheet()}
+ if(d.oba){OB.act=d.oba;return renderSheet()}
  if('close' in d)return closeSheet();
  switch(d.act){
  case'post':POSTSEL=d.id;try{localStorage.setItem('calora:news',NEWS[0]?.id||'')}catch(_){}openSheet('post');if(tab==='today')render();break;
@@ -1309,27 +1389,51 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  case'dl':{b.disabled=true;b.textContent='Starting download…';devProg=p=>{const x=$('#dl');if(x)x.textContent=`Downloading… ${r(p*100)}%`};loadDevice().then(()=>{S.devReady=true;save();render();toast('Built-in AI is ready')}).catch(()=>{const x=$('#dl');if(x){x.disabled=false;x.textContent='Download built-in AI now'}toast("Couldn't download. Check your internet connection.")});break}
  case'addmanual':{const v=k=>+$('#m-'+k).value||0,name=$('#m-name').value.trim();if(!name&&!v('kcal')){$('#m-name').focus();break}
   addItems([{id:uid(),name:name||'Food',kcal:v('kcal'),p:v('p'),c:v('c'),f:v('f'),fib:v('fib'),ingredients:$('#m-ing').value.split(',').map(s=>s.trim()).filter(Boolean)}]);break}
- case'welcomed':S.onboarded=true;save();closeSheet();render();break;
+ case'welcomed':OB={step:'goal',from:'welcome',goal:null,sex:null,age:'',height:'',weight:'',act:null,err:''};sheetKind='goals';renderSheet();$('#sh').focus();break;
+ case'setgoal':OB={step:'goal',from:'today',goal:null,sex:null,age:'',height:'',weight:'',act:null,err:''};openSheet('goals');break;
+ case'obnext':OB.step='body';OB.err='';renderSheet();$('#sh').focus();break;
+ case'obback':OB.step='goal';OB.err='';renderSheet();$('#sh').focus();break;
+ case'obskip':if(OB.from==='welcome'){S.onboarded=true;save()}closeSheet();render();break;
+ case'obsave':{const o=OB,num=k=>+o[k],bad=(m,id)=>{o.err=m;renderSheet();const el=id&&$('#ob-'+id);if(el){el.setAttribute('aria-invalid','true');el.focus()}};
+  if(!o.sex)return bad('Choose male or female for the energy estimate.');
+  if(!(num('age')>=13&&num('age')<=100))return bad('Enter your age, from 13 to 100.','age');
+  if(!(num('height')>=100&&num('height')<=230))return bad('Enter your height in centimetres, from 100 to 230.','height');
+  if(!(num('weight')>=30&&num('weight')<=300))return bad('Enter your weight in kilograms, from 30 to 300.','weight');
+  if(!o.act)return bad('Choose how active you are.');
+  const w=+num('weight').toFixed(1);Object.assign(S.profile,{sex:o.sex,age:r(num('age')),height:r(num('height')),weight:w,activity:o.act,goal:o.goal,target:o.goal==='maintain'?w:null});
+  const cut=S.profile.goal==='lose'&&noCut(S.profile);if(cut)S.profile.goal='maintain';
+  S.weights[T]=S.weights[T]||w;S.onboarded=true;closeSheet();setGoalsFromProfile(cut);break}
+ case'confok':{const run=CONF.run;closeSheet();run&&run();break}
+ case'confno':closeSheet();break;
  case'home':openSheet('home');break;
  case'install':installEvt?.prompt();installEvt=null;closeSheet();break;
  case'clearchat':S.chat=[];save();render();break;
  case'logw':{const v=+$('#wt').value;if(v<20||v>400){$('#wt').focus();break}S.weights[T]=+v.toFixed(1);S.profile.weight=+v.toFixed(1);save();render();toast(`Logged ${v} kg`);break}
- case'calc':S.goals=calcGoals(S.profile);save();render();toast(S.profile.goal==='lose'&&noCut(S.profile)?`Set to keep your weight steady (${fmt(S.goals.kcal)} kcal). Talk to a doctor before losing weight.`:`Goals set: ${fmt(S.goals.kcal)} kcal a day`);break;
- case'savegoals':{const g={};for(const k of['kcal','p','c','f','fib','water']){const v=+$('#g-'+k).value;g[k]=v>0?v:S.goals[k]}const low=g.kcal<1200;if(low)g.kcal=1200;S.goals=g;save();render();toast(low?'Saved. For safety, the lowest daily goal is 1,200 kcal. Talk to a doctor about anything lower.':'Goals saved');break}
- case'wipe':if(!wipe){wipe=1;render();break}try{for(const k of['calora','morsel-v2','calora:ann'])localStorage.removeItem(k)}catch(_){}S=loadState('calora');wipe=0;tab='today';history.replaceState(null,'','#today');render();syncNav();toast('All data on this device was deleted.');break;
+ case'calc':{const nx=calcGoals(S.profile);if(goalsReal()&&JSON.stringify(nx)!==JSON.stringify(S.goals))confirmSheet({title:'Replace your daily goals?',body:`This replaces your current goals (${fmt(S.goals.kcal)} kcal and ${S.goals.p} g protein a day) with goals calculated from your body details.`,ok:'Replace my goals',run:setGoalsFromProfile});else setGoalsFromProfile();break}
+ case'wipe':confirmSheet({title:'Delete all data on this device?',body:"This deletes everything Calora saved on this device: your logs, goals, settings and coach chats. It can't be undone.",ok:'Delete everything',warn:true,run:()=>{try{for(const k of['calora','morsel-v2','calora:ann'])localStorage.removeItem(k)}catch(_){}S=loadState('calora');tab='today';history.replaceState(null,'','#today');render();syncNav();toast('All data on this device was deleted.')}});break;
  case'pick':$('#file').click();break;
- case'erase':if(!erase){erase=1;render();break}S.days={};S.weights={};S.chat=[];erase=0;if(USER)S._wipe=true;save();render();toast('All logged food erased');break}});
+ case'erase':confirmSheet({title:'Erase your logs and chats?',body:`This permanently erases all your logged food and water, your weight entries and your coach chats${USER?', on every device signed in to your account':''}. Your ${USER?'account, ':''}goals and settings stay. It can't be undone.`,ok:'Erase my logs and chats',warn:true,run:()=>{S.days={};S.weights={};S.chat=[];if(USER)S._wipe=true;save();render();toast('Your logs and chats were erased.')}});break}});
 document.addEventListener('input',e=>{const t=e.target;if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
  if(t.dataset.pn){const v=+t.value;if(v>0){S.profile[t.dataset.pn]=v;save()}}
  if(t.id==='other'){S.other=t.value;save();const w=$('[data-act=welcomed]');if(w)w.textContent=S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}
+ if(t.id&&t.id.startsWith('ob-')){OB[t.id.slice(3)]=t.value;t.removeAttribute('aria-invalid')}
  if(t.id&&t.id.startsWith('m-')){const it={name:$('#m-name').value,ingredients:$('#m-ing').value.split(',')};$('#malert').innerHTML=alertHTML(flags(it))}});
 document.addEventListener('submit',e=>{if(e.target.dataset.supform){e.preventDefault();return supSubmit(e.target)}
  if('consent' in e.target.dataset){e.preventDefault();const t=$('#c-terms').checked,h=$('#c-health').checked;
   if(t&&h){S.consent={v:1,at:new Date().toISOString()};cErr='';save();render();syncNav();return maybeOnboard()}
   cErr=t?"Calora needs your OK to store your health information. Without it, the app can't work.":'Calora is for people aged 13 and older who agree to the Terms of Service and Privacy Policy.';render();$('#c-terms').checked=t;$('#c-health').checked=h;return}
  const af=e.target.dataset.authform;if(af){e.preventDefault();af==='chpw'?changePassword():authSubmit(af);return}if(e.target.id==='composer'){e.preventDefault();const i=$('#msg');sendMsg(i.value);i.value=''}});
+document.addEventListener('change',e=>{const t=e.target,k=t.dataset.goal;if(!k)return;let v=+t.value;if(!(v>0)){t.value=S.goals[k];return}
+ if(k==='kcal'&&v<1200){v=1200;t.value=1200;toast('For safety, the lowest daily goal is 1,200 kcal. Talk to a doctor about anything lower.')}S.goals[k]=r(v);S.goalsSet=true;save()});
 $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()});
-$('#sheet').addEventListener('close',()=>{if(sheetKind==='welcome'&&!S.onboarded){S.onboarded=true;save()}});
+$('#sheet').addEventListener('cancel',e=>{e.preventDefault();closeSheet()});
+$('#sheet').addEventListener('close',()=>{if(!document.activeElement||document.activeElement===document.body)restoreFocus(sheetOpener);if((sheetKind==='welcome'||(sheetKind==='goals'&&OB.from==='welcome'))&&!S.onboarded){S.onboarded=true;save();render()}});
+// swipe the sheet down by its handle or title bar to close it
+{const d=$('#sheet');let y0=null,dy=0,t0=0;
+ d.addEventListener('pointerdown',e=>{if(!e.target.closest('.grab,.shh')||e.target.closest('button,a,input')||d.scrollTop>0)return;y0=e.clientY;dy=0;t0=Date.now();d.setPointerCapture(e.pointerId);d.classList.add('drag')});
+ d.addEventListener('pointermove',e=>{if(y0==null)return;dy=Math.max(0,e.clientY-y0);d.style.translate=`0 ${dy}px`});
+ const end=()=>{if(y0==null)return;y0=null;d.classList.remove('drag');if(dy>110||dy/Math.max(1,Date.now()-t0)>.6)return closeSheet();d.style.transition='translate .3s var(--out)';d.style.translate='';setTimeout(()=>d.style.transition='',320)};
+ d.addEventListener('pointerup',end);d.addEventListener('pointercancel',end);d.addEventListener('lostpointercapture',end)}
 document.addEventListener('gesturestart',e=>e.preventDefault());
 addEventListener('hashchange',()=>{const t=location.hash.slice(1);if(TABS.some(x=>x[0]===t))go(t)});
 addEventListener('resize',()=>syncNav());
