@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-Oajy+DgpAndnVMkR6lm/QYV2WokbM3dowF4Pc7iMi74=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-oiKxDCV1dE+FmNQQfh6VxANB13cHVNcVs5xRatQrLE8=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://world.openfoodfacts.org https://fastly.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Today — Calora</title>
 <meta name="description" content="Snap a photo or describe your meal and Calora estimates its calories, protein, carbs and fat.">
@@ -58,8 +58,8 @@ main{max-width:560px;margin:auto;padding:max(14px,env(safe-area-inset-top)) 18px
 .brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800;letter-spacing:-.02em}
 .date{color:var(--ink2);font-size:16px;margin:14px 2px 0}
 .head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-top:2px}
-h1{font-size:40px;line-height:1.05;margin:6px 0 0;font-weight:800;letter-spacing:-.03em}
-h2{font-size:22px;margin:32px 4px 14px;font-weight:800;letter-spacing:-.02em}
+h1{font-size:34px;line-height:1.08;margin:6px 0 0;font-weight:800;letter-spacing:-.03em}
+h2{font-size:20px;margin:32px 4px 14px;font-weight:800;letter-spacing:-.02em}
 h2.ct{font-size:19px;margin:0 0 4px;letter-spacing:0}
 h3{font-size:19px;margin:0 0 4px;font-weight:800}
 .lead{color:var(--ink2);margin:6px 2px 16px;font-size:16px}
@@ -166,7 +166,9 @@ label.f{display:grid;gap:6px;font-size:15px;color:var(--ink2);font-weight:700}
 .drop.has{color:#fff;box-shadow:none}.drop.has span{background:rgb(0 0 0/.45);padding:6px 14px;border-radius:99px;font-size:15px}
 .scanline{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--acc2) 55%,transparent) 50%,transparent 60%);background-size:100% 220%;animation:scan 1.6s ease-in-out infinite}
 @keyframes scan{from{background-position:0 100%}to{background-position:0 -20%}}
-.res{margin-top:14px}.res .item{grid-template-columns:minmax(0,1fr) 44px}
+.res{margin-top:14px}.res .item,.item.two{grid-template-columns:minmax(0,1fr) 44px}
+.ibtn{display:block;width:100%;min-height:44px;text-align:left;border-radius:12px}.ibtn .sub{display:block;margin-top:2px}
+.qt{font-weight:800;font-size:17px;margin:22px 4px 8px}
 .total{display:flex;justify-content:space-between;padding:12px 6px 0;font-weight:900}
 .alert{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;background:var(--bad-bg);color:var(--bad);border-radius:22px;padding:16px;margin:14px 0 10px;box-shadow:inset 0 0 0 1.5px color-mix(in srgb,var(--bad) 30%,transparent)}
 .alert svg{width:30px;height:30px}.alert b{display:block;font-size:19px;font-weight:900}
@@ -294,14 +296,14 @@ main{container-type:inline-size}
 @media(prefers-contrast:more){:root{--ink2:#343849;--edge:rgb(14 16 32/.28);--glass:rgb(255 255 255/.92)}}
 @supports (color:light-dark(#000,#fff)){@media(prefers-contrast:more){:root{--ink2:light-dark(#343849,#D6D9E4);--edge:light-dark(rgb(14 16 32/.28),rgb(255 255 255/.32));--glass:light-dark(rgb(255 255 255/.92),rgb(20 21 28/.94))}}}
 .pp{max-width:680px;padding-bottom:60px;font-weight:500;line-height:1.6}.pp .card{padding:6px 22px 18px;margin-top:20px}.pp h2{margin:28px 0 6px;font-size:21px}.pp a{color:var(--acc);font-weight:700}.pp ul{padding-left:22px}
-@media(max-width:380px){.face strong{font-size:22px}.act{font-size:15px}h1{font-size:36px}}
+@media(max-width:380px){.face strong{font-size:22px}.act{font-size:15px}h1{font-size:30px}}
 .mi{font-size:15px;font-variant-numeric:tabular-nums}.mi small{font-size:11px;color:var(--ink2);font-weight:700}
 .opt{display:grid;gap:2px;width:100%;text-align:start;padding:16px 18px;border-radius:22px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--sep)}
 .opt b{font-weight:800}.opt[aria-pressed=true]{background:var(--acc-bg);box-shadow:inset 0 0 0 2.5px var(--acc)}
 .seg.s4{grid-template-columns:repeat(4,1fr)}
 /* floating Log button: always within thumb reach on Today */
 .fab{position:fixed;left:50%;translate:-50% 0;bottom:calc(92px + env(safe-area-inset-bottom));z-index:19;display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:0 24px 0 18px;border-radius:99px;color:#fff;font-size:17px;font-weight:800;white-space:nowrap;background:linear-gradient(160deg,var(--g1),var(--g2));box-shadow:inset 0 1px 0 rgb(255 255 255/.3),0 14px 28px -12px var(--sh);transition:opacity .22s var(--out),transform .28s var(--out),visibility 0s}
-.fab svg{width:22px;height:22px}
+.fab svg{width:22px;height:22px}.fab[hidden]{display:none}
 .fab.away{opacity:0;transform:translateY(16px) scale(.96);visibility:hidden;transition:opacity .16s,transform .2s,visibility 0s .2s}
 @media(min-width:900px){.fab{bottom:28px}}
 @media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:.15s!important;transition-property:opacity,background-color,border-color,visibility!important;scroll-behavior:auto!important}
@@ -323,7 +325,7 @@ main{container-type:inline-size}
 <template id="privacy-page"><main class="pp">
 <a class="brand" href="./" style="text-decoration:none;color:inherit"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>Calora</a>
 <h1>Privacy Policy</h1>
-<p class="sub">Last updated 24 November 2026</p>
+<p class="sub">Last updated 25 November 2026</p>
 <div class="card">
 <h2>Who we are</h2>
 <p>Calora is a calorie and macro tracker run by the Calora team in Latvia (European Union). We are responsible for your data (the "controller" under the GDPR). Questions? Email <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>.</p>
@@ -347,6 +349,9 @@ main{container-type:inline-size}
 <h2>How Calora uses AI</h2>
 <ul>
 <li><b>Photo recognition:</b> an AI model (CLIP, made by OpenAI) runs on your own device and suggests what food is in your photo. The photo isn't sent to us or anyone else to be analysed.</li>
+<li><b>AI coach and label reading</b> (signed in only): when you message the coach, your message, recent chat, goals, today's food, allergies and the foods you log most are sent to Groq, an AI company, to write the reply. A food label photo is sent only after you agree, and Calora doesn't keep it. For recipes, what you type about your fridge is sent the same way. Calora counts how many AI requests you make each day to apply the daily limits.</li>
+<li><b>Premium waitlist:</b> if you join it, we keep your email address so we can tell you when Premium is ready. You can leave it any time in Profile.</li>
+<li><b>Barcode lookups:</b> when you scan or type a barcode, only its number is sent to Open Food Facts to find the product.</li>
 <li><b>Typed meals and the coach:</b> these don't use AI. Calora matches what you type against its food list, and the built-in coach answers with fixed rules based on your goals and logs. Both run on your device.</li>
 <li><b>Support replies:</b> we sometimes use an AI service to help draft a reply to your support message: Groq (running an open AI model), or Anthropic's Claude. Your conversation with us is processed by that service only to write the draft, and isn't used to train AI models. A person from the Calora team always reads, edits and sends the reply.</li>
 <li><b>Inside the Claude app:</b> if you open Calora inside Anthropic's Claude app, the photos, meal descriptions and coach messages you send are processed by Anthropic's Claude AI to answer you, under Anthropic's privacy policy.</li>
@@ -398,7 +403,7 @@ main{container-type:inline-size}
 <template id="terms-page"><main class="pp">
 <a class="brand" href="./" style="text-decoration:none;color:inherit"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect x="1" y="1" width="62" height="62" rx="16" fill="#F4F0E9"/><g fill="#141414" transform="translate(4.5 0) skewX(-7)"><rect x="17" y="34" width="8" height="15" rx="4"/><rect x="28.5" y="25" width="8" height="24" rx="4"/><rect x="40" y="15" width="8" height="34" rx="4"/></g></svg>Calora</a>
 <h1>Terms of Service</h1>
-<p class="sub">Last updated 24 November 2026</p>
+<p class="sub">Last updated 25 November 2026</p>
 <div class="card">
 <h2>About these terms</h2>
 <p>These terms are an agreement between you and the Calora team, Latvia (European Union), contact <a href="mailto:calora.scan@gmail.com">calora.scan@gmail.com</a>. By using Calora you agree to them and to our <a href="?privacy">Privacy Policy</a>.</p>
@@ -414,7 +419,7 @@ main{container-type:inline-size}
 </ul>
 
 <h2>AI and estimates</h2>
-<p>Photo recognition uses an AI model on your device. Typed meal estimates and the built-in coach use Calora's food list and fixed rules, not AI. All of these results can be wrong. Check them and adjust portions before relying on them.</p>
+<p>Photo recognition uses an AI model on your device. Typed meal estimates and the built-in coach use Calora's food list and fixed rules, not AI. All of these results can be wrong. Check them and adjust portions before relying on them. The AI coach and label reading use Groq's AI models, and their answers can be wrong too. Barcode product data comes from Open Food Facts, a public database shared under the Open Database License, and can be incomplete or wrong.</p>
 
 <h2>Your account</h2>
 <ul>
@@ -446,7 +451,7 @@ main{container-type:inline-size}
 <main id="app"></main>
 <button id="fab" class="fab bub away" hidden data-log="describe" data-fab><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Log food</button>
 <nav id="nav" class="glass" aria-label="Sections"></nav>
-<dialog id="sheet" aria-labelledby="shtitle"><input type="file" id="file" accept="image/*" hidden><div class="sh" id="sh" tabindex="-1" autofocus></div></dialog>
+<dialog id="sheet" aria-labelledby="shtitle"><input type="file" id="file" accept="image/*" hidden><input type="file" id="barfile" accept="image/*" capture="environment" hidden><input type="file" id="labelfile" accept="image/*" hidden><div class="sh" id="sh" tabindex="-1" autofocus></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div>
 <script>
 const LEGAL=location.search.match(/[?&](privacy|terms)\b/)?.[1];
@@ -479,7 +484,7 @@ flame:'<path d="M12 3c.6 3.4 4.8 5.6 4.8 10.2a4.8 4.8 0 0 1-9.6 0c0-2.1 1-3.7 2.
 drop:'<path d="M12 3.5c3 4 5.5 7 5.5 10a5.5 5.5 0 0 1-11 0c0-3 2.5-6 5.5-10z"/>',
 sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/>',
 moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
-plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',x:'<path d="M6 6l12 12M18 6 6 18"/>',
+bar:'<path d="M4 6v12M7 6v12M10.5 6v12M13 6v12M16.5 6v12M20 6v12"/>',plus:'<path d="M12 5v14M5 12h14"/>',minus:'<path d="M5 12h14"/>',x:'<path d="M6 6l12 12M18 6 6 18"/>',
 send:'<path d="M12 19V5M6 11l6-6 6 6"/>',news:'<path d="M4 10.2v3.6a1 1 0 0 0 1 1h2.2L13 19V5L7.2 9.2H5a1 1 0 0 0-1 1z"/><path d="M16.5 9.5a3.5 3.5 0 0 1 0 5M18.8 7a7 7 0 0 1 0 10"/>',turn:'<path d="M4.5 12a7.5 7.5 0 0 1 12.9-5.2L19.5 9M19.5 4.5V9H15"/><path d="M19.5 12a7.5 7.5 0 0 1-12.9 5.2L4.5 15M4.5 19.5V15H9"/>',warn:'<path d="M12 3.8 21.6 20H2.4z"/><path d="M12 10v4.5M12 17.3h.01"/>',
 home2:'<path d="M12 3v12M7 8l5-5 5 5"/><rect x="4" y="11" width="16" height="10" rx="3"/>',chev:'<path d="m9.5 6 6 6-6 6"/>',back:'<path d="m14.5 6-6 6 6 6"/>',check:'<path d="m5 12.5 4.5 4.5L19 7.5"/>',out:'<path d="M8 16 16.5 7.5M9.5 7.5h7v7"/>'};
 const I=(k,w=2)=>`<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k]}</svg>`;
@@ -495,156 +500,156 @@ fish:['Fish',/(?<!shell)fish|salmon|tuna|\bcod\b|trout|sardine|anchov|mackerel|s
 shellfish:['Shellfish',/shellfish|shrimp|prawn|crab|lobster|mussel|oyster|clam|scallop|squid|calamari|crayfish|crustacean/i],
 soy:['Soy',/\bsoy|soya|tofu|edamame|miso|tempeh|teriyaki/i],sesame:['Sesame',/sesame|tahini|hummus|halva/i]};
 // built-in food list, per unit or typical serving: label;match;grams;default units;kcal;protein;carbs;fat;fiber;allergens
-const FOODS=String.raw`slice of pizza;pizza;110;2;285;12;36;10;2.5;gluten dairy
-sushi piece;sushi|maki|nigiri;30;8;38;1.5;5.6;0.9;0.2;fish soy sesame gluten
-sashimi slice;sashimi;20;8;25;4.4;0;0.8;0;fish
-chicken wing;wing;35;6;97;8;0.3;7;0;
-taco;taco;100;2;210;10;18;11;2.5;gluten dairy
-pancake;pancake;75;2;175;4;22;7;0.5;gluten eggs dairy
-waffle;waffle;75;2;220;5;25;11;1;gluten dairy eggs
-dumpling;dumpling;30;6;58;2.5;6.5;2.3;0.3;gluten soy sesame
-gyoza;gyoza|potsticker;25;6;50;2;5.3;2.2;0.3;gluten soy sesame
-spring roll;spring roll;60;2;150;3;17;8;1;gluten soy
-oyster;oyster;15;6;10;1;0.5;0.3;0;shellfish
+const FOODS=String.raw`slice of pizza;pizza;110;2;293;12.5;36.6;10.7;2.5;gluten dairy;2708614
+sushi piece;sushi|maki|nigiri;30;8;28;0.9;5.5;0.2;0.3;fish soy sesame gluten;2708959
+sashimi slice;sashimi;20;8;38;4.1;0;2.2;0;fish;2706284
+chicken wing;wing;35;6;90;8.2;0.2;6.3;0;;2706056
+taco;taco;100;2;246;15.3;15.6;13.6;2.2;gluten dairy;2708514
+pancake;pancake;75;2;212;5.6;26.5;9.1;1.6;gluten eggs dairy;2708294
+waffle;waffle;75;2;232;5.6;36.3;7.1;2;gluten dairy eggs;2708312
+dumpling;dumpling;30;6;34;2.1;3.3;1.4;0.4;gluten soy sesame;2708708
+gyoza;gyoza|potsticker;25;6;48;2.2;3.5;2.8;0.4;gluten soy sesame;2708705
+spring roll;spring roll;60;2;162;3.4;18;8.5;1.4;gluten soy;2708700
+oyster;oyster;15;6;8;0.9;0.4;0.3;0;shellfish;2706351
 macaron;macarons?\b;17;3;70;1.3;9.3;3.3;0.3;treenuts eggs dairy
-churro;churro;35;3;133;1.3;15;7.3;0.5;gluten dairy eggs
-beignet;beignet;30;3;110;1.7;12.7;6;0.3;gluten dairy eggs
-falafel ball;falafel;34;5;114;4.6;10.8;6;1.6;sesame gluten
-samosa;samosa;65;2;200;4;21;11;2;gluten
+churro;churro;35;3;147;2.1;17.1;7.8;0.9;gluten dairy eggs;2708070
+beignet;beignet;30;3;125;1.6;16.1;6.1;0.6;gluten dairy eggs;2708071
+falafel ball;falafel;34;5;113;4.5;10.8;6.1;0;sesame gluten;172455
+samosa;samosa;65;2;202;3.3;21.6;11.4;1.2;gluten;2708730
 takoyaki ball;takoyaki;25;6;50;1.7;5.8;2.2;0.2;shellfish gluten eggs fish
-bruschetta;bruschetta;50;3;83;2;11;3.3;0.7;gluten
-escargot;escargot|snail;17;6;42;2;0.5;3.5;0;shellfish dairy
-deviled egg;deviled|devilled;30;4;63;3;0.5;5.3;0;eggs
-donut;donut|doughnut;70;1;280;4;33;15;1;gluten dairy eggs soy
-cupcake;cupcake|muffin;80;1;330;3;45;16;1;gluten dairy eggs
-crab cake;crab;90;2;210;12;9;14;0.5;shellfish eggs gluten
-hot dog;hot ?dog;150;1;400;14;30;25;1;gluten
-cookie;cookie|biscuit;30;1;150;2;20;7;1;gluten dairy eggs
-apple pie (slice);apple pie|\bpie\b;125;1;300;2.4;43;14;2;gluten dairy
-prime rib;prime rib;250;1;850;60;0;67;0;
-baby back ribs;ribs;300;1;700;55;20;45;0;
-baklava;baklava;60;1;250;4;29;14;1.5;gluten treenuts dairy
+bruschetta;bruschetta;50;3;86;2.1;10.7;3.8;0.8;gluten;2707652
+escargot;escargot|snail;17;6;27;3.4;0.4;1.2;0;shellfish dairy;2706368
+deviled egg;deviled|devilled;30;4;59;3.4;0.3;4.8;0;eggs;2707181
+donut;donut|doughnut;70;1;298;3.9;34.6;16;1.3;gluten dairy eggs soy;2708062
+cupcake;cupcake|muffin;80;1;282;2.3;42.9;11.8;0.8;gluten dairy eggs;2707853
+crab cake;crab;90;2;193;13;4;13.5;0.3;shellfish eggs gluten;2706549
+hot dog;hot ?dog;150;1;444;16.2;35.5;26.1;1.2;gluten;2707056
+cookie;cookie|biscuit;30;1;148;1.5;19.6;7.4;0.6;gluten dairy eggs;2707899
+apple pie (slice);apple pie|\bpie\b;125;1;370;3.4;47;19.1;2.2;gluten dairy;2707995
+prime rib;prime rib;250;1;842;56;0;67;0;;169499
+baby back ribs;ribs;300;1;876;69;0;64.5;0;;168300
+baklava;baklava;60;1;264;3.9;22.6;17.6;1.5;gluten treenuts dairy;2708044
 beef carpaccio;carpaccio;100;1;180;20;2;10;0;dairy
 tuna tartare;tuna tartare|poke;150;1;250;28;5;12;1;fish soy sesame
 beef tartare;tartare;150;1;300;30;3;18;0;eggs
 beet salad;beet;200;1;200;6;20;11;5;dairy treenuts
-bibimbap;bibimbap;450;1;600;27;85;17;7;eggs soy sesame
-bread pudding;bread pudding;150;1;400;9;56;16;1.5;gluten dairy eggs
-breakfast burrito;breakfast burrito;250;1;550;24;45;30;4;gluten dairy eggs
+bibimbap;bibimbap;450;1;342;24.8;36.5;11;5;eggs soy sesame;2708950
+bread pudding;bread pudding;150;1;234;8.4;35.2;7.3;1.5;gluten dairy eggs;2705680
+breakfast burrito;breakfast burrito;250;1;692;27.8;57.5;39;3;gluten dairy eggs;170787
 caesar salad;caesar;250;1;440;10;14;38;3;dairy eggs fish gluten
 cannoli;cannoli;100;1;370;7;37;21;1;gluten dairy eggs
 caprese salad;caprese;200;1;350;18;6;28;1;dairy
-carrot cake (slice);carrot cake;130;1;500;5;60;27;2;gluten dairy eggs treenuts
-ceviche;ceviche;200;1;180;25;10;3;2;fish
-cheesecake (slice);cheesecake;125;1;400;7;32;28;0.5;gluten dairy eggs
-cheese plate;cheese (plate|board);100;1;400;23;5;32;0.5;dairy gluten
-chicken curry;curry|tikka|korma;350;1;500;35;20;30;4;dairy
-chicken quesadilla;quesadilla;250;1;640;35;45;35;3;gluten dairy
-chocolate cake (slice);chocolate cake|brownie;110;1;420;5;55;20;3;gluten dairy eggs
-chocolate mousse;mousse;120;1;300;5;25;20;2;dairy eggs
-clam chowder;chowder|clam;300;1;300;12;22;18;1;shellfish dairy gluten
-club sandwich;club sandwich;300;1;700;40;50;36;3;gluten eggs
-creme brulee;br[uû]l[eé]e;150;1;350;5;30;23;0;dairy eggs
+carrot cake (slice);carrot cake;130;1;486;3.2;67.3;22.8;1.4;gluten dairy eggs treenuts;2707859
+ceviche;ceviche;200;1;126;21;7.2;1.5;1;fish;2706463
+cheesecake (slice);cheesecake;125;1;499;6.6;43.5;33.1;0.6;gluten dairy eggs;2707861
+cheese plate;cheese (plate|board);100;1;381;20.7;4.3;31.3;0;dairy gluten;2705704
+chicken curry;curry|tikka|korma;350;1;374;22.7;22.9;22.7;4.9;dairy;2706437
+chicken quesadilla;quesadilla;250;1;718;36;68.2;32.5;4.8;gluten dairy;2708593
+chocolate cake (slice);chocolate cake|brownie;110;1;380;3.6;57.4;16.7;1.8;gluten dairy eggs;2707866
+chocolate mousse;mousse;120;1;270;5;19.3;19.2;0.7;dairy eggs;168777
+clam chowder;chowder|clam;300;1;279;9.4;27.8;14.4;3;shellfish dairy gluten;2707139
+club sandwich;club sandwich;300;1;666;45.3;69.3;22.4;3;gluten eggs;2706993
+creme brulee;br[uû]l[eé]e;150;1;170;6.1;26.7;4.2;0;dairy eggs;2705684
 croque madame;croque;300;1;750;40;40;48;2;gluten dairy eggs
-edamame;edamame;155;1;190;17;14;8;8;soy
-eggs benedict;benedict;300;1;700;30;35;48;2;gluten dairy eggs
-filet mignon;filet mignon|fillet steak;200;1;450;55;0;25;0;
+edamame;edamame;155;1;217;17.8;13.4;11.7;7.8;soy;2707436
+eggs benedict;benedict;300;1;864;41.4;25.4;66.3;1.8;gluten dairy eggs;2707180
+filet mignon;filet mignon|fillet steak;200;1;534;53;0;34.2;0;;169543
 fish and chips;fish (and|&|n) chips;400;1;850;35;80;45;6;fish gluten
-foie gras;foie gras;60;1;280;7;3;26;0;
-french fries;fries|chips;150;1;450;5;55;23;5;
-french onion soup;onion soup;350;1;400;16;35;20;3;gluten dairy
-french toast;french toast;200;1;460;14;50;22;2;gluten dairy eggs
-fried calamari;calamari|squid;180;1;450;25;25;27;1;shellfish gluten eggs
-fried rice;fried rice;300;1;520;14;70;20;3;eggs soy
-frozen yogurt;frozen yog|froyo;150;1;200;5;35;4;0;dairy
-garlic bread;garlic bread;80;1;290;6;32;15;2;gluten dairy
-gnocchi;gnocchi;250;1;450;10;70;14;4;gluten dairy eggs
+foie gras;foie gras;60;1;277;6.8;2.8;26.3;0;;171100
+french fries;fries|chips;150;1;338;3.8;34.8;21.1;2.7;;2709456
+french onion soup;onion soup;350;1;378;19.1;41.3;15.6;3.9;gluten dairy;2710108
+french toast;french toast;200;1;546;20.8;64.6;22.8;2.4;gluten dairy eggs;2708331
+fried calamari;calamari|squid;180;1;421;24.8;25.4;23.8;0.9;shellfish gluten eggs;2706334
+fried rice;fried rice;300;1;522;11.5;97.5;9.6;3.3;eggs soy;2708952
+frozen yogurt;frozen yog|froyo;150;1;190;4.5;32.4;5.4;0;dairy;2705451
+garlic bread;garlic bread;80;1;279;6.7;33.3;13.3;2;gluten dairy;2707626
+gnocchi;gnocchi;250;1;338;6.1;43;15.8;2.5;gluten dairy eggs;2708722
 greek salad;greek salad;300;1;350;9;14;28;4;dairy
-grilled cheese sandwich;grilled cheese|toastie;150;1;440;17;35;26;2;gluten dairy
-grilled salmon;salmon;170;1;350;40;0;20;0;fish
-guacamole;guac;120;1;190;2.5;10;17;8;
-hamburger;burger;250;1;540;25;40;30;2;gluten dairy sesame
-hot and sour soup;hot (and|&) sour;350;1;160;10;16;6;1;soy eggs gluten
-huevos rancheros;huevos;350;1;550;25;45;30;10;eggs dairy
-hummus;hummus;120;1;320;9;17;24;7;sesame
-ice cream (scoop);ice ?cream|gelato;70;1;140;2.5;16;7;0.5;dairy eggs
-lasagna;lasagn;350;1;600;35;45;30;4;gluten dairy eggs
+grilled cheese sandwich;grilled cheese|toastie;150;1;514;16.5;42.2;31.2;1.8;gluten dairy;2705801
+grilled salmon;salmon;170;1;440;44;0;28.1;0;fish;2706287
+guacamole;guac;120;1;186;2.3;10.1;17;7.8;;2709307
+hamburger;burger;250;1;720;43.8;51.8;36;1.8;gluten dairy sesame;2706920
+hot and sour soup;hot (and|&) sour;350;1;136;9;15.2;4.2;1.8;soy eggs gluten;2707136
+huevos rancheros;huevos;350;1;424;23.4;31;23.3;6;eggs dairy;2707191
+hummus;hummus;120;1;292;8.8;17.9;20.5;6.5;sesame;2707402
+ice cream (scoop);ice ?cream|gelato;70;1;155;2.5;18.5;7.9;0.6;dairy eggs;2705629
+lasagna;lasagn;350;1;486;26.1;56.7;17.4;5.6;gluten dairy eggs;2708750
 lobster bisque;bisque;300;1;400;15;18;30;0.5;shellfish dairy
 lobster roll;lobster;200;1;480;25;40;24;2;shellfish gluten eggs dairy
-mac and cheese;mac(aroni)? ?(and|&|n'?) ?cheese;250;1;500;20;50;24;2;gluten dairy
-miso soup;miso;250;1;80;6;8;3;1;soy
-mussels;mussel;300;1;350;30;12;18;0;shellfish dairy
-nachos;nacho;300;1;850;25;80;48;9;dairy
-omelette;omelet;150;1;300;20;2;23;0;eggs dairy
-onion rings;onion ring;120;1;400;5;40;24;2;gluten eggs dairy
-pad thai;pad thai;350;1;650;25;80;25;4;peanuts eggs soy fish shellfish
-paella;paella;400;1;550;30;65;18;3;shellfish fish
+mac and cheese;mac(aroni)? ?(and|&|n'?) ?cheese;250;1;558;21.7;57.8;26.2;3;gluten dairy;2708811
+miso soup;miso;250;1;60;5.5;5.8;2.1;1.5;soy;2707455
+mussels;mussel;300;1;327;45.3;14;8.5;0;shellfish dairy;2706350
+nachos;nacho;300;1;795;22.8;71.4;47.4;5.1;dairy;2708576
+omelette;omelet;150;1;278;17.4;1.4;22.5;0;eggs dairy;2707198
+onion rings;onion ring;120;1;422;5;47.9;23.8;3.1;gluten eggs dairy;2710055
+pad thai;pad thai;350;1;539;28.5;50.4;26.2;4.2;peanuts eggs soy fish shellfish;2708804
+paella;paella;400;1;676;38.1;63.2;28.7;2.4;shellfish fish;2706723
 panna cotta;panna cotta;150;1;350;4;30;24;0;dairy
-peking duck;duck;200;1;600;35;20;42;1;soy gluten sesame
-pho;\bpho\b;600;1;450;30;60;8;2;fish soy
-pulled pork sandwich;pulled pork;250;1;550;32;50;22;2;gluten
-pork chop;pork;180;1;400;45;0;24;0;
+peking duck;duck;200;1;308;10.6;12.9;23.6;0.6;soy gluten sesame;2706141
+pho;\bpho\b;600;1;462;34.9;33.6;20;2.4;fish soy;2707124
+pulled pork sandwich;pulled pork;250;1;608;37.5;62.2;22.1;2;gluten;2706975
+pork chop;pork;180;1;329;49.5;0;13.6;0;;2705866
 poutine;poutine;400;1;900;25;85;50;7;dairy gluten
-ramen;ramen;550;1;450;18;60;15;3;gluten soy eggs
-ravioli;ravioli|tortellini;250;1;450;19;55;17;3;gluten dairy eggs
-red velvet cake (slice);red velvet;120;1;480;5;60;25;1;gluten dairy eggs
+ramen;ramen;550;1;698;39.2;77;25.1;5;gluten soy eggs;2709153
+ravioli;ravioli|tortellini;250;1;462;25.8;49.8;17.4;1.8;gluten dairy eggs;2708760
+red velvet cake (slice);red velvet;120;1;426;3.3;65.3;17.5;1.4;gluten dairy eggs;2707884
 risotto;risotto;300;1;450;12;60;17;2;dairy
-scallops;scallop;150;1;200;30;8;4;0;shellfish
+scallops;scallop;150;1;189;22.5;5.9;7.7;0;shellfish;2706356
 seaweed salad;seaweed;100;1;70;1;10;3;3;sesame soy
 shrimp and grits;grits;350;1;550;30;40;30;2;shellfish dairy
-spaghetti bolognese;bolognese;400;1;600;30;75;20;6;gluten
+spaghetti bolognese;bolognese;400;1;484;23.2;65.6;14.4;6.4;gluten;167680
 spaghetti carbonara;carbonara;350;1;700;28;75;32;3;gluten dairy eggs
-strawberry shortcake;shortcake;150;1;400;5;50;20;2;gluten dairy eggs
-tiramisu;tiramisu;150;1;450;7;40;29;1;gluten dairy eggs
-burrito;burrito;300;1;600;26;71;22;9;gluten dairy
-sandwich;sandwich|wrap|\bsub\b|panini;200;1;350;18;40;12;4;gluten
-bagel;bagel;130;1;360;12;56;10;2;gluten dairy
-croissant;croissant;60;1;230;5;26;12;1.5;gluten dairy eggs
-soup (bowl);soup|stew;300;1;170;9;20;6;4;
-smoothie;smoothie;350;1;250;6;50;3;6;dairy
-protein shake;shake|protein powder;330;1;160;30;5;2;1;dairy soy
-latte;latte|cappuccino|flat white|mocha;350;1;190;10;18;7;0;dairy
-coffee;coffee|espresso|americano;240;1;5;0;0;0;0;
-tea;\btea\b;240;1;2;0;0;0;0;
-milk (glass);milk;250;1;120;8;12;5;0;dairy
-orange juice;juice;250;1;112;2;26;0.5;0.5;
-soft drink;cola|soda|coke|pepsi|sprite|fanta|lemonade|soft drink|fizzy drink;330;1;140;0;39;0;0;
-beer;beer|lager|\bale\b;330;1;150;1.6;13;0;0;gluten
-wine (glass);wine;150;1;125;0;4;0;0;
-steak;steak|beef;200;1;400;56;0;18;0;
-chicken breast;chicken;150;1;248;46;0;5.4;0;
-tuna;tuna;140;1;160;35;0;1.5;0;fish
-shrimp;shrimp|prawn;100;1;99;24;0;0.3;0;shellfish
-tofu;tofu;150;1;180;20;4;10;2;soy
-cereal (bowl);cereal|cornflakes;40;1;150;3;33;1.5;3;gluten
-oatmeal (bowl);oat|porridge;240;1;150;5;27;3;4;gluten
-granola;granola|muesli;60;1;240;6;32;10;4;gluten treenuts
-slice of toast;toast|bread|sourdough;30;1;80;3;14;1;1.5;gluten
-rice (cup);rice;160;1;205;4.3;45;0.4;0.6;
-pasta (plate);pasta|spaghetti|noodle|macaroni|penne;200;1;310;11;62;1.8;3.5;gluten eggs
-sweet potato;sweet potato;150;1;130;2.4;30;0.2;4.5;
-potato;potato|mash;170;1;160;4;37;0.2;4;
-broccoli;broccoli;90;1;31;2.5;6;0.3;2.4;
-vegetables;\bveg(?:gies?|etables?)?\b|mixed veg;150;1;65;3;13;0.5;4;
+strawberry shortcake;shortcake;150;1;321;5;60.2;7.1;1.4;gluten dairy eggs;2707896
+tiramisu;tiramisu;150;1;530;8.5;44.1;35.8;0.9;gluten dairy eggs;2705702
+burrito;burrito;300;1;657;33.3;71.7;25.6;7.5;gluten dairy;2708534
+sandwich;sandwich|wrap|\bsub\b|panini;200;1;574;25.6;67.6;24;3.8;gluten;2706880
+bagel;bagel;130;1;343;13.8;68.1;1.7;2.1;gluten dairy;2707684
+croissant;croissant;60;1;244;4.9;27.5;12.6;1.6;gluten dairy eggs;2707678
+soup (bowl);soup|stew;300;1;147;10.5;18.3;3.9;5.4;;2709144
+smoothie;smoothie;350;1;231;8.1;42;3.9;3.9;dairy;2705513
+protein shake;shake|protein powder;330;1;201;21.7;2.8;11.2;1.3;dairy soy;2710726
+latte;latte|cappuccino|flat white|mocha;350;1;150;9.8;15.2;5.6;0;dairy;2710386
+coffee;coffee|espresso|americano;240;1;2;0.3;0;0;0;;2710375
+tea;\btea\b;240;1;2;0;0.7;0;0;;2710488
+milk (glass);milk;250;1;130;8.3;12.1;5.4;0;dairy;2705384
+orange juice;juice;250;1;118;1.9;25.5;0.9;0.8;;2709186
+soft drink;cola|soda|coke|pepsi|sprite|fanta|lemonade|soft drink|fizzy drink;330;1;139;0;34.3;0.8;0;;2710536
+beer;beer|lager|\bale\b;330;1;142;1.5;11.7;0;0;gluten;2710616
+wine (glass);wine;150;1;124;0.1;4.1;0;0;;173185
+steak;steak|beef;200;1;458;54;0;25.8;0;;2705824
+chicken breast;chicken;150;1;242;45.3;0;5.3;0;;2705956
+tuna;tuna;140;1;119;26.6;0.1;1.3;0;fish;2706309
+shrimp;shrimp|prawn;100;1;146;15.5;4.9;6.7;0.2;shellfish;2706360
+tofu;tofu;150;1;216;26;4.2;13.1;3.4;soy;172475
+cereal (bowl);cereal|cornflakes;40;1;152;3.1;31.1;1.6;2.6;gluten;2708445
+oatmeal (bowl);oatmeal|porridge;240;1;182;5.2;26.9;6.3;4.1;gluten;2708380
+granola;granola|muesli;60;1;252;5.9;40.4;7.8;4.4;gluten treenuts;2708461
+slice of toast;toast|bread|sourdough;30;1;88;3.1;16.2;1.2;0.8;gluten;2707599
+rice (cup);rice;160;1;206;4.3;44.8;0.4;0.6;;2708402
+pasta (plate);pasta|spaghetti|noodle|macaroni|penne;200;1;314;11.5;61.4;1.8;3.6;gluten eggs;2708357
+sweet potato;sweet potato;150;1;172;2.4;25.7;6.8;4.5;;2709697
+potato;potato|mash;170;1;214;3.2;34.7;7.2;2.4;;2709382
+broccoli;broccoli;90;1;35;2.3;5.6;0.3;2.2;;2709643
+vegetables;\bveg(?:gies?|etables?)?\b|mixed veg;150;1;98;4.3;19.6;0.2;6.6;;170472
 salad;salad|lettuce;100;1;50;2;9;0.5;3;
-beans (cup);beans|lentil|chickpea|dal\b|dhal;180;1;225;15;40;1;15;
-banana;banana;120;1;105;1.3;27;0.4;3;
-apple;\bapples?\b;180;1;95;0.5;25;0.3;4.4;
-orange;\boranges?\b|clementine|mandarin;130;1;62;1.2;15;0.2;3;
-berries (cup);berr;150;1;85;1;21;0.5;4;
-grapes (cup);grape;150;1;104;1;27;0.2;1.4;
-avocado (half);avocado;100;1;160;2;9;15;7;
-greek yogurt;yogh?urt|skyr;170;1;130;17;7;4;0;dairy
-cheese (slice);cheese;28;1;110;7;0.4;9;0;dairy
-peanut butter (tbsp);peanut butter;16;1;95;4;3;8;1;peanuts
-peanuts (handful);peanut;28;1;160;7;5;14;2.4;peanuts
-almonds (handful);almond|nuts|cashew|walnut|pistachio;28;1;165;6;6;14;3.5;treenuts
-butter (tbsp);butter;14;1;100;0.1;0;11.3;0;dairy
-olive oil (tbsp);olive oil|\boils?\b;14;1;120;0;0;14;0;
-chocolate;chocolate;45;1;235;3;26;13;3;dairy soy
-energy bar;\bbar\b;50;1;200;10;25;7;3;soy treenuts
-scrambled egg;scrambled;60;2;100;6.5;1;7.5;0;eggs dairy
-egg;\beggs?\b;50;2;78;6;0.6;5;0;eggs`.split('\n').map(l=>{const[n,re,g,d,k,p,c,f,fib,a]=l.split(';');return{n,re:new RegExp(re,'i'),g:+g,d:+d,k:+k,p:+p,c:+c,f:+f,fib:+fib,a:a?a.trim().split(' '):[]}});
+beans (cup);beans|lentil|chickpea|dal\b|dhal;180;1;229;15.6;41;0.9;11.5;;173740
+banana;banana;120;1;107;1.3;27.4;0.4;3.1;;173944
+apple;\bapples?\b;180;1;94;0.5;24.8;0.3;4.3;;171688
+orange;\boranges?\b|clementine|mandarin;130;1;61;1.2;15.3;0.2;3.1;;169097
+berries (cup);berr;150;1;66;1;14.9;0.4;3;;2709271
+grapes (cup);grape;150;1;104;1.1;27.2;0.2;1.4;;174683
+avocado (half);avocado;100;1;160;2;8.5;14.7;6.7;;171705
+greek yogurt;yogh?urt|skyr;170;1;124;16.9;6.7;3.3;0;dairy;170903
+cheese (slice);cheese;28;1;107;5.8;1.2;8.8;0;dairy;2705704
+peanut butter (tbsp);peanut butter;16;1;96;3.6;3.6;8.2;0.8;peanuts;2707537
+peanuts (handful);peanut;28;1;164;6.8;6;13.9;2.4;peanuts;2707512
+almonds (handful);almond|nuts|cashew|walnut|pistachio;28;1;167;5.9;5.9;14.7;3.1;treenuts;2707485
+butter (tbsp);butter;14;1;104;0.1;0;11.5;0;dairy;2710154
+olive oil (tbsp);olive oil|\boils?\b;14;1;124;0;0;14;0;;171413
+chocolate;chocolate;45;1;241;3.4;26.7;13.4;1.5;dairy soy;167587
+energy bar;\bbar\b;50;1;193;11.2;27.6;5;2.4;soy treenuts;2708127
+scrambled egg;scrambled;60;2;89;6;1;6.6;0;eggs dairy;172187
+egg;\beggs?\b;50;2;72;6.3;0.4;4.8;0;eggs;171287`.split('\n').map(l=>{const[n,re,g,d,k,p,c,f,fib,a]=l.split(';');return{n,re:new RegExp(re,'i'),g:+g,d:+d,k:+k,p:+p,c:+c,f:+f,fib:+fib,a:a?a.trim().split(' '):[]}});
 const cap=s=>s[0].toUpperCase()+s.slice(1);
 const clipName=f=>f.n.replace(/\s*\(.*?\)|\bslice of\b|\b(piece|ball|slice)\b/g,'').trim();
 const CLIP=FOODS.filter(f=>!/oil|butter|\bbar\b/.test(f.n));
@@ -653,198 +658,199 @@ const setQ=(it,q)=>{it.q=Math.max(it.st||.5,Math.round(q*4)/4);for(const k in it
 const mk=(f,q=f.d,extra)=>Object.assign(setQ({id:uid(),name:cap(f.n),b:{kcal:f.k,p:f.p,c:f.c,f:f.f,fib:f.fib},st:f.d>1?1:.5,allergens:f.a,ingredients:[clipName(f)]},q),extra);
 const fromAI=i=>setQ({id:uid(),name:String(i.name||'Food').slice(0,60),b:{kcal:+i.kcal||0,p:+i.protein||0,c:+i.carbs||0,f:+i.fat||0,fib:+i.fiber||0},st:.5,ingredients:(i.ingredients||[]).map(String).slice(0,24),allergens:(i.allergens||[]).map(String).slice(0,16)},1);
 // more everyday foods for typing a meal, per 100 g: label;names;kcal;protein;carbs;fat;fiber;grams per unit;default units;allergens ("dish" = swallows foods named with it, like "mushroom soup")
-const BASICS=String.raw`mushroom;mushroom|champignon|button mushroom|chestnut mushroom;22;3.1;3.3;0.3;1;18;5;
-portobello mushroom;portobello|portabella;22;2.1;3.9;0.4;1.3;85;1;
-shiitake mushroom;shiitake;34;2.2;6.8;0.5;2.5;19;4;
-oyster mushroom;oyster mushroom;33;3.3;6.1;0.4;2.3;30;3;
-onion;onion|red onion|white onion|yellow onion;40;1.1;9.3;0.1;1.7;110;1;
-spring onion;spring onion|green onion|scallion;32;1.8;7.3;0.2;2.6;15;2;
-shallot;shallot;72;2.5;16.8;0.1;3.2;25;1;
-garlic clove;garlic|garlic clove;149;6.4;33;0.5;2.1;3;2;
-tomato;tomato;18;0.9;3.9;0.2;1.2;120;1;
-cherry tomato;cherry tomato|grape tomato;18;0.9;3.9;0.2;1.2;17;6;
-sun-dried tomato;sun-dried tomato|sun dried tomato|sundried tomato;258;14;56;3;12;5;4;
-cucumber;cucumber;15;0.7;3.6;0.1;0.5;100;1;
-pickle;pickle|gherkin|pickled cucumber;12;0.5;2.3;0.2;1.2;35;1;
-bell pepper;bell pepper|sweet pepper|red pepper|green pepper|yellow pepper|capsicum|paprika|pepper;31;1;6;0.3;2.1;120;1;
-chili pepper;chili|chilli|chile|jalapeno|jalapeño;40;1.9;8.8;0.4;1.5;15;1;
-carrot;carrot;41;0.9;9.6;0.2;2.8;60;1;
-cauliflower;cauliflower;25;1.9;5;0.3;2;100;1;
-cabbage;cabbage|red cabbage|white cabbage;25;1.3;5.8;0.1;2.5;90;1;
-sauerkraut;sauerkraut|pickled cabbage;19;0.9;4.3;0.1;2.9;100;1;
-lettuce;lettuce|iceberg|romaine|mixed leaves|salad leaves;15;1.4;2.9;0.2;1.3;50;1;
-rocket;rocket|arugula;25;2.6;3.7;0.7;1.6;20;1;
-spinach (handful);spinach;23;2.9;3.6;0.4;2.2;30;1;
-kale (handful);kale;49;4.3;8.8;0.9;3.6;30;1;
-zucchini;zucchini|courgette;17;1.2;3.1;0.3;1;200;1;
-aubergine;aubergine|eggplant;25;1;5.9;0.2;3;150;1;
-celery stalk;celery;16;0.7;3;0.2;1.6;40;1;
-asparagus spear;asparagus;20;2.2;3.9;0.1;2.1;16;5;
-green beans;green bean|string bean|french bean;31;1.8;7;0.2;2.7;100;1;
-peas;peas|green peas|garden peas;81;5.4;14.5;0.4;5.1;80;1;
-sweetcorn;corn|sweetcorn|sweet corn;86;3.3;19;1.4;2;80;1;
-corn on the cob;corn on the cob;86;3.3;19;1.4;2;150;1;
-beetroot;beetroot|beet;43;1.6;9.6;0.2;2.8;80;1;
-radish;radish;16;0.7;3.4;0.1;1.6;10;4;
-bean sprouts;bean sprout|beansprout;31;3;6;0.2;1.8;50;1;
-leek;leek;61;1.5;14;0.3;1.8;90;1;
-brussels sprout;brussels sprout|brussel sprout;43;3.4;9;0.3;3.8;15;6;
-butternut squash;butternut|squash;45;1;11.7;0.1;2;100;1;
-pumpkin;pumpkin;26;1;6.5;0.1;0.5;100;1;
-artichoke;artichoke;47;3.3;10.5;0.2;5.4;120;1;
-olive;olive;115;0.8;6;10.7;3.2;4;5;
-strawberry;strawberry;32;0.7;7.7;0.3;2;12;8;
-blueberries (cup);blueberry;57;0.7;14.5;0.3;2.4;148;1;
-raspberries (cup);raspberry;52;1.2;11.9;0.7;6.5;123;1;
-blackberries (cup);blackberry;43;1.4;9.6;0.5;5.3;144;1;
-cherry;cherry;63;1.1;16;0.2;2.1;8;10;
-pear;pear;57;0.4;15;0.1;3.1;180;1;
-peach;peach;39;0.9;9.5;0.3;1.5;150;1;
-nectarine;nectarine;44;1.1;10.6;0.3;1.7;140;1;
-plum;plum;46;0.7;11.4;0.3;1.4;66;1;
-apricot;apricot;48;1.4;11;0.4;2;35;2;
-kiwi;kiwi|kiwifruit;61;1.1;14.7;0.5;3;75;1;
-mango;mango;60;0.8;15;0.4;1.6;200;1;
-papaya;papaya;43;0.5;11;0.3;1.7;150;1;
-pineapple (cup);pineapple;50;0.5;13;0.1;1.4;165;1;
-watermelon (slice);watermelon;30;0.6;7.6;0.2;0.4;280;1;
-melon (slice);melon|cantaloupe|honeydew;34;0.8;8.2;0.2;0.9;160;1;
-grapefruit (half);grapefruit;42;0.8;10.7;0.1;1.6;125;1;
-lemon;lemon|lime;29;1.1;9.3;0.3;2.8;60;1;
-lemon juice (tbsp);lemon juice|lime juice;22;0.4;6.9;0.2;0.3;15;1;
-pomegranate (half cup);pomegranate;83;1.7;18.7;1.2;4;87;1;
-passion fruit;passion fruit|passionfruit;97;2.2;23;0.7;10;18;1;
-fig;fig;74;0.8;19;0.3;2.9;50;1;
-date;dates|medjool;282;2.5;75;0.4;8;8;3;
-raisins (handful);raisin|sultana;299;3.1;79;0.5;3.7;30;1;
-prune;prune;240;2.2;64;0.4;7.1;10;3;
-dried apricot;dried apricot;241;3.4;63;0.5;7.3;8;4;
-dried cranberries (handful);cranberry|dried cranberry;308;0.1;82;1.1;5.3;30;1;
-coconut;coconut;354;3.3;15;33;9;30;1;
-coconut milk;coconut milk;197;2;2.8;21;0;60;1;
-coconut water (glass);coconut water;19;0.7;3.7;0.2;1.1;250;1;
-fruit salad;fruit salad|mixed fruit|fruit;50;0.6;12.5;0.2;1.5;150;1;
-brown rice (cup);brown rice;112;2.6;23.5;0.9;1.8;160;1;
-quinoa (cup);quinoa;120;4.4;21.3;1.9;2.8;185;1;
-couscous (cup);couscous;112;3.8;23.2;0.2;1.4;160;1;gluten
-bulgur (cup);bulgur|bulgar;83;3.1;18.6;0.2;4.5;180;1;gluten
-buckwheat (cup);buckwheat|kasha;92;3.4;20;0.6;2.7;170;1;
-pearl barley (cup);barley|pearl barley;123;2.3;28;0.4;3.8;160;1;gluten
-rye bread (slice);rye bread|rye|black bread|dark bread|pumpernickel;259;8.5;48;3.3;5.8;32;2;gluten
-wholegrain bread (slice);wholegrain bread|whole grain bread|wholemeal bread|whole wheat bread|brown bread|multigrain bread;247;13;41;3.4;7;35;2;gluten
-tortilla;tortilla;306;8;50;8;3.5;45;1;gluten
-tortilla chips;tortilla chips|corn chips;489;7;63;23;4.6;30;1;
-pita bread;pita|pitta;275;9.1;55.7;1.2;2.2;60;1;gluten
-naan;naan|nan bread;310;9;50;8;2;90;1;gluten dairy
-baguette (piece);baguette|french bread;270;9;54;1.5;2.5;60;1;gluten
-cracker;cracker;430;9;70;12;3;5;5;gluten
-rice cake;rice cake;387;8;81.5;2.8;4.2;9;2;
-crispbread;crispbread|knackebrod|knäckebröd|ryvita;366;10;66;2;16;10;2;gluten
-popcorn (bowl);popcorn;430;9;70;13;12;30;1;
-crisps (bag);crisps|potato chips;536;7;53;34;4.4;30;1;
-pretzel;pretzel;380;10;80;3;3;30;1;gluten
-pastry;pastry|danish;400;6;45;22;1.5;70;1;gluten dairy eggs
-cinnamon roll;cinnamon roll|cinnamon bun;360;6;52;14;1.5;100;1;gluten dairy eggs
-cake (slice);cake|sponge cake;350;5;50;15;1;80;1;gluten dairy eggs
-chicken thigh;chicken thigh|chicken leg;179;24.8;0;8.2;0;100;1;
-chicken drumstick;drumstick;172;28;0;5.7;0;75;2;
-roast chicken;roast chicken|roasted chicken|rotisserie chicken;239;27;0;14;0;150;1;
-fried chicken;fried chicken;260;20;10;15;0.5;150;1;gluten
-chicken nugget;nugget|chicken nugget;296;15;18;18;1;18;6;gluten
-turkey;turkey|turkey breast;147;30;0;2;0;100;1;
-ham (slice);ham;145;21;1.5;6;0;30;2;
-bacon (slice);bacon|rasher;541;37;1.4;42;0;8;3;
-sausage;sausage|frankfurter|bratwurst|wiener;300;12;2;27;0;75;1;
-salami (slice);salami|pepperoni|chorizo;425;22;1.6;37;0;10;4;
-minced beef;mince|minced beef|ground beef|beef mince|minced meat;250;26;0;15;0;100;1;
-meatball;meatball;230;15;8;15;0.5;30;4;gluten eggs
-lamb;lamb;294;25;0;21;0;100;1;
-pork tenderloin;pork tenderloin|pork loin;143;26;0;3.5;0;100;1;
-cod;cod|white fish|haddock|pollock|hake|tilapia|fish fillet|fish;105;23;0;0.9;0;150;1;fish
-fish finger;fish finger|fish stick;238;13;19;12;1;28;4;fish gluten
-mackerel;mackerel;262;24;0;18;0;100;1;fish
-herring;herring;203;23;0;11.6;0;100;1;fish
-pickled herring;pickled herring|matjes;262;14;9.6;18;0;100;1;fish
-sardines (tin);sardine;208;24.6;0;11.5;0;90;1;fish
-trout;trout;168;24;0;7.4;0;150;1;fish
-smoked salmon;smoked salmon|lox;117;18;0;4.3;0;50;1;fish
-fried egg;fried egg;196;13.6;0.8;15;0;46;2;eggs
-egg white;egg white;52;10.9;0.7;0.2;0;33;2;eggs
-cottage cheese;cottage cheese|quark|curd cheese;98;11;3.4;4.3;0;150;1;dairy
-cream cheese (tbsp);cream cheese|philadelphia;342;6;4;34;0;30;1;dairy
-mozzarella;mozzarella;280;28;3;17;0;30;2;dairy
-feta;feta;264;14;4;21;0;30;1;dairy
-parmesan (tbsp);parmesan|parmigiano;431;38;4;29;0;5;2;dairy
-halloumi;halloumi;321;22;2;25;0;40;2;dairy
-sour cream (tbsp);sour cream|smetana|creme fraiche|crème fraîche;193;2.4;4.6;19;0;30;1;dairy
-cream (tbsp);cream|double cream|whipping cream|heavy cream;340;2.1;2.8;36;0;15;1;dairy
-whipped cream;whipped cream;257;3.2;12.5;22;0;15;2;dairy
-kefir (glass);kefir|buttermilk;41;3.6;4.5;1;0;250;1;dairy
-plain yogurt;yogurt|yoghurt|plain yogurt|natural yogurt;61;3.5;4.7;3.3;0;125;1;dairy
-fruit yogurt;fruit yogurt|flavoured yogurt|flavored yogurt|strawberry yogurt;97;3.5;15;2.7;0.3;125;1;dairy
-milkshake;milkshake;112;3.4;18;3;0.3;300;1;dairy
-hot chocolate (mug);hot chocolate|cocoa;80;3.5;11;2.5;1;250;1;dairy
-oat milk (glass);oat milk;46;1;6.7;1.5;0.8;250;1;gluten
-almond milk (glass);almond milk;15;0.6;0.3;1.2;0.2;250;1;treenuts
-soy milk (glass);soy milk|soya milk;43;3.3;2.9;1.8;0.4;250;1;soy
-walnuts (handful);walnut;654;15;14;65;6.7;28;1;treenuts
-cashews (handful);cashew;553;18;30;44;3.3;28;1;treenuts
-pistachios (handful);pistachio;560;20;28;45;10;28;1;treenuts
-hazelnuts (handful);hazelnut;628;15;17;61;9.7;28;1;treenuts
-mixed nuts (handful);mixed nuts|nuts;607;20;21;54;7;28;1;treenuts peanuts
-sunflower seeds (tbsp);sunflower seed;584;21;20;51;8.6;15;1;
-pumpkin seeds (tbsp);pumpkin seed|pepita;559;30;11;49;6;15;1;
-chia seeds (tbsp);chia|chia seed;486;17;42;31;34;12;1;
-flaxseed (tbsp);flax|flaxseed|linseed;534;18;29;42;27;10;1;
-sesame seeds (tbsp);sesame seed;573;18;23;50;12;9;1;sesame
-baked beans;baked beans;78;4.7;12.9;0.2;3.7;200;1;
-tempeh;tempeh;192;20;7.6;11;0;100;1;soy
-ketchup (tbsp);ketchup;112;1.2;26;0.1;0.3;17;1;
-mayonnaise (tbsp);mayonnaise|mayo;680;1;0.6;75;0;14;1;eggs
-mustard (tsp);mustard;66;4;6;3.3;3;5;1;
-soy sauce (tbsp);soy sauce|soya sauce;53;8;4.9;0.6;0.8;16;1;soy gluten
-tomato sauce;tomato sauce|marinara|pasta sauce|passata;50;1.4;8;1.5;1.8;125;1;
-pesto (tbsp);pesto;450;5;6;46;1;15;1;dairy treenuts
-salsa;salsa;36;1.5;7;0.2;1.9;30;1;
-bbq sauce (tbsp);bbq sauce|barbecue sauce;172;0.8;41;0.6;0.9;17;1;
-salad dressing (tbsp);dressing|vinaigrette;300;0.5;10;28;0;15;1;
-gravy;gravy;50;1;5;3;0;60;1;gluten
-honey (tbsp);honey;304;0.3;82;0;0.2;21;1;
-jam (tbsp);jam|jelly|marmalade;250;0.4;62;0.1;1;20;1;
-maple syrup (tbsp);maple syrup|syrup;260;0;67;0.1;0;20;1;
-sugar (tsp);sugar;387;0;100;0;0;4;1;
-nutella (tbsp);nutella|chocolate spread;539;6.3;57.5;31;3.4;15;1;treenuts dairy
-tahini (tbsp);tahini;595;17;21;54;9;15;1;sesame
-apple juice (glass);apple juice;46;0.1;11.3;0.1;0.2;250;1;
-energy drink (can);energy drink|red bull|monster energy;45;0;11;0;0;250;1;
-diet soft drink (can);diet coke|coke zero|pepsi max|diet soda|zero sugar|sugar free;0.5;0;0;0;0;330;1;
-spirits (shot);vodka|whisky|whiskey|rum|gin|tequila|cognac|brandy|liqueur;231;0;0;0;0;40;1;
-cider (can);cider;49;0;5;0;0;330;1;
+const BASICS=String.raw`mushroom;mushroom|champignon|button mushroom|chestnut mushroom;22;3.1;3.3;0.3;1;18;5;;169251
+portobello mushroom;portobello|portabella;22;2.1;3.9;0.3;1.3;85;1;;169255
+shiitake mushroom;shiitake;34;2.2;6.8;0.5;2.5;19;4;;169242
+oyster mushroom;oyster mushroom;33;3.3;6.1;0.4;2.3;30;3;;168580
+onion;onion|red onion|white onion|yellow onion;40;1.1;9.3;0.1;1.7;110;1;;170000
+spring onion;spring onion|green onion|scallion;32;1.8;7.3;0.2;2.6;15;2;;170005
+shallot;shallot;72;2.5;16.8;0.1;3.2;25;1;;170499
+garlic clove;garlic|garlic clove;149;6.4;33.1;0.5;2.1;3;2;;169230
+tomato;tomato;18;0.9;3.9;0.2;1.2;120;1;;170457
+cherry tomato;cherry tomato|grape tomato;18;0.9;3.9;0.2;1.2;17;6;;170457
+sun-dried tomato;sun-dried tomato|sun dried tomato|sundried tomato;258;14.1;55.8;3;12.3;5;4;;168567
+cucumber;cucumber;15;0.7;3.6;0.1;0.5;100;1;;168409
+pickle;pickle|gherkin|pickled cucumber;14;0.5;2;0.4;1;35;1;;2710097
+bell pepper;bell pepper|sweet pepper|red pepper|green pepper|yellow pepper|capsicum|paprika|pepper;26;1;6;0.3;2.1;120;1;;170108
+chili pepper;chili|chilli|chile|jalapeno|jalapeño;40;1.9;8.8;0.4;1.5;15;1;;170106
+carrot;carrot;41;0.9;9.6;0.2;2.8;60;1;;170393
+cauliflower;cauliflower;25;1.9;5;0.3;2;100;1;;169986
+cabbage;cabbage|red cabbage|white cabbage;25;1.3;5.8;0.1;2.5;90;1;;169975
+sauerkraut;sauerkraut|pickled cabbage;19;0.9;4.3;0.1;2.9;100;1;;169279
+lettuce;lettuce|iceberg|romaine|mixed leaves|salad leaves;15;1.4;2.9;0.1;1.3;50;1;;169249
+rocket;rocket|arugula;25;2.6;3.6;0.7;1.6;20;1;;169387
+spinach (handful);spinach;23;2.9;3.6;0.4;2.2;30;1;;168462
+kale (handful);kale;35;2.9;4.4;1.5;4.1;30;1;;168421
+zucchini;zucchini|courgette;17;1.2;3.1;0.3;1;200;1;;169291
+aubergine;aubergine|eggplant;25;1;5.9;0.2;3;150;1;;169228
+celery stalk;celery;14;0.7;3;0.2;1.6;40;1;;169988
+asparagus spear;asparagus;20;2.2;3.9;0.1;2.1;16;5;;168389
+green beans;green bean|string bean|french bean;31;1.8;7;0.2;2.7;100;1;;169961
+peas;peas|green peas|garden peas;81;5.4;14.4;0.4;5.7;80;1;;170419
+sweetcorn;corn|sweetcorn|sweet corn;86;3.3;18.7;1.4;2;80;1;;169998
+corn on the cob;corn on the cob;86;3.3;18.7;1.4;2;150;1;;169998
+beetroot;beetroot|beet;43;1.6;9.6;0.2;2.8;80;1;;169145
+radish;radish;16;0.7;3.4;0.1;1.6;10;4;;169276
+bean sprouts;bean sprout|beansprout;30;3;5.9;0.2;1.8;50;1;;169957
+leek;leek;61;1.5;14.2;0.3;1.8;90;1;;169246
+brussels sprout;brussels sprout|brussel sprout;43;3.4;8.9;0.3;3.8;15;6;;170383
+butternut squash;butternut|squash;45;1;11.7;0.1;2;100;1;;169295
+pumpkin;pumpkin;26;1;6.5;0.1;0.5;100;1;;168448
+artichoke;artichoke;47;3.3;10.5;0.1;5.4;120;1;;169205
+olive;olive;116;0.8;6;10.9;1.6;4;5;;2710088
+strawberry;strawberry;32;0.7;7.7;0.3;2;12;8;;167762
+blueberries (cup);blueberry;57;0.7;14.5;0.3;2.4;148;1;;171711
+raspberries (cup);raspberry;52;1.2;11.9;0.7;6.5;123;1;;167755
+blackberries (cup);blackberry;43;1.4;9.6;0.5;5.3;144;1;;173946
+cherry;cherry;63;1.1;16;0.2;2.1;8;10;;171719
+pear;pear;57;0.4;15.2;0.1;3.1;180;1;;169118
+peach;peach;39;0.9;9.5;0.2;1.5;150;1;;169928
+nectarine;nectarine;44;1.1;10.6;0.3;1.7;140;1;;169914
+plum;plum;46;0.7;11.4;0.3;1.4;66;1;;169949
+apricot;apricot;48;1.4;11.1;0.4;2;35;2;;171697
+kiwi;kiwi|kiwifruit;61;1.1;14.7;0.5;3;75;1;;168153
+mango;mango;60;0.8;15;0.4;1.6;200;1;;169910
+papaya;papaya;43;0.5;10.8;0.3;1.7;150;1;;169926
+pineapple (cup);pineapple;50;0.5;13.1;0.1;1.4;165;1;;169124
+watermelon (slice);watermelon;30;0.6;7.5;0.1;0.4;280;1;;167765
+melon (slice);melon|cantaloupe|honeydew;34;0.8;8.2;0.2;0.9;160;1;;169092
+grapefruit (half);grapefruit;42;0.8;10.7;0.1;1.6;125;1;;2709165
+lemon;lemon|lime;29;1.1;9.3;0.3;2.8;60;1;;167746
+lemon juice (tbsp);lemon juice|lime juice;22;0.3;6.9;0.2;0.3;15;1;;167747
+pomegranate (half cup);pomegranate;83;1.7;18.7;1.2;4;87;1;;169134
+passion fruit;passion fruit|passionfruit;97;2.2;23.4;0.7;10.4;18;1;;169108
+fig;fig;74;0.8;19.2;0.3;2.9;50;1;;173021
+date;dates|medjool;282;2.5;75;0.4;8;8;3;;171726
+raisins (handful);raisin|sultana;299;3.3;79.3;0.2;4.5;30;1;;168165
+prune;prune;240;2.2;63.9;0.4;7.1;10;3;;2709211
+dried apricot;dried apricot;241;3.4;62.6;0.5;7.3;8;4;;173941
+dried cranberries (handful);cranberry|dried cranberry;308;0.2;82.8;1.1;5.3;30;1;;171723
+coconut;coconut;354;3.3;15.2;33.5;9;30;1;;170169
+coconut milk;coconut milk;197;2;2.8;21.3;0;60;1;;170173
+coconut water (glass);coconut water;19;0.7;3.7;0.2;1.1;250;1;;170174
+fruit salad;fruit salad|mixed fruit|fruit;59;0.6;13.9;0.2;1.5;150;1;;2709287
+brown rice (cup);brown rice;123;2.7;25.6;1;1.6;160;1;;169704
+quinoa (cup);quinoa;120;4.4;21.3;1.9;2.8;185;1;;168917
+couscous (cup);couscous;112;3.8;23.2;0.2;1.4;160;1;gluten;169700
+bulgur (cup);bulgur|bulgar;83;3.1;18.6;0.2;4.5;180;1;gluten;170287
+buckwheat (cup);buckwheat|kasha;92;3.4;19.9;0.6;2.7;170;1;;170686
+pearl barley (cup);barley|pearl barley;123;2.3;28.2;0.4;3.8;160;1;gluten;170285
+rye bread (slice);rye bread|rye|black bread|dark bread|pumpernickel;259;8.5;48.3;3.3;5.8;32;2;gluten;172684
+wholegrain bread (slice);wholegrain bread|whole grain bread|wholemeal bread|whole wheat bread|brown bread|multigrain bread;254;12.3;43.1;3.5;6;35;2;gluten;2707709
+tortilla;tortilla;306;8.2;49.4;8;3.5;45;1;gluten;2707824
+tortilla chips;tortilla chips|corn chips;472;7.1;67.8;20.7;5.4;30;1;;2708202
+pita bread;pita|pitta;275;9.1;55.7;1.2;2.2;60;1;gluten;2707616
+naan;naan|nan bread;311;11.1;50.2;7.3;5.2;90;1;gluten dairy;2707613
+baguette (piece);baguette|french bread;272;10.8;51.9;2.4;2.2;60;1;gluten;2707610
+cracker;cracker;510;6.6;61.3;26.4;2.3;5;5;gluten;2708132
+rice cake;rice cake;392;7.1;81.1;4.3;4.2;9;2;;2708162
+crispbread;crispbread|knackebrod|knäckebröd|ryvita;366;7.9;82.2;1.3;16.5;10;2;gluten;172739
+popcorn (bowl);popcorn;518;9.1;55;30.6;10.2;30;1;;2708216
+crisps (bag);crisps|potato chips;532;6.4;53.8;34;3.1;30;1;;2709422
+pretzel;pretzel;384;10;80.4;2.9;3.4;30;1;gluten;2708248
+pastry;pastry|danish;403;7;44.6;22.4;1.3;70;1;gluten dairy eggs;2708059
+cinnamon roll;cinnamon roll|cinnamon bun;452;4.5;48.6;26.6;1.2;100;1;gluten dairy eggs;2707668
+cake (slice);cake|sponge cake;352;2.8;53.6;14.8;1;80;1;gluten dairy eggs;2707853
+chicken thigh;chicken thigh|chicken leg;178;24.6;0;8.1;0;100;1;;2706030
+chicken drumstick;drumstick;154;24.1;0;5.7;0;75;2;;2706003
+roast chicken;roast chicken|roasted chicken|rotisserie chicken;203;24.7;0;10.8;0;150;1;;2705933
+fried chicken;fried chicken;251;21.8;7.1;15;0.2;150;1;gluten;2705949
+chicken nugget;nugget|chicken nugget;307;15.9;14.9;20.4;0.9;18;6;gluten;2706092
+turkey;turkey|turkey breast;139;28.8;0;2.1;0;100;1;;2706104
+ham (slice);ham;117;19;1.6;3.9;0;30;2;;2705878
+bacon (slice);bacon|rasher;548;35.7;1.4;43.3;0;8;3;;167914
+sausage;sausage|frankfurter|bratwurst|wiener;325;18.5;1.4;27.2;0;75;1;;2706190
+salami (slice);salami|pepperoni|chorizo;378;21.1;0.7;31.6;0;10;4;;2706195
+minced beef;mince|minced beef|ground beef|beef mince|minced meat;272;27;0;17.4;0;100;1;;171799
+meatball;meatball;286;14.4;8.1;22.2;2.3;30;4;gluten eggs;171638
+lamb;lamb;292;24.3;0;20.8;0;100;1;;2705905
+pork tenderloin;pork tenderloin|pork loin;134;24.6;0.1;3.4;0;100;1;;2705877
+cod;cod|white fish|haddock|pollock|hake|tilapia|fish fillet|fish;105;22.8;0;0.9;0;150;1;fish;171956
+fish finger;fish finger|fish stick;277;11;21.7;16.2;1.5;28;4;fish gluten;174195
+mackerel;mackerel;237;24.9;0;14.3;0;100;1;fish;2706263
+herring;herring;245;20.1;7.8;14.3;0.3;100;1;fish;2706261
+pickled herring;pickled herring|matjes;262;14.2;9.6;18;0;100;1;fish;175118
+sardines (tin);sardine;208;24.6;0;11.4;0;90;1;fish;2706293
+trout;trout;190;26.6;0;8.5;0;150;1;fish;172004
+smoked salmon;smoked salmon|lox;117;18.3;0;4.3;0;50;1;fish;2706292
+fried egg;fried egg;196;13.6;0.8;14.8;0;46;2;eggs;173423
+egg white;egg white;52;10.9;0.7;0.2;0;33;2;eggs;172183
+cottage cheese;cottage cheese|quark|curd cheese;82;11;4.3;2.3;0;150;1;dairy;2705747
+cream cheese (tbsp);cream cheese|philadelphia;350;6.2;5.5;34.4;0;30;1;dairy;173418
+mozzarella;mozzarella cheese|mozzarella;296;23.7;4.4;20.4;0;30;2;dairy;2705722
+feta;feta cheese|feta;265;14.2;3.9;21.5;0;30;1;dairy;173420
+oats (dry);oats|rolled oats|porridge oats|oat flakes;379;13.2;67.7;6.5;10.1;40;1;gluten;173904
+parmesan (tbsp);parmesan cheese|parmesan|parmigiano;420;28.4;13.9;27.8;0;5;2;dairy;171247
+halloumi;halloumi cheese|halloumi;321;22;2;25;0;40;2;dairy
+sour cream (tbsp);sour cream|smetana|creme fraiche|crème fraîche;196;3.1;5.6;18;0;30;1;dairy;2705614
+cream (tbsp);cream|double cream|whipping cream|heavy cream;343;2;3.8;35.6;0;15;1;dairy;2705597
+whipped cream;whipped cream;257;3.2;12.5;22.2;0;15;2;dairy;170860
+kefir (glass);kefir|buttermilk;52;3.6;7.5;1;0;250;1;dairy;2705394
+plain yogurt;yogurt|yoghurt|plain yogurt|natural yogurt;61;3.5;4.7;3.2;0;125;1;dairy;171284
+fruit yogurt;fruit yogurt|flavoured yogurt|flavored yogurt|strawberry yogurt;93;4.6;15.7;1.3;0.2;125;1;dairy;2705427
+milkshake;milkshake;112;3.9;17.8;3;0;300;1;dairy;170884
+hot chocolate (mug);hot chocolate|cocoa;72;1.8;13.9;1;0.2;250;1;dairy;2705472
+oat milk (glass);oat milk;45;0.7;5.4;2.3;0.5;250;1;gluten;2705412
+almond milk (glass);almond milk;15;0.6;0.3;1.2;0;250;1;treenuts;2705409
+soy milk (glass);soy milk|soya milk;53;3.4;5.2;2;0;250;1;soy;2705404
+walnuts (handful);walnut;654;15.2;13.7;65.2;6.7;28;1;treenuts;170187
+cashews (handful);cashew;574;15.3;32.7;46.4;3;28;1;treenuts;2707493
+pistachios (handful);pistachio;560;20.2;27.2;45.3;10.6;28;1;treenuts;170184
+hazelnuts (handful);hazelnut;628;15;16.7;60.8;9.7;28;1;treenuts;2707502
+mixed nuts (handful);mixed nuts|nuts;610;19.6;20.9;53.8;7.4;28;1;treenuts peanuts;2707504
+sunflower seeds (tbsp);sunflower seed;582;19.3;24.1;49.8;11.1;15;1;;2707585
+pumpkin seeds (tbsp);pumpkin seed|pepita;559;30.2;10.7;49;6;15;1;;170556
+chia seeds (tbsp);chia|chia seed;486;16.5;42.1;30.7;34.4;12;1;;170554
+flaxseed (tbsp);flax|flaxseed|linseed;534;18.3;28.9;42.2;27.3;10;1;;169414
+sesame seeds (tbsp);sesame seed;573;17.7;23.4;49.7;11.8;9;1;sesame;170150
+baked beans;baked beans;105;4.5;21.6;0.9;4.4;200;1;;2707390
+tempeh;tempeh;192;20.3;7.6;10.8;0;100;1;soy;174272
+ketchup (tbsp);ketchup;109;1.1;27.1;0.3;0.3;17;1;;2709733
+mayonnaise (tbsp);mayonnaise|mayo;680;1;0.6;74.8;0;14;1;eggs;2710204
+mustard (tsp);mustard;60;3.7;5.8;3.3;4;5;1;;172234
+soy sauce (tbsp);soy sauce|soya sauce;53;8.1;4.9;0.6;0.8;16;1;soy gluten;2707442
+tomato sauce;tomato sauce|marinara|pasta sauce|passata;51;1.4;8.1;1.5;1.8;125;1;;2709745
+pesto (tbsp);pesto;418;9.8;10.1;37.6;1.8;15;1;dairy treenuts;171579
+salsa;salsa;34;1.4;6.7;0.2;1.8;30;1;;2709736
+bbq sauce (tbsp);bbq sauce|barbecue sauce;172;0.8;40.8;0.6;0.9;17;1;;2709750
+salad dressing (tbsp);dressing|vinaigrette;430;1.3;5.9;44.5;0;15;1;;2710195
+gravy;gravy;53;3.8;4.8;2.4;0.4;60;1;gluten;2707149
+honey (tbsp);honey;304;0.3;82.4;0;0.2;21;1;;169640
+jam (tbsp);jam|jelly|marmalade;278;0.4;68.9;0.1;1.1;20;1;;2710301
+maple syrup (tbsp);maple syrup|syrup;260;0;67;0.1;0;20;1;;169661
+sugar (tsp);sugar;387;0;100;0;0;4;1;;169655
+nutella (tbsp);nutella|chocolate spread;539;5.4;62.4;29.7;5.4;15;1;treenuts dairy;2710289
+tahini (tbsp);tahini;595;17;21.2;53.8;9.3;15;1;sesame;170189
+apple juice (glass);apple juice;48;0.1;11.3;0.2;0.2;250;1;;2709320
+energy drink (can);energy drink|red bull|monster energy;43;0.5;10.2;0;0;250;1;;2710756
+diet soft drink (can);diet coke|coke zero|pepsi max|diet soda|zero sugar|sugar free;2;0.1;0.3;0;0;330;1;;2710537
+spirits (shot);vodka|whisky|whiskey|rum|gin|tequila|cognac|brandy|liqueur;231;0;0;0;0;40;1;;174815
+cider (can);cider;56;0;5.9;0;0;330;1;;2710621
 kvass;kvass|kvas;27;0.2;5.2;0;0;330;1;
-kombucha;kombucha;13;0;3;0;0;330;1;
-sweets (handful);sweets|candy|gummy|gummies|gummy bears|jelly beans;343;6.9;77;0.2;0;25;1;
-marshmallow;marshmallow;318;1.8;81;0.2;0.1;7;4;
-chocolate bar;chocolate bar|candy bar;500;6;60;26;2;50;1;dairy soy
-granola bar;granola bar|cereal bar|muesli bar|flapjack;470;8;64;20;4;30;1;gluten
+kombucha;kombucha;16;0.1;4;0;0;330;1;;2710509
+sweets (handful);sweets|candy|gummy|gummies|gummy bears|jelly beans;429;1.9;86.6;8.3;0.9;25;1;;2710325
+marshmallow;marshmallow;318;1.8;81.3;0.2;0.1;7;4;;167995
+chocolate bar;chocolate bar|candy bar;535;7.7;59.4;29.7;3.4;50;1;dairy soy;167587
+granola bar;granola bar|cereal bar|muesli bar|flapjack;471;10.1;64.4;19.8;5.3;30;1;gluten;2708101
 protein bar;protein bar;350;30;35;10;5;60;1;dairy soy
-pudding;pudding|custard;120;3;18;3.5;0;125;1;dairy eggs
-hash brown;hash brown|hashbrown;265;2.6;35;13;3.2;60;1;
-potato pancake;potato pancake|draniki|latke|potato fritter;220;4;24;12;2.5;70;2;eggs gluten
-roast potatoes;roast potato|roasted potato|potato wedges|wedges;150;2.5;22;6;2.5;150;1;
-potato salad;potato salad;143;2;13;9;1.3;150;1;eggs
-coleslaw;coleslaw|slaw;152;1;12;11;1.5;100;1;eggs
-tomato soup;tomato soup;35;0.9;6.5;0.7;0.8;300;1;dish
-mushroom soup;mushroom soup|cream of mushroom;56;1.4;5.6;3.2;0.5;300;1;dairy gluten dish
-chicken soup;chicken soup|chicken noodle soup|broth|bouillon;36;2.5;4;1;0.4;300;1;dish
-vegetable soup;vegetable soup|minestrone;40;1.5;7;0.7;1.5;300;1;dish
-borscht;borscht|borsch|borshch;45;1.5;6;1.8;1.3;300;1;dish
-lentil soup;lentil soup;80;5;12;1.5;3;300;1;dish
+pudding;pudding|custard;130;1.4;22.6;3.8;0;125;1;dairy eggs;2705681
+hash brown;hash brown|hashbrown;217;2.6;28.2;11.5;3.2;60;1;;2709477
+potato pancake;potato pancake|draniki|latke|potato fritter;196;4.5;20.6;10.8;2.2;70;2;eggs gluten;2709552
+roast potatoes;roast potato|roasted potato|potato wedges|wedges;126;1.9;20.4;4.2;1.4;150;1;;2709402
+potato salad;potato salad;143;2.7;11.2;8.2;1.3;150;1;eggs;169269
+coleslaw;coleslaw|slaw;117;0.9;10.4;8;1.9;100;1;eggs;2709815
+tomato soup;tomato soup;34;0.6;7.7;0.3;0.6;300;1;dish;2709759
+mushroom soup;mushroom soup|cream of mushroom;74;2.1;5.7;4.8;1.2;300;1;dairy gluten dish;2710107
+chicken soup;chicken soup|chicken noodle soup|broth|bouillon;40;3.4;4;1.1;0.8;300;1;dish;2707134
+vegetable soup;vegetable soup|minestrone;27;0.8;5.1;0.5;1;300;1;dish;2710113
+borscht;borscht|borsch|borshch;20;0.5;3.9;0.4;0.8;300;1;dish;2710105
+lentil soup;lentil soup;60;3.8;10.2;0.7;3.7;300;1;dish;2707462
 goulash;goulash|gulash;95;8;6;4.5;1;300;1;dish
-chili con carne;chili con carne|chilli con carne;110;8;9;4.5;3.5;300;1;dish
-beef stew;beef stew|stew;95;8;7;4;1.2;300;1;dish
+chili con carne;chili con carne|chilli con carne;107;5.8;13.1;3.5;3.3;300;1;dish;172097
+beef stew;beef stew|stew;107;8.8;6.3;5.1;1.3;300;1;dish;2706592
 stir fry;stir fry|stir-fry|stirfry;110;8;8;5;1.5;350;1;soy dish
-kebab;kebab|doner|döner|shawarma|gyro|gyros;215;12;20;10;1.5;350;1;gluten dish
-pelmeni;pelmeni|pierogi|varenyky;250;11;29;10;1.5;200;1;gluten eggs dish`.split('\n').map(l=>{const[n,al,k,p,c,f,fib,g,d,a]=l.split(';'),x=g/100,t=a.split(' ').filter(Boolean),v=y=>+(y*x).toFixed(1);return{n,al,g:+g,d:+d,k:v(k),p:v(p),c:v(c),f:v(f),fib:v(fib),a:t.filter(w=>w!=='dish'),dish:t.includes('dish')}});
+kebab;kebab|doner|döner|shawarma|gyro|gyros;184;11.2;18.8;6.8;1;350;1;gluten dish;2706962
+pelmeni;pelmeni|pierogi|varenyky;195;5.3;29.6;6.1;0.9;200;1;gluten eggs dish;2708720`.split('\n').map(l=>{const[n,al,k,p,c,f,fib,g,d,a]=l.split(';'),x=g/100,t=a.split(' ').filter(Boolean),v=y=>+(y*x).toFixed(1);return{n,al,g:+g,d:+d,k:v(k),p:v(p),c:v(c),f:v(f),fib:v(fib),a:t.filter(w=>w!=='dish'),dish:t.includes('dish')}});
 // typed-meal matcher: longest name wins, plurals and small typos are fine, a dish swallows its ingredients ("chicken burrito" = 1 burrito)
 const reEsc=w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
 const nameRe=w=>{w=w.trim();return reEsc(w).replace(/ and /g,' (?:and|&|n) ').replace(/\s+/g,'\\s+')+(/y$/.test(w)?'':'(?:e?s)?')}; // tomato→tomatoes; berry→berries below
@@ -873,7 +879,7 @@ function portion(f,s){const a=qty(s),sz=/\b(large|big|huge|double|extra)\b/.test
 const localParse=t=>t.toLowerCase().replace(/\b(fish|mac|salt|hot|sweet|shrimp) and\b/g,'$1 &').split(/,|;|\band\b|\bwith\b|\bplus\b|\bthen\b|\+|\n/).map(s=>s.trim()).filter(Boolean).flatMap(s=>{const{fs,skip}=findFoods(s);
  return fs.length?fs.map((f,i)=>i?mk(f,f.d,{ingredients:[s]}):portion(f,s)):skip?[]:[{miss:s}]});
 
-const DEF={goals:{kcal:2000,p:140,c:210,f:65,fib:28,water:2500},profile:{sex:'male',age:28,height:175,weight:75,target:75,goal:'maintain',activity:'light'},days:{},weights:{},chat:[],allergies:[],other:'',theme:'system',size:'m',onboarded:false,start:T,skipped:false,devReady:false,goalsSet:false,logMode:'describe'};
+const DEF={goals:{kcal:2000,p:140,c:210,f:65,fib:28,water:2500},profile:{sex:'male',age:28,height:175,weight:75,target:75,goal:'maintain',activity:'light'},days:{},weights:{},chat:[],allergies:[],other:'',theme:'system',size:'m',onboarded:false,start:T,skipped:false,devReady:false,goalsSet:false,logMode:'describe',favs:[],meals:[],labelOK:false};
 const loadState=k=>{let v;try{v=JSON.parse(localStorage.getItem(k)||(k==='calora'?localStorage.getItem('morsel-v2'):null))}catch(e){}v=Object.assign(structuredClone(DEF),v||{});if(v.account){v.skipped=true;delete v.account}return v};
 let S=loadState('calora'),USER=null;
 // goals count as set once the person sets them, or if they differ from the starting example
@@ -914,7 +920,7 @@ const ring=(key,pct,g,sz,w,inner='')=>{const R=(sz-w)/2,C=2*Math.PI*R,p=Math.min
  return`<div class="rw" style="width:${sz}px;height:${sz}px"><svg viewBox="0 0 ${sz} ${sz}" width="${sz}" height="${sz}"><circle class="trk" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke-width="${w}"/><circle class="arc" data-k="${key}" data-d="${d}" style="--c:var(--${g==='acc'?'acc':g});stroke-dasharray:${lastD[key]||'0 '+C}" cx="${sz/2}" cy="${sz/2}" r="${R}" stroke="url(#g-${g})" stroke-width="${w}" ${p?'':lastD[key]&&!lastD[key].startsWith('0.0 ')?'data-zero="1"':'opacity="0"'}/></svg><div class="in">${inner}</div></div>`};
 const bar=(pct,c)=>`<div class="bar"><i style="--p:${(Math.min(Math.max(pct||0,0),1)*100).toFixed(1)}%;--c:var(--${c})"></i></div>`;
 let waveUntil=0,OB={},CONF={},tab=location.hash.slice(1),sel=T,calSel=T,calM=T.slice(0,7),flipped=new Set(),cErr='',undoT,sheetKind='',SH={},coachBusy=false,installEvt=null,lastH=0;
-const TABS=[['today','Today','home'],['coach','Coach','chat'],['calendar','Calendar','cal'],['progress','Progress','prog'],['profile','Profile','user']];
+const TABS=[['today','Today','home'],['coach','Assistant','chat'],['calendar','Diary','cal'],['progress','Insights','prog'],['profile','Profile','user']];
 if(!TABS.some(t=>t[0]===tab))tab='today';
 const top=()=>`<header class="top"><div class="brand">${LOGO(34)}Calora</div><button class="tbtn glass bub" data-act="theme" aria-label="Switch to ${isDark()?'light':'dark'} mode">${I(isDark()?'sun':'moon')}</button></header>`;
 const letterAv=n=>esc(n.replace(/^[\d.]+ × /,'')[0]||'•');
@@ -936,19 +942,19 @@ today(){const g=S.goals,s=sum(sel),d=dayR(sel),left=g.kcal-s.kcal,over=left<0,mo
  <div class="grid2"><div class="card"><div class="sub" style="min-height:38px;display:flex;align-items:center">Fiber</div><div class="val">${fmt(s.fib)} / ${g.fib}g</div>${bar(s.fib/g.fib,'fib')}</div>
  <div class="card water"><div class="wave ${Date.now()<waveUntil?'go':''}" data-h="${(Math.min(d.water/g.water,1)*100).toFixed(1)}" style="translate:0 ${100-lastH}%" aria-hidden="true">${WAVE}${WAVE}</div><div class="row"><span class="sub">Water</span><span class="steps"><button class="step bub" data-w="-250" aria-label="Remove 250 millilitres">${I('minus',2.4)}</button><button class="step plus bub" data-w="250" aria-label="Add 250 millilitres">${I('plus',2.4)}</button></span></div><div class="val">${I('drop')}${+(d.water/1000).toFixed(2)} / ${+(g.water/1000).toFixed(2)}L</div><div class="sub" style="margin-top:8px">${r(Math.min(d.water/g.water,1)*100)}% of goal</div></div></div>
  <div class="acts"><button class="act gel bub" data-log="scan">${I('cam')}Scan<br>food</button><button class="act bub" data-log="describe">${I('text')}Describe</button><button class="act bub" data-log="manual">${I('pen')}Manual</button></div>
- ${newsCard()}<h2>Logged food</h2><div class="card list">${d.items.length?d.items.map(i=>{const fl=flags(i);return`<div class="item"><div class="av" aria-hidden="true" style="${i.img?`background-image:url(${i.img})`:''}">${i.img?'':letterAv(i.name)}</div><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${fl.length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(fl.join(', '))}</span>`:''}</div><button class="x bub" data-del="${i.id}" aria-label="Delete ${esc(i.name)}">${I('x',2.4)}</button></div>`}).join(''):'<div class="empty">Nothing logged yet. Your meals will show up here.</div>'}</div>`},
+ ${newsCard()}<h2>Logged food</h2><div class="card list">${d.items.length?d.items.map(i=>{const fl=flags(i);return`<div class="item"><div class="av" aria-hidden="true" style="${i.img?`background-image:url(${i.img})`:''}">${i.img?'':letterAv(i.name)}</div><${diaryOn()?`button class="ibtn bub" data-edit="${i.id}" aria-label="Edit ${esc(i.name)}"`:'div'}><span class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></span><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${fl.length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(fl.join(', '))}</span>`:''}</${diaryOn()?'button':'div'}><button class="x bub" data-del="${i.id}" aria-label="Delete ${esc(i.name)}">${I('x',2.4)}</button></div>`}).join(''):'<div class="empty">Nothing logged yet. Your meals will show up here.</div>'}</div>`},
 
 coach(){const sug=["I'm 180cm, 85kg, 28 y/o male and want to lose 8kg",'I want to build muscle — what should I eat?','What should I eat for the rest of today?'];
- return top()+`<h1>Coach</h1><p class="lead">Tell me about you and your goal — I'll build your plan.</p><div class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation with your coach">${S.chat.length?S.chat.map((m,i)=>`<div class="msg ${m.role==='user'?'u':'a'}" ${i===S.chat.length-1&&m.role!=='user'?'id="live"':''}>${m.content?(m.role==='user'?esc(m.content):md(m.content)):'<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="vh">Coach is typing</span>'}</div>`).join(''):
+ return top()+`<h1>Assistant</h1><p class="lead">Tell me about you and your goal — I'll build your plan.</p><div class="chat" id="chat" role="log" aria-live="polite" aria-label="Conversation with your coach">${S.chat.length?S.chat.map((m,i)=>`<div class="msg ${m.role==='user'?'u':'a'}" ${i===S.chat.length-1&&m.role!=='user'?'id="live"':''}>${m.content?(m.role==='user'?esc(m.content):md(m.content)):'<span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="vh">Coach is typing</span>'}</div>`).join(''):
  `<div class="card welcome"><span class="logo3d">${LOGO(64)}</span><p>Hi! I'm your Calora coach. Share your height, weight, age and goal.</p>${sug.map(s=>`<button class="say bub" data-say="${esc(s)}">${esc(s)}</button>`).join('')}</div>`}
- ${S.chat.length?`<p class="note" style="text-align:center"><button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button></p>`:''}<p class="note" style="text-align:center">${AI?'Coach powered by Claude.':'Built-in coach with fixed answers, on your device.'} General tips, not medical advice.</p></div>
+ <p class="note" style="text-align:center">${aiOn()&&!AI?`<button class="link" data-act="recipe" style="min-height:44px">Recipe from what I have</button> · <button class="link" data-act="label" style="min-height:44px">Explain a food label</button>${S.chat.length?' · ':''}`:''}${S.chat.length?`<button class="link" data-act="clearchat" style="min-height:44px">Start a new chat</button>`:''}</p><p class="note" style="text-align:center">${AI?'Coach powered by Claude.':aiOn()?`AI coach, powered by Groq${AILEFT!=null&&AILEFT<100?` · ${AILEFT} message${AILEFT===1?'':'s'} left today`:''}.`:'Built-in coach with fixed answers, on your device.'} General tips, not medical advice.</p></div>
  <form class="composer glass" id="composer"><input id="msg" placeholder="Message your coach…" autocomplete="off" aria-label="Message your coach"><button class="send bub" aria-label="Send" ${coachBusy?'disabled':''}>${I('send',2.6)}</button></form>`},
 
 calendar(){const f=D(calM+'-01'),n=new Date(f.getFullYear(),f.getMonth()+1,0).getDate(),off=(f.getDay()+6)%7,cnt={hit:0,part:0,miss:0};const SL={hit:'On goal',part:'Logged',miss:'Not logged',none:'No logs',now:'In progress',future:''};
  const cells=[...Array(n)].map((_,i)=>{const k=`${calM}-${pad(i+1)}`,st=dayStatus(k);if(cnt[st]!=null)cnt[st]++;return`<button class="bub ${st} ${k===T?'t':''} ${k===calSel?'s':''}" data-cal="${k}" ${k>T?'disabled':''} aria-pressed="${k===calSel}" ${k===T?'aria-current="date"':''} aria-label="${longDate(k)}${st==='future'?'':': '+SL[st].toLowerCase()}">${i+1}</button>`});
  const g=S.goals,s=sum(calSel),st=dayStatus(calSel),w=dayR(calSel).water;
  const need=[['Calories',s.kcal,g.kcal,'kcal','acc'],['Protein',s.p,g.p,'g','pro'],['Carbs',s.c,g.c,'g','carb'],['Fat',s.f,g.f,'g','fat'],['Fiber',s.fib,g.fib,'g','fib'],['Water',w,g.water,'ml','wat']];
- return top()+`<h1>Calendar</h1><div class="card" style="margin-top:18px"><div class="row" style="margin-bottom:14px"><button class="tbtn bub" data-m="-1" aria-label="Previous month">${I('back',2.4)}</button><b style="font-size:20px;font-weight:900">${f.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</b><button class="tbtn bub" data-m="1" aria-label="Next month" ${calM>=T.slice(0,7)?'disabled':''}>${I('chev',2.4)}</button></div>
+ return top()+`<h1>Diary</h1>${searchBox()}<div class="card" style="margin-top:18px"><div class="row" style="margin-bottom:14px"><button class="tbtn bub" data-m="-1" aria-label="Previous month">${I('back',2.4)}</button><b style="font-size:20px;font-weight:900">${f.toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</b><button class="tbtn bub" data-m="1" aria-label="Next month" ${calM>=T.slice(0,7)?'disabled':''}>${I('chev',2.4)}</button></div>
  <div class="cal">${'MTWTFSS'.split('').map(x=>`<span>${x}</span>`).join('')}${'<i></i>'.repeat(off)}${cells.join('')}</div>
  <div class="legend"><span><i style="background:var(--fib)"></i>On goal (${cnt.hit})</span><span><i style="background:var(--carb)"></i>Logged (${cnt.part})</span><span><i style="background:color-mix(in srgb,var(--ink2) 35%,transparent)"></i>Not logged (${cnt.miss})</span></div></div>
  <div class="card" style="margin-top:var(--gap)"><div class="row"><h2 class="ct">${longDate(calSel)}</h2><span class="badge">${SL[st]||'No logs'}</span></div><p class="sub" style="margin:6px 0 0">${calSel===T?'Today so far, against your goals':'What you ate, against your goals'}</p>
@@ -958,7 +964,7 @@ calendar(){const f=D(calM+'-01'),n=new Date(f.getFullYear(),f.getMonth()+1,0).ge
 progress(){const p=S.profile,ws=Object.entries(S.weights).sort(),lw=ws.length?ws[ws.length-1][1]:null,bmi=lw&&p.height?lw/(p.height/100)**2:null;
  const g=S.goals,mon=add(T,-((D(T).getDay()+6)%7)),ks=[...Array(7)].map((_,i)=>add(mon,i)),ss=ks.map(sum),lg=ss.filter((s,i)=>s.kcal&&ks[i]<=T),avg=lg.length?lg.reduce((a,s)=>a+s.kcal,0)/lg.length:0,mx=Math.max(g.kcal*1.25,...ss.map(s=>s.kcal));
  const bmiL=b=>b<18.5?'Under':b<25?'Healthy':b<30?'Over':'High';
- return top()+`<h1>Progress</h1><div class="tiles" style="margin-top:18px"><div class="card"><span class="sub">Weight</span><b>${lw?lw+' kg':'– kg'}</b></div><div class="card"><span class="sub">Goal</span><b>${p.target?p.target+' kg':'– kg'}</b></div><div class="card"><span class="sub">BMI</span><b>${bmi?bmi.toFixed(1):'–'}</b>${bmi?`<span class="sub">${bmiL(bmi)}</span>`:''}</div></div>
+ return top()+`<h1>Insights</h1>${weeklyHTML()}<div class="tiles" style="margin-top:var(--gap)"><div class="card"><span class="sub">Weight</span><b>${lw?lw+' kg':'– kg'}</b></div><div class="card"><span class="sub">Goal</span><b>${p.target?p.target+' kg':'– kg'}</b></div><div class="card"><span class="sub">BMI</span><b>${bmi?bmi.toFixed(1):'–'}</b>${bmi?`<span class="sub">${bmiL(bmi)}</span>`:''}</div></div>
  <div class="card" style="margin-top:var(--gap)"><h2 class="ct">Weight trend</h2><div class="inline"><input type="number" id="wt" inputmode="decimal" step="0.1" min="20" max="400" placeholder="Today's weight (kg)" aria-label="Today's weight in kilograms"><button class="btn pri bub" data-act="logw">Log</button></div>
  ${ws.length>=2?lineChart(ws.slice(-30)):`<p class="sub" style="margin:12px 0 0">Log your weight on a couple of days to see your trend.</p>`}</div>
  <div class="card" style="margin-top:var(--gap)"><div class="row"><h2 class="ct">This week</h2><span class="sub">avg ${fmt(avg)} kcal</span></div>
@@ -977,7 +983,7 @@ profile(){const p=S.profile,g=S.goals,ch=(f,v,l)=>`<button class="chip bub" data
  <p class="sub" style="margin:18px 4px 8px">Text size</p><div class="seg s4" role="group" aria-label="Text size" style="margin:0">${[['m','Standard'],['l','Large'],['xl','Larger'],['xxl','Largest']].map(([v,l])=>`<button class="bub" data-size="${v}" aria-pressed="${(S.size||'m')===v}">${l}</button>`).join('')}</div>
  <h2>Home Screen</h2><div class="card stack"><p class="sub" style="margin:0">Open Calora full-screen like an app, straight from your Home Screen.</p><button class="btn sec bub" data-act="home">${I('home2')}Add to Home Screen</button></div>
  <h2>Built-in AI</h2><div class="card stack"><p class="sub" style="margin:0">${AI?"Inside Claude, Calora uses Claude for photos and the coach. The built-in AI takes over whenever Claude isn't available.":"Recognises food in your photos right on this device. It's a one-time download of about 150 MB (use Wi-Fi if you can), then it works offline."}</p><button class="btn sec bub" data-act="dl" id="dl" ${S.devReady?'disabled':''}>${S.devReady?I('check',2.4)+'Built-in AI is ready':'Download built-in AI now'}</button></div>
- ${helpRows()}${legalRows()}${acctRows()}`},
+ ${premiumHTML()}${helpRows()}${legalRows()}${acctRows()}`},
 
 };
 
@@ -1031,7 +1037,7 @@ async function onAuth(ev,session){const u=session?.user||null;
 const maybeOnboard=()=>{if(authReady&&A.view!=='reset'&&(USER||S.skipped)&&S.consent?.v===1&&!S.onboarded&&!$('#sheet').open)setTimeout(()=>{if(!$('#sheet').open&&!S.onboarded)openSheet('welcome')},300)};
 const SYNC_TXT={synced:'Saved to your account',syncing:'Saving…',offline:"Offline. Changes will sync when you're back online.",idle:''};
 function setSync(st){sync=st;const el=$('#syncstate');if(el)el.textContent=SYNC_TXT[st]}
-const profPayload=()=>({display_name:USER?.name||null,settings:{goals:S.goals,profile:S.profile,allergies:S.allergies,other:S.other,theme:S.theme,size:S.size,onboarded:S.onboarded,start:S.start,consent:S.consent,goalsSet:S.goalsSet},weights:S.weights,chat:S.chat.slice(-40)});
+const profPayload=()=>({display_name:USER?.name||null,settings:{goals:S.goals,profile:S.profile,allergies:S.allergies,other:S.other,theme:S.theme,size:S.size,onboarded:S.onboarded,start:S.start,consent:S.consent,goalsSet:S.goalsSet,favs:S.favs,meals:S.meals},weights:S.weights,chat:S.chat.slice(-40)});
 function schedulePush(){clearTimeout(pushT);pushT=setTimeout(push,700)}
 
 // download this user's data; keep local edits that haven't uploaded yet
@@ -1040,7 +1046,7 @@ async function pull(first){if(!sb||!USER||USER.offline)return;const uid=USER.id;
  if(!USER||USER.id!==uid)return;if(p.error||d.error){setSync('offline');return}
  const SY=S._sync||(S._sync={d:{},p:''});
  if(!p.data){ // brand-new account: bring this device's guest logs along, once
-  const g=loadState('calora');if(first&&!S._migrated&&Object.keys(g.days).length){for(const k of['days','weights','goals','profile','allergies','other','onboarded','start','consent','goalsSet'])S[k]=g[k];S._migrated=true;toast('Your logs on this device are now saved to your account.')}
+  const g=loadState('calora');if(first&&!S._migrated&&Object.keys(g.days).length){for(const k of['days','weights','goals','profile','allergies','other','onboarded','start','consent','goalsSet','favs','meals'])S[k]=g[k];S._migrated=true;toast('Your logs on this device are now saved to your account.')}
   save();await push();return}
  const localProfileChanged=SY.p&&SY.p!==JSON.stringify(profPayload());
  if(!localProfileChanged){Object.assign(S,p.data.settings||{});S.weights=p.data.weights||{};S.chat=p.data.chat||[]}
@@ -1232,23 +1238,24 @@ function splash(x,y){const el=document.createElement('div');el.className='splash
 let sheetOpener=null;
 function openSheet(kind){sheetKind=kind;renderSheet();const d=$('#sheet');d.style.translate='';if(!d.open){sheetOpener=focusKey(document.activeElement,'body');d.showModal()}}
 function closeSheet(){const d=$('#sheet');if(!d.open)return;d.classList.remove('drag');d.style.translate='';d.close()} // the exit slide is CSS (dialog:not([open]))
-function renderSheet(){const fk=focusKey(document.activeElement,'#sh');$('#sh').innerHTML='<div class="grab" aria-hidden="true"></div>'+({log:logHTML,welcome:welcomeHTML,goals:goalsHTML,confirm:confirmHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();restoreFocus(fk);const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
+function renderSheet(){const fk=focusKey(document.activeElement,'#sh');$('#sh').innerHTML='<div class="grab" aria-hidden="true"></div>'+({log:logHTML,edit:editHTML,label:labelHTML,recipe:recipeHTML,welcome:welcomeHTML,goals:goalsHTML,confirm:confirmHTML,home:homeHTML,delacct:delHTML,applegone:appleGoneHTML,chpw:chpwHTML,news:newsHTML,post:postHTML,support:supportHTML,ticket:ticketHTML})[sheetKind]();restoreFocus(fk);const bn=$('#barnum');if(bn)bn.onkeydown=e=>{if(e.key==='Enter')lookupBarcode(bn.value)};const ta=$('#desc');if(ta)ta.oninput=()=>{SH.text=ta.value;const q=$('#quick');if(q)q.hidden=!!SH.text.trim();if(!AI){SH.items=SH.text.trim()?localParse(SH.text):null;$('#res').innerHTML=resHTML()}}}
 const shh=t=>`<div class="shh"><span></span><h2 id="shtitle">${t}</h2><button class="tbtn bub" data-close aria-label="Close">${I('x',2.4)}</button></div>`;
-function logHTML(){const m=SH.mode;
- const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m}">${I(ic)}${l}</button>`).join('')}</div>`;
+function logHTML(){if(SH.mode==='barcode'&&!barcodeOn())SH.mode='describe';const m=SH.mode;
+ const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m||(k==='scan'&&m==='barcode')}">${I(ic)}${l}</button>`).join('')}</div>`;
  let body='';
  if(m==='scan')body=`${!S.devReady&&!AIimg&&!SH.photo?`<p class="note" style="margin:0 4px 12px">The first scan downloads Calora's food-recognition model (about 150 MB, one time only). Use Wi-Fi if you can.</p>`:''}<button type="button" class="drop ${SH.photo?'has':''}" data-act="pick" style="${SH.photo?`background-image:url(${SH.photo})`:''}">${SH.busy?'<span class="scanline"></span>':''}${SH.photo?`<span>${SH.busy?'Looking at your plate…':'Change photo'}</span>`:`${I('cam',1.8)}Take or choose a photo`}</button>
- ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">${SH.err?'Try again':'Recognise food'}</button>`:''}`;
- if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora looks up what you type in its list of about ${r(TXT.length/10)*10} foods. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
+ ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">${SH.err?'Try again':'Recognise food'}</button>`:''}${!SH.photo&&barcodeOn()?`<button class="btn sec bub" data-mode="barcode" style="margin-top:12px">${I('bar')}Scan a barcode instead</button>`:''}`;
+ if(m==='barcode')body=barcodeHTML();
+ if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora looks up what you type in its list of about ${r(TXT.length/10)*10} foods. Most nutrition values come from USDA FoodData Central. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
  if(m==='manual')body=`<div class="fields"><label class="f w">Food name<input type="text" id="m-name" placeholder="e.g. Chicken burrito" value="${esc(SH.pre||'')}"></label>${[['kcal','Calories','e.g. 450'],['p','Protein (g)','e.g. 20'],['c','Carbs (g)','e.g. 50'],['f','Fat (g)','e.g. 15'],['fib','Fiber (g)','e.g. 5']].map(([k,l,ph])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="m-${k}" placeholder="${ph}"></label>`).join('')}<label class="f w">Ingredients, for the allergy check (optional)<input type="text" id="m-ing" placeholder="tortilla, cheese, beans, salsa"></label></div><div id="malert"></div><button class="btn pri bub" data-act="addmanual" style="margin-top:14px">Add to log</button>`;
- return shh('Log food')+seg+body+(m==='manual'?'':`<div id="res">${resHTML()}</div>`)}
+ return shh('Log food')+seg+body+(m==='manual'?'':`<div id="res">${resHTML()}</div>`)+(m==='describe'&&!SH.items?quickHTML():'')}
 function alertHTML(names){return names.length?`<div class="alert" role="alert">${I('warn',2.2)}<div><b>Don't eat this</b>It may contain <strong>${esc(names.join(', '))}</strong>, which you told Calora you're allergic to.</div></div><p class="note">Calora's allergy check estimates from typical recipes and can miss things. Always check the label or ask the staff.</p>`:''}
-function resHTML(){if(SH.busy)return`<div class="busy"><span class="dots"><i></i><i></i><i></i></span><span id="busytxt">${SH.prog!=null&&SH.prog<1?`Downloading built-in AI, one time only… ${r(SH.prog*100)}%`:SH.mode==='scan'?'Recognising your food…':'Estimating…'}</span></div>`;
- let h=SH.err?`<p class="err">${esc(SH.err)}</p>${SH.mode==='scan'?'<button class="btn sec bub" data-mode="describe">Describe it instead</button>':''}`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(!it.length)return h;
+function resHTML(){if(SH.busy)return`<div class="busy"><span class="dots"><i></i><i></i><i></i></span><span id="busytxt">${SH.prog!=null&&SH.prog<1?`Downloading built-in AI, one time only… ${r(SH.prog*100)}%`:SH.mode==='scan'?'Recognising your food…':SH.mode==='barcode'?'Looking up the product…':'Estimating…'}</span></div>`;
+ let h=SH.err?`<p class="err">${esc(SH.err)}</p>${SH.mode==='scan'?'<button class="btn sec bub" data-mode="describe">Describe it instead</button>':''}${SH.mode==='barcode'&&SH.nf?`<button class="btn sec bub" data-mode="manual" data-pre="Product ${SH.nf}">Add it manually</button>`:''}`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(!it.length)return h;
  const bad=[...new Set(it.flatMap(i=>flags(i.miss?{name:i.miss}:i)))];
  h+=alertHTML(bad)+(!bad.length&&ok.length&&allergyNames().length?`<p class="note">No allergens spotted, but Calora can miss ingredients. Check the label if you're not sure.</p>`:'')+`<div class="card list res">${it.map((i,n)=>i.miss?`<div class="item"><div><span class="sub">“${esc(i.miss)}” isn't in Calora's food list.</span> <button class="link" data-mode="manual" data-pre="${esc(i.miss)}" style="min-height:44px">Add it manually</button>${flags({name:i.miss}).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags({name:i.miss}).join(', '))}</span>`:''}</div><span></span></div>`:`<div class="item"><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${flags(i).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags(i).join(', '))}</span>`:''}${i.b?`<br><span class="qty"><button class="bub" data-q="-1" data-n="${n}" aria-label="Less ${esc(i.name)}">${I('minus',2.4)}</button><span aria-live="polite">× ${i.q}</span><button class="bub" data-q="1" data-n="${n}" aria-label="More ${esc(i.name)}">${I('plus',2.4)}</button></span>`:''}</div><button class="x bub" data-rm="${n}" aria-label="Remove ${esc(i.name)}">${I('x',2.4)}</button></div>`).join('')}</div>`;
  if(SH.alts)h+=`<p class="sub" style="margin:16px 4px 8px">Not quite? It might be:</p><div class="chips">${SH.alts.map(i=>`<button class="chip bub" data-alt="${i}">${esc(cap(clipName(FOODS[i])))}</button>`).join('')}<button class="chip bub" data-mode="describe">${I('text')}Describe it</button></div><p class="note">Recognised on your device by Calora's built-in AI. Portions are typical servings, so adjust them with − and +.</p>`;
- if(ok.length)h+=`<div class="stick"><div class="total" style="padding-top:0"><span>Total</span><span>${fmt(ok.reduce((a,i)=>a+i.kcal,0))} kcal</span></div><button class="btn ${bad.length?'warn':'pri'} bub" data-act="addres" style="margin-top:10px">${bad.length?'Log anyway':'Add to log'}</button></div>`;
+ if(ok.length)h+=`<div class="stick"><div class="total" style="padding-top:0"><span>Total</span><span>${fmt(ok.reduce((a,i)=>a+i.kcal,0))} kcal</span></div><button class="btn ${bad.length?'warn':'pri'} bub" data-act="addres" style="margin-top:10px">${bad.length?'Log anyway':'Add to log'}</button>${offCredit()}${mealSaveHTML()}</div>`;
  return h}
 const welcomeHTML=()=>`<div style="display:grid;justify-items:center;text-align:center;gap:6px;padding:10px 4px 4px"><span class="logo3d">${LOGO(84)}</span><h1 id="shtitle" style="font-size:32px">Welcome to Calora</h1><p class="sub" style="margin:0 0 10px;font-size:17px">Snap. Track. Thrive.</p></div>
  <div class="card stack"><div><h3>Any food allergies?</h3><p class="sub" style="margin:0">Calora will warn you when a scanned or logged food may contain them. You can change this any time in Profile.</p></div>${algChips()}<label class="f">Anything else? Separate with commas<input type="text" id="other" value="${esc(S.other)}" placeholder="e.g. kiwi, mustard, celery"></label><p class="note" style="margin:0">Allergy warnings are estimates and can miss ingredients. Always check the label.</p></div>
@@ -1292,6 +1299,104 @@ function addItems(items){if(!items.length)return;const L=day(sel).items;L.push(.
 $('#file').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;const im=new Image();im.onload=()=>{const cv=(z,sq)=>{const c=document.createElement('canvas'),s=Math.min(im.width,im.height),k=Math.min(1,z/Math.max(im.width,im.height));if(sq){c.width=c.height=z;c.getContext('2d').drawImage(im,(im.width-s)/2,(im.height-s)/2,s,s,0,0,z,z)}else{c.width=r(im.width*k);c.height=r(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height)}return c};
  SH.photo=cv(320,1).toDataURL('image/jpeg',.82);cv(1024).toBlob(b=>{SH.blob=b;URL.revokeObjectURL(im.src);SH.items=null;SH.err='';if(!$('#sheet').open)openSheet('log');estimate()},'image/jpeg',.85)};im.src=URL.createObjectURL(f)};
 
+// ---------- Phase 1 · smart diary ----------
+// Quick add (favourites, saved meals, recent foods), editing a logged food, and diary search.
+// On unless an owner turns off "Smart diary" in /admin → Settings → App configuration.
+const diaryOn=()=>APPCFG.diary_tools!==false;
+const r1=x=>Math.round(x*10)/10;
+// what we keep of a logged food when saving or copying it (no photo, no id)
+const snap=i=>{const o={name:String(i.name||'Food').slice(0,80)};for(const k of['kcal','p','c','f','fib'])o[k]=+i[k]||0;
+ if(i.allergens?.length)o.allergens=i.allergens;if(i.ingredients?.length)o.ingredients=i.ingredients;return o};
+const fresh=x=>({...snap(x),id:uid()});
+const isFav=name=>S.favs.some(f=>f.name===name);
+// the latest different foods you logged, newest first, leaving out favourites (they're listed already)
+function recentFoods(n=6){const seen=new Set(S.favs.map(f=>f.name)),out=[];
+ for(const k of Object.keys(S.days).sort().reverse())for(const i of[...S.days[k].items].reverse()){if(seen.has(i.name))continue;seen.add(i.name);out.push(i);if(out.length>=n)return out}
+ return out}
+function logAgain(x){const it=fresh(x),L=day(T).items;L.push(it);save();closeSheet();render();
+ toast(`Added ${it.name} to today`,()=>{const j=L.indexOf(it);if(j>=0)L.splice(j,1);save();render()})}
+
+function quickHTML(){if(!diaryOn())return'';const R=recentFoods();if(!S.favs.length&&!S.meals.length&&!R.length)return'';
+ const row=(name,kcal,sub,add,rm)=>`<div class="item two"><button class="ibtn bub" data-qadd="${add}" aria-label="Log ${esc(name)}, ${fmt(kcal)} kcal"><span class="row"><b>${esc(name)}</b><span class="kc">${fmt(kcal)} kcal</span></span>${sub?`<span class="sub">${sub}</span>`:''}</button>${rm?`<button class="x bub" data-qrm="${rm}" aria-label="Remove ${esc(name)} from quick add">${I('x',2.4)}</button>`:''}</div>`;
+ return`<div id="quick"${SH.text?.trim()?' hidden':''}><p class="qt">Quick add <span class="sub">· tap to log</span></p><div class="card list">${
+  S.favs.map((f,n)=>row(f.name,f.kcal,'Favourite','f:'+n,'f:'+n)).join('')+
+  S.meals.map((m,n)=>row(m.name,m.items.reduce((a,i)=>a+i.kcal,0),`Saved meal · ${m.items.length} item${m.items.length>1?'s':''}`,'m:'+n,'m:'+n)).join('')+
+  R.map((i,n)=>row(i.name,i.kcal,'','r:'+n)).join('')}</div></div>`}
+function quickAdd(v){const[t,n]=v.split(':');if(t==='m')return addItems(S.meals[+n].items.map(fresh));addItems([fresh(t==='f'?S.favs[+n]:recentFoods()[+n])])}
+function quickRemove(v){const[t,n]=v.split(':'),L=t==='f'?S.favs:S.meals,[x]=L.splice(+n,1);save();renderSheet();
+ toast(`Removed ${x.name} from quick add`,()=>{L.splice(+n,0,x);save();if($('#sheet').open&&sheetKind==='log')renderSheet()})}
+
+// the items in the log sheet's results, as they'd be logged
+const resItems=()=>(SH.items||[]).filter(i=>!i.miss).map((i,n)=>{const o={...i,name:i.q&&i.q!==1?`${i.q} × ${i.name}`:i.name};delete o.b;delete o.st;if(!n&&SH.mode==='scan'&&SH.photo)o.img=SH.photo;return o});
+function mealSaveHTML(){if(!diaryOn())return'';
+ if(!SH.saving)return`<button class="link bub" data-act="savemeal" style="min-height:44px;margin-top:4px">Save as a meal for next time</button>`;
+ const def=(SH.text?.trim()||resItems().map(i=>i.name).join(', ')).slice(0,40);
+ return`<div class="fields" style="margin-top:12px"><label class="f w">Meal name<input type="text" id="mealname" maxlength="40" value="${esc(cap(def))}"></label></div><button class="btn sec bub" data-act="mealsave" style="margin-top:10px">Save meal</button>`}
+function saveMeal(){const name=($('#mealname')?.value||'').trim()||'My meal';S.meals.unshift({name,items:resItems().map(snap)});S.meals=S.meals.slice(0,30);save();
+ SH.saving=false;$('#res').innerHTML=resHTML();toast(`Saved “${name}”. It's in Quick add next time.`)}
+
+// edit a logged food
+let EDIT=null; // {k: day, id}
+const editItem=()=>EDIT&&dayR(EDIT.k).items.find(i=>i.id===EDIT.id);
+const NUTR=[['kcal','Calories'],['p','Protein (g)'],['c','Carbs (g)'],['f','Fat (g)'],['fib','Fiber (g)']];
+function editHTML(){const i=editItem();if(!i)return shh('Edit food')+'<p class="sub">This food is no longer in your log.</p>';const fav=isFav(i.name);
+ return shh('Edit food')+`<div class="fields"><label class="f w">Food name<input type="text" id="e-name" maxlength="80" value="${esc(i.name)}"></label>${NUTR.map(([k,l])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="e-${k}" value="${+i[k]||0}"></label>`).join('')}</div>
+ <div class="seg" role="group" aria-label="Change the amount" style="margin-top:14px">${[['.5','Half'],['1.5','1½ ×'],['2','Double']].map(([v,l])=>`<button class="bub" data-scale="${v}">${l}</button>`).join('')}</div>
+ <p id="e-err" class="err" role="alert"></p><button class="btn pri bub" data-act="editsave">Save changes</button>
+ <div class="row" style="margin-top:6px;flex-wrap:wrap"><button class="link bub" data-act="fav" aria-pressed="${fav}" style="min-height:44px">${fav?'Remove from favourites':'Add to favourites'}</button><button class="link bub" data-act="again" style="min-height:44px">Log again today</button></div>`}
+function scaleEdit(v){for(const[k]of NUTR){const e=$('#e-'+k);e.value=k==='kcal'?r(+e.value*v):r1(+e.value*v)}}
+function saveEdit(){const i=editItem();if(!i)return closeSheet();const val={};
+ for(const[k,l]of NUTR){const x=$('#e-'+k).value.trim(),n=x===''?0:+x;if(!isFinite(n)||n<0||n>(k==='kcal'?20000:2000)){$('#e-err').textContent=`Check ${l.replace(/ \(g\)/,'').toLowerCase()}: enter a number from 0 up.`;return $('#e-'+k).focus()}val[k]=k==='kcal'?r(n):r1(n)}
+ const old={...i};Object.assign(i,val,{name:$('#e-name').value.trim().slice(0,80)||i.name});save();closeSheet();render();
+ toast('Saved changes',()=>{Object.assign(i,old);save();render()})}
+function toggleFav(){const i=editItem();if(!i)return;if(isFav(i.name)){S.favs=S.favs.filter(f=>f.name!==i.name);toast(`Removed ${i.name} from favourites`)}
+ else{S.favs.unshift(snap(i));S.favs=S.favs.slice(0,50);toast(`Added ${i.name} to favourites. It's in Quick add.`)}save();renderSheet()}
+
+// search everything you've logged (Diary tab)
+let DQ='';
+function searchHTML(q){q=q.trim().toLowerCase();if(q.length<2)return'';const hits=[];
+ outer:for(const k of Object.keys(S.days).sort().reverse())for(const i of[...dayR(k).items].reverse())if(i.name.toLowerCase().includes(q)){hits.push([k,i]);if(hits.length>=30)break outer}
+ return hits.length?`<div class="card list">${hits.map(([k,i])=>`<div class="item two"><button class="ibtn bub" data-open="${k}" aria-label="${esc(i.name)}, ${longDate(k)}. Open this day"><span class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></span><span class="sub">${longDate(k)}</span></button><button class="x bub" data-again="${k}|${i.id}" aria-label="Log ${esc(i.name)} again today">${I('plus',2.4)}</button></div>`).join('')}</div>`
+  :`<p class="sub" style="margin:10px 4px">Nothing called “${esc(q)}” in your diary yet.</p>`}
+const searchBox=()=>diaryOn()?`<input type="search" id="dsearch" aria-label="Search your diary" placeholder="Search your diary" autocomplete="off" value="${esc(DQ)}" style="margin-top:18px"><div id="dres" aria-live="polite" style="margin-top:12px">${searchHTML(DQ)}</div>`:'';
+// ---------- Phase 2 · barcode scanner ----------
+// Photo of a barcode → the phone's own barcode reader if it has one, else a small WebAssembly reader
+// (zxing-wasm, loaded once from jsDelivr). The number is looked up in Open Food Facts (ODbL).
+// On unless an owner turns off "Barcode scanner" in /admin → Settings → App configuration.
+const barcodeOn=()=>APPCFG.barcode!==false;
+const ZXURL='https://cdn.jsdelivr.net/npm/zxing-wasm@2.2.4/dist/es/reader/index.js';
+const OFFALG={'en:peanuts':'peanuts','en:nuts':'treenuts','en:milk':'dairy','en:eggs':'eggs','en:gluten':'gluten','en:fish':'fish','en:crustaceans':'shellfish','en:molluscs':'shellfish','en:soybeans':'soy','en:sesame-seeds':'sesame'};
+
+async function readBarcode(file){
+ if('BarcodeDetector' in window)try{const r=await new BarcodeDetector({formats:['ean_13','ean_8','upc_a','upc_e']}).detect(await createImageBitmap(file));if(r[0])return r[0].rawValue}catch(e){}
+ const z=await import(ZXURL),r=await z.readBarcodes(file,{formats:['EAN-13','EAN-8','UPC-A','UPC-E'],tryHarder:true,maxNumberOfSymbols:1});return r[0]?.text||''}
+
+// one serving if the pack says how big it is, otherwise 100 g
+function offItem(p,code){const n=p.nutriments||{},g=+p.serving_quantity||0,k=g?g/100:1,v=x=>(+n[x+'_100g']||0)*k;
+ const kcal=n['energy-kcal_100g']!=null?v('energy-kcal'):(+n.energy_100g||0)/4.184*k;
+ const name=[p.product_name,(p.brands||'').split(',')[0].trim()].filter(Boolean).join(' · ')||'Product '+code;
+ return setQ({id:uid(),name:`${name.slice(0,64)} (${g?r(g):100} g)`,b:{kcal,p:v('proteins'),c:v('carbohydrates'),f:v('fat'),fib:v('fiber')},st:.5,
+  ingredients:p.ingredients_text?[String(p.ingredients_text).slice(0,600)]:[],allergens:(p.allergens_tags||[]).map(t=>OFFALG[t]).filter(Boolean),code},1)}
+
+async function lookupBarcode(code){code=String(code||'').replace(/\D/g,'');SH.nf='';SH.code=code;
+ if(code.length<8||code.length>14){SH.err='Enter the 8 to 14 digits printed under the barcode.';return renderSheet()}
+ Object.assign(SH,{busy:true,err:'',items:null,code});renderSheet();
+ try{const j=await(await fetch(`https://world.openfoodfacts.org/api/v2/product/${code}?fields=product_name,brands,serving_quantity,nutriments,allergens_tags,ingredients_text`)).json(),p=j.status===1&&j.product,n=p&&p.nutriments;
+  if(n&&(n['energy-kcal_100g']!=null||n.energy_100g!=null))SH.items=[offItem(p,code)];else{SH.err=`Open Food Facts doesn't have nutrition for ${code} yet.`;SH.nf=code}}
+ catch(e){SH.err="Couldn't reach Open Food Facts. Check your connection and try again."}
+ SH.busy=false;if($('#sheet').open&&sheetKind==='log'&&SH.mode==='barcode')renderSheet()}
+
+async function scanBarcodePhoto(file){Object.assign(SH,{busy:true,err:'',items:null,nf:''});renderSheet();let code='';
+ try{code=await readBarcode(file)}catch(e){}
+ if(code)return lookupBarcode(code);
+ SH.busy=false;SH.err="Couldn't read a barcode in that photo. Try again closer and in good light, or type the number.";renderSheet()}
+
+const barcodeHTML=()=>`<button type="button" class="drop" data-act="pickbar">${I('cam',1.8)}Take a photo of the barcode</button>
+ <div class="fields" style="margin-top:12px"><label class="f w">Or type the number under the barcode<input type="text" id="barnum" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="e.g. 5000159407236" value="${esc(SH.code||'')}"></label></div>
+ <button class="btn sec bub" data-act="barlookup" style="margin-top:10px" ${SH.busy?'disabled':''}>Look up</button>
+ <button class="link bub" data-mode="scan" style="min-height:44px;margin-top:4px">Take a food photo instead</button>`;
+const offCredit=()=>SH.mode==='barcode'&&SH.items?.[0]?.code?`<p class="note">Product data from <a class="link" href="https://world.openfoodfacts.org/product/${SH.items[0].code}" target="_blank" rel="noopener">Open Food Facts</a>, shared under the Open Database License. Check the pack if something looks off.</p>`:'';
+$('#barfile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(f)scanBarcodePhoto(f)};
 // ---------- coach ----------
 const ACT={sedentary:1.2,light:1.375,moderate:1.55,very:1.725,athlete:1.9};
 const noCut=p=>p.age<18||p.weight/(p.height/100)**2<18.5; // teens and underweight people keep their weight steady
@@ -1309,7 +1414,7 @@ function localCoach(t){const s=t.toLowerCase(),p=S.profile,g=S.goals,su=sum(T),k
   const lose=num(/lose\s*(\d+(?:[.,]\d)?)\s*kg/),gain=num(/gain\s*(\d+(?:[.,]\d)?)\s*kg/),tooLow=lose&&(w-lose)/(h/100)**2<18.5;if(lose&&!tooLow)p.target=+(w-lose).toFixed(1);else if(gain)p.target=+(w+gain).toFixed(1);
   const steady=p.goal==='lose'&&(noCut(p)||tooLow);if(steady)p.goal='maintain';S.goals=calcGoals(p);save();const d=+Math.abs(p.weight-p.target).toFixed(1),wk=p.goal==='lose'&&d?Math.ceil(d*7700/500/7):p.goal==='build'&&d?Math.ceil(d/.25):0;
   if(steady)return`I've set your daily goals to ${goalLine(S.goals)}\n\n${p.age<18?"Because you're under 18, I've set them to keep your weight steady while you grow, not to lose weight.":tooLow?`Losing ${lose} kg would take you below a healthy weight, so I've set your goals to keep your weight steady instead.`:"Your weight is already below the healthy range, so I've set your goals to keep it steady, not to lose more."} Please talk to a doctor before trying to lose weight.`;
-  return`Here's your plan. I've set your daily goals to ${goalLine(S.goals)}\n\n${p.goal==='lose'?`- A 500 kcal daily deficit loses about **0.5 kg a week**${wk?`, so ${d} kg takes roughly **${wk} weeks**`:''}.`:p.goal==='build'?`- A 300 kcal surplus with plenty of protein builds about 0.25 kg of muscle a week${wk?`, so roughly **${wk} weeks** for ${d} kg`:''}.`:'- This keeps your weight steady.'}\n- Spread protein over 3–4 meals, about **${r(S.goals.p/4)}g each**.\n- Log everything for two weeks, then check Progress.`}
+  return`Here's your plan. I've set your daily goals to ${goalLine(S.goals)}\n\n${p.goal==='lose'?`- A 500 kcal daily deficit loses about **0.5 kg a week**${wk?`, so ${d} kg takes roughly **${wk} weeks**`:''}.`:p.goal==='build'?`- A 300 kcal surplus with plenty of protein builds about 0.25 kg of muscle a week${wk?`, so roughly **${wk} weeks** for ${d} kg`:''}.`:'- This keeps your weight steady.'}\n- Spread protein over 3–4 meals, about **${r(S.goals.p/4)}g each**.\n- Log everything for two weeks, then check Insights.`}
  const food=findFoods(s,1).fs[0];
  if(food&&/calor|kcal|how many|macro|protein in|carbs in|fat in|healthy|how much/.test(s)){const fl=flags(mk(food));return`**${cap(food.n)}**: about **${food.k} kcal** per ${food.d>1?'piece':'serving'} (${food.g} g), with ${food.p}g protein, ${food.c}g carbs and ${food.f}g fat.${fl.length?`\n\nHeads up: it may contain **${fl.join(', ')}**, which you're allergic to.`:''}`}
  if(/eat|food|meal|snack|dinner|lunch|breakfast|hungry|rest of|suggest|recommend|idea/.test(s)){
@@ -1334,7 +1439,10 @@ const careReply=t=>CRISIS.test(t)?`I'm really sorry you're feeling this way. You
 async function sendMsg(text){text=text.trim();if(!text||coachBusy)return;S.chat.push({role:'user',content:text},{role:'assistant',content:''});coachBusy=true;render();
  const last=S.chat[S.chat.length-1],cr=careReply(text);
  if(cr){await new Promise(r=>setTimeout(r,400));last.content=cr;coachBusy=false;save();render();return}
- if(!AI){await new Promise(r=>setTimeout(r,600));last.content=localCoach(text);coachBusy=false;save();render();return}
+ if(!AI){const local=/\d{3}\s*cm/i.test(text)&&/kg/i.test(text); // height + weight: the built-in coach sets goals exactly
+  if(aiOn()&&!local){try{last.content=await askAssistant({kind:'chat',messages:S.chat.slice(0,-1).slice(-12)})}catch(e){last.content=e.status==='care'?`It sounds like things might be hard right now. I can't give diet advice about this, but you don't have to deal with it alone.\n\n${HELP}`:aiFail(e,'chat')+localCoach(text)}}
+  else{await new Promise(r=>setTimeout(r,600));last.content=localCoach(text)}
+  coachBusy=false;S.chat=S.chat.slice(-40);save();render();return}
  const su=sum(T),p=S.profile,ctx=`[Context from the Calora app, not typed by the user]
 You are Calora's friendly nutrition coach inside a calorie and macro tracker. Reply in under 140 words: warm, concrete, short paragraphs or "- " bullet lists, **bold** for key numbers. No medical diagnosis; suggest a doctor or dietitian for medical conditions. If the user mentions self-harm, suicide or disordered eating, give no diet advice: respond with care and point them to 112, 116 123 (Latvia, 24/7), 116 111 (under 18) or findahelpline.com. Never set goals below 1200 kcal, and never plan weight loss for under-18s or anyone with a BMI under 18.5.
 Profile: ${p.sex}, ${p.age} y, ${p.height} cm, ${p.weight} kg, target ${p.target} kg, goal ${p.goal}, activity ${p.activity}.
@@ -1351,6 +1459,82 @@ When the user gives height, weight, age and goal, work out sensible daily target
  catch(e){last.content=e?.code==='rate_limited'?"I'm getting a lot of questions right now. Try again in a minute.":(e?.code==='not_granted'?(AI=null,localCoach(text)):"Sorry, I couldn't answer that just now. Please try again.")}
  coachBusy=false;S.chat=S.chat.slice(-40);save();render()}
 
+// ---------- Phase 3 · AI coach and food-label reading (server function "assistant", Groq) ----------
+// Signed-in customers only, with daily limits counted on the server. Falls back to the built-in coach.
+// On unless an owner turns off "AI coach" in /admin → Settings → App configuration.
+const aiOn=()=>APPCFG.ai_assistant!==false&&!!(sb&&USER&&!USER.offline);
+let AILEFT=null;
+// what the AI knows about you: profile, goals, today, allergies, and the foods you log most ("food memory")
+function aiContext(){const su=sum(T),p=S.profile,g=S.goals,week=[...new Set(Object.keys(S.days).sort().slice(-7).flatMap(k=>dayR(k).items.map(i=>i.name)))].slice(-25);
+ return`Profile: ${p.sex}, ${p.age} y, ${p.height} cm, ${p.weight} kg, target ${p.target} kg, goal ${p.goal}, activity ${p.activity}.
+Daily goals: ${g.kcal} kcal, protein ${g.p} g, carbs ${g.c} g, fat ${g.f} g, fiber ${g.fib} g, water ${g.water} ml.
+Eaten today: ${r(su.kcal)} kcal, protein ${r(su.p)} g, carbs ${r(su.c)} g, fat ${r(su.f)} g. Foods: ${dayR(T).items.map(i=>i.name).join('; ')||'nothing yet'}.
+Allergies: ${allergyNames().join(', ')||'none'}.
+Favourite foods: ${S.favs.map(f=>f.name).join('; ')||'none'}. Saved meals: ${S.meals.map(m=>m.name).join('; ')||'none'}.
+Foods logged this week: ${week.join('; ')||'none'}.`}
+async function invokeAI(body){const {data,error}=await sb.functions.invoke('assistant',{body:{...body,context:aiContext()}});
+ if(error){const st=error.context?.status;throw Object.assign(new Error('assistant'),{status:st})}
+ if(data?.error==='care')throw Object.assign(new Error('care'),{status:'care'});if(body.kind==='chat')AILEFT=data.left;return data}
+const askAssistant=async body=>(await invokeAI(body)).reply;
+const aiFail=(e,kind)=>e.status===429?(kind==='label'?"You've used today's 3 label reads. They come back tomorrow.":"You've used today's 10 AI coach messages. They come back tomorrow, and the built-in coach can still help:\n\n")
+ :e.status===401?'Please sign in again to use the AI coach.':kind==='label'?"Sorry, I couldn't read that label just now. Please try again.":'';
+
+// food labels: the photo goes to Groq only after a one-time OK on this device
+const labelHTML=()=>shh('Read a food label with AI')+`<p class="lead" style="margin-top:4px">Take a photo of the nutrition label or ingredients, and the AI coach will explain it and point out your allergens.</p>
+ <p class="note">The photo is sent to Groq, an AI company, only to write the answer. Calora doesn't keep it. You can read up to 3 labels a day.</p>
+ <button class="btn pri bub" data-act="labelok" style="margin-top:14px">Choose a photo</button><button class="btn sec bub" data-close style="margin-top:10px">Not now</button>`;
+function pickLabel(){if(!S.labelOK)return openSheet('label');$('#labelfile').click()}
+$('#labelfile').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f||coachBusy)return;const im=new Image();
+ im.onload=async()=>{const k=Math.min(1,1024/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=r(im.width*k);c.height=r(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(im.src);
+  S.chat.push({role:'user',content:'📷 Food label photo'},{role:'assistant',content:''});const last=S.chat[S.chat.length-1];coachBusy=true;render();
+  try{last.content=await askAssistant({kind:'label',image:c.toDataURL('image/jpeg',.82)})}catch(e){last.content=aiFail(e,'label')}
+  coachBusy=false;S.chat=S.chat.slice(-40);save();render()};
+ im.onerror=()=>toast("That photo couldn't be opened.");im.src=URL.createObjectURL(f)};
+
+// ---------- Phase 5 · recipes from what you have (Fridge Intelligence) ----------
+// The AI writes the recipe with amounts in grams; Calora counts the nutrition from its own food list.
+let RCP={};
+function recipeItem(x){const items=localParse(x.ingredients.map(i=>`${i.grams} g ${i.item}`).join('\n')),ok=items.filter(i=>!i.miss),t={kcal:0,p:0,c:0,f:0,fib:0};
+ for(const i of ok)for(const k in t)t[k]+=+i[k]||0;
+ return{it:{id:uid(),name:x.title,kcal:r(t.kcal),p:r(t.p),c:r(t.c),f:r(t.f),fib:r(t.fib),ingredients:x.ingredients.map(i=>i.item)},miss:items.filter(i=>i.miss).map(i=>i.miss)}}
+function recipeHTML(){const R=RCP;let h=shh('Recipe from what you have')+`<div class="fields"><label class="f w">What's in your fridge, or what do you fancy?<textarea id="rask" rows="3" maxlength="600" placeholder="e.g. eggs, spinach, feta, some rice">${esc(R.ask||'')}</textarea></label></div>
+ <button class="btn pri bub" data-act="mkrecipe" style="margin-top:12px" ${R.busy?'disabled':''}>${R.busy?'Making a recipe…':R.recipe?'Make another':'Make a recipe'}</button>${R.err?`<p class="err" role="alert">${esc(R.err)}</p>`:''}
+ <p class="note">Free accounts get 2 AI recipes a week. The AI suggests the recipe; Calora works out the nutrition from its food list.</p>`;
+ if(!R.recipe)return h;const x=R.recipe,{it,miss}=recipeItem(x),bad=flags(it);
+ return h+`<div class="card" style="margin-top:14px"><p class="sub">AI recipe${x.minutes?` · about ${x.minutes} min`:''}</p><h2 class="ct" style="margin:4px 0 8px">${esc(x.title)}</h2>
+ <p><b>${fmt(it.kcal)} kcal</b> · ${it.p}g protein · ${it.c}g carbs · ${it.f}g fat</p>${miss.length?`<p class="note">Not counted, because it isn't in Calora's food list: ${esc(miss.join(', '))}.</p>`:''}${bad.length?`<p class="alert">${I('warn',2.4)}Contains ${esc(bad.join(', '))}</p>`:''}
+ <ul>${x.ingredients.map(i=>`<li>${i.grams} g ${esc(i.item)}</li>`).join('')}</ul><ol>${x.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>${x.note?`<p class="note">${esc(x.note)}</p>`:''}</div>
+ <button class="btn pri bub" data-act="logrecipe" style="margin-top:12px">Log this meal</button><button class="btn sec bub" data-act="saverecipe" style="margin-top:10px">Save as a meal</button>`}
+async function makeRecipe(){const ask=($('#rask')?.value||'').trim();if(ask.length<2){RCP.err='Tell me a few ingredients or what you fancy.';return renderSheet()}
+ RCP={ask,busy:true};renderSheet();
+ try{RCP.recipe=(await invokeAI({kind:'recipe',ask})).recipe}catch(e){RCP.err=e.status===429?"You've used this week's 2 AI recipes. More come back in a few days.":e.status==='care'?"I can't help with that, but you don't have to deal with it alone. The Assistant tab lists free helplines.":"Sorry, I couldn't make a recipe just now. Please try again."}
+ RCP.busy=false;if($('#sheet').open&&sheetKind==='recipe')renderSheet()}
+// ---------- Phase 4 · weekly review (Insights tab) ----------
+// Only your own logs, compared with the 7 days before. Neutral words, no red.
+function weekStats(end){const ks=[...Array(7)].map((_,i)=>add(end,i-6)),lg=ks.filter(k=>sum(k).kcal>0),avg=f=>lg.length?lg.reduce((a,k)=>a+sum(k)[f],0)/lg.length:0,n={};
+ for(const k of lg)for(const i of dayR(k).items)n[i.name]=(n[i.name]||0)+1;
+ return{logged:lg.length,hit:ks.filter(k=>dayStatus(k)==='hit').length,kcal:avg('kcal'),p:avg('p'),top:Object.entries(n).filter(([,c])=>c>1).sort((a,b)=>b[1]-a[1]).slice(0,3).map(([x])=>x)}}
+function weeklyHTML(){const a=weekStats(T),b=weekStats(add(T,-7)),g=S.goals;
+ if(a.logged<2)return`<div class="card" style="margin-top:var(--gap)"><h2 class="ct">Your last 7 days</h2><p class="sub" style="margin:8px 0 0">Log food on two or more days and your weekly review appears here: daily averages, days on goal and the foods you log most.</p></div>`;
+ const vs=(x,y,u)=>b.logged>=2&&r(x)!==r(y)?`<span class="sub"> · ${fmt(Math.abs(r(x-y)))}${u} ${x>y?'more':'less'} than the week before</span>`:'';
+ const row=(l,v)=>`<div class="item two"><span><b>${l}</b><span class="sub" style="display:block;margin-top:2px">${v}</span></span></div>`;
+ return`<div class="card list" style="margin-top:var(--gap)"><h2 class="ct" style="padding:14px 16px 4px">Your last 7 days</h2>${
+  row('Days logged',`${a.logged} of 7${a.hit?` · ${a.hit} on goal`:''}`)+
+  row('Average a day',`${fmt(r(a.kcal))} kcal of your ${fmt(g.kcal)} goal${vs(a.kcal,b.kcal,' kcal')}`)+
+  row('Protein a day',`${r(a.p)} g of your ${g.p} g goal${vs(a.p,b.p,' g')}`)+
+  (a.top.length?row('You log most often',esc(a.top.join(', '))):'')}</div>`}
+// ---------- Phase 6 · Premium waitlist (no payments yet) ----------
+// Signed-in customers can say they're interested; owners see the list in /admin → Revenue & Plans.
+// Nothing is charged and there is no checkout. Switch: "Premium waitlist" in /admin → App configuration.
+const premiumOn=()=>APPCFG.premium_waitlist!==false;
+let WAIT=null; // null: not checked yet, undefined: checking, true/false: on the list or not
+async function loadWait(){const {data}=await sb.from('premium_waitlist').select('user_id').maybeSingle();WAIT=!!data;if(tab==='profile')render()}
+function premiumHTML(){if(!premiumOn())return'';const signed=!!(sb&&USER&&!USER.offline);if(signed&&WAIT===null){WAIT=undefined;loadWait()}
+ return`<h2>Calora Premium</h2><div class="card stack"><p class="sub" style="margin:0">Coming later: more AI coach messages and recipes, deeper weekly insights and more personal plans. Everything you use today stays free, and nothing is charged.</p>${
+  !signed?'<p class="sub" style="margin:0">Sign in to join the waitlist.</p>':WAIT?`<p style="margin:0">${I('check',2.4)} You're on the waitlist. We'll tell you when it's ready.</p><button class="link bub" data-act="leavewait" style="min-height:44px;justify-self:start">Leave the waitlist</button>`
+  :`<button class="btn sec bub" data-act="joinwait" ${WAIT===undefined?'disabled':''}>Join the waitlist</button>`}</div>`}
+async function setWait(on){const q=on?sb.from('premium_waitlist').insert({}):sb.from('premium_waitlist').delete().eq('user_id',USER.id),{error}=await q;
+ if(error)return toast("Couldn't update the waitlist. Check your connection and try again.");WAIT=on;render();toast(on?"You're on the Premium waitlist.":'You left the Premium waitlist.')}
 // ---------- events ----------
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const d=b.dataset;
  if(d.tab)return go(d.tab);
@@ -1366,6 +1550,11 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  if(d.auth)return authAction(d.auth);
  if(d.size){S.size=d.size;save();return render()}
  if(d.rm){SH.items.splice(+d.rm,1);$('#res').innerHTML=resHTML();return}
+ if(d.qadd)return quickAdd(d.qadd);
+ if(d.qrm)return quickRemove(d.qrm);
+ if(d.edit){EDIT={k:sel,id:d.edit};return openSheet('edit')}
+ if(d.scale)return scaleEdit(+d.scale);
+ if(d.again){const[k,id]=d.again.split('|'),i=dayR(k).items.find(x=>x.id===id);if(i)logAgain(i);return}
  if(d.del){const L=day(sel).items,i=L.findIndex(x=>x.id===d.del),[it]=L.splice(i,1);save();render();return toast(`Deleted ${it.name}`,()=>{L.splice(i,0,it);save();render()})}
  if(d.say)return sendMsg(d.say);
  if(d.cal){calSel=d.cal;return render()}
@@ -1386,7 +1575,22 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  case'ticket':openTicket(d.id);break;
  case'theme':S.theme=isDark()?'light':'dark';save();render();break;
  case'estimate':estimate();break;
- case'addres':addItems((SH.items||[]).filter(i=>!i.miss).map((i,n)=>{const o={...i,name:i.q&&i.q!==1?`${i.q} × ${i.name}`:i.name};delete o.b;delete o.st;if(!n&&SH.mode==='scan'&&SH.photo)o.img=SH.photo;return o}));break;
+ case'addres':addItems(resItems());break;
+ case'label':pickLabel();break;
+ case'joinwait':setWait(true);break;
+ case'leavewait':setWait(false);break;
+ case'recipe':openSheet('recipe');break;
+ case'mkrecipe':makeRecipe();break;
+ case'logrecipe':addItems([recipeItem(RCP.recipe).it]);break;
+ case'saverecipe':{const {it}=recipeItem(RCP.recipe);S.meals.unshift({name:it.name,items:[snap(it)]});S.meals=S.meals.slice(0,30);save();toast(`Saved “${it.name}”. It's in Quick add.`);break}
+ case'labelok':S.labelOK=true;save();closeSheet();$('#labelfile').click();break;
+ case'pickbar':$('#barfile').click();break;
+ case'barlookup':lookupBarcode($('#barnum').value);break;
+ case'savemeal':SH.saving=true;$('#res').innerHTML=resHTML();$('#mealname')?.select();break;
+ case'mealsave':saveMeal();break;
+ case'editsave':saveEdit();break;
+ case'fav':toggleFav();break;
+ case'again':{const i=editItem();if(i)logAgain(i);break}
  case'dl':{b.disabled=true;b.textContent='Starting download…';devProg=p=>{const x=$('#dl');if(x)x.textContent=`Downloading… ${r(p*100)}%`};loadDevice().then(()=>{S.devReady=true;save();render();toast('Built-in AI is ready')}).catch(()=>{const x=$('#dl');if(x){x.disabled=false;x.textContent='Download built-in AI now'}toast("Couldn't download. Check your internet connection.")});break}
  case'addmanual':{const v=k=>+$('#m-'+k).value||0,name=$('#m-name').value.trim();if(!name&&!v('kcal')){$('#m-name').focus();break}
   addItems([{id:uid(),name:name||'Food',kcal:v('kcal'),p:v('p'),c:v('c'),f:v('f'),fib:v('fib'),ingredients:$('#m-ing').value.split(',').map(s=>s.trim()).filter(Boolean)}]);break}
@@ -1414,7 +1618,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  case'wipe':confirmSheet({title:'Delete all data on this device?',body:"This deletes everything Calora saved on this device: your logs, goals, settings and coach chats. It can't be undone.",ok:'Delete everything',warn:true,run:()=>{try{for(const k of['calora','morsel-v2','calora:ann'])localStorage.removeItem(k)}catch(_){}S=loadState('calora');tab='today';history.replaceState(null,'','#today');render();syncNav();toast('All data on this device was deleted.')}});break;
  case'pick':$('#file').click();break;
  case'erase':confirmSheet({title:'Erase your logs and chats?',body:`This permanently erases all your logged food and water, your weight entries and your coach chats${USER?', on every device signed in to your account':''}. Your ${USER?'account, ':''}goals and settings stay. It can't be undone.`,ok:'Erase my logs and chats',warn:true,run:()=>{S.days={};S.weights={};S.chat=[];if(USER)S._wipe=true;save();render();toast('Your logs and chats were erased.')}});break}});
-document.addEventListener('input',e=>{const t=e.target;if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
+document.addEventListener('input',e=>{const t=e.target;if(t.id==='dsearch'){DQ=t.value;$('#dres').innerHTML=searchHTML(DQ);return}if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
  if(t.dataset.pn){const v=+t.value;if(v>0){S.profile[t.dataset.pn]=v;save()}}
  if(t.id==='other'){S.other=t.value;save();const w=$('[data-act=welcomed]');if(w)w.textContent=S.allergies.length||S.other.trim()?'Continue':'No allergies — continue'}
  if(t.id&&t.id.startsWith('ob-')){OB[t.id.slice(3)]=t.value;t.removeAttribute('aria-invalid')}

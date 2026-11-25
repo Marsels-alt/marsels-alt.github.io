@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-DO2792K0XryuWHiZEVVsrYCl3TPkYJN4pmouO34XCUo=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-V4Sw2rQH30NRYdrwQqA2rTGoDtBkMUwXQWKYPiC2ebo=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
@@ -244,6 +244,7 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;ba
 @media (max-width:520px){.g4{grid-template-columns:1fr 1fr}.kpi b{font-size:22px}.ph h1{font-size:20px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (prefers-contrast:more){:root{--muted:#C9CED8;--line:#3A4558}[data-theme=light]{--muted:#3A4250;--line:#B9BFCA}}
+fieldset{border:0;margin:0;padding:0;min-width:0}fieldset>legend{padding:0;margin-bottom:4px}
 
 </style>
 </head>
@@ -535,12 +536,19 @@ ACT['cu-del']=async b=>{if(!await confirmBox('Delete this customer?',`This perma
   busy(b,async()=>{await callFn('admin',{action:'delete',id:b.dataset.id});toast('Customer deleted');location.hash='#/customers'})};
 
 // ================= Revenue & Plans =================
+// Premium waitlist: real sign-ups from the app (supabase/premium.sql), shown before any checkout exists
+async function waitlistCard(){const{data,count,error}=await sb.from('premium_waitlist').select('email,created_at',{count:'exact'}).order('created_at',{ascending:false}).limit(50);
+  if(error)return`<section class="card" style="margin-top:16px"><header><h2>Premium waitlist</h2></header>${empty('info','Waitlist not set up yet','Run <code>supabase/premium.sql</code> in the Supabase SQL Editor.')}</section>`;
+  return`<section class="card" style="margin-top:16px"><header><h2>Premium waitlist</h2><span class="help">${count||0} ${count===1?'person':'people'} want Premium · newest first</span></header>${
+   data.length?`<div class="tw"><table><thead><tr><th>Email</th><th>Joined</th></tr></thead><tbody>${data.map(w=>`<tr><td>${esc(w.email||'(no email)')}</td><td>${esc(new Date(w.created_at).toLocaleDateString())}</td></tr>`).join('')}</tbody></table></div>`
+   :empty('users','No one yet','Customers can join from Profile → Calora Premium in the app.')}</section>`}
 PAGES.revenue=async plan=>{const[plans,o,s]=await Promise.all([loadPlans(),rpc('admin_overview',{p_today:startDay(Date.now()).toISOString()}),series(periodRange('daily'))]);
   if(plan)return planPage(plans.find(p=>p.id===plan),o,s);
   const growth=delta(s.now.signups,s.prev.signups);
   return`<div class="ph"><div><h1>Revenue & Plans</h1><p>Plans, prices and (once checkout exists) revenue.</p></div><div class="acts"><button class="btn pri" data-act="plan-edit">${I('plus')}Add plan</button></div></div>
   <div class="note acc" style="margin-bottom:16px">${I('info')}<span><b>${NA_PAY}.</b> Nobody can be charged yet, so revenue, MRR, renewals and refunds show as not available instead of €0. Prices you set here are used for promo code previews and are ready for checkout later. Owners never pay.</span></div>
   <div class="grid g4">${kpi('Total revenue',null,NA_PAY)}${kpi('Monthly recurring revenue',null,NA_PAY)}${kpi('Paying subscribers',null,NA_PAY)}${kpi('Refunds',null,NA_PAY)}</div>
+  ${await waitlistCard()}
   <section class="card" style="margin-top:16px"><header><h2>Plan breakdown</h2><span class="help">Click a plan for details</span></header><div class="tw"><table><thead><tr><th>Plan</th><th class="num">Subscribers</th><th class="num">Price</th><th class="num">Revenue</th><th>Growth (30 days)</th><th></th></tr></thead><tbody>
    ${plans.map(p=>{const free=p.price_cents===0;return`<tr class="link" data-href="#/revenue/${esc(p.id)}"><td><b>${esc(p.name)}</b> <span class="sub">${free?'Everyone starts here':p.on_sale?'Marked on sale · no checkout yet':'Not on sale'}</span></td>
      <td class="num">${free?num(o.users):'<span style="color:var(--muted)">—</span>'}</td><td class="num">${free?money(0,p.currency):money(p.price_cents,p.currency)+(p.interval?` / ${p.interval}`:'')}</td>
@@ -899,9 +907,14 @@ async function setApp(){const v=await setting('app');
   return`<form class="card pad stack" data-form="set-app" style="max-width:640px"><p class="help">These change what customers see in the Calora app.</p>
    <label class="switch"><input type="checkbox" name="news_enabled" ${v.news_enabled!==false?'checked':''}>Show “News & updates” in the app</label>
    <label class="switch"><input type="checkbox" name="support_enabled" ${v.support_enabled!==false?'checked':''}>Let signed-in customers message support from the app</label>
+   <fieldset class="stack"><legend class="help">New features. Each one is on until you switch it off here.</legend>
+   <label class="switch"><input type="checkbox" name="diary_tools" ${v.diary_tools!==false?'checked':''}>Smart diary: quick add, favourites, saved meals, editing and diary search</label>
+   <label class="switch"><input type="checkbox" name="barcode" ${v.barcode!==false?'checked':''}>Barcode scanner (product data from Open Food Facts)</label>
+   <label class="switch"><input type="checkbox" name="ai_assistant" ${v.ai_assistant!==false?'checked':''}>AI coach, food-label reading and recipes for signed-in customers (Groq, with daily limits)</label>
+   <label class="switch"><input type="checkbox" name="premium_waitlist" ${v.premium_waitlist!==false?'checked':''}>Premium waitlist in Profile (no payments)</label></fieldset>
    <label class="f">Support email shown in the app<input type="email" name="support_email" value="${esc(v.support_email||'')}" required></label><p class="err" id="form-err" role="alert"></p><div><button class="btn pri" data-busy="Saving…">Save</button></div></form>`}
 FORM['set-app']=(f,e)=>{clearErr(f);const email=field(f,'support_email');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return fieldErr(f,'support_email','Enter a valid email.');
-  return busy(e.submitter,async()=>{await saveSetting('app',{news_enabled:f.news_enabled.checked,support_enabled:f.support_enabled.checked,support_email:email});toast('Saved. Customers see this the next time they open the app.')})};
+  return busy(e.submitter,async()=>{await saveSetting('app',{news_enabled:f.news_enabled.checked,support_enabled:f.support_enabled.checked,diary_tools:f.diary_tools.checked,barcode:f.barcode.checked,ai_assistant:f.ai_assistant.checked,premium_waitlist:f.premium_waitlist.checked,support_email:email});toast('Saved. Customers see this the next time they open the app.')})};
 async function setNotif(){const k=(await setting('notify:'+S.user.id)).kinds||{};
   return`<form class="card pad stack" data-form="set-notif" style="max-width:640px"><p class="help">Choose what shows in your notification bell. This only affects you.</p>
    ${[['customer','New customers'],['ticket','New support tickets'],['reply','Customer replies to tickets'],['redemption','Promo code redemptions'],['milestone','Growth milestones'],['subscription','Subscription events (once payments exist)'],['payment','Payment events (once payments exist)']].map(([x,l])=>`<label class="switch"><input type="checkbox" name="${x}" ${k[x]!==false?'checked':''}>${l}</label>`).join('')}
