@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-akjwRCQdsukeB/H/sj9ug/XLSmGVPJA3PjqKQE7+l7U=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://world.openfoodfacts.org https://fastly.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-GsQcDCsYlNSuWFKEkcqXJd92LabkGhfxjmXlfCOrUGM=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://world.openfoodfacts.org https://fastly.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Today — Calora</title>
 <meta name="description" content="Snap a photo or describe your meal and Calora estimates its calories, protein, carbs and fat.">
@@ -911,13 +911,26 @@ async function askJSON(prompt,images){const o={modelTier:'default'};if(images)o.
  try{return typeof AI.json==='function'?await AI.json(prompt,o):JSON.parse((await AI(prompt,o)).text.match(/\{[\s\S]*\}/)[0])}
  catch(e){if(e?.code==='not_granted')AI=null;throw e}}
 
-// built-in AI: recognises food in photos right on this device (downloads once), used whenever Claude isn't available
-const ODURL='https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1';
+// built-in AI: recognises food in photos right on this device (downloads once), used whenever Claude isn't available.
+// Phones run out of memory holding CLIP's text and image halves together, so the food names are turned into numbers once
+// (text half, then freed), kept in the browser's cache, and each photo only needs the image half (about 89 MB).
+const ODURL='https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.5.1',ODM='Xenova/clip-vit-base-patch32',DEVTRY='calora:devtry';
 let ODP=null,devProg=null;
-function loadDevice(){if(!ODP)ODP=(async()=>{const files={},{pipeline}=await import(ODURL);
- return pipeline('zero-shot-image-classification','Xenova/clip-vit-base-patch32',{progress_callback:e=>{if(e.status!=='progress'||!e.total)return;files[e.file]=[e.loaded,e.total];let l=0,t=0;for(const[a,b]of Object.values(files)){l+=a;t+=b}devProg&&devProg(l/t)}})})().catch(e=>{ODP=null;throw e});return ODP}
-async function deviceScan(blob,onProg){devProg=onProg;const clf=await loadDevice(),url=URL.createObjectURL(blob);
- try{const out=await clf(url,CLIP.map(clipName),{hypothesis_template:'a photo of {}, a type of food.'});return out.slice(0,5).map(o=>({f:CLIP.find(f=>clipName(f)===o.label),score:o.score}))}finally{URL.revokeObjectURL(url)}}
+const ckey=s=>{let h=5381;for(const c of s)h=(h*33^c.charCodeAt(0))>>>0;return `/calora-clip-${h.toString(36)}`};
+async function cacheGet(k){try{const r=await(await caches.open('calora')).match(k);return r?new Float32Array(await r.arrayBuffer()):null}catch(e){return null}}
+function loadDevice(){if(!ODP)ODP=(async()=>{const T=await import(ODURL),labels=CLIP.map(clipName),key=ckey(labels.join('|')),files={};
+ let emb=await cacheGet(key);const need=emb?9e7:1.55e8;
+ const progress_callback=e=>{if(e.status!=='progress'||!e.total)return;files[e.file]=[e.loaded,e.total];let l=0,t=0;for(const[a,b]of Object.values(files)){l+=a;t+=b}devProg&&devProg(Math.min(.99,l/Math.max(t,need)))};
+ if(!emb||emb.length!==labels.length*512){const tok=await T.AutoTokenizer.from_pretrained(ODM),txt=await T.CLIPTextModelWithProjection.from_pretrained(ODM,{dtype:'q8',progress_callback});
+  emb=new Float32Array(labels.length*512);
+  for(let i=0;i<labels.length;i+=24){const{text_embeds}=await txt(tok(labels.slice(i,i+24).map(l=>`a photo of ${l}, a type of food.`),{padding:true,truncation:true}));emb.set(text_embeds.normalize(2,-1).data,i*512)}
+  await txt.dispose();caches.open('calora').then(c=>c.put(key,new Response(emb.buffer.slice(0)))).catch(()=>{})}
+ const[proc,vis]=await Promise.all([T.AutoProcessor.from_pretrained(ODM),T.CLIPVisionModelWithProjection.from_pretrained(ODM,{dtype:'q8',progress_callback})]);
+ return{T,emb,proc,vis}})().catch(e=>{ODP=null;throw e});return ODP}
+async function deviceScan(blob,onProg){devProg=onProg;const d=await loadDevice();devProg&&devProg(1);const url=URL.createObjectURL(blob);
+ try{const{image_embeds}=await d.vis(await d.proc(await d.T.RawImage.read(url))),v=image_embeds.normalize(2,-1).data;
+  const sc=CLIP.map((_,i)=>{let x=0;for(let j=0;j<512;j++)x+=v[j]*d.emb[i*512+j];return x});
+  return[...sc.keys()].sort((a,b)=>sc[b]-sc[a]).slice(0,5).map(i=>({f:CLIP[i],score:sc[i]}))}finally{URL.revokeObjectURL(url)}}
 const applyTheme=()=>{const h=document.documentElement;h.dataset.size=S.size||"m";S.theme==='system'?delete h.dataset.mode:h.dataset.mode=S.theme;
  $$('meta[name=theme-color]').forEach(m=>{const dk=S.theme==='system'?/dark/.test(m.media):S.theme==='dark';m.content=dk?'#06070B':'#F3F4FA'})};
 const isDark=()=>S.theme!=='system'?S.theme==='dark':document.documentElement.dataset.theme?document.documentElement.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
@@ -1266,14 +1279,14 @@ function logHTML(){if(SH.mode==='barcode'&&!barcodeOn())SH.mode='describe';const
  const seg=`<div class="seg" role="group" aria-label="How to log">${[['scan','Scan','cam'],['describe','Describe','text'],['manual','Manual','pen']].map(([k,l,ic])=>`<button class="bub" data-mode="${k}" aria-pressed="${k===m||(k==='scan'&&m==='barcode')}">${I(ic)}${l}</button>`).join('')}</div>`;
  let body='';
  if(m==='scan')body=`${!SH.photo&&!AI&&aiOn()?(S.labelOK?`<p class="note" style="margin:0 4px 12px">AI photo recognition is on (3 photos a day), then the built-in AI takes over.</p>`:`<button class="btn sec bub" data-act="photoai" style="margin-bottom:12px">Use AI for more accurate photos</button>`):!S.devReady&&!AIimg&&!SH.photo?`<p class="note" style="margin:0 4px 12px">The first scan downloads Calora's food-recognition model (about 150 MB, one time only). Use Wi-Fi if you can.</p>`:''}<button type="button" class="drop ${SH.photo?'has':''}" data-act="pick" style="${SH.photo?`background-image:url(${SH.photo})`:''}">${SH.busy?'<span class="scanline"></span>':''}${SH.photo?`<span>${SH.busy?'Looking at your plate…':'Change photo'}</span>`:`${I('cam',1.8)}Take or choose a photo`}</button>
- ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="estimate">${SH.err?'Try again':'Recognise food'}</button>`:''}${!SH.photo&&barcodeOn()?`<button class="btn sec bub" data-mode="barcode" style="margin-top:12px">${I('bar')}Scan a barcode instead</button>`:''}`;
+ ${SH.photo&&!SH.busy&&!SH.items?`<button class="btn pri bub" data-act="${SH.devStuck?'devretry':'estimate'}">${SH.devStuck?'Try the built-in AI again':SH.err?'Try again':'Recognise food'}</button>`:''}${!SH.photo&&barcodeOn()?`<button class="btn sec bub" data-mode="barcode" style="margin-top:12px">${I('bar')}Scan a barcode instead</button>`:''}`;
  if(m==='barcode')body=barcodeHTML();
  if(m==='describe')body=`<textarea id="desc" aria-label="Describe your meal" placeholder="e.g. 2 scrambled eggs, a slice of sourdough with butter, and a flat white">${esc(SH.text)}</textarea>${AI?`<button class="btn pri bub" data-act="estimate" style="margin-top:12px" ${SH.busy?'disabled':''}>Estimate with AI</button>`:`<p class="note">Calora looks up what you type in its list of about ${r(TXT.length/10)*10} foods. Most nutrition values come from USDA FoodData Central. Add amounts like “200g”, “3 mushrooms” or “a large”.</p>`}`;
  if(m==='manual')body=`<div class="fields"><label class="f w">Food name<input type="text" id="m-name" placeholder="e.g. Chicken burrito" value="${esc(SH.pre||'')}"></label>${[['kcal','Calories','e.g. 450'],['p','Protein (g)','e.g. 20'],['c','Carbs (g)','e.g. 50'],['f','Fat (g)','e.g. 15'],['fib','Fiber (g)','e.g. 5']].map(([k,l,ph])=>`<label class="f ${k==='kcal'?'w':''}">${l}<input type="number" inputmode="decimal" min="0" id="m-${k}" placeholder="${ph}"></label>`).join('')}<label class="f w">Ingredients, for the allergy check (optional)<input type="text" id="m-ing" placeholder="tortilla, cheese, beans, salsa"></label></div><div id="malert"></div><button class="btn pri bub" data-act="addmanual" style="margin-top:14px">Add to log</button>`;
  return shh('Log food')+seg+mealPick()+body+(m==='manual'?'':`<div id="res">${resHTML()}</div>`)+(m==='describe'&&!SH.items?quickHTML():'')}
 function alertHTML(names){return names.length?`<div class="alert" role="alert">${I('warn',2.2)}<div><b>Don't eat this</b>It may contain <strong>${esc(names.join(', '))}</strong>, which you told Calora you're allergic to.</div></div><p class="note">Calora's allergy check estimates from typical recipes and can miss things. Always check the label or ask the staff.</p>`:''}
 function resHTML(){if(SH.busy)return`<div class="busy"><span class="dots"><i></i><i></i><i></i></span><span id="busytxt">${SH.prog!=null&&SH.prog<1?`Downloading built-in AI, one time only… ${r(SH.prog*100)}%`:SH.mode==='scan'?'Recognising your food…':SH.mode==='barcode'?'Looking up the product…':'Estimating…'}</span></div>`;
- let h=SH.err?`<p class="err">${esc(SH.err)}</p>${SH.mode==='scan'?'<button class="btn sec bub" data-mode="describe">Describe it instead</button>':''}${SH.mode==='barcode'&&SH.nf?notFoundHTML(SH.nf):''}`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(SH.note)h+=`<p class="note">${esc(SH.note)}</p>`;if(!it.length)return h;
+ let h=SH.err?`<p class="err">${esc(SH.err)}</p>${SH.mode==='scan'?`<button class="btn sec bub" data-mode="describe">Describe it instead</button>${SH.devStuck&&aiOn()&&!S.labelOK?'<button class="btn sec bub" data-act="photoai" style="margin-top:8px">Use AI photos instead</button>':''}`:''}${SH.mode==='barcode'&&SH.nf?notFoundHTML(SH.nf):''}`:'';const it=SH.items||[],ok=it.filter(i=>!i.miss);if(SH.note)h+=`<p class="note">${esc(SH.note)}</p>`;if(!it.length)return h;
  if(SH.ai)h+=`<p class="note">Recognised by AI. The nutrition comes from Calora's food list, so check the amounts before adding.</p>`;
  const bad=[...new Set(it.flatMap(i=>flags(i.miss?{name:i.miss}:i)))];
  h+=alertHTML(bad)+(!bad.length&&ok.length&&allergyNames().length?`<p class="note">No allergens spotted, but Calora can miss ingredients. Check the label if you're not sure.</p>`:'')+`<div class="card list res">${it.map((i,n)=>i.miss?`<div class="item"><div><span class="sub">“${esc(i.miss)}” isn't in Calora's food list.</span> <button class="link" data-mode="manual" data-pre="${esc(i.miss)}" style="min-height:44px">Add it manually</button>${flags({name:i.miss}).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags({name:i.miss}).join(', '))}</span>`:''}</div><span></span></div>`:`<div class="item"><div><div class="row"><b>${esc(i.name)}</b><span class="kc">${fmt(i.kcal)} kcal</span></div><span class="sub">${i.p}g protein · ${i.c}g carbs · ${i.f}g fat</span>${flags(i).length?`<br><span class="tag">${I('warn',2.4)}Contains ${esc(flags(i).join(', '))}</span>`:''}${i.b?`<br><span class="qty"><button class="bub" data-q="-1" data-n="${n}" aria-label="Less ${esc(i.name)}">${I('minus',2.4)}</button><span aria-live="polite">× ${i.q}</span><button class="bub" data-q="1" data-n="${n}" aria-label="More ${esc(i.name)}">${I('plus',2.4)}</button></span>`:''}</div><button class="x bub" data-rm="${n}" aria-label="Remove ${esc(i.name)}">${I('x',2.4)}</button></div>`).join('')}</div>`;
@@ -1316,9 +1329,13 @@ For "allergens", use these words where they apply: peanuts, tree nuts, dairy, eg
  if(!SH.items&&img&&!asked&&!AI&&aiOn()&&S.labelOK){asked=true;try{const url=await new Promise(ok=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.readAsDataURL(SH.blob)}),d=await invokeAI({kind:'photo',image:url});
   if(d.items.length){SH.items=localParse(d.items.map(i=>`${i.grams} g ${i.item}`).join('\n'));SH.ai=true}else SH.err="Couldn't spot any food. Try another photo, or describe it."}
   catch(e){if(e.status===429)SH.note="You've used today's 3 AI photo scans, so the built-in AI did this one.";asked=false}}
- if(!SH.items&&img&&!asked){try{const res=await deviceScan(SH.blob,p=>{SH.prog=p;const el=$('#busytxt');if(el)el.textContent=`Downloading built-in AI, one time only… ${r(p*100)}%`});
+ if(!SH.items&&img&&!asked){let tried=null;try{tried=localStorage.getItem(DEVTRY)}catch(e){}  // set while loading: still set means the page died last time
+  if(tried&&!SH.devRetry){SH.err="The built-in AI stopped last time, most likely because this phone ran out of memory.";SH.devStuck=true}
+  else{SH.devRetry=SH.devStuck=false;try{localStorage.setItem(DEVTRY,'1')}catch(e){}
+  try{const res=await deviceScan(SH.blob,p=>{SH.prog=p;const el=$('#busytxt');if(el)el.textContent=p<1?`Downloading built-in AI, one time only… ${r(p*100)}%`:'Recognising your food…'});
    if(!S.devReady){S.devReady=true;save()}SH.items=[mk(res[0].f)];SH.alts=res.slice(1).map(x=>FOODS.indexOf(x.f))}
-  catch(e){SH.err="The built-in AI couldn't load. It needs internet the first time."}}
+  catch(e){SH.err="The built-in AI couldn't load. It needs internet the first time."}
+  finally{try{localStorage.removeItem(DEVTRY)}catch(e){}}}}
  if(!SH.items&&SH.text.trim()){SH.items=localParse(SH.text);SH.err=''}
  SH.busy=false;renderSheet()}
 function addItems(items){if(!items.length)return;const L=day(sel).items,m=SH.meal||mealNow();items.forEach(i=>{if(!i.meal)i.meal=m});L.push(...items);SH={};save();closeSheet();render();toast(`Added ${items.length>1?items.length+' items':items[0].name} to ${MEALS.find(([k])=>k===m)[1].toLowerCase()}`,()=>{L.splice(L.length-items.length,items.length);save();render()})}
@@ -1733,6 +1750,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
  case'calc':{const nx=calcGoals(S.profile);if(goalsReal()&&JSON.stringify(nx)!==JSON.stringify(S.goals))confirmSheet({title:'Replace your daily goals?',body:`This replaces your current goals (${fmt(S.goals.kcal)} kcal and ${S.goals.p} g protein a day) with goals calculated from your body details.`,ok:'Replace my goals',run:setGoalsFromProfile});else setGoalsFromProfile();break}
  case'wipe':confirmSheet({title:'Delete all data on this device?',body:"This deletes everything Calora saved on this device: your logs, goals, settings and coach chats. It can't be undone.",ok:'Delete everything',warn:true,run:()=>{try{for(const k of['calora','morsel-v2','calora:ann'])localStorage.removeItem(k)}catch(_){}S=loadState('calora');tab='today';history.replaceState(null,'','#today');render();syncNav();toast('All data on this device was deleted.')}});break;
  case'pick':$('#file').click();break;
+  case'devretry':SH.devRetry=true;estimate();break;
  case'erase':confirmSheet({title:'Erase your logs and chats?',body:`This permanently erases all your logged food and water, your weight entries and your coach chats${USER?', on every device signed in to your account':''}. Your ${USER?'account, ':''}goals and settings stay. It can't be undone.`,ok:'Erase my logs and chats',warn:true,run:()=>{S.days={};S.weights={};S.chat=[];if(USER)S._wipe=true;save();render();toast('Your logs and chats were erased.')}});break}});
 document.addEventListener('input',e=>{const t=e.target;if(t.id==='dsearch'){DQ=t.value;$('#dres').innerHTML=searchHTML(DQ);return}if(t.dataset.af){A.f[t.dataset.af]=t.value;t.removeAttribute('aria-invalid')}
  if(t.dataset.pn){const v=+t.value;if(v>0){S.profile[t.dataset.pn]=v;save()}}
