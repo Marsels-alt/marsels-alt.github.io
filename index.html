@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-GsQcDCsYlNSuWFKEkcqXJd92LabkGhfxjmXlfCOrUGM=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://world.openfoodfacts.org https://fastly.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-DjIU4rKV22NJR1om5X81gfClbO1cQamwGkw38HZ+mlE=' https://cdn.jsdelivr.net 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net https://huggingface.co https://*.huggingface.co https://*.hf.co https://world.openfoodfacts.org https://fastly.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <title>Today — Calora</title>
 <meta name="description" content="Snap a photo or describe your meal and Calora estimates its calories, protein, carbs and fat.">
@@ -1765,7 +1765,7 @@ document.addEventListener('submit',e=>{if(e.target.dataset.supform){e.preventDef
 document.addEventListener('change',e=>{const t=e.target,k=t.dataset.goal;if(!k)return;let v=+t.value;if(!(v>0)){t.value=S.goals[k];return}
  if(k==='kcal'&&v<1200){v=1200;t.value=1200;toast('For safety, the lowest daily goal is 1,200 kcal. Talk to a doctor about anything lower.')}S.goals[k]=r(v);S.goalsSet=true;save()});
 $('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeSheet()});
-$('#sheet').addEventListener('cancel',e=>{e.preventDefault();closeSheet()});
+$('#sheet').addEventListener('cancel',e=>{if(e.target!==e.currentTarget)return;e.preventDefault();closeSheet()}); // a photo picker closing also sends 'cancel' up from its input: that must not close the sheet
 $('#sheet').addEventListener('close',()=>{if(!document.activeElement||document.activeElement===document.body)restoreFocus(sheetOpener);if((sheetKind==='welcome'||(sheetKind==='goals'&&OB.from==='welcome'))&&!S.onboarded){S.onboarded=true;save();render()}});
 // swipe the sheet down by its handle or title bar to close it
 {const d=$('#sheet');let y0=null,dy=0,t0=0;

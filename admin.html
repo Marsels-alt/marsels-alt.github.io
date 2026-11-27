@@ -2,7 +2,7 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-V4Sw2rQH30NRYdrwQqA2rTGoDtBkMUwXQWKYPiC2ebo=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-9KAKz5kMlglbeKa5bF3EpI9WbQtnHxb713Nd4tcaXxU=' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' blob: data: https://crsvvpklbpfdxndksogi.supabase.co https://cdn.jsdelivr.net; font-src 'self' data:; media-src 'self' blob:; manifest-src 'self' data:; worker-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'self'">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
 <meta name="referrer" content="no-referrer">
@@ -265,7 +265,7 @@ const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelecto
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 const safeUrl=u=>/^https:\/\//i.test(u||'')?u:'';
 const num=n=>n==null?'—':Number(n).toLocaleString('en-GB');
-const money=(c,cur='EUR')=>new Intl.NumberFormat('en-IE',{style:'currency',currency:cur||'EUR'}).format((c||0)/100);
+const money=(c,cur='USD')=>new Intl.NumberFormat('en-US',{style:'currency',currency:cur||'USD'}).format((c||0)/100);
 const fdate=d=>d?new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'—';
 const fdt=d=>d?new Date(d).toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}):'—';
 const ago=d=>{if(!d)return'never';const s=(Date.now()-new Date(d))/1e3;return s<60?'just now':s<3600?Math.floor(s/60)+' min ago':s<86400?Math.floor(s/3600)+' h ago':s<2592e3?Math.floor(s/86400)+' d ago':fdate(d)};
@@ -546,7 +546,7 @@ PAGES.revenue=async plan=>{const[plans,o,s]=await Promise.all([loadPlans(),rpc('
   if(plan)return planPage(plans.find(p=>p.id===plan),o,s);
   const growth=delta(s.now.signups,s.prev.signups);
   return`<div class="ph"><div><h1>Revenue & Plans</h1><p>Plans, prices and (once checkout exists) revenue.</p></div><div class="acts"><button class="btn pri" data-act="plan-edit">${I('plus')}Add plan</button></div></div>
-  <div class="note acc" style="margin-bottom:16px">${I('info')}<span><b>${NA_PAY}.</b> Nobody can be charged yet, so revenue, MRR, renewals and refunds show as not available instead of €0. Prices you set here are used for promo code previews and are ready for checkout later. Owners never pay.</span></div>
+  <div class="note acc" style="margin-bottom:16px">${I('info')}<span><b>${NA_PAY}.</b> Nobody can be charged yet, so revenue, MRR, renewals and refunds show as not available instead of $0. Prices you set here are used for promo code previews and are ready for checkout later. Owners never pay.</span></div>
   <div class="grid g4">${kpi('Total revenue',null,NA_PAY)}${kpi('Monthly recurring revenue',null,NA_PAY)}${kpi('Paying subscribers',null,NA_PAY)}${kpi('Refunds',null,NA_PAY)}</div>
   ${await waitlistCard()}
   <section class="card" style="margin-top:16px"><header><h2>Plan breakdown</h2><span class="help">Click a plan for details</span></header><div class="tw"><table><thead><tr><th>Plan</th><th class="num">Subscribers</th><th class="num">Price</th><th class="num">Revenue</th><th>Growth (30 days)</th><th></th></tr></thead><tbody>
@@ -562,7 +562,7 @@ function planPage(p,o,s){if(!p)return`<a class="back" href="#/revenue">${I('left
   <div class="grid g4">${kpi('Subscribers',free?num(o.users):null,free?'All registered users':NA_PAY)}${kpi('Revenue',free?money(0):null,free?'':NA_PAY)}
    ${kpi('Conversion',null,free?'Needs paid plans':NA_PAY)}${kpi('7-day retention',free&&n.d7_cohort?pct(n.d7_kept,n.d7_cohort):null,free?'New users in the last 30 days who came back after a week':NA_PAY)}</div>
   <div style="margin-top:16px">${card('Churn',empty('card',free?'Not applicable':'Not available',free?'Free users don\'t churn from a subscription.':NA_PAY+'.'))}</div>`}
-ACT['plan-edit']=async b=>{const p=S.plans.find(x=>x.id===b.dataset.id)||{currency:'EUR',interval:'month',on_sale:false,price_cents:0,sort:S.plans.length};const isNew=!b.dataset.id;
+ACT['plan-edit']=async b=>{const p=S.plans.find(x=>x.id===b.dataset.id)||{currency:'USD',interval:'month',on_sale:false,price_cents:0,sort:S.plans.length};const isNew=!b.dataset.id;
   modal({title:isNew?'Add plan':'Edit plan',body:`<form id="plan-form" data-form="plan" class="stack" novalidate>
    <label class="f">Plan name<input type="text" name="name" value="${esc(p.name||'')}" maxlength="60" required autofocus placeholder="e.g. Monthly"></label>
    <div class="row"><label class="f">Price<input type="number" name="price" min="0" step="0.01" value="${(p.price_cents/100).toFixed(2)}" required ${p.id==='free'?'disabled':''}></label>
@@ -573,7 +573,7 @@ ACT['plan-edit']=async b=>{const p=S.plans.find(x=>x.id===b.dataset.id)||{curren
    actions:`${!isNew&&p.id!=='free'?`<button class="btn danger" data-act="plan-del" data-id="${esc(p.id)}" style="margin-right:auto">${I('trash')}Delete</button>`:''}<button class="btn" data-act="modal-close">Cancel</button><button class="btn pri" form="plan-form">Save plan</button>`});
   $('#plan-form').dataset.id=p.id||''};
 FORM.plan=f=>{const name=f.name.value.trim(),price=Math.round(parseFloat(f.price.value||'0')*100),cur=f.currency.value.trim().toUpperCase(),id=f.dataset.id;
-  if(!name||isNaN(price)||price<0||!/^[A-Z]{3}$/.test(cur))return $('#plan-err').textContent='Check the name, price and 3-letter currency (e.g. EUR).';
+  if(!name||isNaN(price)||price<0||!/^[A-Z]{3}$/.test(cur))return $('#plan-err').textContent='Check the name, price and 3-letter currency (e.g. USD).';
   const row={name,currency:cur};if(id!=='free')Object.assign(row,{price_cents:price,interval:f.interval.value,on_sale:f.on_sale.checked});
   const btn=$('#modal footer .pri');busy(btn,async()=>{if(id)await run(sb.from('plans').update(row).eq('id',id));
     else{const slug=name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,30)||'plan';await run(sb.from('plans').insert({...row,id:slug.length<2?slug+'-1':slug,sort:S.plans.length}))}
